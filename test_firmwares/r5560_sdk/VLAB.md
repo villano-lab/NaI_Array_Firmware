@@ -10,5 +10,6 @@ https://github.com/NuclearInstruments/r5560_sdk
 
 ## Modifications
 
-This code will _not_ work as-is, there were some minor modifications I had to do to the Makefile while running on Ubuntu 18.04.
+This code will _not_ work as-is (from a fresh GitHub clone of the above site), there were some minor modifications I had to do to the Makefile while running on Ubuntu 18.04.
+
 
