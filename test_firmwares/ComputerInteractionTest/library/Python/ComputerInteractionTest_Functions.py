@@ -95,3 +95,11 @@ def REG_dummyval_SET(data, handle):
     err = __abstracted_reg_write(data, ComputerInteractionTest_RegisterFile.SCI_REG_dummyval, handle)
     return err
 
+def REG_runcfg_GET(handle):
+    [err, data] = __abstracted_reg_read(ComputerInteractionTest_RegisterFile.SCI_REG_runcfg, handle)
+    return err, data
+
+def REG_runcfg_SET(data, handle):
+    err = __abstracted_reg_write(data, ComputerInteractionTest_RegisterFile.SCI_REG_runcfg, handle)
+    return err
+

@@ -386,3 +386,11 @@ SCILIB int REG_dummyval_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_dummyval, handle);
 }
+SCILIB int REG_runcfg_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_runcfg, handle);
+}
+SCILIB int REG_runcfg_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_runcfg, handle);
+}
