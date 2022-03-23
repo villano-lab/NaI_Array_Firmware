@@ -8,9 +8,6 @@
 
 #define BOARD_IP_ADDRESS "134.84.150.42"
 
-
-
-
 int main(int argc, char* argv[])
 {
 	//Configure phase
@@ -48,6 +45,26 @@ int main(int argc, char* argv[])
 	printf("Data (run): %d\n",data);
 	printf("Ret       : %d\n",ret);
 
+
+	//dummyval //since this is written in the firmware I can't overwrite it 
+	/*
+	printf("Testing register editing...\n");
+	uint32_t dummyval = 42;
+	printf("%d\n",dummyval);
+	printf("GET\n");
+	int testreg;
+	testreg = REG_dummyval_GET(&dummyval, &handle);
+	printf("val: %d\n",dummyval);
+	printf("reg: %d\n",testreg);
+	printf("SET\n");
+	testreg = REG_dummyval_SET(42,&handle);
+	printf("val: %d\n",dummyval);
+	printf("reg: %d\n",testreg);
+	printf("GET\n");
+	testreg = REG_dummyval_GET(&dummyval, &handle);
+	printf("val: %d\n",dummyval);
+	printf("reg: %d\n",testreg);*/
+	
 	/*//While loop for checking for flukes
 	while(1){
 		ret = REG_integral_GET(&data, &handle);
