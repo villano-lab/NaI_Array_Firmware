@@ -6,7 +6,7 @@
 
 #include  "ComputerInteractionTest_lib.h"
 
-#define BOARD_IP_ADDRESS "192.168.15.116"
+#define BOARD_IP_ADDRESS "134.84.150.42"
 
 
 
@@ -30,7 +30,14 @@ int main(int argc, char* argv[])
 #else
 
 #endif
+uint32_t data = 2;
+printf("%d\n",data);
 
+while(1){
+	ret = REG_integral_GET(&data, &handle);
+	printf("%d\n",ret);
+	printf("%d\n",data);
+}
 	return 0;
 }
 

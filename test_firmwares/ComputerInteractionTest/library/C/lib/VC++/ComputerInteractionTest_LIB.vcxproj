@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>a6e587ef-3e90-4b09-8494-3ef270392da5</ProjectGuid>
+    <ProjectGuid>e4e1ceb5-00fd-4088-b639-b32570eed563</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ComputerInteractionTest_LIB</RootNamespace>
     <ProjectName>ComputerInteractionTest_LIB</ProjectName>
