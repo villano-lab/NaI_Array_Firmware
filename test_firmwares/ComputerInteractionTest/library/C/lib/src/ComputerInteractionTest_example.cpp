@@ -12,8 +12,6 @@
 
 #define BOARD_IP_ADDRESS "134.84.150.42"
 
-using namespace std;
-
 bool verbose = false;
 int ret;
 int run;
@@ -66,13 +64,13 @@ int main(int argc, char* argv[])
 	printf("Peak (run): %d\n",peakval);
 	
 	//*//While loop for checking for flukes
-	while(i==0; i++; i<100000000){
+	for(int i=0; i++; i<100000000){
 		ret = REG_integral_GET(&data, &handle);
 		testreg = REG_counter_GET(&counter, &handle);
 		strobe = REG_strobecount_GET(&strobecount, &handle);
 		trigger = REG_trigcount_GET(&triggercount, &handle);
 		peak = REG_peak_GET(&peakval, &handle);
-		dpeakval = double(peakval)
+		dpeakval = double(peakval);
 		t->Fill();
 		if (peakval != lastpeak){
 			
@@ -87,7 +85,7 @@ int main(int argc, char* argv[])
 		}
 		
 	}//*/
-	t->Write("",Tobject::kOverwrite);
+	t->Write("",TObject::kOverwrite);
 	f->Close();
 	return 0;
 }
