@@ -7,15 +7,22 @@
   "Category": "Undefined"
 },
 {
-  "Name": "dummyval",
+  "Name": "runcfg",
   "Address": 1,
   "RegionSize": 1,
   "Description": "",
   "Category": "Undefined"
 },
 {
-  "Name": "runcfg",
+  "Name": "counter",
   "Address": 2,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "reset",
+  "Address": 3,
   "RegionSize": 1,
   "Description": "",
   "Category": "Undefined"

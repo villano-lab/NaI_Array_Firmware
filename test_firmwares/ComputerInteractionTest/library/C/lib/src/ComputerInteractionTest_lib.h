@@ -118,7 +118,9 @@ SCILIB int ClearBuffer(void *buffer_handle);
 #endif
 SCILIB int REG_integral_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_integral_SET(uint32_t val, NI_HANDLE *handle);
-SCILIB int REG_dummyval_GET(uint32_t *val, NI_HANDLE *handle);
-SCILIB int REG_dummyval_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_runcfg_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_runcfg_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_counter_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_counter_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_reset_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_reset_SET(uint32_t val, NI_HANDLE *handle);
