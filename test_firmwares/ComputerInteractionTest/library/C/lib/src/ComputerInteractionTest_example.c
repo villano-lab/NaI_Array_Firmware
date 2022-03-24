@@ -14,9 +14,16 @@ int main(int argc, char* argv[])
 	NI_HANDLE handle;
 	int ret;
 	int run;
+	int strobe;
 	int reset;
+	int trigger;
+	int peak;
 	uint32_t data;
 	uint32_t counter;
+	uint32_t strobecount;
+	uint32_t triggercount;
+	uint32_t peakval;
+	uint32_t lastpeak = 0;
 	R_Init();
 
 	//If can't connect to the board, abort.
@@ -46,15 +53,26 @@ int main(int argc, char* argv[])
 	ret = REG_integral_GET(&data, &handle);
 	printf("Data (run): %d\n",data);
 	printf("Ret       : %d\n",ret);
+	peak = REG_peak_GET(&peakval, &handle);
+	printf("Peak working? %d\n",peak);
+	printf("Peak (run): %d\n",peakval);
 	
 	//*//While loop for checking for flukes
 	while(1){
 		ret = REG_integral_GET(&data, &handle);
 		testreg = REG_counter_GET(&counter, &handle);
-		printf("%d ",ret);
-		printf("%d\n",data);
-		printf("%d ",testreg);
-		printf("%d\n",counter);
+		strobe = REG_strobecount_GET(&strobecount, &handle);
+		trigger = REG_trigcount_GET(&triggercount, &handle);
+		peak = REG_peak_GET(&peakval, &handle);
+		if (peakval != lastpeak){
+			printf("Integral: %d\n",data);
+			printf("Count: %d\n",counter);
+			printf("Strobe Count: %d\n",strobecount);
+			printf("Trigger Count: %d\n",triggercount);
+			printf("Peak: %d\n", peakval);
+			lastpeak = peakval;
+		}
+		
 	}//*/
 	return 0;
 }

@@ -26,5 +26,26 @@
   "RegionSize": 1,
   "Description": "",
   "Category": "Undefined"
+},
+{
+  "Name": "strobecount",
+  "Address": 4,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "trigcount",
+  "Address": 5,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "peak",
+  "Address": 6,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
 }],
 "MMCComponents":[],"Device":"DT5560","Project":"ComputerInteractionTest"}

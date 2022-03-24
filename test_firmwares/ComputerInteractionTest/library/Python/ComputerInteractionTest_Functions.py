@@ -111,3 +111,27 @@ def REG_reset_SET(data, handle):
     err = __abstracted_reg_write(data, ComputerInteractionTest_RegisterFile.SCI_REG_reset, handle)
     return err
 
+def REG_strobecount_GET(handle):
+    [err, data] = __abstracted_reg_read(ComputerInteractionTest_RegisterFile.SCI_REG_strobecount, handle)
+    return err, data
+
+def REG_strobecount_SET(data, handle):
+    err = __abstracted_reg_write(data, ComputerInteractionTest_RegisterFile.SCI_REG_strobecount, handle)
+    return err
+
+def REG_trigcount_GET(handle):
+    [err, data] = __abstracted_reg_read(ComputerInteractionTest_RegisterFile.SCI_REG_trigcount, handle)
+    return err, data
+
+def REG_trigcount_SET(data, handle):
+    err = __abstracted_reg_write(data, ComputerInteractionTest_RegisterFile.SCI_REG_trigcount, handle)
+    return err
+
+def REG_peak_GET(handle):
+    [err, data] = __abstracted_reg_read(ComputerInteractionTest_RegisterFile.SCI_REG_peak, handle)
+    return err, data
+
+def REG_peak_SET(data, handle):
+    err = __abstracted_reg_write(data, ComputerInteractionTest_RegisterFile.SCI_REG_peak, handle)
+    return err
+

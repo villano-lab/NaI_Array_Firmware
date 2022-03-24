@@ -402,3 +402,27 @@ SCILIB int REG_reset_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_reset, handle);
 }
+SCILIB int REG_strobecount_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_strobecount, handle);
+}
+SCILIB int REG_strobecount_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_strobecount, handle);
+}
+SCILIB int REG_trigcount_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_trigcount, handle);
+}
+SCILIB int REG_trigcount_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_trigcount, handle);
+}
+SCILIB int REG_peak_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_peak, handle);
+}
+SCILIB int REG_peak_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_peak, handle);
+}

@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("bee7ff80-46bd-4166-914f-3f5e4e80c798") = "ComputerInteractionTest_Example", "ComputerInteractionTest_EXAMPLE.vcxproj", "815cad06-46d9-457f-97f1-0d555a625daf"
+Project("e7ca7148-6fd0-4ad2-aa5c-a7113500fe9d") = "ComputerInteractionTest_Example", "ComputerInteractionTest_EXAMPLE.vcxproj", "84281eda-2df6-4440-b83c-bfc6f7d318e4"
 EndProject
-Project("bee7ff80-46bd-4166-914f-3f5e4e80c798") = "ComputerInteractionTest_LIB", "ComputerInteractionTest_LIB.vcxproj", "59d0b8ac-b99c-49af-b45e-7f12e9090dcb"
+Project("e7ca7148-6fd0-4ad2-aa5c-a7113500fe9d") = "ComputerInteractionTest_LIB", "ComputerInteractionTest_LIB.vcxproj", "efe8e057-f6d7-4c28-b46e-9c9f13e1aa78"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		815cad06-46d9-457f-97f1-0d555a625daf.Debug|x86.ActiveCfg = Debug|Win32
-		815cad06-46d9-457f-97f1-0d555a625daf.Debug|x86.Build.0 = Debug|Win32
-		815cad06-46d9-457f-97f1-0d555a625daf.Release|x86.ActiveCfg = Release|Win32
-		815cad06-46d9-457f-97f1-0d555a625daf.Release|x86.Build.0 = Release|Win32
-		59d0b8ac-b99c-49af-b45e-7f12e9090dcb.Debug|x86.ActiveCfg = Debug|Win32
-		59d0b8ac-b99c-49af-b45e-7f12e9090dcb.Debug|x86.Build.0 = Debug|Win32
-		59d0b8ac-b99c-49af-b45e-7f12e9090dcb.Release|x86.ActiveCfg = Release|Win32
-		59d0b8ac-b99c-49af-b45e-7f12e9090dcb.Release|x86.Build.0 = Release|Win32
+		84281eda-2df6-4440-b83c-bfc6f7d318e4.Debug|x86.ActiveCfg = Debug|Win32
+		84281eda-2df6-4440-b83c-bfc6f7d318e4.Debug|x86.Build.0 = Debug|Win32
+		84281eda-2df6-4440-b83c-bfc6f7d318e4.Release|x86.ActiveCfg = Release|Win32
+		84281eda-2df6-4440-b83c-bfc6f7d318e4.Release|x86.Build.0 = Release|Win32
+		efe8e057-f6d7-4c28-b46e-9c9f13e1aa78.Debug|x86.ActiveCfg = Debug|Win32
+		efe8e057-f6d7-4c28-b46e-9c9f13e1aa78.Debug|x86.Build.0 = Debug|Win32
+		efe8e057-f6d7-4c28-b46e-9c9f13e1aa78.Release|x86.ActiveCfg = Release|Win32
+		efe8e057-f6d7-4c28-b46e-9c9f13e1aa78.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
