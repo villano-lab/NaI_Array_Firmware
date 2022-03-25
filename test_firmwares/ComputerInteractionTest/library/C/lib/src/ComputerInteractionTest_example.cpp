@@ -39,8 +39,8 @@ int main(int argc, char* argv[])
         printf("start\n");
         char* ip="134.84.150.42";
 	//Configure phase
-	NI_HANDLE handle;
-	
+	printf("Beginning Configuration.");
+	NI_HANDLE handle;	
 	R_Init();
 
 	//If can't connect to the board, abort.
