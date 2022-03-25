@@ -45,10 +45,10 @@ LibPath                := $(LibraryPathSwitch).
 ## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
 AR       := ar rcus
-CXX      := gcc
-CC       := gcc
-CXXFLAGS :=  -g $(Preprocessors)
-CFLAGS   :=  -g -fPIC $(Preprocessors)
+CXX      := g++
+CC       := g++ -fpermissive
+CXXFLAGS :=  -g $(Preprocessors) -std=c++14 -m64
+CFLAGS   :=  -g -fPIC $(Preprocessors) -std=c++14 -m64
 ASFLAGS  := 
 AS       := as
 

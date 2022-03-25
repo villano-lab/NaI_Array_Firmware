@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <iostream>
+#include <cstring>
+#include <string>
 //ROOT
 #include "TTree.h"
 #include "TFile.h"
@@ -10,35 +13,38 @@
 
 #include  "ComputerInteractionTest_lib.h"
 
+#define BOARD_IP_ADDRESS "134.84.150.42"
+
+using namespace std;
+
+bool verbose = false;
+int ret;
+int run;
+int strobe;
+int reset;
+int trigger;
+int peak;
+int testreg;
+uint32_t data;
+uint32_t counter;
+uint32_t strobecount;
+uint32_t triggercount;
+uint32_t peakval;
+uint32_t lastpeak = 0;
+double dpeakval;
+
 int main(int argc, char* argv[])
 {
-	printf("We made it to the main function.");
-	bool verbose = false;
-	int ret;
-	int run;
-	int strobe;
-	int reset;
-	int trigger;
-	int peak;
-	int testreg;
-	uint32_t data;
-	uint32_t counter;
-	uint32_t strobecount;
-	uint32_t triggercount;
-	uint32_t peakval;
-	uint32_t lastpeak = 0;
-	double dpeakval;
-	std::string outputfile="out.root";
-	std::string BOARD_IP_ADDRESS = "134.84.150.42";
-	char *board_ip_char = const_cast<char*>(BOARD_IP_ADDRESS.c_str());
-
+        string outputfile="out.root";
+        printf("start\n");
+        char* ip="134.84.150.42";
 	//Configure phase
 	printf("Beginning Configuration.");
 	NI_HANDLE handle;	
 	R_Init();
 
 	//If can't connect to the board, abort.
-	if(R_ConnectDevice(board_ip_char, 8888, &handle) != 0) { 
+	if(R_ConnectDevice(ip, 8888, &handle) != 0) { 
 		printf("Unable to connect to the board!\n"); return (-1); 
 	};
 
@@ -47,6 +53,7 @@ int main(int argc, char* argv[])
 	reset = REG_reset_SET(1,&handle);
 	testreg = REG_counter_GET(&counter, &handle);
 	
+        /*
 	//Open ROOT file
 	TFile *f = TFile::Open(outputfile.c_str(),"recreate");
 	TTree *t = new TTree("peaks","peaks");
@@ -64,7 +71,7 @@ int main(int argc, char* argv[])
 	printf("Peak working? %d\n",peak);
 	printf("Peak (run): %d\n",peakval);
 	
-	//*//While loop for checking for flukes
+	//While loop for checking for flukes
 	for(int i=0; i++; i<100000000){
 		ret = REG_integral_GET(&data, &handle);
 		testreg = REG_counter_GET(&counter, &handle);
@@ -85,8 +92,9 @@ int main(int argc, char* argv[])
 			lastpeak = peakval;
 		}
 		
-	}//*/
+	}
 	t->Write("",TObject::kOverwrite);
 	f->Close();
+        */
 	return 0;
 }
