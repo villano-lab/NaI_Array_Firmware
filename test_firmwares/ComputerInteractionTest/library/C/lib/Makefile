@@ -46,9 +46,9 @@ LibPath                := $(LibraryPathSwitch).
 ##
 AR       := ar rcus
 CXX      := g++
-CC       := gcc
-CXXFLAGS :=  -g $(Preprocessors)
-CFLAGS   :=  -g -fPIC $(Preprocessors)
+CC       := g++ -fpermissive
+CXXFLAGS :=  -g $(Preprocessors) -std=c++14 -m64
+CFLAGS   :=  -g -fPIC $(Preprocessors) -std=c++14 -m64
 ASFLAGS  := 
 AS       := as
 
