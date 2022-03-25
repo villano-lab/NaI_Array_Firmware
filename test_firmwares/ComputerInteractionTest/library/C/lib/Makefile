@@ -12,8 +12,8 @@ CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=user
 Date                   :=28/08/20
-LinkerName             :=g++
-SharedObjectLinkerName :=g++ -shared -fPIC
+LinkerName             :=gcc
+SharedObjectLinkerName :=gcc -shared -fPIC
 ObjectSuffix           :=.o
 DependSuffix           :=.o.d
 PreprocessSuffix       :=.o.i
@@ -45,7 +45,7 @@ LibPath                := $(LibraryPathSwitch).
 ## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
 AR       := ar rcus
-CXX      := g++
+CXX      := gcc
 CC       := gcc
 CXXFLAGS :=  -g $(Preprocessors)
 CFLAGS   :=  -g -fPIC $(Preprocessors)
