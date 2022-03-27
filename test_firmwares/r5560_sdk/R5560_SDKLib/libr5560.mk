@@ -12,8 +12,8 @@ CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=user
 Date                   :=27/08/20
-LinkerName             :=gcc
-SharedObjectLinkerName :=gcc -shared -fPIC
+LinkerName             :=g++
+SharedObjectLinkerName :=g++ -shared -fPIC
 ObjectSuffix           :=.o
 DependSuffix           :=.o.d
 PreprocessSuffix       :=.o.i
@@ -23,7 +23,8 @@ LibrarySwitch          :=-l
 OutputSwitch           :=-o 
 LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
-SourceSwitch           :=-c -x c
+#SourceSwitch           :=-c -x c
+SourceSwitch           :=-c
 OutputFile             :=../linux/$(ProjectName).so.1.0.0
 Preprocessors          :=$(PreprocessorSwitch)R5560_SDKLIB_EXPORTS 
 ObjectSwitch           :=-o 
@@ -45,10 +46,10 @@ LibPath                := $(LibraryPathSwitch).
 ## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
 AR       := ar rcus
-CXX      := gcc
-CC       := gcc
-CXXFLAGS :=  -g $(Preprocessors)
-CFLAGS   :=  -g -fPIC $(Preprocessors)
+CXX      := g++
+CC       := g++
+CXXFLAGS :=  -g $(Preprocessors) -std=c++14 -m64
+CFLAGS   :=  -g -fPIC $(Preprocessors) -std=c++14 -m64
 ASFLAGS  := 
 AS       := as
 

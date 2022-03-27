@@ -12,8 +12,8 @@ CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=user
 Date                   :=27/08/20
-LinkerName             :=gcc
-SharedObjectLinkerName :=gcc -shared -fPIC 
+LinkerName             :=g++
+SharedObjectLinkerName :=g++ -shared -fPIC 
 ObjectSuffix           :=.o
 DependSuffix           :=.o.d
 PreprocessSuffix       :=.o.i
@@ -23,7 +23,8 @@ LibrarySwitch          :=-l
 OutputSwitch           :=-o 
 LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
-SourceSwitch           :=-x c -c 
+#SourceSwitch           :=-x c -c 
+SourceSwitch           :=-c 
 OutputFile             :=../linux/$(ProjectName)
 Preprocessors          :=
 ObjectSwitch           :=-o 
@@ -45,10 +46,10 @@ LibPath                := $(LibraryPathSwitch). ../linux/libr5560.so.1.0.0
 ## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
 AR       := ar rcus
-CXX      := gcc
-CC       := gcc
-CXXFLAGS :=  -g -O0 -Wall $(Preprocessors) 
-CFLAGS   :=  -g -O0 -Wall $(Preprocessors) 
+CXX      := g++
+CC       := g++ -shared -fPIC
+CXXFLAGS :=  -g -O0 -Wall $(Preprocessors) -std=c++14 -m64
+CFLAGS   :=  -g -O0 -Wall $(Preprocessors) -std=c++14 -m64
 ASFLAGS  := 
 AS       := as
 
