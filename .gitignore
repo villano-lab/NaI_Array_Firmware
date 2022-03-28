@@ -3,3 +3,4 @@ example
 ex2
 *.o
 *.so
+*.exe

@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
 
 	//Configure settings
 	reset_q = REG_Reset_SET(1,&handle); 		//Set everything to off for configuration
-	cutoff_q = REG_Cutoff_SET(8210,&handle); 	//Set cutoff for GT check
+	cutoff_q = REG_Cutoff_SET(8192+800,&handle); 	//Set cutoff for GT check
 	gate_q = REG_Gate_SET(200,&handle);		//Set number of samples to integrate over
 	delay_q = REG_Delay_SET(50,&handle);		//Set number of samples to delay data by
 	
