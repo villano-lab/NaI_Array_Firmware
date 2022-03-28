@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>9d24d98c-3514-407c-8933-e06a61f40b21</ProjectGuid>
+    <ProjectGuid>f25567cd-bd14-4751-9639-342b7c45b8a8</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Integration</RootNamespace>
 	<ProjectName>Integration</ProjectName>

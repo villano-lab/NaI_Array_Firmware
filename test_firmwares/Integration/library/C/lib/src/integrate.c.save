@@ -13,7 +13,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <time.h>
 /*//ROOT
 #include "TTree.h"
 #include "TFile.h"
@@ -32,6 +31,7 @@ int reset_q;
 int integral_q;
 uint32_t integral;
 int delay_q;
+uint32_t delay;
 int counts_q;
 uint32_t counts;
 
@@ -69,17 +69,15 @@ int main(int argc, char* argv[])
 	reset_q = REG_Reset_SET(0, &handle);
 	
 	//Collect data
-	int imax=1000000;
+	int imax=10000000;
 	for(int i=0; i<imax; i++){
 		integral_q = REG_Integral_GET(&integral, &handle);
 		// t->Fill();
 		if (verbose){ 					// Print the result
 			printf("Pulse: %d\n",integral);
 		}else{	printf("\b\b\b\b\b\b\b\b\b\b %d",i); } // or print progress only.
-		fprintf(fp, "%d\n", integral);			//Save the value
-		//clock_t start_time = clock();
-		//while (clock() < start_time + 1){ //wait
-		//};
+asdfasdfasdf		fprintf(fp, "%d\n", integral);			//Save the value
+		wait 1;
 	}
 	counts_q = REG_Counts_GET(&counts, &handle);
 	printf("\n Total count from run: %d\n",counts); //Print the total number of counts from the run
