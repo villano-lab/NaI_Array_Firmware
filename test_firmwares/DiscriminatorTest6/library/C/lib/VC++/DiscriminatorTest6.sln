@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("928dcef1-0bd2-416e-9b80-9c5c19b636a4") = "DiscriminatorTest6_Example", "DiscriminatorTest6_EXAMPLE.vcxproj", "5f0c214c-3f8d-4529-ad11-04d46151e1ea"
+EndProject
+Project("928dcef1-0bd2-416e-9b80-9c5c19b636a4") = "DiscriminatorTest6_LIB", "DiscriminatorTest6_LIB.vcxproj", "4a44a7f3-68fc-4ebe-964c-c3874b868f1f"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		5f0c214c-3f8d-4529-ad11-04d46151e1ea.Debug|x86.ActiveCfg = Debug|Win32
+		5f0c214c-3f8d-4529-ad11-04d46151e1ea.Debug|x86.Build.0 = Debug|Win32
+		5f0c214c-3f8d-4529-ad11-04d46151e1ea.Release|x86.ActiveCfg = Release|Win32
+		5f0c214c-3f8d-4529-ad11-04d46151e1ea.Release|x86.Build.0 = Release|Win32
+		4a44a7f3-68fc-4ebe-964c-c3874b868f1f.Debug|x86.ActiveCfg = Debug|Win32
+		4a44a7f3-68fc-4ebe-964c-c3874b868f1f.Debug|x86.Build.0 = Debug|Win32
+		4a44a7f3-68fc-4ebe-964c-c3874b868f1f.Release|x86.ActiveCfg = Release|Win32
+		4a44a7f3-68fc-4ebe-964c-c3874b868f1f.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
