@@ -19,11 +19,11 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "Integration_lib.h"
+#include  "Integration2_lib.h"
 
 #define BOARD_IP_ADDRESS "134.84.150.42"
 
-bool verbose = false;
+bool verbose = true;
 //Registers
 NI_HANDLE handle;
 int cutoff_q;
@@ -34,6 +34,11 @@ uint32_t integral;
 int delay_q;
 int counts_q;
 uint32_t counts;
+int read_q;
+int empty_q;
+uint32_t empty;
+int full_q;
+uint32_t full;
 
 FILE *fp;
 /*std::string outputfile="out.root";
@@ -45,18 +50,23 @@ int main(int argc, char* argv[])
 	// printf("We made it to the main function.\n");
 
 	//Connect to the board. 
+	if(verbose){printf("Running in verbose mode.\n");};
 	R_Init();
 	//If can't connect to the board, abort.
 	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
 		printf("Unable to connect to the board!\n"); return (-1); 
+	}else{
+		printf("Connected.\n");
 	};
-
 	//Open file to write to.
+	if(verbose){printf("Opening file to write to...\n");};
 	fp = fopen("../../../data/out.csv","w");
 
 	//Configure settings
+	if(verbose){printf("Configuring...\n");};
+	read_q = REG_Read_SET(0,&handle);
 	reset_q = REG_Reset_SET(1,&handle); 		//Set everything to off for configuration
-	cutoff_q = REG_Cutoff_SET(8192+800,&handle); 	//Set cutoff for GT check
+	cutoff_q = REG_Cutoff_SET(8192+900,&handle); 	//Set cutoff for GT check
 	gate_q = REG_Gate_SET(200,&handle);		//Set number of samples to integrate over
 	delay_q = REG_Delay_SET(50,&handle);		//Set number of samples to delay data by
 	
@@ -65,21 +75,29 @@ int main(int argc, char* argv[])
 	TTree *t = new TTree("peaks","peaks");
 	t->Branch("peakval",&dpeakval,"peakval/D");*/
 
-	//Run phase
+	//Run phase - undo reset
+	if(verbose){printf("Running!\n");};
 	reset_q = REG_Reset_SET(0, &handle);
 	
 	//Collect data
 	int imax=1000000;
 	for(int i=0; i<imax; i++){
-		integral_q = REG_Integral_GET(&integral, &handle);
-		// t->Fill();
-		if (verbose){ 					// Print the result
-			printf("Pulse: %d\n",integral);
-		}else{	printf("\b\b\b\b\b\b\b\b\b\b %d",i); } // or print progress only.
-		fprintf(fp, "%d\n", integral);			//Save the value
-		//clock_t start_time = clock();
-		//while (clock() < start_time + 1){ //wait
-		//};
+		empty_q = REG_Empty_GET(&empty, &handle); // check if buffer is empty.
+		if(verbose){printf("Empty? %d ",empty_q);};
+		if(!empty){				   // if it's not,
+			read_q = REG_Read_SET(1,&handle); // flip read on and off to retrieve data
+			read_q = REG_Read_SET(0,&handle);
+			integral_q = REG_Integral_GET(&integral, &handle);
+			// t->Fill();
+			fprintf(fp, "%d\n", integral);		//Save the value
+			full_q = REG_Full_GET(&full, &handle); //check if buffer is full
+			if(verbose){printf("Full? %d ",full);};
+			if(full){printf("WARNING: Buffer is full!\n");};
+			if(verbose){printf("Pulse: %d\n",integral);
+			}else{	printf("\b\b\b\b\b\b\b\b\b\b %d",i); }; // or print progress only.
+		}else{
+			if(verbose){printf("Empty!\n");};
+		};
 	}
 	counts_q = REG_Counts_GET(&counts, &handle);
 	printf("\n Total count from run: %d\n",counts); //Print the total number of counts from the run

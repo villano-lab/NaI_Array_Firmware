@@ -1,0 +1,2 @@
+#define SCI_REG_reset 0x00000000
+#define SCI_REG_thresh 0x00000001

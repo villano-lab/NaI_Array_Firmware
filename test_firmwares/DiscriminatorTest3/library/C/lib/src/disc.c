@@ -13,13 +13,12 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <time.h>
 /*//ROOT
 #include "TTree.h"
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "Integration_lib.h"
+#include  "DiscriminatorTest3_lib.h"
 
 #define BOARD_IP_ADDRESS "134.84.150.42"
 
@@ -27,11 +26,6 @@ bool verbose = false;
 //Registers
 NI_HANDLE handle;
 int cutoff_q;
-int gate_q;
-int reset_q;
-int integral_q;
-uint32_t integral;
-int delay_q;
 int counts_q;
 uint32_t counts;
 
@@ -51,42 +45,21 @@ int main(int argc, char* argv[])
 		printf("Unable to connect to the board!\n"); return (-1); 
 	};
 
-	//Open file to write to.
-	fp = fopen("../../../data/out.csv","w");
 
 	//Configure settings
-	reset_q = REG_Reset_SET(1,&handle); 		//Set everything to off for configuration
-	cutoff_q = REG_Cutoff_SET(8192+800,&handle); 	//Set cutoff for GT check
-	gate_q = REG_Gate_SET(200,&handle);		//Set number of samples to integrate over
-	delay_q = REG_Delay_SET(50,&handle);		//Set number of samples to delay data by
+	cutoff_q = REG_thresh_SET(8192+11,&handle); 	//Set cutoff for GT check
+	cutoff_q = REG_reset_SET(1,&handle); 	//
+	cutoff_q = REG_reset_SET(0,&handle); 	//
 	
-	/*//Open ROOT file
-	TFile *f = TFile::Open(outputfile.c_str(),"recreate");
-	TTree *t = new TTree("peaks","peaks");
-	t->Branch("peakval",&dpeakval,"peakval/D");*/
-
-	//Run phase
-	reset_q = REG_Reset_SET(0, &handle);
 	
-	//Collect data
+	//*//Collect data
 	int imax=1000000;
 	for(int i=0; i<imax; i++){
-		integral_q = REG_Integral_GET(&integral, &handle);
-		// t->Fill();
-		if (verbose){ 					// Print the result
-			printf("Pulse: %d\n",integral);
-		}else{	printf("\b\b\b\b\b\b\b\b\b\b %d",i); } // or print progress only.
-		fprintf(fp, "%d\n", integral);			//Save the value
-		//clock_t start_time = clock();
-		//while (clock() < start_time + 1){ //wait
-		//};
+	  printf("\n Total count from run: %d\n",counts); //Print the total number of counts from the run
+	  printf("Counts collected: %d\n",imax-1);
 	}
-	counts_q = REG_Counts_GET(&counts, &handle);
+	//counts_q = REG_Counts_GET(&counts, &handle);
 	printf("\n Total count from run: %d\n",counts); //Print the total number of counts from the run
 	printf("Counts collected: %d\n",imax-1);
-	//*/
-	/*t->Write("",TObject::kOverwrite);
-	f->Close();*/
-	fclose(fp);
 	return 0;
 }
