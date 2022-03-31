@@ -17,6 +17,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <time.h>
+#include <math.h>
 /*//ROOT
 #include "TTree.h"
 #include "TFile.h"
@@ -90,21 +91,50 @@ int main(int argc, char* argv[])
 	}else{
 		printf("Connected.\n");
 	};
+
+	//Configure settings
+	int thrs = 250;	//amount LESS THAN 8192 for threshold.
+	int inttime = 100;	//length of integration window
+	int pre = 10;		//time before trigger to include in integration
+	int pileup = 200;	//length of time inside integral to look for pileups.
+	int inib = 50;		//inhibition time on trigger block
+	int gain = 100;	//firmware-side gain
+	//things you probably won't change
+	int polarity = 0;	//zero for negative, one for positive
+	int offset = 0;	//offset to add to integral results(?)
+	
+	
+	//Pass them along to the system
+	if(verbose){printf("Configuring...\n");};
+	read_q = REG_read_SET(0,&handle);
+	if(polarity==0){
+		thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
+	}else if(polarity==1){
+		thrs_q = REG_thrs_SET(8192+thrs,&handle);
+	}else{printf("Polarity is invalid! Aborting...\n"); return -1;)}
+	inttime_q = REG_inttime_SET(inttime,&handle);		//Set number of samples to integrate over
+	inib_q = REG_inib_SET(inib,&handle);			//Set number of samples to delay data by
+	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
+        pre_q = REG_pre_SET(pre,&handle);			//Set time between trigger and start of area to integrate
+        pileup_q = REG_pileup_SET(pileup,&handle);		//Set pile-up rejection time
+        gain_q = REG_gain_SET(gain,&handle);			//Set gain
+        ofs_q = REG_ofs_SET(offset,&handle);			//Set offset to supply for integrator block.
+	
+	//Automatically generate a filename.
+	char* filepath = "../../../data/";
+	char* filename;
+	sprintf(filename, "_t%d_i%d-%d-%d_h%d_g%d-",thrs,inttime,pre,pileup,inib,gain);
+	if(polarity == 1){strcat(filename,sprintf("_pos"));};
+	if(offset != 8192){strcat(filename,sprintf("_o%d",offset));};
+	
+	
+	//strcat(filename,threshstr);
+	
+	
+	//char filename = "_t" + (str)(abs(thrs - 8192)) + "_i" + (str)inttime + "-" + (str)pre + "-" + (str)pileup + "_h" + (str)inib + "_g" + (str)gain + "-.csv"
 	//Open file to write to.
 	if(verbose){printf("Opening file to write to...\n");};
 	fp = fopen("../../../data/out.csv","w");
-
-	//Configure settings
-	if(verbose){printf("Configuring...\n");};
-	read_q = REG_read_SET(0,&handle);
-	thrs_q = REG_thrs_SET(8192-250,&handle); 	//Set cutoff for GT check
-	inttime_q = REG_inttime_SET(100,&handle);	//Set number of samples to integrate over
-	inib_q = REG_inib_SET(50,&handle);		//Set number of samples to delay data by
-	polarity_q = REG_polarity_SET(0,&handle);      //Set polarity to negative
-        pre_q = REG_pre_SET(80,&handle);               //Set time between trigger and start of area to integrate
-        pileup_q = REG_pileup_SET(200,&handle);	//Set pile-up rejection time
-        gain_q = REG_gain_SET(100,&handle);		//Set gain
-        ofs_q = REG_ofs_SET(0,&handle);			//Set offset to supply for integrator block.
 	
 	/*//Open ROOT file
 	TFile *f = TFile::Open(outputfile.c_str(),"recreate");
@@ -132,6 +162,15 @@ int main(int argc, char* argv[])
 	f->Close();*/
 	fclose(fp);
 	clock_t end = clock();
-	printf("Time elapsed: %ds\n",(double)(end-start) / CLOCKS_PER_SECOND);
+	printf("%f\n",(double)(end-start) / CLOCKS_PER_SEC);		//debug
+	int elapsed = (int)((double)(end-start) / CLOCKS_PER_SEC); 	//total time elapsed
+	int hours = floor(elapsed / 3600);
+	int minutes = floor((elapsed % 3600)/60);
+	int seconds = floor((elapsed % 60));
+	//char* timestamp = "%d-%d-%d",hours,minutes,seconds);
+	//printf(timestamp);
+	printf("Time elapsed: %d:%d:%d (%d) \n",hours,minutes,seconds,elapsed);
+	//char newfilename = "../../../data/" + (str)hours + "-" + (str)minutes + "-" + (str)seconds + "_t" + (str)(abs(thrs - 8192)) + "_i" + (str)inttime + "-" + (str)pre + "-" + (str)pileup + "_h" + (str)inib + "_g" + (str)gain + "-.csv";
+	//rename("../../../data/out.csv",newfilename);
 	return 0;
 }
