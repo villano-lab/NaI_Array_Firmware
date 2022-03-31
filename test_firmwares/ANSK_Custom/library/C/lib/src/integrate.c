@@ -16,6 +16,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <time.h>
 /*//ROOT
 #include "TTree.h"
 #include "TFile.h"
@@ -77,6 +78,7 @@ int kbhit(void)
 
 int main(int argc, char* argv[])
 {
+	clock_t start = clock();
 	// printf("We made it to the main function.\n");
 
 	//Connect to the board. 
@@ -95,7 +97,7 @@ int main(int argc, char* argv[])
 	//Configure settings
 	if(verbose){printf("Configuring...\n");};
 	read_q = REG_read_SET(0,&handle);
-	thrs_q = REG_thrs_SET(8192-500,&handle); 	//Set cutoff for GT check
+	thrs_q = REG_thrs_SET(8192-250,&handle); 	//Set cutoff for GT check
 	inttime_q = REG_inttime_SET(100,&handle);	//Set number of samples to integrate over
 	inib_q = REG_inib_SET(50,&handle);		//Set number of samples to delay data by
 	polarity_q = REG_polarity_SET(0,&handle);      //Set polarity to negative
@@ -129,5 +131,7 @@ int main(int argc, char* argv[])
 	/*t->Write("",TObject::kOverwrite);
 	f->Close();*/
 	fclose(fp);
+	clock_t end = clock();
+	printf("Time elapsed: %ds\n",(double)(end-start) / CLOCKS_PER_SECOND);
 	return 0;
 }

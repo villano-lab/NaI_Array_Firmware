@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 
         //Clear acquisition in preparation for run.
 	spectrum_q = SPECTRUM_Spectrum_0_STOP(&handle);//Stop acquisition.
-        SPECTRUM_Spectrum_0_FLUSH(&handle);		//Flush all unwanted old data.
+        //SPECTRUM_Spectrum_0_FLUSH(&handle);		//Flush all unwanted old data.
         if(verbose){
 		status_q = SPECTRUM_Spectrum_0_STATUS(&spectrum_status,&handle);
         	printf("Spectrum run status: %d (Retrieval success code: %d, set success code: %d)\n",spectrum_status,status_q,spectrum_q);
