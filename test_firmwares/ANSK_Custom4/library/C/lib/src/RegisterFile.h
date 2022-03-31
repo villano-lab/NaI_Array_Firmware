@@ -1,0 +1,29 @@
+#define SCI_REG_thrs 0x00000000
+#define SCI_REG_inib 0x00000001
+#define SCI_REG_polarity 0x00000002
+#define SCI_REG_inttime 0x00000003
+#define SCI_REG_pre 0x00000004
+#define SCI_REG_pileup 0x00000005
+#define SCI_REG_gain 0x00000006
+#define SCI_REG_ofs 0x00000007
+#define SCI_REG_read 0x00000008
+#define SCI_REG_energy 0x00000009
+#define SCI_REG_empty 0x00020006
+#define SCI_REG_baseline 0x00020007
+#define SCI_REG_Spectrum_0_FIFOADDRESS 0x10000
+#define SCI_REG_Spectrum_0_STATUS 0x20000
+#define SCI_REG_Spectrum_0_CONFIG 0x20001
+#define SCI_REG_Spectrum_0_CONFIG_LIMIT 0x20002
+#define SCI_REG_Spectrum_0_CONFIG_REBIN 0x20003
+#define SCI_REG_Spectrum_0_CONFIG_MIN 0x20004
+#define SCI_REG_Spectrum_0_CONFIG_MAX 0x20005
+
+#define SCI_REG_Oscilloscope_0_FIFOADDRESS 0x800
+#define SCI_REG_Oscilloscope_0_READ_STATUS 0x1000
+#define SCI_REG_Oscilloscope_0_READ_POSITION 0x1001
+#define SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_MODE 0x1002
+#define SCI_REG_Oscilloscope_0_CONFIG_PRETRIGGER 0x1003
+#define SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_LEVEL 0x1004
+#define SCI_REG_Oscilloscope_0_CONFIG_ARM 0x1005
+#define SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR 0x1006
+
