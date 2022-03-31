@@ -1,10 +1,4 @@
 // A simple program that takes all newly-detected peaks and prints them to a csv file.
-// Currently the integral does not appear to be working -- probably firmware side.
-// Is it possible two peaks in a row have the exact same height with no downtime between them?
-// Probably not something I need to worry about but it would be good to work that out
-// To make sure that it's okay to detect peaks by whether the peak value itself changes.
-// If not there is another firmware value I could retrieve 
-// but trying to avoid including unecessary variables.
 // Trying to move to ROOT but it's causing segfaults before getting into the main func 
 // or even before variable declaration?
 
@@ -18,6 +12,9 @@
 #include <fcntl.h>
 #include <time.h>
 #include <math.h>
+#include <string.h>
+#include <sys/time.h>
+
 /*//ROOT
 #include "TTree.h"
 #include "TFile.h"
@@ -44,6 +41,7 @@ int energy_q;
 uint32_t energy;
 int empty_q;
 uint32_t empty;
+struct timespec tic, toc;
 
 FILE *fp;
 /*std::string outputfile="out.root";
@@ -79,7 +77,6 @@ int kbhit(void)
 
 int main(int argc, char* argv[])
 {
-	clock_t start = clock();
 	// printf("We made it to the main function.\n");
 
 	//Connect to the board. 
@@ -94,15 +91,14 @@ int main(int argc, char* argv[])
 
 	//Configure settings
 	int thrs = 250;	//amount LESS THAN 8192 for threshold.
-	int inttime = 100;	//length of integration window
-	int pre = 10;		//time before trigger to include in integration
+	int inttime = 50;	//length of integration window
+	int pre = 20;		//time before trigger to include in integration
 	int pileup = 200;	//length of time inside integral to look for pileups.
 	int inib = 50;		//inhibition time on trigger block
 	int gain = 100;	//firmware-side gain
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive
 	int offset = 0;	//offset to add to integral results(?)
-	
 	
 	//Pass them along to the system
 	if(verbose){printf("Configuring...\n");};
@@ -111,7 +107,7 @@ int main(int argc, char* argv[])
 		thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
 	}else if(polarity==1){
 		thrs_q = REG_thrs_SET(8192+thrs,&handle);
-	}else{printf("Polarity is invalid! Aborting...\n"); return -1;)}
+	}else{printf("Polarity is invalid! Aborting...\n"); return -1;}
 	inttime_q = REG_inttime_SET(inttime,&handle);		//Set number of samples to integrate over
 	inib_q = REG_inib_SET(inib,&handle);			//Set number of samples to delay data by
 	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
@@ -121,20 +117,26 @@ int main(int argc, char* argv[])
         ofs_q = REG_ofs_SET(offset,&handle);			//Set offset to supply for integrator block.
 	
 	//Automatically generate a filename.
+	if(verbose){printf("Generating filename: \n");};
 	char* filepath = "../../../data/";
-	char* filename;
-	sprintf(filename, "_t%d_i%d-%d-%d_h%d_g%d-",thrs,inttime,pre,pileup,inib,gain);
-	if(polarity == 1){strcat(filename,sprintf("_pos"));};
-	if(offset != 8192){strcat(filename,sprintf("_o%d",offset));};
-	
-	
-	//strcat(filename,threshstr);
+	char* filename = malloc(100); // Make space for 100 characters
+	if(verbose){printf("Debug checkpoint #1\n");};
+	snprintf(filename,100,"_t%d_i%d-%d-%d_h%d_g%d-",thrs,inttime,pre,pileup,inib,gain);
+	if(polarity == 1){strcat(filename,"_pos");};
+	//if(offset != 8192){strcat(filename, "_o%d",offset);};
+	if(verbose){printf("Debug checkpoint #2\n");};
+	strcat(filename,".csv");
+	if(verbose){printf("Debug checkpoint #3\n");};
+	char* fullpath = malloc(100);
+	strcat(fullpath,filepath);
+	strcat(fullpath,filename);
+	if(verbose){printf("%s\n",fullpath);};
 	
 	
 	//char filename = "_t" + (str)(abs(thrs - 8192)) + "_i" + (str)inttime + "-" + (str)pre + "-" + (str)pileup + "_h" + (str)inib + "_g" + (str)gain + "-.csv"
 	//Open file to write to.
 	if(verbose){printf("Opening file to write to...\n");};
-	fp = fopen("../../../data/out.csv","w");
+	fp = fopen(fullpath,"w");
 	
 	/*//Open ROOT file
 	TFile *f = TFile::Open(outputfile.c_str(),"recreate");
@@ -142,14 +144,15 @@ int main(int argc, char* argv[])
 	t->Branch("peakval",&dpeakval,"peakval/D");*/
 
 	//Run phase - undo reset
-	if(verbose){printf("Running!\n");};
+	printf("Running until keyboard interrupt. Press any key to end acquisition.\n");
+	gettimeofday(&tic, NULL);
 	
 	//Collect data
 	while(!kbhit()){
 		empty_q = REG_empty_GET(&empty,&handle); //check if the FIFO is empty.
 		if(empty){if(false){printf("Fifo was empty this time.\n");};
 		}else{
-			read_q = REG_read_SET(1,&handle); // flip read on and off to retrieve data
+			read_q = REG_read_SET(1,&handle); 	// flip read on and off to retrieve data
 			read_q = REG_read_SET(0,&handle);
 			energy_q = REG_energy_GET(&energy, &handle);
 		// t->Fill();
@@ -160,17 +163,26 @@ int main(int argc, char* argv[])
 	//*/
 	/*t->Write("",TObject::kOverwrite);
 	f->Close();*/
+	gettimeofday(&toc, NULL);
 	fclose(fp);
-	clock_t end = clock();
-	printf("%f\n",(double)(end-start) / CLOCKS_PER_SEC);		//debug
-	int elapsed = (int)((double)(end-start) / CLOCKS_PER_SEC); 	//total time elapsed
+	if(verbose){
+		printf("Clocks per sec: %d\n",(int)CLOCKS_PER_SEC);
+		printf("%d to %d\n",(int)start,(int)end);
+		printf("%f\n",(double)(end-start) / CLOCKS_PER_SEC);	//debug
+	};
+	int elapsed = (double)(toc-tic); 	//total time elapsed
 	int hours = floor(elapsed / 3600);
 	int minutes = floor((elapsed % 3600)/60);
 	int seconds = floor((elapsed % 60));
-	//char* timestamp = "%d-%d-%d",hours,minutes,seconds);
-	//printf(timestamp);
+	char* timestamp = malloc(100);
+	snprintf(timestamp,100,"%d-%d-%d",hours,minutes,seconds);
+	if(verbose){printf("Timestamp: %s\n",timestamp);};
 	printf("Time elapsed: %d:%d:%d (%d) \n",hours,minutes,seconds,elapsed);
-	//char newfilename = "../../../data/" + (str)hours + "-" + (str)minutes + "-" + (str)seconds + "_t" + (str)(abs(thrs - 8192)) + "_i" + (str)inttime + "-" + (str)pre + "-" + (str)pileup + "_h" + (str)inib + "_g" + (str)gain + "-.csv";
-	//rename("../../../data/out.csv",newfilename);
+	char* newfilename = malloc(100);
+	snprintf(newfilename,100,"%s%d-%d-%d%s",filepath,hours,minutes,seconds,filename);
+	rename("%s",fullpath,newfilename);
+	free(filename);
+	free(fullpath);
+	//free(newfilename);
 	return 0;
 }
