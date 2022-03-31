@@ -4,3 +4,5 @@ ex2
 *.o
 *.so
 *.exe
+#Swap files
+*.swp
