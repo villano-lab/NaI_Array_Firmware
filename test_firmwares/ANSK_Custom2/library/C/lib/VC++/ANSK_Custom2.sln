@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("2475d83a-3b12-494e-8fe9-5b44b2f0d448") = "ANSK_Custom2_Example", "ANSK_Custom2_EXAMPLE.vcxproj", "6e0f0859-cd4f-4c87-9f7a-a2d8cb3acf14"
+EndProject
+Project("2475d83a-3b12-494e-8fe9-5b44b2f0d448") = "ANSK_Custom2_LIB", "ANSK_Custom2_LIB.vcxproj", "48e1087d-ee00-46cb-a2c6-e26491564f87"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		6e0f0859-cd4f-4c87-9f7a-a2d8cb3acf14.Debug|x86.ActiveCfg = Debug|Win32
+		6e0f0859-cd4f-4c87-9f7a-a2d8cb3acf14.Debug|x86.Build.0 = Debug|Win32
+		6e0f0859-cd4f-4c87-9f7a-a2d8cb3acf14.Release|x86.ActiveCfg = Release|Win32
+		6e0f0859-cd4f-4c87-9f7a-a2d8cb3acf14.Release|x86.Build.0 = Release|Win32
+		48e1087d-ee00-46cb-a2c6-e26491564f87.Debug|x86.ActiveCfg = Debug|Win32
+		48e1087d-ee00-46cb-a2c6-e26491564f87.Debug|x86.Build.0 = Debug|Win32
+		48e1087d-ee00-46cb-a2c6-e26491564f87.Release|x86.ActiveCfg = Release|Win32
+		48e1087d-ee00-46cb-a2c6-e26491564f87.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
