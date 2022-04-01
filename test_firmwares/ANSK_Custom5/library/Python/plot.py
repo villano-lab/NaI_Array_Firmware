@@ -8,7 +8,7 @@ import numpy as np
 matplotlib.use('tkagg') #Choose backend that can be x-forwarded to windows
 
 #Get and arrange data
-data5 = pd.read_csv("../../data/source_Na22/00-03-11_t250_i100-20-200_h50_g100-5.csv",header=None,usecols=[0]).to_numpy().flatten()
+data5 = pd.read_csv("../../data/00-05-38_t250_i100-20-200_h50_g100-5.csv",header=None,usecols=[0]).to_numpy().flatten()
 data4 = pd.read_csv("../../../ANSK_Custom4/data/source_Na22/00-05-08_t250_i100-20-200_h50_g100-5.csv",header=None,usecols=[0]).to_numpy().flatten()
 #sourcedata = np.subtract(sourcedata,200*8192) 	#subtract the baseline (8192) times the gate value.
 #backgrounddata = np.subtract(backgrounddata,200*8192)

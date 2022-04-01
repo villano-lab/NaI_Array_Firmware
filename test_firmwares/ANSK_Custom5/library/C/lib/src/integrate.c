@@ -149,9 +149,12 @@ int main(int argc, char* argv[])
 	R_Init();
 	//If can't connect to the board, abort.
 	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
-		printf("Unable to connect to the board!\n"); return (-1); 
+		printf("Unable to connect to the board!\n"); 
+		if(logfile != NULL){fprintf(logfile,"Unable to connect to the board at %s!\n",BOARD_IP_ADDRESS);};
+		return (-1); 
 	}else{
 		if(verbose>0){printf("Connected.\n");};
+		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
 	};
 
 	//Configure settings
@@ -162,10 +165,23 @@ int main(int argc, char* argv[])
 	int inib = 50;		//inhibition time on trigger block
 	int gain = 100;	//firmware-side gain
 	//things you probably won't change
-	int polarity = 1;	//zero for negative, one for positive
+	int polarity = 0;	//zero for negative, one for positive
 	int offset = 0;	//offset to add to integral results(?)
 	//things that are set based on external factors
 	double extgain = 5;	//gain set from the browser interface
+	
+	if(logfile != NULL){
+		fprintf(logfile,"============ Settings ============\n");
+		fprintf(logfile,"Threshold:			%d\n",thrs);
+		fprintf(logfile,"Integration Time:		%d\n",inttime);
+		fprintf(logfile,"Pre-integration Window:	%d\n",pre);
+		fprintf(logfile,"Pileup Length:		%d\n",pileup);
+		fprintf(logfile,"Trigger Inhibition Time:	%d\n",inib);
+		fprintf(logfile,"Gain:				%d\n",gain);
+		fprintf(logfile,"Polarity (Neg 0, Pos 1):	%d\n",polarity);
+		fprintf(logfile,"Offset:			%d\n",offset);
+		fprintf(logfile,"External gain (filename only):%g\n\n",extgain); //need a better name for "external gain"
+	};
 	
 	//Pass them along to the system
 	if(verbose>0){printf("Configuring...\n");};
@@ -173,7 +189,7 @@ int main(int argc, char* argv[])
 	if(polarity==0){
 		thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
 	}else if(polarity==1){
-		thrs_q = REG_thrs_SET(8192+thrs,&handle);
+		thrs_q = REG_thrs_SET(8192-thrs,&handle);	//addition isn't working?
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
 	inttime_q = REG_inttime_SET(inttime,&handle);		//Set number of samples to integrate over
 	inib_q = REG_inib_SET(inib,&handle);			//Set number of samples to delay data by
@@ -188,7 +204,7 @@ int main(int argc, char* argv[])
 	char* filepath = "../../../data/";
 	char* filename = malloc(100); // Make space for 100 characters
 	snprintf(filename,100,"_t%d_i%d-%d-%d_h%d_g%d-%g",thrs,inttime,pre,pileup,inib,gain,extgain);
-	if(polarity == 0){strcat(filename,"_neg");};
+	if(polarity == 1){strcat(filename,"_pos");};
 	if(offset != 0){
 		char* temp = malloc(10);
 		snprintf(temp, 10, "_o%d",offset);
