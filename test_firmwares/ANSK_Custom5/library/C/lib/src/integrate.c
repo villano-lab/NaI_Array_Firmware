@@ -61,6 +61,7 @@ void print_usage(FILE* stream, int exit_code){
   	fprintf (stream,
   	" -s,-q,		--silent,--quiet,		Print nothing. NOTHING!\n"
 	" -v,			--verbose	<level>	Print verbose messages at the specified level.\n"
+	" -l,			--log		<file>		Log terminal output.\n"
 	" -V, 			--version			Print version and exit.\n"
 	" -h,-?,		--help				Print this help function.\n"
 
@@ -104,6 +105,21 @@ int main(int argc, char* argv[])
 		iarg = getopt_long(argc, argv, "+l:n:o:shd:v::V", longopts, &index);
 
 		switch (iarg){
+		case 'h':
+			print_usage(stdout,0);
+			return 0;
+			break;
+		case 'q':
+			verbose = -1;
+		case 's':
+			verbose = -1;
+		case 'v':
+			if(optarg){verbose = atoi(optarg);
+			}else{verbose = 1;break;}
+		case '?':
+			print_usage(stdout,0);
+			return 0;
+			break;
 		case 'V':
 			printf("Integrate!\n");
 			printf("Copyright (c) 2022 Anthony Villano, Kitty Harris \n");
@@ -112,14 +128,6 @@ int main(int argc, char* argv[])
 			printf("There is NO WARRANTY, to the extent permitted by law. \n");
 			return 0;
 			break;
-		case 'h','?':
-			print_usage(stdout,0);
-			return 0;
-			break;
-		case 'v':
-			if(optarg){verbose = atoi(optarg);
-			}else{verbose = true;break;}
-		case 's','q':
 		}
 			
 	}
@@ -133,7 +141,7 @@ int main(int argc, char* argv[])
 	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
 		printf("Unable to connect to the board!\n"); return (-1); 
 	}else{
-		if(verbose){printf("Connected.\n");};
+		if(verbose>0){printf("Connected.\n");};
 	};
 
 	//Configure settings
@@ -150,12 +158,12 @@ int main(int argc, char* argv[])
 	double extgain = 5;	//gain set from the browser interface
 	
 	//Pass them along to the system
-	if(verbose){printf("Configuring...\n");};
+	if(verbose>0){printf("Configuring...\n");};
 	read_q = REG_read_SET(0,&handle);
 	if(polarity==0){
 		thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
 	}else if(polarity==1){
-		thrs_q = REG_thrs_SET(8192+thrs,&handle);
+		thrs_q = REG_thrs_SET(8192-thrs,&handle);
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
 	inttime_q = REG_inttime_SET(inttime,&handle);		//Set number of samples to integrate over
 	inib_q = REG_inib_SET(inib,&handle);			//Set number of samples to delay data by
@@ -166,11 +174,11 @@ int main(int argc, char* argv[])
         ofs_q = REG_ofs_SET(offset,&handle);			//Set offset to supply for integrator block.
 	
 	//Automatically generate a filename.
-	if(verbose){printf("Generating filename: \n");};
+	if(verbose>0){printf("Generating filename: ");};
 	char* filepath = "../../../data/";
 	char* filename = malloc(100); // Make space for 100 characters
 	snprintf(filename,100,"_t%d_i%d-%d-%d_h%d_g%d-%g",thrs,inttime,pre,pileup,inib,gain,extgain);
-	if(polarity == 1){strcat(filename,"_pos");};
+	if(polarity == 0){strcat(filename,"_neg");};
 	if(offset != 0){
 		char* temp = malloc(10);
 		snprintf(temp, 10, "_o%d",offset);
@@ -181,12 +189,12 @@ int main(int argc, char* argv[])
 	char* fullpath = malloc(100);
 	strcat(fullpath,filepath);
 	strcat(fullpath,filename);
-	if(verbose){printf("%s\n",fullpath);};
+	if(verbose>0){printf("%s\n",fullpath);};
 	
 	
 	//char filename = "_t" + (str)(abs(thrs - 8192)) + "_i" + (str)inttime + "-" + (str)pre + "-" + (str)pileup + "_h" + (str)inib + "_g" + (str)gain + "-.csv"
 	//Open file to write to.
-	if(verbose){printf("Opening file to write to...\n");};
+	if(verbose>1){printf("Opening file to write to...\n");};
 	fp = fopen(fullpath,"w");
 	
 	/*//Open ROOT file
@@ -208,7 +216,7 @@ int main(int argc, char* argv[])
 			energy_q = REG_energy_GET(&energy, &handle);
 		// t->Fill();
 			fprintf(fp, "%d\n", energy);		//Save the value
-			if(verbose){printf("Pulse: %d\n",energy);};
+			if(verbose>2){printf("Pulse: %d\n",energy);};
 		};
 	};
 	//*/
@@ -217,7 +225,7 @@ int main(int argc, char* argv[])
 	toc = time(NULL);
 	fclose(fp);
 	int elapsed = (int)toc-(int)tic; 	//total time elapsed
-	if(verbose){
+	if(verbose>1){
 		printf("%d to %d\n",(int)tic,(int)toc);
 		printf("%d\n",elapsed);	//debug
 	};
@@ -226,8 +234,8 @@ int main(int argc, char* argv[])
 	int seconds = floor((elapsed % 60));
 	char* timestamp = malloc(100);
 	snprintf(timestamp,100,"%02d-%02d-%02d",hours,minutes,seconds);
-	if(verbose){printf("Timestamp: %s\n",timestamp);};
-	printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);
+	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
+	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
 	char* newfilename = malloc(100);
 	snprintf(newfilename,100,"%s%s%s",filepath,timestamp,filename);
 	rename(fullpath,newfilename);
