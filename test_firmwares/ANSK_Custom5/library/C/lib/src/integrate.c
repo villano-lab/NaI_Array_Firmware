@@ -45,26 +45,30 @@ uint32_t empty;
 time_t tic, toc;
 const char* program_name = "integrate";
 FILE *fp;
+FILE *logfile;
 /*std::string outputfile="out.root";
 std::string BOARD_IP_ADDRESS = "134.84.150.42";
 char *board_ip_char = const_cast<char*>(BOARD_IP_ADDRESS.c_str());*/
 
 const struct option longopts[] =
 {
-	{"version",	no_argument,	0,	'V'},
-	{0,		0,		0,	0},
+	{"help",	no_argument,		0,	'h'},
+	{"log",	optional_argument,	0,	'l'},
+	{"quiet",	no_argument,		0,	'q'},
+	{"silent",	no_argument,		0,	's'},
+	{"verbose",	optional_argument,	0,	'v'},
+	{"version",	no_argument,		0,	'V'},
+	{0,		0,			0,	0},
 };
-
 
 void print_usage(FILE* stream, int exit_code){
 	fprintf (stream, "Usage:  %s options [ inputfile(s) ]\n", program_name);
   	fprintf (stream,
-  	" -s,-q,		--silent,--quiet,		Print nothing. NOTHING!\n"
-	" -v,			--verbose	<level>	Print verbose messages at the specified level.\n"
+	" -v,			--verbose	<level>	Print verbose messages at the specified level (level 1 if unspecified).\n"
+	" -s,-q,		--silent,--quiet,		Print nothing.\n"
 	" -l,			--log		<file>		Log terminal output.\n"
 	" -V, 			--version			Print version and exit.\n"
 	" -h,-?,		--help				Print this help function.\n"
-
 );
   exit (exit_code);
 };
@@ -111,11 +115,14 @@ int main(int argc, char* argv[])
 			break;
 		case 'q':
 			verbose = -1;
+			break;
 		case 's':
 			verbose = -1;
+			break;
 		case 'v':
 			if(optarg){verbose = atoi(optarg);
-			}else{verbose = 1;break;}
+			}else{verbose = 1;};
+			break;
 		case '?':
 			print_usage(stdout,0);
 			return 0;
@@ -128,14 +135,17 @@ int main(int argc, char* argv[])
 			printf("There is NO WARRANTY, to the extent permitted by law. \n");
 			return 0;
 			break;
+		case 'l':
+			if(optarg){logfile = fopen(optarg,"w");
+			}else{logfile = fopen("log.txt","w");};
+			break;
 		}
-			
 	}
 
-	// printf("We made it to the main function.\n");
-
 	//Connect to the board. 
-	if(verbose > 0){printf("Running in verbose mode. Verbosity:%d\n",verbose);};
+	if(verbose > 0){
+		printf("Running in verbose mode. Verbosity:%d\n",verbose);
+	};
 	R_Init();
 	//If can't connect to the board, abort.
 	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
@@ -163,7 +173,7 @@ int main(int argc, char* argv[])
 	if(polarity==0){
 		thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
 	}else if(polarity==1){
-		thrs_q = REG_thrs_SET(8192-thrs,&handle);
+		thrs_q = REG_thrs_SET(8192+thrs,&handle);
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
 	inttime_q = REG_inttime_SET(inttime,&handle);		//Set number of samples to integrate over
 	inib_q = REG_inib_SET(inib,&handle);			//Set number of samples to delay data by
@@ -242,5 +252,6 @@ int main(int argc, char* argv[])
 	free(filename);
 	free(fullpath);
 	free(newfilename);
+	if(logfile != NULL){fclose(logfile);};
 	return 0;
 }
