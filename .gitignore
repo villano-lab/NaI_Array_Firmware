@@ -4,5 +4,8 @@ ex2
 *.o
 *.so
 *.exe
+*.zip
 #Swap files
 *.swp
+#Backups
+*.scf_bk
