@@ -176,18 +176,24 @@ int main(int argc, char* argv[])
 	//Run phase - undo reset
 	printf("Running until keyboard interrupt. Press any key to end acquisition.\n");
 	tic = time(NULL);
+
+        //set up the rate counter
+        int rate_q;
+        uint32_t rateval[16]; //needs to be pre-allocated
+        uint32_t ratechan=1;
+        uint32_t ratetimeout=10; //timeout in ms
+        uint32_t *rateread_data,*ratevalid_data;
 	
 	//Collect data
 	while(!kbhit()){
-		//empty_q = REG_empty_GET(&empty,&handle); //check if the FIFO is empty.
-		//if(empty){if(false){printf("Fifo was empty this time.\n");};
-		//}else{
-		//	read_q = REG_read_SET(1,&handle); 	// flip read on and off to retrieve data
-		//	read_q = REG_read_SET(0,&handle);
-		//	energy_q = REG_energy_GET(&energy, &handle);
-		//	fprintf(fp, "%d\n", energy);		//Save the value
-		//	if(verbose>2){printf("Pulse: %d\n",energy);};
-		//};
+                //reset the threshold
+
+                //wait
+               
+                //get the rate
+                rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
+
+                //write the rate
 	};
 	toc = time(NULL);
 	int elapsed = (int)toc-(int)tic; 	//total time elapsed
