@@ -131,6 +131,8 @@ int main(int argc, char* argv[])
 		}
 	}
 
+	fp = fopen("out.csv","w");
+
 	//Connect to the board. 
 	if(verbose > 0){
 		printf("Running in verbose mode. Verbosity:%d\n",verbose);
@@ -185,6 +187,7 @@ int main(int argc, char* argv[])
         uint32_t *rateread_data,*ratevalid_data;
 	
 	//Collect data
+	fprintf(fp,"treshold, rate\n") // add a title
         for(int i=0; i<1000; i++){	
                 //reset the threshold
 		thrs = 8*i;
@@ -200,7 +203,8 @@ int main(int argc, char* argv[])
                 //get the rate
                 rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
 
-                //write the rate
+			//write the rate
+			fprintf(fp,"%d, %d\n",thrs,rateval[0])
 	        if(verbose>1){printf("thresh: %d ; rate: %d Hz\n",thrs,rateval[0]);};
 	};
 	toc = time(NULL);
@@ -217,5 +221,6 @@ int main(int argc, char* argv[])
 	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
 	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
 	if(logfile != NULL){fclose(logfile);};
+	fclose(fp);
 	return 0;
 }
