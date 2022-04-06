@@ -29,21 +29,10 @@ int verbose = 0;
 //Registers
 NI_HANDLE handle;
 int thrs_q;
-int inib_q;
+int inhib_q;
 int polarity_q;
-int inttime_q;
-int pre_q;
-int pileup_q;
-int gain_q;
-int ofs_q;
-int baseline_q;
-int read_q;
-int energy_q;
-uint32_t energy;
-int empty_q;
-uint32_t empty;
 time_t tic, toc;
-const char* program_name = "integrate";
+const char* program_name = "getrate";
 FILE *fp;
 FILE *logfile;
 /*std::string outputfile="out.root";
@@ -158,98 +147,63 @@ int main(int argc, char* argv[])
 	};
 
 	//Configure settings
-	int thrs = 250;	//amount LESS THAN 8192 for threshold.
-	int inttime = 100;	//length of integration window
-	int pre = 20;		//time before trigger to include in integration
-	int pileup = 200;	//length of time inside integral to look for pileups.
-	int inib = 50;		//inhibition time on trigger block
-	int gain = 100;	//firmware-side gain
+	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
+	int inhib = 50;		//inhibition time on trigger block
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive
-	int offset = 0;	//offset to add to integral results(?)
 	//things that are set based on external factors
 	double extgain = 5;	//gain set from the browser interface
 	
 	if(logfile != NULL){
 		fprintf(logfile,"============ Settings ============\n");
 		fprintf(logfile,"Threshold:			%d\n",thrs);
-		fprintf(logfile,"Integration Time:		%d\n",inttime);
-		fprintf(logfile,"Pre-integration Window:	%d\n",pre);
-		fprintf(logfile,"Pileup Length:		%d\n",pileup);
-		fprintf(logfile,"Trigger Inhibition Time:	%d\n",inib);
-		fprintf(logfile,"Gain:				%d\n",gain);
+		fprintf(logfile,"Trigger Inhibition Time:	%d\n",inhib);
 		fprintf(logfile,"Polarity (Neg 0, Pos 1):	%d\n",polarity);
-		fprintf(logfile,"Offset:			%d\n",offset);
 		fprintf(logfile,"External gain (filename only):%g\n\n",extgain); //need a better name for "external gain"
 	};
 	
 	//Pass them along to the system
 	if(verbose>0){printf("Configuring...\n");};
-	read_q = REG_read_SET(0,&handle);
 	if(polarity==0){
 		thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
 	}else if(polarity==1){
-		thrs_q = REG_thrs_SET(8192-thrs,&handle);	//addition isn't working?
+		thrs_q = REG_thrs_SET(8192+thrs,&handle);	//addition isn't working?
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
-	inttime_q = REG_inttime_SET(inttime,&handle);		//Set number of samples to integrate over
-	inib_q = REG_inib_SET(inib,&handle);			//Set number of samples to delay data by
+	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
 	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
-        pre_q = REG_pre_SET(pre,&handle);			//Set time between trigger and start of area to integrate
-        pileup_q = REG_pileup_SET(pileup,&handle);		//Set pile-up rejection time
-        gain_q = REG_gain_SET(gain,&handle);			//Set gain
-        ofs_q = REG_ofs_SET(offset,&handle);			//Set offset to supply for integrator block.
 	
-	//Automatically generate a filename.
-	if(verbose>0){printf("Generating filename: ");};
-	char* filepath = "../../../data/";
-	char* filename = malloc(100); // Make space for 100 characters
-	snprintf(filename,100,"_t%d_i%d-%d-%d_h%d_g%d-%g",thrs,inttime,pre,pileup,inib,gain,extgain);
-	if(polarity == 1){strcat(filename,"_pos");};
-	if(offset != 0){
-		char* temp = malloc(10);
-		snprintf(temp, 10, "_o%d",offset);
-		strcat(filename,temp);
-		free(temp);
-	};
-	strcat(filename,".csv");
-	char* fullpath = malloc(100);
-	strcat(fullpath,filepath);
-	strcat(fullpath,filename);
-	if(verbose>0){printf("%s\n",fullpath);};
-	
-	
-	//char filename = "_t" + (str)(abs(thrs - 8192)) + "_i" + (str)inttime + "-" + (str)pre + "-" + (str)pileup + "_h" + (str)inib + "_g" + (str)gain + "-.csv"
-	//Open file to write to.
-	if(verbose>1){printf("Opening file to write to...\n");};
-	fp = fopen(fullpath,"w");
-	
-	/*//Open ROOT file
-	TFile *f = TFile::Open(outputfile.c_str(),"recreate");
-	TTree *t = new TTree("peaks","peaks");
-	t->Branch("peakval",&dpeakval,"peakval/D");*/
 
 	//Run phase - undo reset
 	printf("Running until keyboard interrupt. Press any key to end acquisition.\n");
 	tic = time(NULL);
+
+        //set up the rate counter
+        int rate_q;
+        uint32_t rateval[16]; //needs to be pre-allocated
+        uint32_t ratechan=1;
+        uint32_t ratetimeout=10; //timeout in ms
+        uint32_t *rateread_data,*ratevalid_data;
 	
 	//Collect data
-	while(!kbhit()){
-		empty_q = REG_empty_GET(&empty,&handle); //check if the FIFO is empty.
-		if(empty){if(false){printf("Fifo was empty this time.\n");};
-		}else{
-			read_q = REG_read_SET(1,&handle); 	// flip read on and off to retrieve data
-			read_q = REG_read_SET(0,&handle);
-			energy_q = REG_energy_GET(&energy, &handle);
-		// t->Fill();
-			fprintf(fp, "%d\n", energy);		//Save the value
-			if(verbose>2){printf("Pulse: %d\n",energy);};
-		};
+        for(int i=0; i<1000; i++){	
+                //reset the threshold
+		thrs = 8*i;
+	        if(polarity==0){
+	        	thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
+	        }else if(polarity==1){
+	        	thrs_q = REG_thrs_SET(8192+thrs,&handle);	//addition isn't working?
+	        }else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
+
+                //wait
+                sleep(1);
+               
+                //get the rate
+                rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
+
+                //write the rate
+	        if(verbose>1){printf("thresh: %d ; rate: %d Hz\n",thrs,rateval[0]);};
 	};
-	//*/
-	/*t->Write("",TObject::kOverwrite);
-	f->Close();*/
 	toc = time(NULL);
-	fclose(fp);
 	int elapsed = (int)toc-(int)tic; 	//total time elapsed
 	if(verbose>1){
 		printf("%d to %d\n",(int)tic,(int)toc);
@@ -262,12 +216,6 @@ int main(int argc, char* argv[])
 	snprintf(timestamp,100,"%02d-%02d-%02d",hours,minutes,seconds);
 	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
 	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
-	char* newfilename = malloc(100);
-	snprintf(newfilename,100,"%s%s%s",filepath,timestamp,filename);
-	rename(fullpath,newfilename);
-	free(filename);
-	free(fullpath);
-	free(newfilename);
 	if(logfile != NULL){fclose(logfile);};
 	return 0;
 }
