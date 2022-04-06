@@ -185,15 +185,23 @@ int main(int argc, char* argv[])
         uint32_t *rateread_data,*ratevalid_data;
 	
 	//Collect data
-	while(!kbhit()){
+        for(int i=0; i<1000; i++){	
                 //reset the threshold
+		thrs = 8*i;
+	        if(polarity==0){
+	        	thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
+	        }else if(polarity==1){
+	        	thrs_q = REG_thrs_SET(8192+thrs,&handle);	//addition isn't working?
+	        }else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
 
                 //wait
+                sleep(1);
                
                 //get the rate
                 rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
 
                 //write the rate
+	        if(verbose>1){printf("thresh: %d ; rate: %d Hz\n",thrs,rateval[0]);};
 	};
 	toc = time(NULL);
 	int elapsed = (int)toc-(int)tic; 	//total time elapsed
