@@ -29,7 +29,7 @@ int verbose = 0;
 //Registers
 NI_HANDLE handle;
 int thrs_q;
-int inib_q;
+int inhib_q;
 int polarity_q;
 time_t tic, toc;
 const char* program_name = "getrate";
@@ -148,7 +148,7 @@ int main(int argc, char* argv[])
 
 	//Configure settings
 	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
-	int inib = 50;		//inhibition time on trigger block
+	int inhib = 50;		//inhibition time on trigger block
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive
 	//things that are set based on external factors
@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
 	if(logfile != NULL){
 		fprintf(logfile,"============ Settings ============\n");
 		fprintf(logfile,"Threshold:			%d\n",thrs);
-		fprintf(logfile,"Trigger Inhibition Time:	%d\n",inib);
+		fprintf(logfile,"Trigger Inhibition Time:	%d\n",inhib);
 		fprintf(logfile,"Polarity (Neg 0, Pos 1):	%d\n",polarity);
 		fprintf(logfile,"External gain (filename only):%g\n\n",extgain); //need a better name for "external gain"
 	};
@@ -169,7 +169,7 @@ int main(int argc, char* argv[])
 	}else if(polarity==1){
 		thrs_q = REG_thrs_SET(8192+thrs,&handle);	//addition isn't working?
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
-	inib_q = REG_inib_SET(inib,&handle);			//Set number of samples to delay data by
+	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
 	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
 	
 
@@ -179,15 +179,15 @@ int main(int argc, char* argv[])
 	
 	//Collect data
 	while(!kbhit()){
-		empty_q = REG_empty_GET(&empty,&handle); //check if the FIFO is empty.
-		if(empty){if(false){printf("Fifo was empty this time.\n");};
-		}else{
-			read_q = REG_read_SET(1,&handle); 	// flip read on and off to retrieve data
-			read_q = REG_read_SET(0,&handle);
-			energy_q = REG_energy_GET(&energy, &handle);
-			fprintf(fp, "%d\n", energy);		//Save the value
-			if(verbose>2){printf("Pulse: %d\n",energy);};
-		};
+		//empty_q = REG_empty_GET(&empty,&handle); //check if the FIFO is empty.
+		//if(empty){if(false){printf("Fifo was empty this time.\n");};
+		//}else{
+		//	read_q = REG_read_SET(1,&handle); 	// flip read on and off to retrieve data
+		//	read_q = REG_read_SET(0,&handle);
+		//	energy_q = REG_energy_GET(&energy, &handle);
+		//	fprintf(fp, "%d\n", energy);		//Save the value
+		//	if(verbose>2){printf("Pulse: %d\n",energy);};
+		//};
 	};
 	toc = time(NULL);
 	int elapsed = (int)toc-(int)tic; 	//total time elapsed
@@ -202,5 +202,6 @@ int main(int argc, char* argv[])
 	snprintf(timestamp,100,"%02d-%02d-%02d",hours,minutes,seconds);
 	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
 	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
+	if(logfile != NULL){fclose(logfile);};
 	return 0;
 }
