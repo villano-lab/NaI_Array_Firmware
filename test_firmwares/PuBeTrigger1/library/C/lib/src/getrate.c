@@ -185,13 +185,12 @@ int main(int argc, char* argv[])
         uint32_t ratetimeout=10; //timeout in ms
         uint32_t *rateread_data,*ratevalid_data;
 	
+	fprintf(fp,"treshold, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
-
 	//Collect data
-	//fprintf(fp,"treshold, rate\n"); // add a title
         for(int i=0; i<1000; i++){	
             //reset the threshold
-			if(verbose>1){printf("Updating threshold:");};
+			if(verbose>1){printf("Updating threshold:\n");};
 			thrs = 8*i;
 			if(verbose>1){printf("%d\n",thrs);};
 
