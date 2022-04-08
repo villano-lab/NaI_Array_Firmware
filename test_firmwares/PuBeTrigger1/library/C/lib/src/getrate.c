@@ -158,7 +158,7 @@ int main(int argc, char* argv[])
 	
 	if(logfile != NULL){
 		fprintf(logfile,"============ Settings ============\n");
-		fprintf(logfile,"Threshold:						%d\n",thrs);
+		fprintf(logfile,"Starting threshold:			%d\n",thrs);
 		fprintf(logfile,"Trigger Inhibition Time:		%d\n",inhib);
 		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);
 		fprintf(logfile,"External gain (filename only):	%g\n\n",extgain); //need a better name for "external gain"
@@ -189,6 +189,7 @@ int main(int argc, char* argv[])
 
 	//Collect data
 	fprintf(fp,"treshold, rate\n"); // add a title
+		if(verbose>1){printf("Updating threshold.\n");};
         for(int i=0; i<1000; i++){	
                 //reset the threshold
 			thrs = 8*i;
@@ -202,9 +203,9 @@ int main(int argc, char* argv[])
 			sleep(1);
 			
 			//get the rate
-			if(verbose > 1){printf("Retreiving data...");};
+			if(verbose > 1){printf("Retreiving data...\n");};
 			rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
-			if(verbose > 1){printf("Rateval: %d",rateval[0]);};
+			if(verbose > 1){printf("Rateval: %d\n",rateval[0]);};
 
 			//write the rate
 			fprintf(fp,"%d, %d\n",thrs,rateval[0]);
