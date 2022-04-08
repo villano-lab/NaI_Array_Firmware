@@ -188,7 +188,8 @@ int main(int argc, char* argv[])
 	fprintf(fp,"treshold, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
 	//Collect data
-        for(int i=0; i<1000; i++){	
+	int i;
+        for(i=0; i<1000; i++){	
             //reset the threshold
 			if(verbose>1){printf("Updating threshold:\n");};
 			thrs = 8*i;
