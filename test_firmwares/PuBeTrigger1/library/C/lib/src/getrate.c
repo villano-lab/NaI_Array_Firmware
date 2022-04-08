@@ -158,10 +158,10 @@ int main(int argc, char* argv[])
 	
 	if(logfile != NULL){
 		fprintf(logfile,"============ Settings ============\n");
-		fprintf(logfile,"Threshold:			%d\n",thrs);
-		fprintf(logfile,"Trigger Inhibition Time:	%d\n",inhib);
-		fprintf(logfile,"Polarity (Neg 0, Pos 1):	%d\n",polarity);
-		fprintf(logfile,"External gain (filename only):%g\n\n",extgain); //need a better name for "external gain"
+		fprintf(logfile,"Threshold:						%d\n",thrs);
+		fprintf(logfile,"Trigger Inhibition Time:		%d\n",inhib);
+		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);
+		fprintf(logfile,"External gain (filename only):	%g\n\n",extgain); //need a better name for "external gain"
 	};
 	
 	//Pass them along to the system
@@ -174,7 +174,6 @@ int main(int argc, char* argv[])
 	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
 	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
 	
-
 	//Run phase - undo reset
 	if(verbose>0){printf("Setting up rate counter... \n");};
 	tic = time(NULL);
@@ -192,25 +191,27 @@ int main(int argc, char* argv[])
 	fprintf(fp,"treshold, rate\n"); // add a title
         for(int i=0; i<1000; i++){	
                 //reset the threshold
-		thrs = 8*i;
+			thrs = 8*i;
 	        if(polarity==0){
 	        	thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
 	        }else if(polarity==1){
 	        	thrs_q = REG_thrs_SET(8192+thrs,&handle);	//addition isn't working?
 	        }else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
 
-                //wait
-                sleep(1);
-               
-                //get the rate
-				if(verbose > 1){printf("Retreiving data...");};
-                rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
-				if(verbose > 1){printf("Rateval: %d",rateval[0]);};
+			//wait
+			sleep(1);
+			
+			//get the rate
+			if(verbose > 1){printf("Retreiving data...");};
+			rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
+			if(verbose > 1){printf("Rateval: %d",rateval[0]);};
 
 			//write the rate
 			fprintf(fp,"%d, %d\n",thrs,rateval[0]);
 	        if(verbose>1){printf("thresh: %d ; rate: %d Hz\n",thrs,rateval[0]);};
 	};
+
+	if(verbose>0){printf("Data collection complete.\n");};
 	toc = time(NULL);
 	int elapsed = (int)toc-(int)tic; 	//total time elapsed
 	if(verbose>1){
@@ -224,6 +225,7 @@ int main(int argc, char* argv[])
 	snprintf(timestamp,100,"%02d-%02d-%02d",hours,minutes,seconds);
 	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
 	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
+	if(verbose>1){printf("Closing files...");};
 	if(logfile != NULL){fclose(logfile);};
 	fclose(fp);
 	return 0;
