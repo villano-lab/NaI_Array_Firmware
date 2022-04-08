@@ -204,7 +204,7 @@ int main(int argc, char* argv[])
                 rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
 
 			//write the rate
-			fprintf(fp,"%d, %d\n",thrs,rateval[0])
+			fprintf(fp,"%d, %d\n",thrs,rateval[0]);
 	        if(verbose>1){printf("thresh: %d ; rate: %d Hz\n",thrs,rateval[0]);};
 	};
 	toc = time(NULL);
