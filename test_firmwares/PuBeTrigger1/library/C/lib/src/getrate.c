@@ -188,7 +188,7 @@ int main(int argc, char* argv[])
 	if(verbose>0){printf("Collecting data! \n");};
 
 	//Collect data
-	fprintf(fp,"treshold, rate\n"); // add a title
+	//fprintf(fp,"treshold, rate\n"); // add a title
         for(int i=0; i<1000; i++){	
             //reset the threshold
 			if(verbose>1){printf("Updating threshold:");};
