@@ -187,7 +187,7 @@ int main(int argc, char* argv[])
         uint32_t *rateread_data,*ratevalid_data;
 	
 	//Collect data
-	fprintf(fp,"treshold, rate\n") // add a title
+	fprintf(fp,"treshold, rate\n"); // add a title
         for(int i=0; i<1000; i++){	
                 //reset the threshold
 		thrs = 8*i;
