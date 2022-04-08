@@ -131,7 +131,6 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	fp = fopen("out.csv","w");
 
 	//Connect to the board. 
 	if(verbose > 0){
@@ -150,6 +149,7 @@ int main(int argc, char* argv[])
 
 	//Configure settings
 	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
+        printf("Set threshold to: %d.\n",thrs);};
 	int inhib = 50;		//inhibition time on trigger block
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive
