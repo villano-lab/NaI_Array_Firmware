@@ -180,7 +180,7 @@ int main(int argc, char* argv[])
 
         //set up the rate counter
         int rate_q;
-        uint32_t rateval[16]; //needs to be pre-allocated
+        uint32_t rateval[160]; //needs to be pre-allocated
         uint32_t ratechan=1;
         uint32_t ratetimeout=10; //timeout in ms
         uint32_t *rateread_data,*ratevalid_data;
