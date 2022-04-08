@@ -140,7 +140,7 @@ int main(int argc, char* argv[])
 	R_Init();
 	//If can't connect to the board, abort.
 	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
-		printf("Unable to connect to the board!\n"); 
+		if(verbose>-1){printf("Unable to connect to the board!\n");};
 		if(logfile != NULL){fprintf(logfile,"Unable to connect to the board at %s!\n",BOARD_IP_ADDRESS);};
 		return (-1); 
 	}else{
@@ -203,7 +203,7 @@ int main(int argc, char* argv[])
                 sleep(1);
                
                 //get the rate
-				if(verbose > 1){printf("Retreiving data...")};
+				if(verbose > 1){printf("Retreiving data...");};
                 rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
 				if(verbose > 1){printf("Rateval: %d",rateval[0]);};
 
