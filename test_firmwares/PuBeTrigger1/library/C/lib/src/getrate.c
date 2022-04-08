@@ -42,7 +42,7 @@ char *board_ip_char = const_cast<char*>(BOARD_IP_ADDRESS.c_str());*/
 const struct option longopts[] =
 {
 	{"help",	no_argument,		0,	'h'},
-	{"log",	optional_argument,	0,	'l'},
+	{"log",		optional_argument,	0,	'l'},
 	{"quiet",	no_argument,		0,	'q'},
 	{"silent",	no_argument,		0,	's'},
 	{"verbose",	optional_argument,	0,	'v'},
@@ -176,7 +176,7 @@ int main(int argc, char* argv[])
 	
 
 	//Run phase - undo reset
-	printf("Running until keyboard interrupt. Press any key to end acquisition.\n");
+	if(verbose>0){printf("Setting up rate counter... \n");};
 	tic = time(NULL);
 
         //set up the rate counter
@@ -186,6 +186,8 @@ int main(int argc, char* argv[])
         uint32_t ratetimeout=10; //timeout in ms
         uint32_t *rateread_data,*ratevalid_data;
 	
+	if(verbose>0){printf("Collecting data! \n");};
+
 	//Collect data
 	fprintf(fp,"treshold, rate\n"); // add a title
         for(int i=0; i<1000; i++){	
@@ -201,7 +203,9 @@ int main(int argc, char* argv[])
                 sleep(1);
                
                 //get the rate
+				if(verbose > 1){printf("Retreiving data...")};
                 rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
+				if(verbose > 1){printf("Rateval: %d",rateval[0]);};
 
 			//write the rate
 			fprintf(fp,"%d, %d\n",thrs,rateval[0]);
