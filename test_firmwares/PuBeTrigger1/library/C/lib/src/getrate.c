@@ -189,10 +189,12 @@ int main(int argc, char* argv[])
 
 	//Collect data
 	fprintf(fp,"treshold, rate\n"); // add a title
-		if(verbose>1){printf("Updating threshold.\n");};
         for(int i=0; i<1000; i++){	
-                //reset the threshold
+            //reset the threshold
+			if(verbose>1){printf("Updating threshold:");};
 			thrs = 8*i;
+			if(verbose>1){printf("%d\n",thrs);};
+
 	        if(polarity==0){
 	        	thrs_q = REG_thrs_SET(8192-thrs,&handle);	//Set cutoff for GT check
 	        }else if(polarity==1){
