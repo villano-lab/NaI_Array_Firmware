@@ -203,7 +203,7 @@ int main(int argc, char* argv[])
 	        }else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
 
 			//wait
-			sleep(1);
+			sleep(10);
 			
 			//get the rate
 			if(verbose > 1){printf("Retreiving data...\n");};
