@@ -9,3 +9,4 @@ ex2
 *.swp
 #Backups
 *.scf_bk
+.ipynb_checkpoints
