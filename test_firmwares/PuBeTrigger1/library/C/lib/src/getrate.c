@@ -190,7 +190,7 @@ int main(int argc, char* argv[])
 	if(verbose>0){printf("Collecting data! \n");};
 	//Collect data
 	int i;
-        for(i=0; i<1000; i++){	
+        for(i=0; i<1024; i++){	
             //reset the threshold
 			if(verbose>1){printf("Updating threshold:\n");};
 			thrs = 8*i;
