@@ -183,7 +183,8 @@ int main(int argc, char* argv[])
         uint32_t rateval[160]; //needs to be pre-allocated
         uint32_t ratechan=1;
         uint32_t ratetimeout=10; //timeout in ms
-        uint32_t *rateread_data,*ratevalid_data;
+        uint32_t rateread_data=0;
+        uint32_t ratevalid_data=0;
 	
 	fprintf(fp,"treshold, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
@@ -206,7 +207,7 @@ int main(int argc, char* argv[])
 			
 			//get the rate
 			if(verbose > 1){printf("Retreiving data...\n");};
-			rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, rateread_data, ratevalid_data);
+			rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, &rateread_data, &ratevalid_data);
 			if(verbose > 1){printf("Rateval: %d\n",rateval[0]);};
 
 			//write the rate
