@@ -189,7 +189,7 @@ int main(int argc, char* argv[])
         uint32_t rateread_data=0;
         uint32_t ratevalid_data=0;
 	
-	fprintf(fp,"treshold, rate\n"); // add a header row
+	fprintf(fp,"ttop, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
 	//Collect data
 	int i;
@@ -211,7 +211,7 @@ int main(int argc, char* argv[])
 
 			//write the rate
 			fprintf(fp,"%d, %d\n",top,rateval[0]);
-	        if(verbose>1){printf("thresh: %d ; rate: %d Hz\n",top,rateval[0]);};
+	        if(verbose>1){printf("top: %d ; rate: %d Hz\n",top,rateval[0]);};
 	};
 
 	if(verbose>0){printf("Data collection complete.\n");};
