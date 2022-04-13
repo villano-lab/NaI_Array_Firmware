@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Wed Apr 13 14:56:09 2022
+# Process ID: 17224
+# Current directory: C:/OpenHardware/UserProject/PuBeTrigger5/HDL
+# Command line: vivado.exe -mode batch -source C:/OpenHardware/UserProject/PuBeTrigger5/HDL/PuBeTrigger5.tcl
+# Log file: C:/OpenHardware/UserProject/PuBeTrigger5/HDL/vivado.log
+# Journal file: C:/OpenHardware/UserProject/PuBeTrigger5/HDL\vivado.jou
+#-----------------------------------------------------------
+source C:/OpenHardware/UserProject/PuBeTrigger5/HDL/PuBeTrigger5.tcl
+create_project -in_memory generateNetlistIP -part xc7z030fbg676-2
+read_ip C:/OpenHardware/UserProject/PuBeTrigger5/output/PuBeTrigger5/PuBeTrigger5.srcs/sources_1/ip/clk_wiz_0.xcix
+create_project -in_memory generateNetlistIP -part xc7z030fbg676-2
+read_ip C:/OpenHardware/UserProject/PuBeTrigger5/output/PuBeTrigger5/PuBeTrigger5.srcs/sources_1/ip/fifo_generator_0.xcix
+create_project -in_memory generateNetlistIP -part xc7z030fbg676-2
+read_ip C:/OpenHardware/UserProject/PuBeTrigger5/output/PuBeTrigger5/PuBeTrigger5.srcs/sources_1/ip/main_clock/main_clock.xci

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z030fbg676-2" LaunchTime="1649884265">
+  <File Type="PWROPT-DCP" Name="top_PuBeTrigger5_pwropt.dcp"/>
+  <File Type="ROUTE-PWR" Name="top_PuBeTrigger5_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="top_PuBeTrigger5.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="top_PuBeTrigger5_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="top_PuBeTrigger5_reports.tcl"/>
+  <File Type="BG-DRC" Name="top_PuBeTrigger5.drc"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="top_PuBeTrigger5_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="top_PuBeTrigger5_timing_summary_init.rpt"/>
+  <File Type="OPT-HWDEF" Name="top_PuBeTrigger5.hwdef"/>
+  <File Type="OPT-DCP" Name="top_PuBeTrigger5_opt.dcp"/>
+  <File Type="OPT-DRC" Name="top_PuBeTrigger5_drc_opted.rpt"/>
+  <File Type="OPT-TIMING" Name="top_PuBeTrigger5_timing_summary_opted.rpt"/>
+  <File Type="PWROPT-DRC" Name="top_PuBeTrigger5_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="top_PuBeTrigger5_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="top_PuBeTrigger5_placed.dcp"/>
+  <File Type="PLACE-IO" Name="top_PuBeTrigger5_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="top_PuBeTrigger5_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="top_PuBeTrigger5_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="top_PuBeTrigger5_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="top_PuBeTrigger5_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="top_PuBeTrigger5_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="top_PuBeTrigger5_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="top_PuBeTrigger5_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="top_PuBeTrigger5_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="top_PuBeTrigger5_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="top_PuBeTrigger5_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="top_PuBeTrigger5_drc_physopted.rpt"/>
+  <File Type="BG-BIT" Name="top_PuBeTrigger5.bit"/>
+  <File Type="PHYSOPT-TIMING" Name="top_PuBeTrigger5_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="top_PuBeTrigger5_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="top_PuBeTrigger5_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="top_PuBeTrigger5_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="top_PuBeTrigger5_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="top_PuBeTrigger5_drc_routed.pb"/>
+  <File Type="BITSTR-MSK" Name="top_PuBeTrigger5.msk"/>
+  <File Type="ROUTE-DRC-RPX" Name="top_PuBeTrigger5_drc_routed.rpx"/>
+  <File Type="BG-BGN" Name="top_PuBeTrigger5.bgn"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="top_PuBeTrigger5_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-RBT" Name="top_PuBeTrigger5.rbt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="top_PuBeTrigger5_methodology_drc_routed.rpx"/>
+  <File Type="BG-BIN" Name="top_PuBeTrigger5.bin"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="top_PuBeTrigger5_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="top_PuBeTrigger5_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="top_PuBeTrigger5_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="top_PuBeTrigger5_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="top_PuBeTrigger5_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="top_PuBeTrigger5_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="top_PuBeTrigger5_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="top_PuBeTrigger5_incremental_reuse_routed.rpt"/>
+  <File Type="RDI-RDI" Name="top_PuBeTrigger5.vdi"/>
+  <File Type="ROUTE-CLK" Name="top_PuBeTrigger5_clock_utilization_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="top_PuBeTrigger5_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="top_PuBeTrigger5_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="top_PuBeTrigger5_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="top_PuBeTrigger5_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="top_PuBeTrigger5_timing_summary_postroute_physopted.rpx"/>
+  <File Type="BITSTR-NKY" Name="top_PuBeTrigger5.nky"/>
+  <File Type="BITSTR-BMM" Name="top_PuBeTrigger5_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="top_PuBeTrigger5.mmi"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="top_PuBeTrigger5.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="top_PuBeTrigger5.sysdef"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/ip/clk_wiz_0.xcix">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/clk_wiz_0.xcix"/>
+        <Attr Name="ImportTime" Val="1551112290"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/clk_wiz_0/clk_wiz_0.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/clk_wiz_0/clk_wiz_0.xci"/>
+        <Attr Name="ImportTime" Val="1551111190"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/fifo_generator_0.xcix">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/fifo_generator_0.xcix"/>
+        <Attr Name="ImportTime" Val="1525111844"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/fifo_generator_0/fifo_generator_0.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/fifo_generator_0/fifo_generator_0.xci"/>
+        <Attr Name="ImportTime" Val="1525104260"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/main_clock/main_clock.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/main_clock.xci"/>
+        <Attr Name="ImportTime" Val="1635378726"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/subpage_TriggerWindow.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/subpage_TriggerWindow.vhd"/>
+        <Attr Name="ImportTime" Val="1649883367"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/top_PuBeTrigger5.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/top_PuBeTrigger5.vhd"/>
+        <Attr Name="ImportTime" Val="1649883363"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/ADC1.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/ADC1.v"/>
+        <Attr Name="ImportTime" Val="1525728054"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/ADC2.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/ADC2.v"/>
+        <Attr Name="ImportTime" Val="1524602854"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/adcs_top.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/adcs_top.vhd"/>
+        <Attr Name="ImportTime" Val="1635535412"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/adc_interface.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/adc_interface.vhd"/>
+        <Attr Name="ImportTime" Val="1551121946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/avalon_wrapper.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/avalon_wrapper.vhd"/>
+        <Attr Name="ImportTime" Val="1649883363"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/MCRateMeter.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/MCRateMeter.vhd"/>
+        <Attr Name="ImportTime" Val="1649883362"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/polinvert.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/polinvert.vhd"/>
+        <Attr Name="ImportTime" Val="1649883365"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/trigger_leading.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/trigger_leading.vhd"/>
+        <Attr Name="ImportTime" Val="1601571716"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/xlx_delay.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/xlx_delay.vhd"/>
+        <Attr Name="ImportTime" Val="1623278676"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/xlx_soft_gd.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/xlx_soft_gd.vhd"/>
+        <Attr Name="ImportTime" Val="1565049970"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/ZynqDesign_wrapper.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/ZynqDesign_wrapper.vhd"/>
+        <Attr Name="ImportTime" Val="1635535692"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/ZynqDesign/ZynqDesign.bd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="top_PuBeTrigger5"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/HDL/DT5560_pins.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/DT5560_pins.xdc"/>
+        <Attr Name="ImportTime" Val="1635538176"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream">
+      <Option Id="BinFile">1</Option>
+    </Step>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_xbar_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_auto_cc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_FIRMWAREOPTIONS_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_auto_pc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_auto_pc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_util_vector_logic_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_auto_cc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_tft_display_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_auto_us_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_IICBaseInterconnection_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_axis_data_fifo_3_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_axis_data_fifo_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_rst_ps7_0_125M1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_axi_amm_bridge_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_axi_iic_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_FIRMWAREBUILD_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_axis_data_fifo_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_axis_data_fifo_2_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_processing_system7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_rst_ps7_0_125M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_data_mover_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_util_vector_logic_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_RESET_TX_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_FirmwareStatus_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_OPTOLINK_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_ADCSyncModule_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_NIDNAPort_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_OPTOLINK_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_FS_0_AXIFIFO_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_RESET_RX_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ZynqDesign_FIRMWAREVERSION_0"/>
+</GenRun>
