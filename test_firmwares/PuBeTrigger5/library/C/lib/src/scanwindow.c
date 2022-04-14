@@ -199,6 +199,7 @@ int main(int argc, char* argv[])
 	fprintf(fp,"ttop, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
 	//Collect data
+        sleep(10); //sleep before data taking
 	int i;
         for(i=0; i<1024; i++){	
             //reset the threshold
