@@ -152,8 +152,8 @@ int main(int argc, char* argv[])
 	};
 
 	//Configure settings
-	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
-        int top = 16000; //way high so it's irrelevant
+	int thrs = 0;	        //amount LESS THAN 8192 for threshold.
+        int top = 8192; //way high so it's irrelevant
         int delay = 3; 
         int gate = 10; 
 	int inhib = 50;		//inhibition time on trigger block
