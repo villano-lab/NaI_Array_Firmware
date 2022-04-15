@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Apr 15 14:33:04 2022
+# Process ID: 19956
+# Current directory: C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/PuBeTrigger6/output/PuBeTrigger6/PuBeTrigger6.runs/synth_1
+# Command line: vivado.exe -log top_PuBeTrigger6.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_PuBeTrigger6.tcl
+# Log file: C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/PuBeTrigger6/output/PuBeTrigger6/PuBeTrigger6.runs/synth_1/top_PuBeTrigger6.vds
+# Journal file: C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/PuBeTrigger6/output/PuBeTrigger6/PuBeTrigger6.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source top_PuBeTrigger6.tcl -notrace
