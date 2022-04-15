@@ -177,6 +177,7 @@ int main(int argc, char* argv[])
 	}else if(polarity==1){
 		thrs_q = REG_thrs_SET(8192+thrs,&handle);	//addition isn't working?
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
+        top_q = REG_top_SET(8192-top,&handle);	//set upper level
 	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
 	delay_q = REG_delay_SET(delay,&handle);			//Set number of samples to delay data by
 	gate_q = REG_gate_SET(gate,&handle);			
