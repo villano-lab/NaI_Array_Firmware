@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("8e4a2a4a-7607-4ac0-ad63-68cf8d8ca6e2") = "UniversalTrigger0_Example", "UniversalTrigger0_EXAMPLE.vcxproj", "f052aac9-ace3-4411-b937-eb86d0350351"
+EndProject
+Project("8e4a2a4a-7607-4ac0-ad63-68cf8d8ca6e2") = "UniversalTrigger0_LIB", "UniversalTrigger0_LIB.vcxproj", "170f2198-a66b-4be5-a460-834ab803a093"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		f052aac9-ace3-4411-b937-eb86d0350351.Debug|x86.ActiveCfg = Debug|Win32
+		f052aac9-ace3-4411-b937-eb86d0350351.Debug|x86.Build.0 = Debug|Win32
+		f052aac9-ace3-4411-b937-eb86d0350351.Release|x86.ActiveCfg = Release|Win32
+		f052aac9-ace3-4411-b937-eb86d0350351.Release|x86.Build.0 = Release|Win32
+		170f2198-a66b-4be5-a460-834ab803a093.Debug|x86.ActiveCfg = Debug|Win32
+		170f2198-a66b-4be5-a460-834ab803a093.Debug|x86.Build.0 = Debug|Win32
+		170f2198-a66b-4be5-a460-834ab803a093.Release|x86.ActiveCfg = Release|Win32
+		170f2198-a66b-4be5-a460-834ab803a093.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
