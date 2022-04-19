@@ -4,8 +4,15 @@ ex2
 *.o
 *.so
 *.exe
+#Other make/compile results
+lib*.txt
+#Unnamed output
+out.csv
 #Swap files
 *.swp
 #Backups
 *.scf_bk
 .ipynb_checkpoints
+#Caches
+.build-debug/
+Debug/
