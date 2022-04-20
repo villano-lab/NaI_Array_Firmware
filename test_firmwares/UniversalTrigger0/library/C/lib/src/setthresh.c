@@ -101,30 +101,9 @@ int main(int argc, char* argv[])
 {
 	//Before reading arguments, turn on all detectors.
 	//This makes sure they are all on by default without potentially overwriting user input
-	disable_q[0 ] = REG_disable_det_0_SET (0, &handle);
-	disable_q[1 ] = REG_disable_det_1_SET (0, &handle);
-	disable_q[2 ] = REG_disable_det_2_SET (0, &handle);
-	disable_q[3 ] = REG_disable_det_3_SET (0, &handle);
-	disable_q[4 ] = REG_disable_det_4_SET (0, &handle);
-	disable_q[5 ] = REG_disable_det_5_SET (0, &handle);
-	disable_q[6 ] = REG_disable_det_6_SET (0, &handle);
-	disable_q[7 ] = REG_disable_det_7_SET (0, &handle);
-	disable_q[8 ] = REG_disable_det_8_SET (0, &handle);
-	disable_q[9 ] = REG_disable_det_9_SET (0, &handle);
-	disable_q[10] = REG_disable_det_10_SET(0, &handle);
-	disable_q[11] = REG_disable_det_11_SET(0, &handle);
-	disable_q[12] = REG_disable_det_12_SET(0, &handle);
-	disable_q[13] = REG_disable_det_13_SET(0, &handle);
-	disable_q[14] = REG_disable_det_14_SET(0, &handle);
-	disable_q[15] = REG_disable_det_15_SET(0, &handle);
-	disable_q[16] = REG_disable_det_16_SET(0, &handle);
-	disable_q[17] = REG_disable_det_17_SET(0, &handle);
-	disable_q[18] = REG_disable_det_18_SET(0, &handle);
-	disable_q[19] = REG_disable_det_19_SET(0, &handle);
-	disable_q[20] = REG_disable_det_20_SET(0, &handle);
-	disable_q[21] = REG_disable_det_21_SET(0, &handle);
-	disable_q[22] = REG_disable_det_22_SET(0, &handle);
-	disable_q[23] = REG_disable_det_23_SET(0, &handle);
+	for(int i; i<24; i++){
+		disable_q[i] = 0;
+	}
 
 	//Read options
 	int index;
@@ -179,32 +158,36 @@ int main(int argc, char* argv[])
 			};
 				value = value ^ 16777215; //Bitwise flip since we're enabling but firmware is disabling.
 				//Now disable anything that's 1 after the flip and leave everything else on
-				disable_q[0 ] = REG_disable_det_0_SET ((value >> 0 ) & 1, &handle);
-				disable_q[1 ] = REG_disable_det_1_SET ((value >> 1 ) & 1, &handle);
-				disable_q[2 ] = REG_disable_det_2_SET ((value >> 2 ) & 1, &handle);
-				disable_q[3 ] = REG_disable_det_3_SET ((value >> 3 ) & 1, &handle);
-				disable_q[4 ] = REG_disable_det_4_SET ((value >> 4 ) & 1, &handle);
-				disable_q[5 ] = REG_disable_det_5_SET ((value >> 5 ) & 1, &handle);
-				disable_q[6 ] = REG_disable_det_6_SET ((value >> 6 ) & 1, &handle);
-				disable_q[7 ] = REG_disable_det_7_SET ((value >> 7 ) & 1, &handle);
-				disable_q[8 ] = REG_disable_det_8_SET ((value >> 8 ) & 1, &handle);
-				disable_q[9 ] = REG_disable_det_9_SET ((value >> 9 ) & 1, &handle);
-				disable_q[10] = REG_disable_det_10_SET((value >> 10) & 1, &handle);
-				disable_q[11] = REG_disable_det_11_SET((value >> 11) & 1, &handle);
-				disable_q[12] = REG_disable_det_12_SET((value >> 12) & 1, &handle);
-				disable_q[13] = REG_disable_det_13_SET((value >> 13) & 1, &handle);
-				disable_q[14] = REG_disable_det_14_SET((value >> 14) & 1, &handle);
-				disable_q[15] = REG_disable_det_15_SET((value >> 15) & 1, &handle);
-				disable_q[16] = REG_disable_det_16_SET((value >> 16) & 1, &handle);
-				disable_q[17] = REG_disable_det_17_SET((value >> 17) & 1, &handle);
-				disable_q[18] = REG_disable_det_18_SET((value >> 18) & 1, &handle);
-				disable_q[19] = REG_disable_det_19_SET((value >> 19) & 1, &handle);
-				disable_q[20] = REG_disable_det_20_SET((value >> 20) & 1, &handle);
-				disable_q[21] = REG_disable_det_21_SET((value >> 21) & 1, &handle);
-				disable_q[22] = REG_disable_det_22_SET((value >> 22) & 1, &handle);
-				disable_q[23] = REG_disable_det_23_SET((value >> 23) & 1, &handle);
+				for(int i; i<24; i++){
+					disable_q[i] = (value >> 0) & 1;
+				}
 		}
 	}
+
+	disable_q[0 ] = REG_disable_det_0_SET (disable_q[0 ], &handle);
+	disable_q[1 ] = REG_disable_det_1_SET (disable_q[1 ], &handle);
+	disable_q[2 ] = REG_disable_det_2_SET (disable_q[2 ], &handle);
+	disable_q[3 ] = REG_disable_det_3_SET (disable_q[3 ], &handle);
+	disable_q[4 ] = REG_disable_det_4_SET (disable_q[4 ], &handle);
+	disable_q[5 ] = REG_disable_det_5_SET (disable_q[5 ], &handle);
+	disable_q[6 ] = REG_disable_det_6_SET (disable_q[6 ], &handle);
+	disable_q[7 ] = REG_disable_det_7_SET (disable_q[7 ], &handle);
+	disable_q[8 ] = REG_disable_det_8_SET (disable_q[8 ], &handle);
+	disable_q[9 ] = REG_disable_det_9_SET (disable_q[9 ], &handle);
+	disable_q[10] = REG_disable_det_10_SET(disable_q[10], &handle);
+	disable_q[11] = REG_disable_det_11_SET(disable_q[11], &handle);
+	disable_q[12] = REG_disable_det_12_SET(disable_q[12], &handle);
+	disable_q[13] = REG_disable_det_13_SET(disable_q[13], &handle);
+	disable_q[14] = REG_disable_det_14_SET(disable_q[14], &handle);
+	disable_q[15] = REG_disable_det_15_SET(disable_q[15], &handle);
+	disable_q[16] = REG_disable_det_16_SET(disable_q[16], &handle);
+	disable_q[17] = REG_disable_det_17_SET(disable_q[17], &handle);
+	disable_q[18] = REG_disable_det_18_SET(disable_q[18], &handle);
+	disable_q[19] = REG_disable_det_19_SET(disable_q[19], &handle);
+	disable_q[20] = REG_disable_det_20_SET(disable_q[20], &handle);
+	disable_q[21] = REG_disable_det_21_SET(disable_q[21], &handle);
+	disable_q[22] = REG_disable_det_22_SET(disable_q[22], &handle);
+	disable_q[23] = REG_disable_det_23_SET(disable_q[23], &handle);
 
 	//get the rest of the filenames in a vector of strings
   	if(optind==argc){
