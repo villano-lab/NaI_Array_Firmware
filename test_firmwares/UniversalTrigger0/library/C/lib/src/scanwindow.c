@@ -276,10 +276,10 @@ int main(int argc, char* argv[])
 	//Collect data
         sleep(10); //sleep before data taking
 	int i;
-        for(i=0; i<1024; i++){	
+        for(i=0; i<102; i++){	
             //reset the threshold
 			if(verbose>1){printf("Updating top window:\n");};
-			top = thrs+4*i;
+			top = thrs+40*i;
 			if(verbose>1){printf("%d\n",top);};
 
 	        	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
