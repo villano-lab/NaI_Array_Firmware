@@ -61,7 +61,7 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
   	fprintf (stream,
 	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
 	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
-	" -v,	--verbose	<level>		Print verbose messages at the specified level (default: 1).\n"
+	" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
 	" -s,-q,	--silent,--quiet,		Print nothing.\n"
 	" -l,	--log		<file>		Log terminal output.\n"
 	" -V, 	--version			Print version and exit.\n"
@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
 {
 	//Before reading arguments, turn on all detectors.
 	//This makes sure they are all on by default without potentially overwriting user input
-	for(int i; i<24; i++){
+	for(int i=0; i<24; i++){
 		disable_q[i] = 0;
 	}
 
@@ -131,7 +131,7 @@ int main(int argc, char* argv[])
 			return 0;
 			break;
 		case 'V':
-			printf("Integrate!\n");
+			printf("Set Thresh\n");
 			printf("Copyright (c) 2022 Anthony Villano, Kitty Harris \n");
 			printf("License: The Expat license  <https://spdx.org/licenses/MIT.html> \n");
 			printf("This is free software: you are free to change and redistribute it. \n");
@@ -158,10 +158,51 @@ int main(int argc, char* argv[])
 			};
 				value = value ^ 16777215; //Bitwise flip since we're enabling but firmware is disabling.
 				//Now disable anything that's 1 after the flip and leave everything else on
-				for(int i; i<24; i++){
+				for(int i=0; i<24; i++){
 					disable_q[i] = (value >> 0) & 1;
 				}
 		}
+	}
+
+	//get the rest of the filenames in a vector of strings
+  	if(optind==argc){
+    	printf("ERROR! No threshold value was given to set.");
+    	exit(1);
+  	}
+  	int thrs = atoi(argv[optind]);
+
+	//Connect to the board. 
+	if(verbose > 0){
+		printf("Running in verbose mode. Verbosity:%d\n",verbose);
+	};
+	R_Init();
+	//If can't connect to the board, abort.
+	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
+		printf("Unable to connect to the board!\n"); 
+		if(logfile != NULL){fprintf(logfile,"Unable to connect to the board at %s!\n",BOARD_IP_ADDRESS);};
+		return (-1); 
+	}else{
+		if(verbose>0){printf("Connected.\n");};
+		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
+	};
+
+	if(verbose>0){
+		printf("Enabling the following detectors: ");
+		for(int i=0;i<24;i++){
+			if(disable_q[i] == 0){
+				printf("%d, ",i);
+			}
+		}
+		printf("\b\b.\n");
+	};
+	if(verbose>1){
+		printf("Disabling the following detectors: ");
+		for(int i=0;i<24;i++){
+			if(disable_q[i] == 1){
+				printf("%d, ",i);
+			}
+		}
+		printf("\b\b.\n");
 	}
 
 	disable_q[0 ] = REG_disable_det_0_SET (disable_q[0 ], &handle);
@@ -189,27 +230,42 @@ int main(int argc, char* argv[])
 	disable_q[22] = REG_disable_det_22_SET(disable_q[22], &handle);
 	disable_q[23] = REG_disable_det_23_SET(disable_q[23], &handle);
 
-	//get the rest of the filenames in a vector of strings
-  	if(optind==argc){
-    	printf("ERROR! No threshold value was given to set.");
-    	exit(1);
-  	}
-  	int thrs = atoi(argv[optind]);
-
-	//Connect to the board. 
-	if(verbose > 0){
-		printf("Running in verbose mode. Verbosity:%d\n",verbose);
-	};
-	R_Init();
-	//If can't connect to the board, abort.
-	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
-		printf("Unable to connect to the board!\n"); 
-		if(logfile != NULL){fprintf(logfile,"Unable to connect to the board at %s!\n",BOARD_IP_ADDRESS);};
-		return (-1); 
-	}else{
-		if(verbose>0){printf("Connected.\n");};
-		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
-	};
+	for(int i=0; i<24; i++){
+		if(disable_q[i] != 0){
+			printf("Unable to set on/off state of detector #%d! Aborting.\n",i);
+			return -1;
+		}
+	}
+	if(verbose > 1){
+		int disable[24];
+		disable_q[0 ] = REG_disable_det_0_GET (&disable[0 ], &handle);
+		disable_q[1 ] = REG_disable_det_1_GET (&disable[1 ], &handle);
+		disable_q[2 ] = REG_disable_det_2_GET (&disable[2 ], &handle);
+		disable_q[3 ] = REG_disable_det_3_GET (&disable[3 ], &handle);
+		disable_q[4 ] = REG_disable_det_4_GET (&disable[4 ], &handle);
+		disable_q[5 ] = REG_disable_det_5_GET (&disable[5 ], &handle);
+		disable_q[6 ] = REG_disable_det_6_GET (&disable[6 ], &handle);
+		disable_q[7 ] = REG_disable_det_7_GET (&disable[7 ], &handle);
+		disable_q[8 ] = REG_disable_det_8_GET (&disable[8 ], &handle);
+		disable_q[9 ] = REG_disable_det_9_GET (&disable[9 ], &handle);
+		disable_q[10] = REG_disable_det_10_GET(&disable[10], &handle);
+		disable_q[11] = REG_disable_det_11_GET(&disable[11], &handle);
+		disable_q[12] = REG_disable_det_12_GET(&disable[12], &handle);
+		disable_q[13] = REG_disable_det_13_GET(&disable[13], &handle);
+		disable_q[14] = REG_disable_det_14_GET(&disable[14], &handle);
+		disable_q[15] = REG_disable_det_15_GET(&disable[15], &handle);
+		disable_q[16] = REG_disable_det_16_GET(&disable[16], &handle);
+		disable_q[17] = REG_disable_det_17_GET(&disable[17], &handle);
+		disable_q[18] = REG_disable_det_18_GET(&disable[18], &handle);
+		disable_q[19] = REG_disable_det_19_GET(&disable[19], &handle);
+		disable_q[20] = REG_disable_det_20_GET(&disable[20], &handle);
+		disable_q[21] = REG_disable_det_21_GET(&disable[21], &handle);
+		disable_q[22] = REG_disable_det_22_GET(&disable[22], &handle);
+		disable_q[23] = REG_disable_det_23_GET(&disable[23], &handle);
+		for(int i=0; i<24; i++){
+			printf("Detector #%d off? %d\n",i,disable[i]);
+		};
+	}
 
 	//Configure settings
         printf("Set threshold to: %d.\n",thrs);
