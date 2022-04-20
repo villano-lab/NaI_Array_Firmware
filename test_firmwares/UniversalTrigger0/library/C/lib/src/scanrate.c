@@ -34,6 +34,7 @@ int delay_q;
 int gate_q;
 int inhib_q;
 int polarity_q;
+char* selection;
 uint32_t value;
 int disable_q[24]; // array of disable_q instead of 24 initializations
 time_t tic, toc;
@@ -107,6 +108,8 @@ int main(int argc, char* argv[])
 		disable_q[i] = 0;
 	}
 
+	value = 16777215;
+
 	//Read options
 	int index;
 	int iarg=0;
@@ -145,24 +148,20 @@ int main(int argc, char* argv[])
 			}else{logfile = fopen("log.txt","w");};
 			break;
 		case 'd':
-			if(optarg == "PuBe" || optarg == "All" || optarg == "all"){ //case-insensitive matching
+			selection = optarg;
+			if((selection == "PuBe") || (selection == "All") || (selection == "all")){
 				value = 16777215;
-			}else if(optarg == "22Na" || optarg == "Na22" || optarg == "Na-22"){
+			}else if((selection == "22Na") || (selection == "Na22") || (selection == "Na-22") || (selection == "22na") || (selection == "na22") || (selection = "na-22")){
 				value = 14336; //10, 11, 12 (or 11, 12, 13 counting from 1)
-			}else if(optarg == "none" || optarg == "None"){
+			}else if((selection == "none") || (selection == "None")){
 				value = 0;
 			}else{ //If it's actually a number, use the number
-				value = atoi(optarg);
+				value = atoi(selection);
 				if(value < 0 || value > 16777215){
 					printf("Detector argument invalid. Please supply an integer from 0 to 16777215 or valid source ('PuBe', '22Na', 'All', 'None')");
 					return -1;
 				};
 			};
-				value = value ^ 16777215; //Bitwise flip since we're enabling but firmware is disabling.
-				//Now disable anything that's 1 after the flip and leave everything else on
-				for(int i=0; i<24; i++){
-					disable_q[i] = (value >> 0) & 1;
-				}
 		}
 	}
 
@@ -172,6 +171,22 @@ int main(int argc, char* argv[])
 	if(verbose > 0){
 		printf("Running in verbose mode. Verbosity:%d\n",verbose);
 	};
+
+	if(verbose > 1){
+		printf("Detector string value supplied: %s\n",selection);
+	}
+	if(verbose > 1){
+		printf("Bitwise detector numeric value supplied: %d\n",value);
+	}
+	value = value ^ 16777215; //Bitwise flip since we're enabling but firmware is disabling.
+	//We'll disable anything that's 1 after the flip and leave everything else on
+	for(int i=0; i<24; i++){
+		disable_q[i] = (value >> 0) & 1;
+	}
+	if(verbose > 1){
+		printf("Bit-flipped detector value: %d\n",value);
+	}
+
 	R_Init();
 	//If can't connect to the board, abort.
 	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
