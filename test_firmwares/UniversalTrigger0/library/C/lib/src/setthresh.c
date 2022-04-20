@@ -34,7 +34,7 @@ int delay_q;
 int gate_q;
 int inhib_q;
 int polarity_q;
-int value;
+uint32_t value;
 int disable_q[24]; // array of disable_q instead of 24 initializations
 time_t tic, toc;
 const char* program_name = "setthresh";
@@ -53,6 +53,7 @@ const struct option longopts[] =
 	{"verbose",	optional_argument,	0,	'v'},
 	{"version",	no_argument,		0,	'V'},
 	{"det",		required_argument,	0,	'd'},
+	{"thresh",	required_argument,	0,	't'}
 	{0,		0,			0,	0},
 };
 
@@ -61,7 +62,8 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
   	fprintf (stream,
 	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
 	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
-	" -v,	--verbose	<level>		Print verbose messages at the specified level (level 1 if unspecified).\n"
+	" -t,	--thresh	<threshold>		Set the value of the threshold (default: 4192). \n"
+	" -v,	--verbose	<level>		Print verbose messages at the specified level (default: 1).\n"
 	" -s,-q,	--silent,--quiet,		Print nothing.\n"
 	" -l,	--log		<file>		Log terminal output.\n"
 	" -V, 	--version			Print version and exit.\n"
@@ -125,6 +127,7 @@ int main(int argc, char* argv[])
 	disable_q[21] = REG_disable_det_21_SET(0, &handle);
 	disable_q[22] = REG_disable_det_22_SET(0, &handle);
 	disable_q[23] = REG_disable_det_23_SET(0, &handle);
+	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
 
 	//Read options
 	int index;
@@ -203,6 +206,8 @@ int main(int argc, char* argv[])
 				disable_q[21] = REG_disable_det_21_SET((value >> 21) & 1, &handle);
 				disable_q[22] = REG_disable_det_22_SET((value >> 22) & 1, &handle);
 				disable_q[23] = REG_disable_det_23_SET((value >> 23) & 1, &handle);
+			case 't':
+				thrs = atoi(optarg)
 		}
 	}
 
@@ -223,7 +228,6 @@ int main(int argc, char* argv[])
 	};
 
 	//Configure settings
-	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
         printf("Set threshold to: %d.\n",thrs);
 	int inhib = 50;		//inhibition time on trigger block
 	//things you probably won't change

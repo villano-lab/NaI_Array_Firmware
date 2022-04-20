@@ -34,7 +34,7 @@ int delay_q;
 int gate_q;
 int inhib_q;
 int polarity_q;
-int value;
+uint32_t value;
 int disable_q[24]; // array of disable_q instead of 24 initializations
 time_t tic, toc;
 const char* program_name = "scanrate";
