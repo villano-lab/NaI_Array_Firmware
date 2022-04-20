@@ -53,12 +53,12 @@ const struct option longopts[] =
 	{"verbose",	optional_argument,	0,	'v'},
 	{"version",	no_argument,		0,	'V'},
 	{"det",		required_argument,	0,	'd'},
-	{"thresh",	required_argument,	0,	't'}
+	{"thresh",	required_argument,	0,	't'},
 	{0,		0,			0,	0},
 };
 
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
-	fprintf (stream, "Usage:  %s options [ inputfile(s) ]\n", program_name);
+	fprintf (stream, "Usage:  %s options \n", program_name);
   	fprintf (stream,
 	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
 	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
@@ -207,7 +207,7 @@ int main(int argc, char* argv[])
 				disable_q[22] = REG_disable_det_22_SET((value >> 22) & 1, &handle);
 				disable_q[23] = REG_disable_det_23_SET((value >> 23) & 1, &handle);
 			case 't':
-				thrs = atoi(optarg)
+				thrs = atoi(optarg);
 		}
 	}
 

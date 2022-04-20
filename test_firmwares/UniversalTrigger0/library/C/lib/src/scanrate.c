@@ -59,7 +59,7 @@ const struct option longopts[] =
 };
 
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
-	fprintf (stream, "Usage:  %s options [ inputfile(s) ]\n", program_name);
+	fprintf (stream, "Usage:  %s options \n", program_name);
   	fprintf (stream,
 	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
 	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
