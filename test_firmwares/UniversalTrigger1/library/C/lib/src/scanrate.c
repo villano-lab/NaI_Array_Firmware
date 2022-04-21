@@ -21,7 +21,7 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "UniversalTrigger0_lib.h"
+#include  "UniversalTrigger1_lib.h"
 
 #define BOARD_IP_ADDRESS "134.84.150.42"
 

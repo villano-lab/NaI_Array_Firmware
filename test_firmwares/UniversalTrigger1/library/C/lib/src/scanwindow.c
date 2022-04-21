@@ -21,7 +21,7 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "UniversalTrigger0_lib.h"
+#include  "UniversalTrigger1_lib.h"
 
 #define BOARD_IP_ADDRESS "134.84.150.42"
 
@@ -39,14 +39,12 @@ uint32_t value;
 int disable_q[24]; // array of disable_q instead of 24 initializations
 int disable[24];
 time_t tic, toc;
-const char* program_name = "scanrate";
+const char* program_name = "scanwindow";
 FILE *fp;
 FILE *logfile;
 /*std::string outputfile="out.root";
 std::string BOARD_IP_ADDRESS = "134.84.150.42";
 char *board_ip_char = const_cast<char*>(BOARD_IP_ADDRESS.c_str());*/
-
-
 
 const struct option longopts[] =
 {
@@ -57,6 +55,7 @@ const struct option longopts[] =
 	{"verbose",	optional_argument,	0,	'v'},
 	{"version",	no_argument,		0,	'V'},
 	{"det",		required_argument,	0,	'd'},
+	{"thresh",	required_argument,	0,	't'},
 	{0,		0,			0,	0},
 };
 
@@ -65,7 +64,8 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
   	fprintf (stream,
 	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
 	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
-	" -v,	--verbose	<level>		Print verbose messages at the specified level (level 1 if unspecified).\n"
+	" -t,	--thresh	<threshold>		Set the value of the threshold (default: 4192). \n"
+	" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
 	" -s,-q,	--silent,--quiet,		Print nothing.\n"
 	" -l,	--log		<file>		Log terminal output.\n"
 	" -V, 	--version			Print version and exit.\n"
@@ -105,11 +105,10 @@ int main(int argc, char* argv[])
 {
 	//Before reading arguments, turn on all detectors.
 	//This makes sure they are all on by default without potentially overwriting user input
-	for(int i; i<24; i++){
+	for(int i=0; i<24; i++){
 		disable_q[i] = 0;
 	}
-
-	value = 16777215;
+	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
 
 	//Read options
 	int index;
@@ -137,7 +136,7 @@ int main(int argc, char* argv[])
 			return 0;
 			break;
 		case 'V':
-			printf("Scan Rate\n");
+			printf("Scan Window\n");
 			printf("Copyright (c) 2022 Anthony Villano, Kitty Harris \n");
 			printf("License: The Expat license  <https://spdx.org/licenses/MIT.html> \n");
 			printf("This is free software: you are free to change and redistribute it. \n");
@@ -163,6 +162,8 @@ int main(int argc, char* argv[])
 					return -1;
 				};
 			};
+		case 't':
+			thrs = atoi(optarg);
 		}
 	}
 
@@ -214,7 +215,10 @@ int main(int argc, char* argv[])
 		printf("\b\b.\n");
 	}
 
-	//Connect to the board.
+	//Connect to the board. 
+	if(verbose > 0){
+		printf("Running in verbose mode. Verbosity:%d\n",verbose);
+	};
 	R_Init();
 	//If can't connect to the board, abort.
 	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
@@ -225,7 +229,7 @@ int main(int argc, char* argv[])
 		if(verbose>0){printf("Connected.\n");};
 		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
 	};
-
+	
 	if(verbose>0){
 		printf("Enabling the following detectors: ");
 		for(int i=0;i<24;i++){
@@ -245,7 +249,6 @@ int main(int argc, char* argv[])
 		printf("\b\b.\n");
 	}
 
-	//Now set all the values we determined above
 	disable_q[0 ] = REG_disable_det_0_SET (disable_q[0 ], &handle);
 	disable_q[1 ] = REG_disable_det_1_SET (disable_q[1 ], &handle);
 	disable_q[2 ] = REG_disable_det_2_SET (disable_q[2 ], &handle);
@@ -309,11 +312,10 @@ int main(int argc, char* argv[])
 	}
 
 	//Configure settings
-	int thrs = 0;	        //amount LESS THAN 8192 for threshold.
-        int top = 8192; 	//way high so it's irrelevant
-        int delay = 3; 
-        int gate = 10; 
+        int top = thrs; //top of the window in trigger window
 	int inhib = 50;		//inhibition time on trigger block
+        int delay=3;
+        int gate=10;
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive
 	//things that are set based on external factors
@@ -334,9 +336,9 @@ int main(int argc, char* argv[])
 	}else if(polarity==1){
 		thrs_q = REG_thrsh_SET(8192+thrs,&handle);	//addition isn't working?
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
-        top_q = REG_top_SET(8192-top,&handle);	//set upper level
+	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
 	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
-	delay_q = REG_delay_SET(delay,&handle);			//Set number of samples to delay data by
+	delay_q = REG_delay_SET(delay,&handle);			
 	gate_q = REG_gate_SET(gate,&handle);			
 	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
 	
@@ -352,21 +354,18 @@ int main(int argc, char* argv[])
         uint32_t rateread_data=0;
         uint32_t ratevalid_data=0;
 	
-	fprintf(fp,"treshold, rate\n"); // add a header row
+	fprintf(fp,"ttop, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
 	//Collect data
+        sleep(10); //sleep before data taking
 	int i;
         for(i=0; i<102; i++){	
             //reset the threshold
-			if(verbose>1){printf("Updating threshold:\n");};
-			thrs = 80*i;
-			if(verbose>1){printf("%d\n",thrs);};
+			if(verbose>1){printf("Updating top window:\n");};
+			top = thrs+40*i;
+			if(verbose>1){printf("%d\n",top);};
 
-	        if(polarity==0){
-	        	thrs_q = REG_thrsh_SET(8192-thrs,&handle);	//Set cutoff for GT check
-	        }else if(polarity==1){
-	        	thrs_q = REG_thrsh_SET(8192+thrs,&handle);	//addition isn't working?
-	        }else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
+	        	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
 
 			//wait
 			sleep(10);
@@ -377,8 +376,8 @@ int main(int argc, char* argv[])
 			if(verbose > 1){printf("Rateval: %f\n",rateval[0]/10.0);};
 
 			//write the rate
-			fprintf(fp,"%d, %f\n",thrs,rateval[0]/10.0);
-	        if(verbose>1){printf("thresh: %d ; rate: %f Hz\n",thrs,rateval[0]/10.0);};
+			fprintf(fp,"%d, %f\n",top,rateval[0]/10.0);
+	        if(verbose>1){printf("top: %d ; rate: %f Hz\n",top,rateval[0]/10.0);};
 	};
 
 	if(verbose>0){printf("Data collection complete.\n");};

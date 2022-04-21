@@ -37,6 +37,7 @@ int polarity_q;
 char* selection;
 uint32_t value;
 int disable_q[24]; // array of disable_q instead of 24 initializations
+int disable[24];
 time_t tic, toc;
 const char* program_name = "scanwindow";
 FILE *fp;
@@ -151,7 +152,7 @@ int main(int argc, char* argv[])
 			if((selection == "PuBe") || (selection == "All") || (selection == "all")){
 				value = 16777215;
 			}else if((selection == "22Na") || (selection == "Na22") || (selection == "Na-22") || (selection == "22na") || (selection == "na22") || (selection = "na-22")){
-				value = 14336; //10, 11, 12 (or 11, 12, 13 counting from 1)
+				value = 7168; //10, 11, 12 (or 11, 12, 13 counting from 1)
 			}else if((selection == "none") || (selection == "None")){
 				value = 0;
 			}else{ //If it's actually a number, use the number
@@ -168,6 +169,12 @@ int main(int argc, char* argv[])
 
 	fp = fopen("out.csv","w");
 
+	//Verbosity message
+	if(verbose > 0){
+		printf("Running in verbose mode. Verbosity: %d\n",verbose);
+	};
+
+	//Detector on/off
 	if(verbose > 1){
 		printf("Detector string value supplied: %s\n",selection);
 	}
@@ -176,11 +183,36 @@ int main(int argc, char* argv[])
 	}
 	value = value ^ 16777215; //Bitwise flip since we're enabling but firmware is disabling.
 	//We'll disable anything that's 1 after the flip and leave everything else on
+	if(verbose > 2){
+		for(int i=0;i<24;i++){
+			printf("%d",value>>i & 1);
+		}
+		printf("\n");
+	}
 	for(int i=0; i<24; i++){
-		disable_q[i] = (value >> 0) & 1;
+		if(verbose > 1){printf("%d: %d, %d \n",i,value >> i, (value >> i) & 1);}
+		disable[i] = (value >> i) & 1;
 	}
 	if(verbose > 1){
 		printf("Bit-flipped detector value: %d\n",value);
+	}
+	if(verbose>0){
+		printf("Set to enable the following detectors: ");
+		for(int i=0;i<24;i++){
+			if(disable[i] == 0){
+				printf("%d, ",i);
+			}
+		}
+		printf("\b\b.\n");
+	};
+	if(verbose>1){
+		printf("Set to disable the following detectors: ");
+		for(int i=0;i<24;i++){
+			if(disable[i] == 1){
+				printf("%d, ",i);
+			}
+		}
+		printf("\b\b.\n");
 	}
 
 	//Connect to the board. 

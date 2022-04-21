@@ -149,7 +149,7 @@ int main(int argc, char* argv[])
 			if(strcmp(selection,"PuBe") == 0 || strcmp(selection, "All") == 0 || strcmp(selection, "all") == 0){
 				value = 16777215;
 			}else if(strcmp(selection, "22Na") == 0|| strcmp(selection, "Na22") == 0 || strcmp(selection, "Na-22") == 0 || strcmp(selection, "22na") == 0 || strcmp(selection, "na22") == 0 || strcmp(selection, "na-22") == 0){
-				value = 14336; //10, 11, 12 (or 11, 12, 13 counting from 1)
+				value = 7168; //10, 11, 12 (or 11, 12, 13 counting from 1)
 			}else if(strcmp(selection, "none") == 0 || strcmp(selection, "None") == 0){
 				value = 0;
 			}else{ //If it's actually a number, use the number
@@ -162,17 +162,19 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	//get the rest of the filenames in a vector of strings
+	//Main argument
   	if(optind==argc){
     	printf("ERROR! No threshold value was given to set.");
     	exit(1);
   	}
   	int thrs = atoi(argv[optind]);
 
+	//Verbosity message
 	if(verbose > 0){
-		printf("Running in verbose mode. Verbosity:%d\n",verbose);
+		printf("Running in verbose mode. Verbosity: %d\n",verbose);
 	};
 
+	//Detector on/off
 	if(verbose > 1){
 		printf("Detector string value supplied: %s\n",selection);
 	}
@@ -181,9 +183,15 @@ int main(int argc, char* argv[])
 	}
 	value = value ^ 16777215; //Bitwise flip since we're enabling but firmware is disabling.
 	//We'll disable anything that's 1 after the flip and leave everything else on
+	if(verbose > 2){
+		for(int i=0;i<24;i++){
+			printf("%d",value>>i & 1);
+		}
+		printf("\n");
+	}
 	for(int i=0; i<24; i++){
-		if(verbose > 1){printf("%d: %d\n",i,value >> 0);}
-		disable[i] = (value >> 0) & 1;
+		if(verbose > 2){printf("%d: %d, %d \n",i,value >> i, (value >> i) & 1);}
+		disable[i] = (value >> i) & 1;
 	}
 	if(verbose > 1){
 		printf("Bit-flipped detector value: %d\n",value);

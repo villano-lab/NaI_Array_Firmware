@@ -21,7 +21,7 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "UniversalTrigger0_lib.h"
+#include  "UniversalTrigger1_lib.h"
 
 #define BOARD_IP_ADDRESS "134.84.150.42"
 
@@ -39,14 +39,12 @@ uint32_t value;
 int disable_q[24]; // array of disable_q instead of 24 initializations
 int disable[24];
 time_t tic, toc;
-const char* program_name = "scanrate";
+const char* program_name = "setthresh";
 FILE *fp;
 FILE *logfile;
 /*std::string outputfile="out.root";
 std::string BOARD_IP_ADDRESS = "134.84.150.42";
 char *board_ip_char = const_cast<char*>(BOARD_IP_ADDRESS.c_str());*/
-
-
 
 const struct option longopts[] =
 {
@@ -61,11 +59,11 @@ const struct option longopts[] =
 };
 
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
-	fprintf (stream, "Usage:  %s options \n", program_name);
+	fprintf (stream, "Usage:  %s options [ threshold ]\n", program_name);
   	fprintf (stream,
 	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
 	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
-	" -v,	--verbose	<level>		Print verbose messages at the specified level (level 1 if unspecified).\n"
+	" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
 	" -s,-q,	--silent,--quiet,		Print nothing.\n"
 	" -l,	--log		<file>		Log terminal output.\n"
 	" -V, 	--version			Print version and exit.\n"
@@ -105,11 +103,9 @@ int main(int argc, char* argv[])
 {
 	//Before reading arguments, turn on all detectors.
 	//This makes sure they are all on by default without potentially overwriting user input
-	for(int i; i<24; i++){
+	for(int i=0; i<24; i++){
 		disable_q[i] = 0;
 	}
-
-	value = 16777215;
 
 	//Read options
 	int index;
@@ -137,7 +133,7 @@ int main(int argc, char* argv[])
 			return 0;
 			break;
 		case 'V':
-			printf("Scan Rate\n");
+			printf("Set Thresh\n");
 			printf("Copyright (c) 2022 Anthony Villano, Kitty Harris \n");
 			printf("License: The Expat license  <https://spdx.org/licenses/MIT.html> \n");
 			printf("This is free software: you are free to change and redistribute it. \n");
@@ -150,11 +146,11 @@ int main(int argc, char* argv[])
 			break;
 		case 'd':
 			selection = optarg;
-			if((selection == "PuBe") || (selection == "All") || (selection == "all")){
+			if(strcmp(selection,"PuBe") == 0 || strcmp(selection, "All") == 0 || strcmp(selection, "all") == 0){
 				value = 16777215;
-			}else if((selection == "22Na") || (selection == "Na22") || (selection == "Na-22") || (selection == "22na") || (selection == "na22") || (selection = "na-22")){
+			}else if(strcmp(selection, "22Na") == 0|| strcmp(selection, "Na22") == 0 || strcmp(selection, "Na-22") == 0 || strcmp(selection, "22na") == 0 || strcmp(selection, "na22") == 0 || strcmp(selection, "na-22") == 0){
 				value = 7168; //10, 11, 12 (or 11, 12, 13 counting from 1)
-			}else if((selection == "none") || (selection == "None")){
+			}else if(strcmp(selection, "none") == 0 || strcmp(selection, "None") == 0){
 				value = 0;
 			}else{ //If it's actually a number, use the number
 				value = atoi(selection);
@@ -166,7 +162,12 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	fp = fopen("out.csv","w");
+	//Main argument
+  	if(optind==argc){
+    	printf("ERROR! No threshold value was given to set.");
+    	exit(1);
+  	}
+  	int thrs = atoi(argv[optind]);
 
 	//Verbosity message
 	if(verbose > 0){
@@ -189,7 +190,7 @@ int main(int argc, char* argv[])
 		printf("\n");
 	}
 	for(int i=0; i<24; i++){
-		if(verbose > 1){printf("%d: %d, %d \n",i,value >> i, (value >> i) & 1);}
+		if(verbose > 2){printf("%d: %d, %d \n",i,value >> i, (value >> i) & 1);}
 		disable[i] = (value >> i) & 1;
 	}
 	if(verbose > 1){
@@ -214,11 +215,11 @@ int main(int argc, char* argv[])
 		printf("\b\b.\n");
 	}
 
-	//Connect to the board.
+	//Connect to the board. 
 	R_Init();
 	//If can't connect to the board, abort.
 	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
-		if(verbose>-1){printf("Unable to connect to the board!\n");};
+		printf("Unable to connect to the board!\n"); 
 		if(logfile != NULL){fprintf(logfile,"Unable to connect to the board at %s!\n",BOARD_IP_ADDRESS);};
 		return (-1); 
 	}else{
@@ -226,50 +227,30 @@ int main(int argc, char* argv[])
 		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
 	};
 
-	if(verbose>0){
-		printf("Enabling the following detectors: ");
-		for(int i=0;i<24;i++){
-			if(disable_q[i] == 0){
-				printf("%d, ",i);
-			}
-		}
-		printf("\b\b.\n");
-	};
-	if(verbose>1){
-		printf("Disabling the following detectors: ");
-		for(int i=0;i<24;i++){
-			if(disable_q[i] == 1){
-				printf("%d, ",i);
-			}
-		}
-		printf("\b\b.\n");
-	}
-
-	//Now set all the values we determined above
-	disable_q[0 ] = REG_disable_det_0_SET (disable_q[0 ], &handle);
-	disable_q[1 ] = REG_disable_det_1_SET (disable_q[1 ], &handle);
-	disable_q[2 ] = REG_disable_det_2_SET (disable_q[2 ], &handle);
-	disable_q[3 ] = REG_disable_det_3_SET (disable_q[3 ], &handle);
-	disable_q[4 ] = REG_disable_det_4_SET (disable_q[4 ], &handle);
-	disable_q[5 ] = REG_disable_det_5_SET (disable_q[5 ], &handle);
-	disable_q[6 ] = REG_disable_det_6_SET (disable_q[6 ], &handle);
-	disable_q[7 ] = REG_disable_det_7_SET (disable_q[7 ], &handle);
-	disable_q[8 ] = REG_disable_det_8_SET (disable_q[8 ], &handle);
-	disable_q[9 ] = REG_disable_det_9_SET (disable_q[9 ], &handle);
-	disable_q[10] = REG_disable_det_10_SET(disable_q[10], &handle);
-	disable_q[11] = REG_disable_det_11_SET(disable_q[11], &handle);
-	disable_q[12] = REG_disable_det_12_SET(disable_q[12], &handle);
-	disable_q[13] = REG_disable_det_13_SET(disable_q[13], &handle);
-	disable_q[14] = REG_disable_det_14_SET(disable_q[14], &handle);
-	disable_q[15] = REG_disable_det_15_SET(disable_q[15], &handle);
-	disable_q[16] = REG_disable_det_16_SET(disable_q[16], &handle);
-	disable_q[17] = REG_disable_det_17_SET(disable_q[17], &handle);
-	disable_q[18] = REG_disable_det_18_SET(disable_q[18], &handle);
-	disable_q[19] = REG_disable_det_19_SET(disable_q[19], &handle);
-	disable_q[20] = REG_disable_det_20_SET(disable_q[20], &handle);
-	disable_q[21] = REG_disable_det_21_SET(disable_q[21], &handle);
-	disable_q[22] = REG_disable_det_22_SET(disable_q[22], &handle);
-	disable_q[23] = REG_disable_det_23_SET(disable_q[23], &handle);
+	disable_q[0 ] = REG_disable_det_0_SET (disable[0 ], &handle);
+	disable_q[1 ] = REG_disable_det_1_SET (disable[1 ], &handle);
+	disable_q[2 ] = REG_disable_det_2_SET (disable[2 ], &handle);
+	disable_q[3 ] = REG_disable_det_3_SET (disable[3 ], &handle);
+	disable_q[4 ] = REG_disable_det_4_SET (disable[4 ], &handle);
+	disable_q[5 ] = REG_disable_det_5_SET (disable[5 ], &handle);
+	disable_q[6 ] = REG_disable_det_6_SET (disable[6 ], &handle);
+	disable_q[7 ] = REG_disable_det_7_SET (disable[7 ], &handle);
+	disable_q[8 ] = REG_disable_det_8_SET (disable[8 ], &handle);
+	disable_q[9 ] = REG_disable_det_9_SET (disable[9 ], &handle);
+	disable_q[10] = REG_disable_det_10_SET(disable[10], &handle);
+	disable_q[11] = REG_disable_det_11_SET(disable[11], &handle);
+	disable_q[12] = REG_disable_det_12_SET(disable[12], &handle);
+	disable_q[13] = REG_disable_det_13_SET(disable[13], &handle);
+	disable_q[14] = REG_disable_det_14_SET(disable[14], &handle);
+	disable_q[15] = REG_disable_det_15_SET(disable[15], &handle);
+	disable_q[16] = REG_disable_det_16_SET(disable[16], &handle);
+	disable_q[17] = REG_disable_det_17_SET(disable[17], &handle);
+	disable_q[18] = REG_disable_det_18_SET(disable[18], &handle);
+	disable_q[19] = REG_disable_det_19_SET(disable[19], &handle);
+	disable_q[20] = REG_disable_det_20_SET(disable[20], &handle);
+	disable_q[21] = REG_disable_det_21_SET(disable[21], &handle);
+	disable_q[22] = REG_disable_det_22_SET(disable[22], &handle);
+	disable_q[23] = REG_disable_det_23_SET(disable[23], &handle);
 
 	for(int i=0; i<24; i++){
 		if(disable_q[i] != 0){
@@ -278,7 +259,6 @@ int main(int argc, char* argv[])
 		}
 	}
 	if(verbose > 1){
-		int disable[24];
 		disable_q[0 ] = REG_disable_det_0_GET (&disable[0 ], &handle);
 		disable_q[1 ] = REG_disable_det_1_GET (&disable[1 ], &handle);
 		disable_q[2 ] = REG_disable_det_2_GET (&disable[2 ], &handle);
@@ -309,10 +289,7 @@ int main(int argc, char* argv[])
 	}
 
 	//Configure settings
-	int thrs = 0;	        //amount LESS THAN 8192 for threshold.
-        int top = 8192; 	//way high so it's irrelevant
-        int delay = 3; 
-        int gate = 10; 
+        printf("Set threshold to: %d.\n",thrs);
 	int inhib = 50;		//inhibition time on trigger block
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive
@@ -321,10 +298,10 @@ int main(int argc, char* argv[])
 	
 	if(logfile != NULL){
 		fprintf(logfile,"============ Settings ============\n");
-		fprintf(logfile,"Starting threshold:			%d\n",thrs);
-		fprintf(logfile,"Trigger Inhibition Time:		%d\n",inhib);
-		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);
-		fprintf(logfile,"External gain (filename only):	%g\n\n",extgain); //need a better name for "external gain"
+		fprintf(logfile,"Threshold:			%d\n",thrs);
+		fprintf(logfile,"Trigger Inhibition Time:	%d\n",inhib);
+		fprintf(logfile,"Polarity (Neg 0, Pos 1):	%d\n",polarity);
+		fprintf(logfile,"External gain (filename only):%g\n\n",extgain); //need a better name for "external gain"
 	};
 	
 	//Pass them along to the system
@@ -334,69 +311,9 @@ int main(int argc, char* argv[])
 	}else if(polarity==1){
 		thrs_q = REG_thrsh_SET(8192+thrs,&handle);	//addition isn't working?
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
-        top_q = REG_top_SET(8192-top,&handle);	//set upper level
 	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
-	delay_q = REG_delay_SET(delay,&handle);			//Set number of samples to delay data by
-	gate_q = REG_gate_SET(gate,&handle);			
 	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
 	
-	//Run phase - undo reset
-	if(verbose>0){printf("Setting up rate counter... \n");};
-	tic = time(NULL);
 
-        //set up the rate counter
-        int rate_q;
-        uint32_t rateval[160]; //needs to be pre-allocated
-        uint32_t ratechan=1;
-        uint32_t ratetimeout=10; //timeout in ms
-        uint32_t rateread_data=0;
-        uint32_t ratevalid_data=0;
-	
-	fprintf(fp,"treshold, rate\n"); // add a header row
-	if(verbose>0){printf("Collecting data! \n");};
-	//Collect data
-	int i;
-        for(i=0; i<102; i++){	
-            //reset the threshold
-			if(verbose>1){printf("Updating threshold:\n");};
-			thrs = 80*i;
-			if(verbose>1){printf("%d\n",thrs);};
-
-	        if(polarity==0){
-	        	thrs_q = REG_thrsh_SET(8192-thrs,&handle);	//Set cutoff for GT check
-	        }else if(polarity==1){
-	        	thrs_q = REG_thrsh_SET(8192+thrs,&handle);	//addition isn't working?
-	        }else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
-
-			//wait
-			sleep(10);
-			
-			//get the rate
-			if(verbose > 1){printf("Retreiving data...\n");};
-			rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, &rateread_data, &ratevalid_data);
-			if(verbose > 1){printf("Rateval: %f\n",rateval[0]/10.0);};
-
-			//write the rate
-			fprintf(fp,"%d, %f\n",thrs,rateval[0]/10.0);
-	        if(verbose>1){printf("thresh: %d ; rate: %f Hz\n",thrs,rateval[0]/10.0);};
-	};
-
-	if(verbose>0){printf("Data collection complete.\n");};
-	toc = time(NULL);
-	int elapsed = (int)toc-(int)tic; 	//total time elapsed
-	if(verbose>1){
-		printf("%d to %d\n",(int)tic,(int)toc);
-		printf("%d\n",elapsed);	//debug
-	};
-	int hours = floor(elapsed / 3600);
-	int minutes = floor((elapsed % 3600)/60);
-	int seconds = floor((elapsed % 60));
-	char* timestamp = malloc(100);
-	snprintf(timestamp,100,"%02d-%02d-%02d",hours,minutes,seconds);
-	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
-	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
-	if(verbose>1){printf("Closing files...");};
-	if(logfile != NULL){fclose(logfile);};
-	fclose(fp);
 	return 0;
 }
