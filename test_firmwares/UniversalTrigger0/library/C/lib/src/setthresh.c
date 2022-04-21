@@ -38,7 +38,6 @@ char* selection;
 uint32_t value;
 int disable_q[24]; // array of disable_q instead of 24 initializations
 uint32_t disable[24];
-uint32_t disable_fetch[24];
 
 time_t tic, toc;
 const char* program_name = "setthresh";
@@ -259,35 +258,6 @@ int main(int argc, char* argv[])
 			printf("Unable to set on/off state of detector #%d! Aborting.\n",i);
 			return -1;
 		}
-	}
-	if(verbose > 1){
-		disable_q[0 ] = REG_disable_det_0_GET (&disable_fetch[0 ], &handle);
-		disable_q[1 ] = REG_disable_det_1_GET (&disable_fetch[1 ], &handle);
-		disable_q[2 ] = REG_disable_det_2_GET (&disable_fetch[2 ], &handle);
-		disable_q[3 ] = REG_disable_det_3_GET (&disable_fetch[3 ], &handle);
-		disable_q[4 ] = REG_disable_det_4_GET (&disable_fetch[4 ], &handle);
-		disable_q[5 ] = REG_disable_det_5_GET (&disable_fetch[5 ], &handle);
-		disable_q[6 ] = REG_disable_det_6_GET (&disable_fetch[6 ], &handle);
-		disable_q[7 ] = REG_disable_det_7_GET (&disable_fetch[7 ], &handle);
-		disable_q[8 ] = REG_disable_det_8_GET (&disable_fetch[8 ], &handle);
-		disable_q[9 ] = REG_disable_det_9_GET (&disable_fetch[9 ], &handle);
-		disable_q[10] = REG_disable_det_10_GET(&disable_fetch[10], &handle);
-		disable_q[11] = REG_disable_det_11_GET(&disable_fetch[11], &handle);
-		disable_q[12] = REG_disable_det_12_GET(&disable_fetch[12], &handle);
-		disable_q[13] = REG_disable_det_13_GET(&disable_fetch[13], &handle);
-		disable_q[14] = REG_disable_det_14_GET(&disable_fetch[14], &handle);
-		disable_q[15] = REG_disable_det_15_GET(&disable_fetch[15], &handle);
-		disable_q[16] = REG_disable_det_16_GET(&disable_fetch[16], &handle);
-		disable_q[17] = REG_disable_det_17_GET(&disable_fetch[17], &handle);
-		disable_q[18] = REG_disable_det_18_GET(&disable_fetch[18], &handle);
-		disable_q[19] = REG_disable_det_19_GET(&disable_fetch[19], &handle);
-		disable_q[20] = REG_disable_det_20_GET(&disable_fetch[20], &handle);
-		disable_q[21] = REG_disable_det_21_GET(&disable_fetch[21], &handle);
-		disable_q[22] = REG_disable_det_22_GET(&disable_fetch[22], &handle);
-		disable_q[23] = REG_disable_det_23_GET(&disable_fetch[23], &handle);
-		for(int i=0; i<24; i++){
-			printf("Detector #%d off? %d (error code: %d)\n",i,disable_fetch[i],disable_q[i]);
-		};
 	}
 
 	//Configure settings
