@@ -1,0 +1,234 @@
+{"Registers":[
+{
+  "Name": "ratereset",
+  "Address": 65536,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "thrsh",
+  "Address": 65537,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "polarity",
+  "Address": 65538,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "top",
+  "Address": 65539,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gate",
+  "Address": 65540,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "inhib",
+  "Address": 65541,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "delay",
+  "Address": 65542,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_0",
+  "Address": 65543,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_1",
+  "Address": 65544,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_2",
+  "Address": 65545,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_3",
+  "Address": 65546,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_4",
+  "Address": 65547,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_5",
+  "Address": 65548,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_6",
+  "Address": 65549,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_7",
+  "Address": 65550,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_8",
+  "Address": 65551,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_9",
+  "Address": 65552,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_10",
+  "Address": 65553,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_11",
+  "Address": 65554,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_12",
+  "Address": 65555,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_13",
+  "Address": 65556,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_14",
+  "Address": 65557,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_15",
+  "Address": 65558,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_16",
+  "Address": 65559,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_17",
+  "Address": 65560,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_18",
+  "Address": 65561,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_19",
+  "Address": 65562,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_20",
+  "Address": 65563,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_21",
+  "Address": 65564,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_22",
+  "Address": 65565,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_23",
+  "Address": 65566,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_det_24",
+  "Address": 65567,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+}],
+"MMCComponents":[
+{
+  "Name": "RateMeter_0",
+  "Type": "MCRateMeter",
+  "Address": 0,
+  "Version": "1.0.0.0",
+  "Channels": 1,
+  "Registers": []
+}],"Device":"DT5560","Project":"UniversalTrigger1"}

@@ -9,3 +9,7 @@ ex2
 #Backups
 *.scf_bk
 .ipynb_checkpoints
+*.cache
+#Unused SCI-Compiler output
+HDL/
+output/*/

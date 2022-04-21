@@ -1,0 +1,35 @@
+SCI_REG_ratereset= 0x00010000
+SCI_REG_thrsh= 0x00010001
+SCI_REG_polarity= 0x00010002
+SCI_REG_top= 0x00010003
+SCI_REG_gate= 0x00010004
+SCI_REG_inhib= 0x00010005
+SCI_REG_delay= 0x00010006
+SCI_REG_disable_det_0= 0x00010007
+SCI_REG_disable_det_1= 0x00010008
+SCI_REG_disable_det_2= 0x00010009
+SCI_REG_disable_det_3= 0x0001000A
+SCI_REG_disable_det_4= 0x0001000B
+SCI_REG_disable_det_5= 0x0001000C
+SCI_REG_disable_det_6= 0x0001000D
+SCI_REG_disable_det_7= 0x0001000E
+SCI_REG_disable_det_8= 0x0001000F
+SCI_REG_disable_det_9= 0x00010010
+SCI_REG_disable_det_10= 0x00010011
+SCI_REG_disable_det_11= 0x00010012
+SCI_REG_disable_det_12= 0x00010013
+SCI_REG_disable_det_13= 0x00010014
+SCI_REG_disable_det_14= 0x00010015
+SCI_REG_disable_det_15= 0x00010016
+SCI_REG_disable_det_16= 0x00010017
+SCI_REG_disable_det_17= 0x00010018
+SCI_REG_disable_det_18= 0x00010019
+SCI_REG_disable_det_19= 0x0001001A
+SCI_REG_disable_det_20= 0x0001001B
+SCI_REG_disable_det_21= 0x0001001C
+SCI_REG_disable_det_22= 0x0001001D
+SCI_REG_disable_det_23= 0x0001001E
+SCI_REG_disable_det_24= 0x0001001F
+
+SCI_REG_RateMeter_0_FIFOADDRESS= 0x0
+
