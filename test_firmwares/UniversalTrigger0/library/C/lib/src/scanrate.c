@@ -150,11 +150,11 @@ int main(int argc, char* argv[])
 			break;
 		case 'd':
 			selection = optarg;
-			if((selection == "PuBe") || (selection == "All") || (selection == "all")){
+			if(strcmp(selection,"PuBe") == 0 || strcmp(selection, "All") == 0 || strcmp(selection, "all") == 0){
 				value = 16777215;
-			}else if((selection == "22Na") || (selection == "Na22") || (selection == "Na-22") || (selection == "22na") || (selection == "na22") || (selection = "na-22")){
+			}else if(strcmp(selection, "22Na") == 0|| strcmp(selection, "Na22") == 0 || strcmp(selection, "Na-22") == 0 || strcmp(selection, "22na") == 0 || strcmp(selection, "na22") == 0 || strcmp(selection, "na-22") == 0){
 				value = 7168; //10, 11, 12 (or 11, 12, 13 counting from 1)
-			}else if((selection == "none") || (selection == "None")){
+			}else if(strcmp(selection, "none") == 0 || strcmp(selection, "None") == 0){
 				value = 0;
 			}else{ //If it's actually a number, use the number
 				value = atoi(selection);

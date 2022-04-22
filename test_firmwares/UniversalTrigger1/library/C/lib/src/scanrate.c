@@ -21,7 +21,7 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "UniversalTrigger1_lib.h"
+#include  "UniversalTrigger0_lib.h"
 
 #define BOARD_IP_ADDRESS "134.84.150.42"
 
@@ -150,11 +150,11 @@ int main(int argc, char* argv[])
 			break;
 		case 'd':
 			selection = optarg;
-			if((selection == "PuBe") || (selection == "All") || (selection == "all")){
+			if(strcmp(selection,"PuBe") == 0 || strcmp(selection, "All") == 0 || strcmp(selection, "all") == 0){
 				value = 16777215;
-			}else if((selection == "22Na") || (selection == "Na22") || (selection == "Na-22") || (selection == "22na") || (selection == "na22") || (selection = "na-22")){
+			}else if(strcmp(selection, "22Na") == 0|| strcmp(selection, "Na22") == 0 || strcmp(selection, "Na-22") == 0 || strcmp(selection, "22na") == 0 || strcmp(selection, "na22") == 0 || strcmp(selection, "na-22") == 0){
 				value = 7168; //10, 11, 12 (or 11, 12, 13 counting from 1)
-			}else if((selection == "none") || (selection == "None")){
+			}else if(strcmp(selection, "none") == 0 || strcmp(selection, "None") == 0){
 				value = 0;
 			}else{ //If it's actually a number, use the number
 				value = atoi(selection);
@@ -270,43 +270,6 @@ int main(int argc, char* argv[])
 	disable_q[21] = REG_disable_det_21_SET(disable_q[21], &handle);
 	disable_q[22] = REG_disable_det_22_SET(disable_q[22], &handle);
 	disable_q[23] = REG_disable_det_23_SET(disable_q[23], &handle);
-
-	for(int i=0; i<24; i++){
-		if(disable_q[i] != 0){
-			printf("Unable to set on/off state of detector #%d! Aborting.\n",i);
-			return -1;
-		}
-	}
-	if(verbose > 1){
-		int disable[24];
-		disable_q[0 ] = REG_disable_det_0_GET (&disable[0 ], &handle);
-		disable_q[1 ] = REG_disable_det_1_GET (&disable[1 ], &handle);
-		disable_q[2 ] = REG_disable_det_2_GET (&disable[2 ], &handle);
-		disable_q[3 ] = REG_disable_det_3_GET (&disable[3 ], &handle);
-		disable_q[4 ] = REG_disable_det_4_GET (&disable[4 ], &handle);
-		disable_q[5 ] = REG_disable_det_5_GET (&disable[5 ], &handle);
-		disable_q[6 ] = REG_disable_det_6_GET (&disable[6 ], &handle);
-		disable_q[7 ] = REG_disable_det_7_GET (&disable[7 ], &handle);
-		disable_q[8 ] = REG_disable_det_8_GET (&disable[8 ], &handle);
-		disable_q[9 ] = REG_disable_det_9_GET (&disable[9 ], &handle);
-		disable_q[10] = REG_disable_det_10_GET(&disable[10], &handle);
-		disable_q[11] = REG_disable_det_11_GET(&disable[11], &handle);
-		disable_q[12] = REG_disable_det_12_GET(&disable[12], &handle);
-		disable_q[13] = REG_disable_det_13_GET(&disable[13], &handle);
-		disable_q[14] = REG_disable_det_14_GET(&disable[14], &handle);
-		disable_q[15] = REG_disable_det_15_GET(&disable[15], &handle);
-		disable_q[16] = REG_disable_det_16_GET(&disable[16], &handle);
-		disable_q[17] = REG_disable_det_17_GET(&disable[17], &handle);
-		disable_q[18] = REG_disable_det_18_GET(&disable[18], &handle);
-		disable_q[19] = REG_disable_det_19_GET(&disable[19], &handle);
-		disable_q[20] = REG_disable_det_20_GET(&disable[20], &handle);
-		disable_q[21] = REG_disable_det_21_GET(&disable[21], &handle);
-		disable_q[22] = REG_disable_det_22_GET(&disable[22], &handle);
-		disable_q[23] = REG_disable_det_23_GET(&disable[23], &handle);
-		for(int i=0; i<24; i++){
-			printf("Detector #%d off? %d\n",i,disable[i]);
-		};
-	}
 
 	//Configure settings
 	int thrs = 0;	        //amount LESS THAN 8192 for threshold.
