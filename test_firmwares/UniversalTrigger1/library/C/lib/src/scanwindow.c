@@ -21,7 +21,7 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "UniversalTrigger0_lib.h"
+#include  "UniversalTrigger1_lib.h"
 
 #define BOARD_IP_ADDRESS "134.84.150.42"
 
@@ -231,7 +231,7 @@ int main(int argc, char* argv[])
 	};
 	
 	if(verbose>0){
-		printf("Enabling the following detectors: ");
+		printf("Enabling triggering for the following detectors: ");
 		for(int i=0;i<24;i++){
 			if(disable_q[i] == 0){
 				printf("%d, ",i);
@@ -240,7 +240,7 @@ int main(int argc, char* argv[])
 		printf("\b\b.\n");
 	};
 	if(verbose>1){
-		printf("Disabling the following detectors: ");
+		printf("Disabling triggering for the following detectors: ");
 		for(int i=0;i<24;i++){
 			if(disable_q[i] == 1){
 				printf("%d, ",i);
@@ -249,30 +249,30 @@ int main(int argc, char* argv[])
 		printf("\b\b.\n");
 	}
 
-	disable_q[0 ] = REG_disable_det_0_SET (disable_q[0 ], &handle);
-	disable_q[1 ] = REG_disable_det_1_SET (disable_q[1 ], &handle);
-	disable_q[2 ] = REG_disable_det_2_SET (disable_q[2 ], &handle);
-	disable_q[3 ] = REG_disable_det_3_SET (disable_q[3 ], &handle);
-	disable_q[4 ] = REG_disable_det_4_SET (disable_q[4 ], &handle);
-	disable_q[5 ] = REG_disable_det_5_SET (disable_q[5 ], &handle);
-	disable_q[6 ] = REG_disable_det_6_SET (disable_q[6 ], &handle);
-	disable_q[7 ] = REG_disable_det_7_SET (disable_q[7 ], &handle);
-	disable_q[8 ] = REG_disable_det_8_SET (disable_q[8 ], &handle);
-	disable_q[9 ] = REG_disable_det_9_SET (disable_q[9 ], &handle);
-	disable_q[10] = REG_disable_det_10_SET(disable_q[10], &handle);
-	disable_q[11] = REG_disable_det_11_SET(disable_q[11], &handle);
-	disable_q[12] = REG_disable_det_12_SET(disable_q[12], &handle);
-	disable_q[13] = REG_disable_det_13_SET(disable_q[13], &handle);
-	disable_q[14] = REG_disable_det_14_SET(disable_q[14], &handle);
-	disable_q[15] = REG_disable_det_15_SET(disable_q[15], &handle);
-	disable_q[16] = REG_disable_det_16_SET(disable_q[16], &handle);
-	disable_q[17] = REG_disable_det_17_SET(disable_q[17], &handle);
-	disable_q[18] = REG_disable_det_18_SET(disable_q[18], &handle);
-	disable_q[19] = REG_disable_det_19_SET(disable_q[19], &handle);
-	disable_q[20] = REG_disable_det_20_SET(disable_q[20], &handle);
-	disable_q[21] = REG_disable_det_21_SET(disable_q[21], &handle);
-	disable_q[22] = REG_disable_det_22_SET(disable_q[22], &handle);
-	disable_q[23] = REG_disable_det_23_SET(disable_q[23], &handle);
+	disable_q[0 ] = REG_disable_det_0_SET (disable[0 ], &handle);
+	disable_q[1 ] = REG_disable_det_1_SET (disable[1 ], &handle);
+	disable_q[2 ] = REG_disable_det_2_SET (disable[2 ], &handle);
+	disable_q[3 ] = REG_disable_det_3_SET (disable[3 ], &handle);
+	disable_q[4 ] = REG_disable_det_4_SET (disable[4 ], &handle);
+	disable_q[5 ] = REG_disable_det_5_SET (disable[5 ], &handle);
+	disable_q[6 ] = REG_disable_det_6_SET (disable[6 ], &handle);
+	disable_q[7 ] = REG_disable_det_7_SET (disable[7 ], &handle);
+	disable_q[8 ] = REG_disable_det_8_SET (disable[8 ], &handle);
+	disable_q[9 ] = REG_disable_det_9_SET (disable[9 ], &handle);
+	disable_q[10] = REG_disable_det_10_SET(disable[10], &handle);
+	disable_q[11] = REG_disable_det_11_SET(disable[11], &handle);
+	disable_q[12] = REG_disable_det_12_SET(disable[12], &handle);
+	disable_q[13] = REG_disable_det_13_SET(disable[13], &handle);
+	disable_q[14] = REG_disable_det_14_SET(disable[14], &handle);
+	disable_q[15] = REG_disable_det_15_SET(disable[15], &handle);
+	disable_q[16] = REG_disable_det_16_SET(disable[16], &handle);
+	disable_q[17] = REG_disable_det_17_SET(disable[17], &handle);
+	disable_q[18] = REG_disable_det_18_SET(disable[18], &handle);
+	disable_q[19] = REG_disable_det_19_SET(disable[19], &handle);
+	disable_q[20] = REG_disable_det_20_SET(disable[20], &handle);
+	disable_q[21] = REG_disable_det_21_SET(disable[21], &handle);
+	disable_q[22] = REG_disable_det_22_SET(disable[22], &handle);
+	disable_q[23] = REG_disable_det_23_SET(disable[23], &handle);
 
 	for(int i=0; i<24; i++){
 		if(disable_q[i] != 0){

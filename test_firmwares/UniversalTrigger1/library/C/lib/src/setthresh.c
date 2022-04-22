@@ -37,7 +37,8 @@ int polarity_q;
 char* selection;
 uint32_t value;
 int disable_q[24]; // array of disable_q instead of 24 initializations
-int disable[24];
+uint32_t disable[24];
+
 time_t tic, toc;
 const char* program_name = "setthresh";
 FILE *fp;
@@ -197,7 +198,7 @@ int main(int argc, char* argv[])
 		printf("Bit-flipped detector value: %d\n",value);
 	}
 	if(verbose>0){
-		printf("Set to enable the following detectors: ");
+		printf("Set to enable triggering for the following detectors: ");
 		for(int i=0;i<24;i++){
 			if(disable[i] == 0){
 				printf("%d, ",i);
@@ -206,7 +207,7 @@ int main(int argc, char* argv[])
 		printf("\b\b.\n");
 	};
 	if(verbose>1){
-		printf("Set to disable the following detectors: ");
+		printf("Set to disable triggering for the following detectors: ");
 		for(int i=0;i<24;i++){
 			if(disable[i] == 1){
 				printf("%d, ",i);
@@ -257,35 +258,6 @@ int main(int argc, char* argv[])
 			printf("Unable to set on/off state of detector #%d! Aborting.\n",i);
 			return -1;
 		}
-	}
-	if(verbose > 1){
-		disable_q[0 ] = REG_disable_det_0_GET (&disable[0 ], &handle);
-		disable_q[1 ] = REG_disable_det_1_GET (&disable[1 ], &handle);
-		disable_q[2 ] = REG_disable_det_2_GET (&disable[2 ], &handle);
-		disable_q[3 ] = REG_disable_det_3_GET (&disable[3 ], &handle);
-		disable_q[4 ] = REG_disable_det_4_GET (&disable[4 ], &handle);
-		disable_q[5 ] = REG_disable_det_5_GET (&disable[5 ], &handle);
-		disable_q[6 ] = REG_disable_det_6_GET (&disable[6 ], &handle);
-		disable_q[7 ] = REG_disable_det_7_GET (&disable[7 ], &handle);
-		disable_q[8 ] = REG_disable_det_8_GET (&disable[8 ], &handle);
-		disable_q[9 ] = REG_disable_det_9_GET (&disable[9 ], &handle);
-		disable_q[10] = REG_disable_det_10_GET(&disable[10], &handle);
-		disable_q[11] = REG_disable_det_11_GET(&disable[11], &handle);
-		disable_q[12] = REG_disable_det_12_GET(&disable[12], &handle);
-		disable_q[13] = REG_disable_det_13_GET(&disable[13], &handle);
-		disable_q[14] = REG_disable_det_14_GET(&disable[14], &handle);
-		disable_q[15] = REG_disable_det_15_GET(&disable[15], &handle);
-		disable_q[16] = REG_disable_det_16_GET(&disable[16], &handle);
-		disable_q[17] = REG_disable_det_17_GET(&disable[17], &handle);
-		disable_q[18] = REG_disable_det_18_GET(&disable[18], &handle);
-		disable_q[19] = REG_disable_det_19_GET(&disable[19], &handle);
-		disable_q[20] = REG_disable_det_20_GET(&disable[20], &handle);
-		disable_q[21] = REG_disable_det_21_GET(&disable[21], &handle);
-		disable_q[22] = REG_disable_det_22_GET(&disable[22], &handle);
-		disable_q[23] = REG_disable_det_23_GET(&disable[23], &handle);
-		for(int i=0; i<24; i++){
-			printf("Detector #%d off? %d\n",i,disable[i]);
-		};
 	}
 
 	//Configure settings

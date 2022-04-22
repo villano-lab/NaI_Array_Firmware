@@ -198,7 +198,7 @@ int main(int argc, char* argv[])
 		printf("Bit-flipped detector value: %d\n",value);
 	}
 	if(verbose>0){
-		printf("Set to enable the following detectors: ");
+		printf("Set to enable triggering for the following detectors: ");
 		for(int i=0;i<24;i++){
 			if(disable[i] == 0){
 				printf("%d, ",i);
@@ -207,7 +207,7 @@ int main(int argc, char* argv[])
 		printf("\b\b.\n");
 	};
 	if(verbose>1){
-		printf("Set to disable the following detectors: ");
+		printf("Set to disable triggering for the following detectors: ");
 		for(int i=0;i<24;i++){
 			if(disable[i] == 1){
 				printf("%d, ",i);
