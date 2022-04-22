@@ -226,25 +226,6 @@ int main(int argc, char* argv[])
 		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
 	};
 
-	if(verbose>0){
-		printf("Enabling the following detectors: ");
-		for(int i=0;i<24;i++){
-			if(disable_q[i] == 0){
-				printf("%d, ",i);
-			}
-		}
-		printf("\b\b.\n");
-	};
-	if(verbose>1){
-		printf("Disabling the following detectors: ");
-		for(int i=0;i<24;i++){
-			if(disable_q[i] == 1){
-				printf("%d, ",i);
-			}
-		}
-		printf("\b\b.\n");
-	}
-
 	//Now set all the values we determined above
 	disable_q[0 ] = REG_disable_det_0_SET (disable[0 ], &handle);
 	disable_q[1 ] = REG_disable_det_1_SET (disable[1 ], &handle);
@@ -270,6 +251,13 @@ int main(int argc, char* argv[])
 	disable_q[21] = REG_disable_det_21_SET(disable[21], &handle);
 	disable_q[22] = REG_disable_det_22_SET(disable[22], &handle);
 	disable_q[23] = REG_disable_det_23_SET(disable[23], &handle);
+
+	for(int i=0; i<24; i++){
+		if(disable_q[i] != 0){
+			printf("Unable to set on/off state of detector #%d! Aborting.\n",i);
+			return -1;
+		}
+	}
 
 	//Configure settings
 	int thrs = 0;	        //amount LESS THAN 8192 for threshold.

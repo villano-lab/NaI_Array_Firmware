@@ -229,25 +229,6 @@ int main(int argc, char* argv[])
 		if(verbose>0){printf("Connected.\n");};
 		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
 	};
-	
-	if(verbose>0){
-		printf("Enabling triggering for the following detectors: ");
-		for(int i=0;i<24;i++){
-			if(disable_q[i] == 0){
-				printf("%d, ",i);
-			}
-		}
-		printf("\b\b.\n");
-	};
-	if(verbose>1){
-		printf("Disabling triggering for the following detectors: ");
-		for(int i=0;i<24;i++){
-			if(disable_q[i] == 1){
-				printf("%d, ",i);
-			}
-		}
-		printf("\b\b.\n");
-	}
 
 	disable_q[0 ] = REG_disable_det_0_SET (disable[0 ], &handle);
 	disable_q[1 ] = REG_disable_det_1_SET (disable[1 ], &handle);
