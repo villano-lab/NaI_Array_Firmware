@@ -109,6 +109,7 @@ int main(int argc, char* argv[])
 		disable_q[i] = 0;
 	}
 	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
+	value = 16777215;
 
 	//Read options
 	int index;
