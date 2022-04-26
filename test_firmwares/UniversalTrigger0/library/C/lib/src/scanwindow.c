@@ -108,7 +108,9 @@ int main(int argc, char* argv[])
 	for(int i=0; i<24; i++){
 		disable_q[i] = 0;
 	}
+	
 	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
+	value = 16777215;
 
 	//Read options
 	int index;
@@ -182,6 +184,9 @@ int main(int argc, char* argv[])
 		printf("Bitwise detector numeric value supplied: %d\n",value);
 	}
 	value = value ^ 16777215; //Bitwise flip since we're enabling but firmware is disabling.
+	if(verbose > 1){
+		printf("Bit-flipped detector value: %d\n",value);
+	}
 	//We'll disable anything that's 1 after the flip and leave everything else on
 	if(verbose > 2){
 		for(int i=0;i<24;i++){
@@ -192,9 +197,6 @@ int main(int argc, char* argv[])
 	for(int i=0; i<24; i++){
 		if(verbose > 1){printf("%d: %d, %d \n",i,value >> i, (value >> i) & 1);}
 		disable[i] = (value >> i) & 1;
-	}
-	if(verbose > 1){
-		printf("Bit-flipped detector value: %d\n",value);
 	}
 	if(verbose>0){
 		printf("Set to enable the following detectors: ");
