@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
 	int index;
 	int iarg=0;
 	while(iarg != -1){
-		iarg = getopt_long(argc, argv, "+d:l::shv::V", longopts, &index);
+		iarg = getopt_long(argc, argv, "+d:t:l::shv::V", longopts, &index);
 
 		switch (iarg){
 		case 'h':
