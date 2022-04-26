@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("85223ec4-95f1-42f7-9741-a12ffca19d65") = "UniversalTrigger2_Example", "UniversalTrigger2_EXAMPLE.vcxproj", "7765dead-32d4-4d55-b23e-28c806b96d7a"
+EndProject
+Project("85223ec4-95f1-42f7-9741-a12ffca19d65") = "UniversalTrigger2_LIB", "UniversalTrigger2_LIB.vcxproj", "ad0ce2a9-81d5-4bf3-a5eb-add10f017c6c"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		7765dead-32d4-4d55-b23e-28c806b96d7a.Debug|x86.ActiveCfg = Debug|Win32
+		7765dead-32d4-4d55-b23e-28c806b96d7a.Debug|x86.Build.0 = Debug|Win32
+		7765dead-32d4-4d55-b23e-28c806b96d7a.Release|x86.ActiveCfg = Release|Win32
+		7765dead-32d4-4d55-b23e-28c806b96d7a.Release|x86.Build.0 = Release|Win32
+		ad0ce2a9-81d5-4bf3-a5eb-add10f017c6c.Debug|x86.ActiveCfg = Debug|Win32
+		ad0ce2a9-81d5-4bf3-a5eb-add10f017c6c.Debug|x86.Build.0 = Debug|Win32
+		ad0ce2a9-81d5-4bf3-a5eb-add10f017c6c.Release|x86.ActiveCfg = Release|Win32
+		ad0ce2a9-81d5-4bf3-a5eb-add10f017c6c.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
