@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Sat May  7 19:00:08 2022
+// Date        : Sat May  7 19:40:08 2022
 // Host        : PHYS-NC3124-D02 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest0/output/TrigTest0/TrigTest0.srcs/sources_1/ip/main_clk_gen/main_clk_gen_sim_netlist.v

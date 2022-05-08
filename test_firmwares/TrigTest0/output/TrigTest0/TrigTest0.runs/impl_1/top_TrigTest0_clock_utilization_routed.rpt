@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Sat May  7 19:05:39 2022
+| Date         : Sat May  7 19:46:01 2022
 | Host         : PHYS-NC3124-D02 running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file top_TrigTest0_clock_utilization_routed.rpt
 | Design       : TOP_TrigTest0
@@ -51,7 +51,7 @@ Table of Contents
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+----------+-------------------------------------------------------+------------------------------------------------+
 | g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |                 3 |        1290 |               0 |       16.670 | FTDI_CLK | FTDI_CLK_IBUF_BUFG_inst/O                             | FTDI_CLK_IBUF_BUFG                             |
 | g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 2 |        1016 |               0 |              |          | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/CLK_BUFG_inst/O | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/CLK_BUFG |
-| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 3 |         977 |               2 |              |          | mcg/inst/clkout1_buf/O                                | mcg/inst/sample_clk                            |
+| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 3 |         975 |               2 |              |          | mcg/inst/clkout1_buf/O                                | mcg/inst/sample_clk                            |
 | g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 1 |           1 |               0 |              |          | mcg/inst/clkin1_bufg/O                                | mcg/inst/clk_in1_main_clk_gen                  |
 | g4        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y3  | n/a          |                 1 |           1 |               0 |              |          | mcg/inst/clkf_buf/O                                   | mcg/inst/clkfbout_buf_main_clk_gen             |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+----------+-------------------------------------------------------+------------------------------------------------+
@@ -66,7 +66,7 @@ Table of Contents
 | Source Id | Global Id | Driver Type/Pin     | Constraint | Site            | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin                                            | Net                                       |
 +-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------+-------------------------------------------------------+-------------------------------------------+
 | src0      | g0        | IBUF/O              | IOB_X0Y26  | IOB_X0Y26       | X0Y0         |           1 |               0 |              16.670 | FTDI_CLK     | FTDI_CLK_IBUF_inst/O                                  | FTDI_CLK_IBUF                             |
-| src1      | g1        | FDCE/Q              | None       | SLICE_X18Y45    | X1Y0         |           1 |               1 |                     |              | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/iCAPCLOCK_reg/Q | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/CLK |
+| src1      | g1        | FDCE/Q              | None       | SLICE_X16Y45    | X1Y0         |           1 |               1 |                     |              | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/iCAPCLOCK_reg/Q | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/CLK |
 | src2      | g4        | MMCME2_ADV/CLKFBOUT | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |                     |              | mcg/inst/mmcm_adv_inst/CLKFBOUT                       | mcg/inst/clkfbout_main_clk_gen            |
 | src2      | g2        | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |                     |              | mcg/inst/mmcm_adv_inst/CLKOUT0                        | mcg/inst/sample_clk_main_clk_gen          |
 | src3      | g3        | IBUF/O              | IOB_X0Y76  | IOB_X0Y76       | X0Y1         |           1 |               0 |                     |              | clk_100_IBUF_inst/O                                   | clk_100_IBUF                              |
@@ -83,9 +83,9 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1579 |   800 |  568 |   300 |    0 |    20 |    1 |    10 |    0 |    20 |
-| X1Y0              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1616 |  1300 |  478 |   400 |    0 |    40 |    0 |    20 |    0 |    20 |
-| X0Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   67 |   800 |    6 |   300 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1748 |   800 |  649 |   300 |    0 |    20 |    1 |    10 |    0 |    20 |
+| X1Y0              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1445 |  1300 |  406 |   400 |    0 |    40 |    0 |    20 |    0 |    20 |
+| X0Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   67 |   800 |   30 |   300 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y1              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |   750 |    0 |   250 |    0 |    10 |    0 |     5 |    0 |    20 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Global Clock column represents track count; while other columns represents cell counts
@@ -121,7 +121,7 @@ All Modules
 |    | X0   | X1   |
 +----+------+------+
 | Y1 |   34 |    0 |
-| Y0 |  793 |  451 |
+| Y0 |  754 |  490 |
 +----+------+------+
 
 
@@ -143,7 +143,7 @@ All Modules
 |    | X0   | X1   |
 +----+------+------+
 | Y1 |    0 |    0 |
-| Y0 |  108 |  908 |
+| Y0 |  334 |  682 |
 +----+------+------+
 
 
@@ -153,7 +153,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+---------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                 |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+---------------------+
-| g2        | BUFG/O          | n/a               |       |             |               |         970 |        2 |              0 |        0 | mcg/inst/sample_clk |
+| g2        | BUFG/O          | n/a               |       |             |               |         968 |        2 |              0 |        0 | mcg/inst/sample_clk |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+---------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -165,7 +165,7 @@ All Modules
 |    | X0   | X1   |
 +----+------+------+
 | Y1 |   33 |    0 |
-| Y0 |  680 |  259 |
+| Y0 |  662 |  275 |
 +----+------+------+
 
 
@@ -219,9 +219,9 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                            |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |         793 |               0 | 793 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | FTDI_CLK_IBUF_BUFG                             |
-| g1        | n/a   | BUFG/O          | None       |         108 |               0 | 107 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/CLK_BUFG |
-| g2        | n/a   | BUFG/O          | None       |         680 |               0 | 679 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | mcg/inst/sample_clk                            |
+| g0        | n/a   | BUFG/O          | None       |         754 |               0 | 754 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | FTDI_CLK_IBUF_BUFG                             |
+| g1        | n/a   | BUFG/O          | None       |         334 |               0 | 333 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/CLK_BUFG |
+| g2        | n/a   | BUFG/O          | None       |         662 |               0 | 661 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | mcg/inst/sample_clk                            |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -234,9 +234,9 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                            |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |         451 |               0 | 451 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | FTDI_CLK_IBUF_BUFG                             |
-| g1        | n/a   | BUFG/O          | None       |         908 |               0 | 908 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/CLK_BUFG |
-| g2        | n/a   | BUFG/O          | None       |         257 |               2 | 257 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | mcg/inst/sample_clk                            |
+| g0        | n/a   | BUFG/O          | None       |         490 |               0 | 490 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | FTDI_CLK_IBUF_BUFG                             |
+| g1        | n/a   | BUFG/O          | None       |         682 |               0 | 682 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | Inst_ftdi245_cdc/Inst_ftdi245/SEC_SYS/CLK_BUFG |
+| g2        | n/a   | BUFG/O          | None       |         273 |               2 | 273 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | mcg/inst/sample_clk                            |
 | g3        | n/a   | BUFG/O          | None       |           1 |               0 |   0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | mcg/inst/clk_in1_main_clk_gen                  |
 | g4        | n/a   | BUFG/O          | None       |           1 |               0 |   0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | mcg/inst/clkfbout_buf_main_clk_gen             |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------------------------------+

@@ -1,5 +1,5 @@
 set_property SRC_FILE_INFO {cfile:C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest0/output/TrigTest0/TrigTest0.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc rfile:../../../TrigTest0.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc id:1} [current_design]
-set_property SRC_FILE_INFO {cfile:C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl rfile:../../../../../../../../../../Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl id:2 order:LATE scoped_inst:{U3/GENCH[0].xpm_memory_sdpram_inst} unmanaged:yes} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl rfile:../../../../../../../../../../Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl id:2 order:LATE scoped_inst:{U2/GENCH[0].xpm_memory_sdpram_inst} unmanaged:yes} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN E1 [get_ports {ADC_A_IN[0]}]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]

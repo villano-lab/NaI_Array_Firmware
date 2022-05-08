@@ -6,7 +6,7 @@
 <Project Version="7" Minor="35" Path="C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest0/output/TrigTest0/TrigTest0.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="5e0c95d3a1ee4e23a4c49073d644cde7"/>
+    <Option Name="Id" Val="633e4c9f764f462dbd93e6c6a8f64ac2"/>
     <Option Name="Part" Val="xc7s25csga225-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -99,7 +99,7 @@
       <File Path="$PSRCDIR/sources_1/imports/HDL/top_TrigTest0.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/top_TrigTest0.vhd"/>
-          <Attr Name="ImportTime" Val="1651971402"/>
+          <Attr Name="ImportTime" Val="1651973788"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -115,7 +115,7 @@
       <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/ftdi245_cdc.vhd"/>
-          <Attr Name="ImportTime" Val="1651971402"/>
+          <Attr Name="ImportTime" Val="1651973788"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -139,7 +139,7 @@
       <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/polinvert.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/polinvert.vhd"/>
-          <Attr Name="ImportTime" Val="1651971397"/>
+          <Attr Name="ImportTime" Val="1651973787"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -171,7 +171,7 @@
       <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/xlx_oscilloscope_sync.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/xlx_oscilloscope_sync.vhd"/>
-          <Attr Name="ImportTime" Val="1651971401"/>
+          <Attr Name="ImportTime" Val="1651973783"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
