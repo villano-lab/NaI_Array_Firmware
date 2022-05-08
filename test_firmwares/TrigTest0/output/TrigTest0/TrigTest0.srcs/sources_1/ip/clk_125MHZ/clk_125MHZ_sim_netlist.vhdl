@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Thu May  5 15:58:49 2022
+-- Date        : Sat May  7 18:59:30 2022
 -- Host        : PHYS-NC3124-D02 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest0/output/TrigTest0/TrigTest0.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ_sim_netlist.vhdl

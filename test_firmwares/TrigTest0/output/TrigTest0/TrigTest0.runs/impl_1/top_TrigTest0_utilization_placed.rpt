@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Thu May  5 16:04:10 2022
+| Date         : Sat May  7 19:04:51 2022
 | Host         : PHYS-NC3124-D02 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file top_TrigTest0_utilization_placed.rpt -pb top_TrigTest0_utilization_placed.pb
 | Design       : TOP_TrigTest0
@@ -31,8 +31,8 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs                 | 3459 |     0 |     14600 | 23.69 |
-|   LUT as Logic             | 3387 |     0 |     14600 | 23.20 |
+| Slice LUTs                 | 3447 |     0 |     14600 | 23.61 |
+|   LUT as Logic             | 3375 |     0 |     14600 | 23.12 |
 |   LUT as Memory            |   72 |     0 |      5000 |  1.44 |
 |     LUT as Distributed RAM |   72 |     0 |           |       |
 |     LUT as Shift Register  |    0 |     0 |           |       |
@@ -69,23 +69,23 @@ Table of Contents
 +-------------------------------------------+------+-------+-----------+-------+
 |                 Site Type                 | Used | Fixed | Available | Util% |
 +-------------------------------------------+------+-------+-----------+-------+
-| Slice                                     | 1164 |     0 |      3650 | 31.89 |
-|   SLICEL                                  |  764 |     0 |           |       |
-|   SLICEM                                  |  400 |     0 |           |       |
-| LUT as Logic                              | 3387 |     0 |     14600 | 23.20 |
+| Slice                                     | 1170 |     0 |      3650 | 32.05 |
+|   SLICEL                                  |  771 |     0 |           |       |
+|   SLICEM                                  |  399 |     0 |           |       |
+| LUT as Logic                              | 3375 |     0 |     14600 | 23.12 |
 |   using O5 output only                    |    8 |       |           |       |
-|   using O6 output only                    | 2997 |       |           |       |
-|   using O5 and O6                         |  382 |       |           |       |
+|   using O6 output only                    | 2973 |       |           |       |
+|   using O5 and O6                         |  394 |       |           |       |
 | LUT as Memory                             |   72 |     0 |      5000 |  1.44 |
 |   LUT as Distributed RAM                  |   72 |     0 |           |       |
 |     using O5 output only                  |    0 |       |           |       |
 |     using O6 output only                  |    0 |       |           |       |
 |     using O5 and O6                       |   72 |       |           |       |
 |   LUT as Shift Register                   |    0 |     0 |           |       |
-| LUT Flip Flop Pairs                       | 1445 |     0 |     14600 |  9.90 |
+| LUT Flip Flop Pairs                       | 1452 |     0 |     14600 |  9.95 |
 |   fully used LUT-FF pairs                 |  108 |       |           |       |
-|   LUT-FF pairs with one unused LUT output | 1263 |       |           |       |
-|   LUT-FF pairs with one unused Flip Flop  | 1250 |       |           |       |
+|   LUT-FF pairs with one unused LUT output | 1282 |       |           |       |
+|   LUT-FF pairs with one unused Flip Flop  | 1254 |       |           |       |
 | Unique Control Sets                       |  133 |       |           |       |
 +-------------------------------------------+------+-------+-----------+-------+
 * Note: Review the Control Sets Report for more information regarding control sets.
@@ -122,8 +122,8 @@ Table of Contents
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
 | Bonded IOB                  |   56 |    56 |       150 | 37.33 |
-|   IOB Master Pads           |   25 |       |           |       |
-|   IOB Slave Pads            |   29 |       |           |       |
+|   IOB Master Pads           |   27 |       |           |       |
+|   IOB Slave Pads            |   28 |       |           |       |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         3 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         3 |  0.00 |

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Thu May  5 16:04:58 2022
+| Date             : Sat May  7 19:05:37 2022
 | Host             : PHYS-NC3124-D02 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_TrigTest0_power_routed.rpt -pb top_TrigTest0_power_summary_routed.pb -rpx top_TrigTest0_power_routed.rpx
 | Design           : TOP_TrigTest0
@@ -33,7 +33,7 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.131        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.070        |
+| Dynamic (W)              | 0.069        |
 | Device Static (W)        | 0.061        |
 | Effective TJA (C/W)      | 3.7          |
 | Max Ambient (C)          | 84.5         |
@@ -54,7 +54,7 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.003 |        3 |       --- |             --- |
 | Slice Logic              |     0.004 |     7533 |       --- |             --- |
-|   LUT as Logic           |     0.003 |     3387 |     14600 |           23.20 |
+|   LUT as Logic           |     0.003 |     3375 |     14600 |           23.12 |
 |   CARRY4                 |    <0.001 |      263 |      3650 |            7.21 |
 |   Register               |    <0.001 |     3262 |     29200 |           11.17 |
 |   LUT as Distributed RAM |    <0.001 |       72 |      5000 |            1.44 |
@@ -143,7 +143,7 @@ Table of Contents
 +----------------------------------------------------------------------------------------+-----------+
 | Name                                                                                   | Power (W) |
 +----------------------------------------------------------------------------------------+-----------+
-| TOP_TrigTest0                                                                          |     0.070 |
+| TOP_TrigTest0                                                                          |     0.069 |
 |   IIC_0_scl_IOBUF_inst                                                                 |     0.000 |
 |   Inst_ftdi245_cdc                                                                     |     0.010 |
 |     ADDRESS_FIFO                                                                       |    <0.001 |
@@ -249,8 +249,8 @@ Table of Contents
 |     iic_master                                                                         |    <0.001 |
 |   LEMO0_BUFF                                                                           |     0.000 |
 |   LEMO2_BUFF                                                                           |     0.000 |
-|   U1                                                                                   |    <0.001 |
-|   U4                                                                                   |     0.001 |
+|   U0                                                                                   |    <0.001 |
+|   U3                                                                                   |    <0.001 |
 |     GENCH[0].xpm_memory_sdpram_inst                                                    |    <0.001 |
 |       xpm_memory_base_inst                                                             |    <0.001 |
 |   mcg                                                                                  |     0.053 |
