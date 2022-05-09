@@ -11,7 +11,7 @@
 <MemInfo Version="1" Minor="5">
   <MemoryArray InstPath="U15/xpm_memory_sdpram_inst/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="U15/xpm_memory_sdpram_inst/xpm_memory_base_inst" CoreMemory_Width="1" MemoryType="RAM_SDP">
-      <BRAM MemType="RAMB18" Placement="X2Y8">
+      <BRAM MemType="RAMB18" Placement="X2Y16">
         <DataWidth_PortA MSB="0" LSB="0"/>
         <AddressRange_PortA Begin="0" End="1023"/>
         <BitLayout_PortA pattern="p0_d1"/>
@@ -24,7 +24,7 @@
   </MemoryArray>
   <MemoryArray InstPath="U14/USE_RAM.xpm_memory_sdpram_inst/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="U14/USE_RAM.xpm_memory_sdpram_inst/xpm_memory_base_inst" CoreMemory_Width="1" MemoryType="RAM_SDP">
-      <BRAM MemType="RAMB18" Placement="X2Y12">
+      <BRAM MemType="RAMB18" Placement="X1Y14">
         <DataWidth_PortA MSB="0" LSB="0"/>
         <AddressRange_PortA Begin="0" End="1023"/>
         <BitLayout_PortA pattern="p0_d1"/>

@@ -17,3 +17,5 @@
 #define SCI_REG_Oscilloscope_0_CONFIG_ARM 0x805
 #define SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR 0x806
 
+#define SCI_REG_RateMeter_0_FIFOADDRESS 0x10000
+

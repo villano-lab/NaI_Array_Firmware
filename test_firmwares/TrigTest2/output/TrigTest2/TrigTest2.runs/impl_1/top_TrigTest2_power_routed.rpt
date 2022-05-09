@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Sun May  8 18:58:10 2022
+| Date             : Sun May  8 20:00:10 2022
 | Host             : PHYS-NC3124-D02 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_TrigTest2_power_routed.rpt -pb top_TrigTest2_power_summary_routed.pb -rpx top_TrigTest2_power_routed.rpx
 | Design           : TOP_TrigTest2
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.137        |
+| Total On-Chip Power (W)  | 0.138        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.076        |
@@ -52,22 +52,22 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.003 |        3 |       --- |             --- |
-| Slice Logic              |     0.007 |     8722 |       --- |             --- |
-|   LUT as Logic           |     0.006 |     3960 |     14600 |           27.12 |
-|   CARRY4                 |    <0.001 |      303 |      3650 |            8.30 |
-|   Register               |    <0.001 |     3677 |     29200 |           12.59 |
+| Clocks                   |     0.004 |        3 |       --- |             --- |
+| Slice Logic              |     0.007 |     9963 |       --- |             --- |
+|   LUT as Logic           |     0.006 |     4100 |     14600 |           28.08 |
+|   CARRY4                 |    <0.001 |      343 |      3650 |            9.40 |
+|   Register               |    <0.001 |     4514 |     29200 |           15.46 |
 |   LUT as Distributed RAM |    <0.001 |       72 |      5000 |            1.44 |
 |   LUT as Shift Register  |    <0.001 |        8 |      5000 |            0.16 |
 |   BUFG                   |    <0.001 |        4 |        32 |           12.50 |
 |   F7/F8 Muxes            |    <0.001 |       48 |     14600 |            0.33 |
-|   Others                 |     0.000 |       92 |       --- |             --- |
-| Signals                  |     0.006 |     6330 |       --- |             --- |
+|   Others                 |     0.000 |      350 |       --- |             --- |
+| Signals                  |     0.006 |     7254 |       --- |             --- |
 | Block RAM                |    <0.001 |        2 |        45 |            4.44 |
 | MMCM                     |     0.053 |        1 |         3 |           33.33 |
 | I/O                      |     0.006 |       56 |       150 |           37.33 |
 | Static Power             |     0.061 |          |           |                 |
-| Total                    |     0.137 |          |           |                 |
+| Total                    |     0.138 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,7 +77,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.021 |       0.017 |      0.005 |
+| Vccint    |       1.000 |     0.022 |       0.017 |      0.005 |
 | Vccaux    |       1.800 |     0.039 |       0.030 |      0.009 |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -250,7 +250,7 @@ Table of Contents
 |     iic_master                                                                         |    <0.001 |
 |   LEMO0_BUFF                                                                           |    <0.001 |
 |   LEMO2_BUFF                                                                           |     0.001 |
-|   U12                                                                                  |    <0.001 |
+|   U12                                                                                  |     0.001 |
 |     GENCH[0].xpm_memory_sdpram_inst                                                    |    <0.001 |
 |       xpm_memory_base_inst                                                             |    <0.001 |
 |   U14                                                                                  |    <0.001 |
@@ -260,6 +260,139 @@ Table of Contents
 |     xpm_memory_sdpram_inst                                                             |    <0.001 |
 |       xpm_memory_base_inst                                                             |    <0.001 |
 |   U2                                                                                   |    <0.001 |
+|   U22                                                                                  |    <0.001 |
+|     CPS_GENERATE[0].SYNC_WORD_CPS                                                      |    <0.001 |
+|       single_array[0].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[10].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[11].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[12].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[13].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[14].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[15].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[16].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[17].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[18].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[19].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[1].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[20].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[21].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[22].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[23].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[24].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[25].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[26].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[27].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[28].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[29].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[2].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[30].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[31].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[3].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[4].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[5].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[6].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[7].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[8].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[9].xpm_cdc_single_inst                                              |    <0.001 |
+|     CPS_GENERATE[0].SYNC_WORD_TCNTR                                                    |    <0.001 |
+|       single_array[0].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[10].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[11].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[12].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[13].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[14].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[15].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[16].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[17].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[18].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[19].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[1].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[20].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[21].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[22].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[23].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[24].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[25].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[26].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[27].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[28].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[29].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[2].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[30].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[31].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[3].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[4].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[5].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[6].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[7].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[8].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[9].xpm_cdc_single_inst                                              |    <0.001 |
+|     CPS_GENERATE[1].SYNC_WORD_CPS                                                      |    <0.001 |
+|       single_array[0].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[10].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[11].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[12].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[13].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[14].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[15].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[16].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[17].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[18].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[19].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[1].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[20].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[21].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[22].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[23].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[24].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[25].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[26].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[27].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[28].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[29].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[2].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[30].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[31].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[3].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[4].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[5].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[6].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[7].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[8].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[9].xpm_cdc_single_inst                                              |    <0.001 |
+|     CPS_GENERATE[1].SYNC_WORD_TCNTR                                                    |    <0.001 |
+|       single_array[0].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[10].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[11].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[12].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[13].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[14].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[15].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[16].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[17].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[18].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[19].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[1].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[20].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[21].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[22].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[23].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[24].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[25].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[26].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[27].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[28].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[29].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[2].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[30].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[31].xpm_cdc_single_inst                                             |    <0.001 |
+|       single_array[3].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[4].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[5].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[6].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[7].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[8].xpm_cdc_single_inst                                              |    <0.001 |
+|       single_array[9].xpm_cdc_single_inst                                              |    <0.001 |
 |   U3                                                                                   |    <0.001 |
 |   U4                                                                                   |    <0.001 |
 |   mcg                                                                                  |     0.054 |

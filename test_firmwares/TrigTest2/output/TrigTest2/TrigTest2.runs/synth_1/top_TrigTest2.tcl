@@ -36,6 +36,7 @@ read_vhdl -library xil_defaultlib {
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest2/output/TrigTest2/TrigTest2.srcs/sources_1/imports/HDL/pcores/ftdi245.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest2/output/TrigTest2/TrigTest2.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest2/output/TrigTest2/TrigTest2.srcs/sources_1/imports/HDL/pcores/i2c_master_scidk_config.vhd
+  C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest2/output/TrigTest2/TrigTest2.srcs/sources_1/imports/HDL/pcores/MCRateMeter.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest2/output/TrigTest2/TrigTest2.srcs/sources_1/imports/HDL/pcores/md5.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest2/output/TrigTest2/TrigTest2.srcs/sources_1/imports/HDL/pcores/polinvert.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest2/output/TrigTest2/TrigTest2.srcs/sources_1/imports/HDL/pcores/scidk_internal_i2c_manager.vhd
