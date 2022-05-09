@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("92dea27b-0bd3-4ec0-9db3-0647c536eec1") = "TrigTest2_Example", "TrigTest2_EXAMPLE.vcxproj", "552606f3-c479-47df-8993-0325842ffcc5"
+EndProject
+Project("92dea27b-0bd3-4ec0-9db3-0647c536eec1") = "TrigTest2_LIB", "TrigTest2_LIB.vcxproj", "27b5711c-020a-40a9-bd88-7e82d86f0bf0"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		552606f3-c479-47df-8993-0325842ffcc5.Debug|x86.ActiveCfg = Debug|Win32
+		552606f3-c479-47df-8993-0325842ffcc5.Debug|x86.Build.0 = Debug|Win32
+		552606f3-c479-47df-8993-0325842ffcc5.Release|x86.ActiveCfg = Release|Win32
+		552606f3-c479-47df-8993-0325842ffcc5.Release|x86.Build.0 = Release|Win32
+		27b5711c-020a-40a9-bd88-7e82d86f0bf0.Debug|x86.ActiveCfg = Debug|Win32
+		27b5711c-020a-40a9-bd88-7e82d86f0bf0.Debug|x86.Build.0 = Debug|Win32
+		27b5711c-020a-40a9-bd88-7e82d86f0bf0.Release|x86.ActiveCfg = Release|Win32
+		27b5711c-020a-40a9-bd88-7e82d86f0bf0.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
