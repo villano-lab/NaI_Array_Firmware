@@ -133,6 +133,20 @@ def REG_ANALOG_OFFSET_SET(data, handle):
 
 
 
+
+def RATE_METER_RateMeter_0_GET_DATA(channels, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, TrigTest2_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS, timeout_ms, handle)
+    return err, data, read_data, valid_data
+
+
+
+
+def RATE_METER_RateMeter_0_GET_DATA_COUNTS(channels, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, TrigTest2_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS + 512, timeout_ms, handle)
+    return err, data, read_data, valid_data
+
+
+
 def OSCILLOSCOPE_Oscilloscope_0_START(handle):
     err = __abstracted_reg_write(0, TrigTest2_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_ARM, handle)
     if (err != 0):
@@ -237,18 +251,4 @@ def OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopeP
                 Digital3[k+ OscilloscopeSamples * n] = (OscilloscopeData[i+ OscilloscopeSamples * n] >> 19 & 1)
                 k = k + 1
     return Analog, Digital0, Digital1,Digital2, Digital3
-
-
-
-
-def RATE_METER_RateMeter_0_GET_DATA(channels, timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, TrigTest2_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS, timeout_ms, handle)
-    return err, data, read_data, valid_data
-
-
-
-
-def RATE_METER_RateMeter_0_GET_DATA_COUNTS(channels, timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, TrigTest2_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS + 512, timeout_ms, handle)
-    return err, data, read_data, valid_data
 

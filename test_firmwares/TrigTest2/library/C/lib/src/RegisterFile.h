@@ -8,6 +8,8 @@
 #define SCI_REG_delay 0x00000807
 #define SCI_REG_gate 0x00000808
 #define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
+#define SCI_REG_RateMeter_0_FIFOADDRESS 0x10000
+
 #define SCI_REG_Oscilloscope_0_FIFOADDRESS 0x400
 #define SCI_REG_Oscilloscope_0_READ_STATUS 0x800
 #define SCI_REG_Oscilloscope_0_READ_POSITION 0x801
@@ -16,6 +18,4 @@
 #define SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_LEVEL 0x804
 #define SCI_REG_Oscilloscope_0_CONFIG_ARM 0x805
 #define SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR 0x806
-
-#define SCI_REG_RateMeter_0_FIFOADDRESS 0x10000
 
