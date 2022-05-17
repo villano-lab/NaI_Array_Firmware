@@ -293,8 +293,8 @@ int main(int argc, char* argv[])
 	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
 	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
 	delay_q = REG_delay_SET(delay,&handle);			
-	gate_uq = REG_gate_SET(gate_u,&handle);			
-	gate_lq = REG_gate_SET(gate_l,&handle);	
+	gate_uq = REG_gate_u_SET(gate_u,&handle);			
+	gate_lq = REG_gate_l_SET(gate_l,&handle);	
 	
 	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
 	
