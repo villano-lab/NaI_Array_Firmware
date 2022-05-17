@@ -41,7 +41,7 @@ IncludePCH             :=
 RcIncludePath          := 
 Libs                   := 
 ArLibs                 :=  "ftd2xx" 
-LibPath                := $(LibraryPathSwitch). 
+LibPath                := $(LibraryPathSwitch). /usr/local/lib/libftd2xx.so
 
 ##
 ## Common variables

@@ -39,9 +39,9 @@ LinkOptions            :=
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   :=  
+Libs                   :=   
 ArLibs                 :=  "SCIDK" 
-LibPath                := $(LibraryPathSwitch). 
+LibPath                := $(LibraryPathSwitch). /usr/local/lib/libftd2xx.so ../libSCIDK/Debug/libSCIDK.so
 
 ##
 ## Common variables
