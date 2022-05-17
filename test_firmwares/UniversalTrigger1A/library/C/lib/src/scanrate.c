@@ -262,10 +262,10 @@ int main(int argc, char* argv[])
 
 	//Configure settings
 	int thrs = 0;	        //amount LESS THAN 8192 for threshold.
-        int top = 8192; 	//way high so it's irrelevant
-        int delay = 3; 
-        int gate_u = 10; 
-		int gate_l = 5;
+	int top = 8192; 		//way high so it's irrelevant
+	int delay = 50; 
+	int gate_u = 10; 
+	int gate_l = 5;
 	int inhib = 50;		//inhibition time on trigger block
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive

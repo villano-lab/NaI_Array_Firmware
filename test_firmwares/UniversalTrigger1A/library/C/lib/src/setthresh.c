@@ -260,7 +260,7 @@ int main(int argc, char* argv[])
 	}
 
 	//Configure settings
-        printf("Set threshold to: %d.\n",thrs);
+    printf("Set threshold to: %d.\n",thrs);
 	int inhib = 50;		//inhibition time on trigger block
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive

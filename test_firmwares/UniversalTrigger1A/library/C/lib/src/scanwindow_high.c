@@ -265,11 +265,11 @@ int main(int argc, char* argv[])
 	}
 
 	//Configure settings
-        int top = thrs; //top of the window in trigger window
+    int top = thrs; //top of the window in trigger window
 	int inhib = 50;		//inhibition time on trigger block
-        int delay=3;
-        int gate_u = 10; 
-		int gate_l = 5;
+	int delay = 50;
+	int gate_u = 100; 
+	int gate_l = 50;
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive
 	//things that are set based on external factors
@@ -291,7 +291,7 @@ int main(int argc, char* argv[])
 		thrs_q = REG_thrsh_SET(8192+thrs,&handle);	//addition isn't working?
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
 	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
-	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
+	inhib_q = REG_inhib_SET(inhib,&handle);	//Set number of samples to delay data by
 	delay_q = REG_delay_SET(delay,&handle);			
 	gate_uq = REG_gate_SET(gate_u,&handle);			
 	gate_lq = REG_gate_SET(gate_l,&handle);
