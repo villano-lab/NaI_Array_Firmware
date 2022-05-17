@@ -31,6 +31,8 @@ NI_HANDLE handle;
 int thrs_q;
 int top_q;
 int delay_q;
+int gate_uq;
+int gate_lq;
 int inhib_q;
 int polarity_q;
 char* selection;
@@ -48,6 +50,7 @@ char *board_ip_char = const_cast<char*>(BOARD_IP_ADDRESS.c_str());*/
 
 const struct option longopts[] =
 {
+	{"gate",	required_argument,	0,	'g'},
 	{"help",	no_argument,		0,	'h'},
 	{"log",		optional_argument,	0,	'l'},
 	{"quiet",	no_argument,		0,	'q'},
@@ -63,6 +66,8 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
   	fprintf (stream,
 	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
 	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
+	" -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in arbitrary(?) time units (integer. defaults: 1-100)\n"
+	"					The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n"
 	" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
 	" -s,-q,	--silent,--quiet,		Print nothing.\n"
 	" -l,	--log		<file>		Log terminal output.\n"
@@ -103,9 +108,8 @@ int main(int argc, char* argv[])
 {
 	//Before reading arguments, turn on all detectors.
 	//This makes sure they are all on by default without potentially overwriting user input
-	for(int i=0; i<24; i++){
-		disable_q[i] = 0;
-	}
+	int gate_u = 100; 
+	int gate_l = 1;
 
 	//Read options
 	int index;
@@ -159,6 +163,11 @@ int main(int argc, char* argv[])
 					return -1;
 				};
 			};
+		case 'g':
+			if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",optarg);}
+				gate_l = atoi(strtok (optarg," ,.-"));
+				gate_u = atoi(strtok (NULL," ,.-"));
+			if(verbose > 1){printf("%d, %d\n",gate_l,gate_u);}
 		}
 	}
 

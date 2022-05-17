@@ -49,6 +49,7 @@ char *board_ip_char = const_cast<char*>(BOARD_IP_ADDRESS.c_str());*/
 
 const struct option longopts[] =
 {
+	{"gate",	required_argument,	0,	'g'},
 	{"help",	no_argument,		0,	'h'},
 	{"log",		optional_argument,	0,	'l'},
 	{"quiet",	no_argument,		0,	'q'},
@@ -65,6 +66,8 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
   	fprintf (stream,
 	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
 	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
+	" -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in arbitrary(?) time units (integer. defaults: 1-100)\n"
+	"					The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n"
 	" -t,	--thresh	<threshold>		Set the value of the threshold (default: 4192). \n"
 	" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
 	" -s,-q,	--silent,--quiet,		Print nothing.\n"
@@ -106,11 +109,10 @@ int main(int argc, char* argv[])
 {
 	//Before reading arguments, turn on all detectors.
 	//This makes sure they are all on by default without potentially overwriting user input
-	for(int i=0; i<24; i++){
-		disable_q[i] = 0;
-	}
 	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
 	value = 16777215;
+	int gate_u = 100; 
+	int gate_l = 1;
 
 	//Read options
 	int index;
@@ -166,6 +168,11 @@ int main(int argc, char* argv[])
 			};
 		case 't':
 			thrs = atoi(optarg);
+		case 'g':
+			if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",optarg);}
+				gate_l = atoi(strtok (optarg," ,.-"));
+				gate_u = atoi(strtok (NULL," ,.-"));
+			if(verbose > 1){printf("%d, %d\n",gate_l,gate_u);}
 		}
 	}
 
@@ -268,8 +275,6 @@ int main(int argc, char* argv[])
     int top = thrs; //top of the window in trigger window
 	int inhib = 50;		//inhibition time on trigger block
 	int delay = 50;
-	int gate_u = 100; 
-	int gate_l = 50;
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive
 	//things that are set based on external factors
@@ -293,8 +298,8 @@ int main(int argc, char* argv[])
 	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
 	inhib_q = REG_inhib_SET(inhib,&handle);	//Set number of samples to delay data by
 	delay_q = REG_delay_SET(delay,&handle);			
-	gate_uq = REG_gate_SET(gate_u,&handle);			
-	gate_lq = REG_gate_SET(gate_l,&handle);
+	gate_uq = REG_gate_u_SET(gate_u,&handle);			
+	gate_lq = REG_gate_l_SET(gate_l,&handle);
 	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
 	
 	//Run phase - undo reset
