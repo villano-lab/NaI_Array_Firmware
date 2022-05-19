@@ -4,6 +4,7 @@ ex2
 *.o
 *.so
 *.exe
+*.bin
 #Other make/compile results
 lib*.txt
 #Unnamed output
@@ -20,3 +21,6 @@ output/*/
 .build-debug/
 Debug/
 *.cache
+tmp/
+#Visual Studio Configuration
+.vs/
