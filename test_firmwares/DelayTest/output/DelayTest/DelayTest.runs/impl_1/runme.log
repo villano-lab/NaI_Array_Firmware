@@ -1,0 +1,1085 @@
+
+*** Running vivado
+    with args -log top_DelayTest.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_DelayTest.tcl -notrace
+
+
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source top_DelayTest.tcl -notrace
+Command: link_design -top top_DelayTest -part xc7s25csga225-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Project 1-454] Reading design checkpoint 'c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ.dcp' for cell 'clk125'
+INFO: [Project 1-454] Reading design checkpoint 'c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/main_clk_gen/main_clk_gen.dcp' for cell 'mcg'
+INFO: [Project 1-454] Reading design checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/.Xil/Vivado-37436-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp' for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO'
+INFO: [Netlist 29-17] Analyzing 456 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Device 21-403] Loading part xc7s25csga225-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/FIFO_mode'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/RTX_read_machine[0]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/RTX_read_machine[1]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/RTX_read_machine[2]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/RTX_read_machine[3]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/address_fifo_full'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[0]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[10]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[11]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[12]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[13]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[14]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[15]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[16]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[17]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[18]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[19]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[1]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[20]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[21]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[22]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[23]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[2]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[3]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[4]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[5]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[6]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[7]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[8]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/burst_paylan[9]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[0]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[10]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[11]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[12]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[13]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[14]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[15]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[16]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[17]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[18]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[19]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[1]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[20]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[21]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[22]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[23]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[24]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[25]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[26]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[27]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[28]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[29]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[2]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[30]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[31]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[3]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[4]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[5]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[6]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[7]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[8]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd[9]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[0]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[10]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[11]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[12]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[13]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[14]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[15]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[16]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[17]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[18]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[19]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[1]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[20]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[21]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[22]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[23]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[24]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[25]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[26]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[27]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[28]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[29]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[2]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[30]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[31]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[3]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[4]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[5]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[6]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[7]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[8]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/data_rd_e[9]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/direction'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/fifo_address_full'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/footer'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/input_fifo_empty'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/int_DATA_RD[0]'; it is marked with attributes prohibiting Vivado debug.
+CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/int_DATA_RD[10]'; it is marked with attributes prohibiting Vivado debug.
+INFO: [Common 17-14] Message 'Chipscope 16-3' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ_board.xdc] for cell 'clk125/inst'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ_board.xdc] for cell 'clk125/inst'
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ.xdc] for cell 'clk125/inst'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ.xdc] for cell 'clk125/inst'
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0'
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs.xdc] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs.xdc] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0'
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs.xdc] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs.xdc] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0'
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/main_clk_gen/main_clk_gen_board.xdc] for cell 'mcg/inst'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/main_clk_gen/main_clk_gen_board.xdc] for cell 'mcg/inst'
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/main_clk_gen/main_clk_gen.xdc] for cell 'mcg/inst'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/main_clk_gen/main_clk_gen.xdc] for cell 'mcg/inst'
+Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc:161]
+WARNING: [Vivado 12-1008] No clocks found for command 'get_clocks -of_objects [get_pins mcg/inst/mmcm_adv_inst/CLKOUT0]'. [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc:161]
+Resolution: Verify the create_clock command was called to create the clock object before it is referenced.
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc:161]
+get_clocks: Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1092.836 ; gain = 468.328
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-to [get_clocks -of_objects [get_pins mcg/inst/mmcm_adv_inst/CLKOUT0]]'. [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc:161]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc]
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/.Xil/Vivado-37436-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/.Xil/Vivado-37436-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/.Xil/Vivado-37436-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/main_clk_gen/main_clk_gen.dcp'
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs_clocks.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs_clocks.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0'
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs_clocks.xdc] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs_clocks.xdc] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0'
+Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs_clocks.xdc] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0'
+Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs_clocks.xdc] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/xpm_cdc_async_rst_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'Inst_ftdi245_cdc/xpm_cdc_async_rst_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[31].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[31].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[8].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[8].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[9].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[9].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[10].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[10].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[11].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[11].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[12].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[12].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[13].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[13].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[14].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[14].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[15].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[15].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[16].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[16].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[17].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[17].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[0].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[0].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[18].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[18].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[19].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[19].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[20].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[20].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[21].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[21].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[22].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[22].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[23].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[23].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[24].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[24].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[25].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[25].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[26].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[26].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[27].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[27].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[1].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[1].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[28].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[28].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[29].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[29].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[30].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[30].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[31].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[31].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[0].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[0].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[1].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[1].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[2].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[2].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[3].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[3].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[4].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[4].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[5].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[5].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[2].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[2].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[6].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[6].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[7].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[7].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[8].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[8].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[9].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[9].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[10].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[10].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[11].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[11].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[12].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[12].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[13].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[13].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[14].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[14].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[15].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[15].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[3].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[3].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[16].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[16].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[17].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[17].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[18].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[18].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[19].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[19].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[20].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[20].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[21].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[21].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[22].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[22].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[23].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[23].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[24].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[24].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[25].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[25].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[4].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[4].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[26].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[26].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[27].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[27].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[28].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[28].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[29].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[29].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[30].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_CPS/single_array[30].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[5].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[5].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[6].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[6].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[7].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_CPS/single_array[7].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[31].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[31].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[8].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[8].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[9].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[9].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[10].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[10].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[11].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[11].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[12].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[12].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[13].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[13].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[14].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[14].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[15].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[15].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[16].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[16].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[17].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[17].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[0].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[0].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[18].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[18].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[19].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[19].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[20].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[20].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[21].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[21].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[22].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[22].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[23].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[23].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[24].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[24].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[25].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[25].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[26].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[26].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[27].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[27].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[1].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[1].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[28].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[28].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[29].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[29].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[30].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[30].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[31].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[31].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[0].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[0].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[1].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[1].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[2].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[2].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[3].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[3].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[4].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[4].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[5].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[5].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[2].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[2].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[6].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[6].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[7].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[7].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[8].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[8].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[9].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[9].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[10].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[10].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[11].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[11].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[12].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[12].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[13].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[13].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[14].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[14].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[15].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[15].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[3].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[3].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[16].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[16].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[17].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[17].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[18].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[18].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[19].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[19].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[20].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[20].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[21].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[21].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[22].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[22].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[23].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[23].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[24].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[24].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[25].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[25].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[4].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[4].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[26].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[26].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[27].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[27].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[28].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[28].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[29].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[29].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[30].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[0].SYNC_WORD_TCNTR/single_array[30].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[5].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[5].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[6].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[6].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[7].xpm_cdc_single_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'U19/CPS_GENERATE[1].SYNC_WORD_TCNTR/single_array[7].xpm_cdc_single_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U11/USE_RAM.xpm_memory_sdpram_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U11/USE_RAM.xpm_memory_sdpram_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U23/xpm_memory_sdpram_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U23/xpm_memory_sdpram_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U12/xpm_memory_sdpram_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U12/xpm_memory_sdpram_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U22/GENCH[1].xpm_memory_sdpram_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U22/GENCH[1].xpm_memory_sdpram_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U22/GENCH[0].xpm_memory_sdpram_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'U22/GENCH[0].xpm_memory_sdpram_inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 29 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 11 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 18 instances
+
+18 Infos, 1 Warnings, 101 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 1092.836 ; gain = 786.227
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s25'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s25'
+INFO: [Common 17-86] Your Implementation license expires in 14 day(s)
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port IIC_0_sda expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[0] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[1] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[2] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[3] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[4] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[5] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[6] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[7] expects both input and output buffering but the buffers are incomplete.
+INFO: [Project 1-461] DRC finished with 0 Errors, 9 Warnings
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1092.836 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 4 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 2e54b9d5b
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1092.836 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 95 cells and removed 111 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 2329f4509
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1092.836 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 91 cells and removed 236 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 21dc7bffc
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1092.836 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 39 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 21dc7bffc
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1092.836 ; gain = 0.000
+INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
+
+Phase 5 Shift Register Optimization
+Phase 5 Shift Register Optimization | Checksum: 21dc7bffc
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1092.836 ; gain = 0.000
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1092.836 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 2151c33b8
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1092.836 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=3.128 | TNS=0.000 |
+INFO: [Power 33-23] Power model is not available for DNA_PORT_inst
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 5 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 2 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 2 Total Ports: 10
+Ending PowerOpt Patch Enables Task | Checksum: 29603df10
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.089 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 29603df10
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1309.320 ; gain = 216.484
+INFO: [Common 17-83] Releasing license: Implementation
+41 Infos, 10 Warnings, 101 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1309.320 ; gain = 216.484
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/top_DelayTest_opt.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file top_DelayTest_drc_opted.rpt -pb top_DelayTest_drc_opted.pb -rpx top_DelayTest_drc_opted.rpx
+Command: report_drc -file top_DelayTest_drc_opted.rpt -pb top_DelayTest_drc_opted.pb -rpx top_DelayTest_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/top_DelayTest_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Chipscope 16-241] No debug cores found in the current design.
+Before running the implement_debug_core command, either use the Set Up Debug wizard (GUI mode)
+or use the create_debug_core and connect_debug_core Tcl commands to insert debug cores into the design.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s25'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s25'
+INFO: [Common 17-86] Your Implementation license expires in 14 day(s)
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
+WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1840 rule limit reached: 20 violations have been found.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[14]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[15]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[16]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[17]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[18]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[20]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[21]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[22]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[23]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[24]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[25]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[26]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[27]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[29]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[30]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[31]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[10] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[6]) which is driven by a register (U12/WP_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[11] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[7]) which is driven by a register (U12/WP_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[12] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[8]) which is driven by a register (U12/WP_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[13] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[9]) which is driven by a register (U12/WP_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[4] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[0]) which is driven by a register (U12/WP_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[5] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[1]) which is driven by a register (U12/WP_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[6] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[2]) which is driven by a register (U12/WP_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[7] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[3]) which is driven by a register (U12/WP_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[8] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[4]) which is driven by a register (U12/WP_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[9] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[5]) which is driven by a register (U12/WP_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[10] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[6]) which is driven by a register (U23/WP_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[11] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[7]) which is driven by a register (U23/WP_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[12] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[8]) which is driven by a register (U23/WP_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[13] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[9]) which is driven by a register (U23/WP_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[4] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[0]) which is driven by a register (U23/WP_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[5] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[1]) which is driven by a register (U23/WP_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[6] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[2]) which is driven by a register (U23/WP_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[7] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[3]) which is driven by a register (U23/WP_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[8] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[4]) which is driven by a register (U23/WP_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[9] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[5]) which is driven by a register (U23/WP_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port IIC_0_sda expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[0] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[1] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[2] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[3] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[4] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[5] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[6] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[7] expects both input and output buffering but the buffers are incomplete.
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 51 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1f455b007
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 9a07a465
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: d676c104
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: d676c104
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: d676c104
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 2 Global Placement
+Phase 2 Global Placement | Checksum: e93b1b57
+
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: e93b1b57
+
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 106b8cb65
+
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:15 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: fadfb342
+
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:15 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: fadfb342
+
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:15 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3.5 Timing Path Optimizer
+Phase 3.5 Timing Path Optimizer | Checksum: fadfb342
+
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:15 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3.6 Fast Optimization
+Phase 3.6 Fast Optimization | Checksum: efd6c92f
+
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:15 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3.7 Small Shape Detail Placement
+Phase 3.7 Small Shape Detail Placement | Checksum: 151e34167
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:19 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3.8 Re-assign LUT pins
+Phase 3.8 Re-assign LUT pins | Checksum: 12b845c09
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:20 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3.9 Pipeline Register Optimization
+Phase 3.9 Pipeline Register Optimization | Checksum: 12b845c09
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:20 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3.10 Fast Optimization
+Phase 3.10 Fast Optimization | Checksum: 12b845c09
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:21 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 12b845c09
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:21 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 905906fe
+
+Phase 4.1.1.1 BUFG Insertion
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Place 46-31] BUFG insertion identified 0 candidate nets, 0 success, 0 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason.
+Phase 4.1.1.1 BUFG Insertion | Checksum: 905906fe
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:24 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.093. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 1cec2e84a
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 1cec2e84a
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1cec2e84a
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 4.3 Placer Reporting
+Phase 4.3 Placer Reporting | Checksum: 1cec2e84a
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 4.4 Final Placement Cleanup
+Phase 4.4 Final Placement Cleanup | Checksum: 21691b615
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 21691b615
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Ending Placer Task | Checksum: 13dfcabb2
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+64 Infos, 61 Warnings, 101 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:00:50 ; elapsed = 00:00:35 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/top_DelayTest_placed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_io -file top_DelayTest_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.096 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file top_DelayTest_utilization_placed.rpt -pb top_DelayTest_utilization_placed.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.144 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_control_sets -verbose -file top_DelayTest_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s25'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s25'
+INFO: [Common 17-86] Your Implementation license expires in 14 day(s)
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+Checksum: PlaceDB: eccf1fce ConstDB: 0 ShapeSum: 512d8be4 RouteDB: 0
+
+Phase 1 Build RT Design
+Phase 1 Build RT Design | Checksum: f8adb097
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:22 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Post Restoration Checksum: NetGraph: bc24fd70 NumContArr: 3c88b327 Constraints: 0 Timing: 0
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: f8adb097
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:23 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 2.2 Fix Topology Constraints
+Phase 2.2 Fix Topology Constraints | Checksum: f8adb097
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:23 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 2.3 Pre Route Cleanup
+Phase 2.3 Pre Route Cleanup | Checksum: f8adb097
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:23 . Memory (MB): peak = 1309.320 ; gain = 0.000
+ Number of Nodes with overlaps = 0
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: 1835a034c
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:26 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.132  | TNS=0.000  | WHS=-0.147 | THS=-43.581|
+
+
+Phase 2.5 Update Timing for Bus Skew
+
+Phase 2.5.1 Update Timing
+Phase 2.5.1 Update Timing | Checksum: 185f378eb
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:27 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.132  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 2.5 Update Timing for Bus Skew | Checksum: 185f378eb
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:27 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Phase 2 Router Initialization | Checksum: 1e77112a4
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:27 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 3 Initial Routing
+Phase 3 Initial Routing | Checksum: 1c6695553
+
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:28 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 520
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.030  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 13c2c1364
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:31 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.029  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 1e0bb759c
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Phase 4 Rip-up And Reroute | Checksum: 1e0bb759c
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 1e0bb759c
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 1e0bb759c
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Phase 5 Delay and Skew Optimization | Checksum: 1e0bb759c
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 1ebbaf13f
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:32 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.029  | TNS=0.000  | WHS=0.075  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 1c893b1a2
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Phase 6 Post Hold Fix | Checksum: 1c893b1a2
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 3.51889 %
+  Global Horizontal Routing Utilization  = 4.43189 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 1ba78175e
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 1ba78175e
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 1771a993b
+
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.029  | TNS=0.000  | WHS=0.075  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 1771a993b
+
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:33 . Memory (MB): peak = 1309.320 ; gain = 0.000
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+83 Infos, 61 Warnings, 101 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:35 . Memory (MB): peak = 1309.320 ; gain = 0.000
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/top_DelayTest_routed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file top_DelayTest_drc_routed.rpt -pb top_DelayTest_drc_routed.pb -rpx top_DelayTest_drc_routed.rpx
+Command: report_drc -file top_DelayTest_drc_routed.rpt -pb top_DelayTest_drc_routed.pb -rpx top_DelayTest_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/top_DelayTest_drc_routed.rpt.
+report_drc completed successfully
+INFO: [runtcl-4] Executing : report_methodology -file top_DelayTest_methodology_drc_routed.rpt -pb top_DelayTest_methodology_drc_routed.pb -rpx top_DelayTest_methodology_drc_routed.rpx
+Command: report_methodology -file top_DelayTest_methodology_drc_routed.rpt -pb top_DelayTest_methodology_drc_routed.pb -rpx top_DelayTest_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Coretcl 2-1520] The results of Report Methodology are in file C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/DelayTest/output/DelayTest/DelayTest.runs/impl_1/top_DelayTest_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 1309.320 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_power -file top_DelayTest_power_routed.rpt -pb top_DelayTest_power_summary_routed.pb -rpx top_DelayTest_power_routed.rpx
+Command: report_power -file top_DelayTest_power_routed.rpt -pb top_DelayTest_power_summary_routed.pb -rpx top_DelayTest_power_routed.rpx
+INFO: [Power 33-23] Power model is not available for DNA_PORT_inst
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+96 Infos, 61 Warnings, 101 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [runtcl-4] Executing : report_route_status -file top_DelayTest_route_status.rpt -pb top_DelayTest_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file top_DelayTest_timing_summary_routed.rpt -rpx top_DelayTest_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+INFO: [runtcl-4] Executing : report_incremental_reuse -file top_DelayTest_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-545] No incremental reuse to report, no incremental placement and routing data was found.
+INFO: [runtcl-4] Executing : report_clock_utilization -file top_DelayTest_clock_utilization_routed.rpt
+Command: write_bitstream -force top_DelayTest.bit -bin_file
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s25'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s25'
+INFO: [Common 17-86] Your Implementation license expires in 14 day(s)
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC BUFC-1] Input Buffer Connections: Input buffer LEMO0_BUFF/IBUF has no loads. It is recommended to have an input buffer drive an internal load.
+WARNING: [DRC BUFC-1] Input Buffer Connections: Input buffer LEMO2_BUFF/IBUF has no loads. It is recommended to have an input buffer drive an internal load.
+WARNING: [DRC CFGBVS-1] Missing CFGBVS and CONFIG_VOLTAGE Design Properties: Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  It is suggested to specify these either using the 'Edit Device Properties' function in the GUI or directly in the XDC file using the following syntax:
+
+ set_property CFGBVS value1 [current_design]
+ #where value1 is either VCCO or GND
+
+ set_property CONFIG_VOLTAGE value2 [current_design]
+ #where value2 is the voltage provided to configuration bank 0
+
+Refer to the device configuration user guide for more information.
+WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
+WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1840 rule limit reached: 20 violations have been found.
+WARNING: [DRC PDRC-61] SLICEM_5lutO5_C5: Dangling output pin O5 on site SLICE_X26Y21:C5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-61] SLICEM_5lutO5_C5: Dangling output pin O5 on site SLICE_X26Y22:C5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-61] SLICEM_5lutO5_C5: Dangling output pin O5 on site SLICE_X26Y24:C5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-61] SLICEM_5lutO5_C5: Dangling output pin O5 on site SLICE_X26Y26:C5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-61] SLICEM_5lutO5_C5: Dangling output pin O5 on site SLICE_X28Y21:C5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-62] SLICEM_5lutO5_B5: Dangling output pin O5 on site SLICE_X26Y21:B5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-62] SLICEM_5lutO5_B5: Dangling output pin O5 on site SLICE_X26Y22:B5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-62] SLICEM_5lutO5_B5: Dangling output pin O5 on site SLICE_X26Y24:B5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-62] SLICEM_5lutO5_B5: Dangling output pin O5 on site SLICE_X28Y21:B5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-63] SLICEM_5lutO5_A5: Dangling output pin O5 on site SLICE_X26Y21:A5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-63] SLICEM_5lutO5_A5: Dangling output pin O5 on site SLICE_X26Y22:A5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-63] SLICEM_5lutO5_A5: Dangling output pin O5 on site SLICE_X26Y24:A5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-63] SLICEM_5lutO5_A5: Dangling output pin O5 on site SLICE_X28Y21:A5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[14]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[15]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[16]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[17]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[18]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[20]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[21]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[22]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[23]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[24]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[25]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[26]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[27]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[29]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[30]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[31]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[10] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[6]) which is driven by a register (U12/WP_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[11] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[7]) which is driven by a register (U12/WP_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[12] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[8]) which is driven by a register (U12/WP_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[13] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[9]) which is driven by a register (U12/WP_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[4] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[0]) which is driven by a register (U12/WP_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[5] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[1]) which is driven by a register (U12/WP_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[6] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[2]) which is driven by a register (U12/WP_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[7] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[3]) which is driven by a register (U12/WP_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[8] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[4]) which is driven by a register (U12/WP_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[9] (net: U12/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[5]) which is driven by a register (U12/WP_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[10] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[6]) which is driven by a register (U23/WP_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[11] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[7]) which is driven by a register (U23/WP_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[12] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[8]) which is driven by a register (U23/WP_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[13] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[9]) which is driven by a register (U23/WP_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[4] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[0]) which is driven by a register (U23/WP_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[5] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[1]) which is driven by a register (U23/WP_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[6] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[2]) which is driven by a register (U23/WP_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[7] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[3]) which is driven by a register (U23/WP_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[8] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[4]) which is driven by a register (U23/WP_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRARDADDR[9] (net: U23/xpm_memory_sdpram_inst/xpm_memory_base_inst/addra[5]) which is driven by a register (U23/WP_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC RTSTAT-10] No routable loads: 51 net(s) have no routable loads. The problem bus(es) and/or net(s) are Inst_ftdi245_cdc/BUS_DATASTROBE, Inst_ftdi245_cdc/Inst_ftdi245/address_fifo_full, Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, Inst_ftdi245_cdc/not_full_and_pending, Inst_ftdi245_cdc/oSYNC_INT_WR, Inst_ftdi245_cdc/Inst_ftdi245/output_fifo_full, Inst_ftdi245_cdc/pending, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i... and (the first 15 of 20 listed).
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 59 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Project 1-821] Please set project.enableDesignId to be 'true'.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./top_DelayTest.bit...
+Writing bitstream ./top_DelayTest.bin...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-118] WebTalk data collection is enabled (User setting is ON. Install Setting is ON.).
+INFO: [Common 17-83] Releasing license: Implementation
+114 Infos, 121 Warnings, 101 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:29 ; elapsed = 00:00:25 . Memory (MB): peak = 1718.738 ; gain = 409.418
+INFO: [Common 17-206] Exiting Vivado at Wed May 18 18:29:35 2022...

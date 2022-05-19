@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7s25csga225-1" LaunchTime="1652919981">
+  <File Type="PWROPT-DCP" Name="top_DelayTest_pwropt.dcp"/>
+  <File Type="ROUTE-PWR" Name="top_DelayTest_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="top_DelayTest.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="top_DelayTest_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="top_DelayTest_reports.tcl"/>
+  <File Type="BG-DRC" Name="top_DelayTest.drc"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="top_DelayTest_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="top_DelayTest_timing_summary_init.rpt"/>
+  <File Type="OPT-HWDEF" Name="top_DelayTest.hwdef"/>
+  <File Type="OPT-DCP" Name="top_DelayTest_opt.dcp"/>
+  <File Type="OPT-DRC" Name="top_DelayTest_drc_opted.rpt"/>
+  <File Type="OPT-TIMING" Name="top_DelayTest_timing_summary_opted.rpt"/>
+  <File Type="PWROPT-DRC" Name="top_DelayTest_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="top_DelayTest_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="top_DelayTest_placed.dcp"/>
+  <File Type="PLACE-IO" Name="top_DelayTest_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="top_DelayTest_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="top_DelayTest_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="top_DelayTest_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="top_DelayTest_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="top_DelayTest_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="top_DelayTest_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="top_DelayTest_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="top_DelayTest_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="top_DelayTest_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="top_DelayTest_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="top_DelayTest_drc_physopted.rpt"/>
+  <File Type="BG-BIT" Name="top_DelayTest.bit"/>
+  <File Type="PHYSOPT-TIMING" Name="top_DelayTest_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="top_DelayTest_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="top_DelayTest_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="top_DelayTest_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="top_DelayTest_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="top_DelayTest_drc_routed.pb"/>
+  <File Type="BITSTR-MSK" Name="top_DelayTest.msk"/>
+  <File Type="ROUTE-DRC-RPX" Name="top_DelayTest_drc_routed.rpx"/>
+  <File Type="BG-BGN" Name="top_DelayTest.bgn"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="top_DelayTest_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-RBT" Name="top_DelayTest.rbt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="top_DelayTest_methodology_drc_routed.rpx"/>
+  <File Type="BG-BIN" Name="top_DelayTest.bin"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="top_DelayTest_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="top_DelayTest_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="top_DelayTest_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="top_DelayTest_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="top_DelayTest_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="top_DelayTest_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="top_DelayTest_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="top_DelayTest_incremental_reuse_routed.rpt"/>
+  <File Type="RDI-RDI" Name="top_DelayTest.vdi"/>
+  <File Type="ROUTE-CLK" Name="top_DelayTest_clock_utilization_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="top_DelayTest_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="top_DelayTest_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="top_DelayTest_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="top_DelayTest_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="top_DelayTest_timing_summary_postroute_physopted.rpx"/>
+  <File Type="BITSTR-NKY" Name="top_DelayTest.nky"/>
+  <File Type="BITSTR-BMM" Name="top_DelayTest_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="top_DelayTest.mmi"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="top_DelayTest.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="top_DelayTest.sysdef"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/ip/clk_125MHZ/clk_125MHZ.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/clk_125MHZ.xci"/>
+        <Attr Name="ImportTime" Val="1635179418"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/FTDI_FIFOs.xcix">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/FTDI_FIFOs.xcix"/>
+        <Attr Name="ImportTime" Val="1594232414"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/FTDI_FIFOs/FTDI_FIFOs.xci"/>
+        <Attr Name="ImportTime" Val="1589640882"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/main_clk_gen/main_clk_gen.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/main_clk_gen.xci"/>
+        <Attr Name="ImportTime" Val="1635179418"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/top_DelayTest.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/top_DelayTest.vhd"/>
+        <Attr Name="ImportTime" Val="1652919570"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/ftdi245.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/ftdi245.vhd"/>
+        <Attr Name="ImportTime" Val="1643248576"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/ftdi245_cdc.vhd"/>
+        <Attr Name="ImportTime" Val="1652919570"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/i2c_master_scidk_config.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/i2c_master_scidk_config.vhd"/>
+        <Attr Name="ImportTime" Val="1594232414"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/MCRateMeter.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/MCRateMeter.vhd"/>
+        <Attr Name="ImportTime" Val="1652919559"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/md5.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/md5.vhd"/>
+        <Attr Name="ImportTime" Val="1643248576"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/polinvert.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/polinvert.vhd"/>
+        <Attr Name="ImportTime" Val="1652919563"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/scidk_internal_i2c_manager.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/scidk_internal_i2c_manager.vhd"/>
+        <Attr Name="ImportTime" Val="1603152754"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/security.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/security.vhd"/>
+        <Attr Name="ImportTime" Val="1643248576"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/spi93lc56_16bit.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/spi93lc56_16bit.vhd"/>
+        <Attr Name="ImportTime" Val="1616344562"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/trigger_leading.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/trigger_leading.vhd"/>
+        <Attr Name="ImportTime" Val="1601571716"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/xlx_delay.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/xlx_delay.vhd"/>
+        <Attr Name="ImportTime" Val="1623278676"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/xlx_oscilloscope_sync.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/xlx_oscilloscope_sync.vhd"/>
+        <Attr Name="ImportTime" Val="1652919566"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/xlx_soft_gd.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/xlx_soft_gd.vhd"/>
+        <Attr Name="ImportTime" Val="1565049970"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="top_DelayTest"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/HDL/SCIDK_constraints.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/SCIDK_constraints.xdc"/>
+        <Attr Name="ImportTime" Val="1633533656"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream">
+      <Option Id="BinFile">1</Option>
+    </Step>
+  </Strategy>
+</GenRun>
