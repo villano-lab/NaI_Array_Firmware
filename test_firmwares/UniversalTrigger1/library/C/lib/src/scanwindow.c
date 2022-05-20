@@ -264,10 +264,10 @@ int main(int argc, char* argv[])
 	}
 
 	//Configure settings
-        int top = thrs; //top of the window in trigger window
-	int inhib = 50;		//inhibition time on trigger block
-        int delay=50;
-        int gate=100;
+    int top = thrs; //top of the window in trigger window
+	int inhib = 1000;		//inhibition time on trigger block
+    int delay=50;
+    int gate=100;
 	//things you probably won't change
 	int polarity = 0;	//zero for negative, one for positive
 	//things that are set based on external factors
