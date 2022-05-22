@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>d4cd8b48-184e-4cb7-87d1-70dd1f7f0ff1</ProjectGuid>
+    <ProjectGuid>98bb3f29-0a78-4e25-a536-a6f7cc25b15c</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TrigTest3_LIB</RootNamespace>
     <ProjectName>TrigTest3_LIB</ProjectName>

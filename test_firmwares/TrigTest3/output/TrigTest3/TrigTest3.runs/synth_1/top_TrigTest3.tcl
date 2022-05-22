@@ -34,6 +34,8 @@ set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/subpage_wintrig.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd
+  C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/charge_integratiobkb.vhd
+  C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/charge_integration.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/i2c_master_scidk_config.vhd
@@ -47,6 +49,7 @@ read_vhdl -library xil_defaultlib {
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/xlx_delay.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/xlx_oscilloscope_sync.vhd
   C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/xlx_soft_gd.vhd
+  C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/xlx_spectrum.vhd
 }
 read_ip -quiet C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ.xci
 set_property used_in_implementation false [get_files -all c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ_board.xdc]

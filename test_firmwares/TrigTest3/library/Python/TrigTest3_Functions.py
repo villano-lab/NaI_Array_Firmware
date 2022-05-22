@@ -4,6 +4,8 @@
 
 
 
+
+
 import TrigTest3_RegisterFile
 from ctypes import *
 import array
@@ -111,9 +113,122 @@ def REG_gate_GET(handle):
 def REG_gate_SET(data, handle):
     err = __abstracted_reg_write(data, TrigTest3_RegisterFile.SCI_REG_gate, handle)
     return err
+
+def REG_inttime_GET(handle):
+    [err, data] = __abstracted_reg_read(TrigTest3_RegisterFile.SCI_REG_inttime, handle)
+    return err, data
+
+def REG_inttime_SET(data, handle):
+    err = __abstracted_reg_write(data, TrigTest3_RegisterFile.SCI_REG_inttime, handle)
+    return err
+
+def REG_preint_GET(handle):
+    [err, data] = __abstracted_reg_read(TrigTest3_RegisterFile.SCI_REG_preint, handle)
+    return err, data
+
+def REG_preint_SET(data, handle):
+    err = __abstracted_reg_write(data, TrigTest3_RegisterFile.SCI_REG_preint, handle)
+    return err
+
+def REG_pileup_GET(handle):
+    [err, data] = __abstracted_reg_read(TrigTest3_RegisterFile.SCI_REG_pileup, handle)
+    return err, data
+
+def REG_pileup_SET(data, handle):
+    err = __abstracted_reg_write(data, TrigTest3_RegisterFile.SCI_REG_pileup, handle)
+    return err
+
+def REG_gain_GET(handle):
+    [err, data] = __abstracted_reg_read(TrigTest3_RegisterFile.SCI_REG_gain, handle)
+    return err, data
+
+def REG_gain_SET(data, handle):
+    err = __abstracted_reg_write(data, TrigTest3_RegisterFile.SCI_REG_gain, handle)
+    return err
+
+def REG_ofs_GET(handle):
+    [err, data] = __abstracted_reg_read(TrigTest3_RegisterFile.SCI_REG_ofs, handle)
+    return err, data
+
+def REG_ofs_SET(data, handle):
+    err = __abstracted_reg_write(data, TrigTest3_RegisterFile.SCI_REG_ofs, handle)
+    return err
+
+def REG_baseline_GET(handle):
+    [err, data] = __abstracted_reg_read(TrigTest3_RegisterFile.SCI_REG_baseline, handle)
+    return err, data
+
+def REG_baseline_SET(data, handle):
+    err = __abstracted_reg_write(data, TrigTest3_RegisterFile.SCI_REG_baseline, handle)
+    return err
 def REG_ANALOG_OFFSET_SET(data, handle):
     err = __abstracted_reg_write(data, TrigTest3_RegisterFile.SCI_REG_ANALOG_OFFSET, handle)
     return err
+
+
+
+
+def RATE_METER_RateMeter_0_GET_DATA(channels, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, TrigTest3_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS, timeout_ms, handle)
+    return err, data, read_data, valid_data
+
+
+
+
+def RATE_METER_RateMeter_0_GET_DATA_COUNTS(channels, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, TrigTest3_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS + 512, timeout_ms, handle)
+    return err, data, read_data, valid_data
+
+
+
+def SPECTRUM_Spectrum_0_RESET(handle):
+    err = __abstracted_reg_write(2, TrigTest3_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_START(handle):
+    err = __abstracted_reg_write(4, TrigTest3_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_FLUSH(handle):
+    err = __abstracted_reg_write(1, TrigTest3_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_STOP(handle):
+    err = __abstracted_reg_write(0, TrigTest3_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_SET_PARAMETERS(Bin, AcquisitionMode, TargetValue, handle):
+    rebin_value=0
+    if (Bin == 8192):
+        rebin_value= 1
+    if (Bin == 4096):
+        rebin_value= 2
+    if (Bin == 2048):
+        rebin_value= 3
+    if (Bin == 1024):
+        rebin_value= 4
+    if (Bin == 512):
+        rebin_value= 5
+    if (Bin == 256):
+        rebin_value= 6
+    if (Bin == 128):
+        rebin_value= 7
+    err = __abstracted_reg_write(rebin_value, TrigTest3_RegisterFile.SCI_REG_Spectrum_0_CONFIG_REBIN, handle)
+    acq_mode=0
+    if (AcquisitionMode =="Event"):
+        acq_mode=(1 << 30) + TargetValue
+    if (AcquisitionMode =="Time"):
+        acq_mode=(1 << 31) + TargetValue*1000
+    err = __abstracted_reg_write(acq_mode, TrigTest3_RegisterFile.SCI_REG_Spectrum_0_CONFIG_LIMIT, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_GET_STATUS(handle):
+    [err, status] = __abstracted_reg_read(TrigTest3_RegisterFile.SCI_REG_Spectrum_0_STATUS, handle)
+    return err, status
+
+def SPECTRUM_Spectrum_0_GET_DATA(Bin, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(Bin, TrigTest3_RegisterFile.SCI_REG_Spectrum_0_FIFOADDRESS, timeout_ms, handle)
+    return err, data, read_data, valid_data
 
 
 
@@ -175,11 +290,11 @@ def OSCILLOSCOPE_Oscilloscope_0_GET_POSITION(handle):
     return err, position
 
 def OSCILLOSCOPE_Oscilloscope_0_GET_DATA(timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(1024, TrigTest3_RegisterFile.SCI_REG_Oscilloscope_0_FIFOADDRESS, timeout_ms, handle)
+    [err, data, read_data, valid_data] = __abstracted_mem_read(2048, TrigTest3_RegisterFile.SCI_REG_Oscilloscope_0_FIFOADDRESS, timeout_ms, handle)
     return err, data, read_data, valid_data
 
 def OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopePosition, OscilloscopePreTrigger):
-    OscilloscopeChannels = 1
+    OscilloscopeChannels = 2
     OscilloscopeSamples = 1024
     Analog = list(range(OscilloscopeSamples*OscilloscopeChannels))
     Digital0 = list(range(OscilloscopeSamples*OscilloscopeChannels))
@@ -221,18 +336,4 @@ def OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopeP
                 Digital3[k+ OscilloscopeSamples * n] = (OscilloscopeData[i+ OscilloscopeSamples * n] >> 19 & 1)
                 k = k + 1
     return Analog, Digital0, Digital1,Digital2, Digital3
-
-
-
-
-def RATE_METER_RateMeter_0_GET_DATA(channels, timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, TrigTest3_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS, timeout_ms, handle)
-    return err, data, read_data, valid_data
-
-
-
-
-def RATE_METER_RateMeter_0_GET_DATA_COUNTS(channels, timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, TrigTest3_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS + 512, timeout_ms, handle)
-    return err, data, read_data, valid_data
 

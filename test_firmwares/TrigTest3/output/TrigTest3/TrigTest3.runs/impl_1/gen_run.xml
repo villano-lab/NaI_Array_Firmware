@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7s25csga225-1" LaunchTime="1653009046">
+<GenRun Id="impl_1" LaunchPart="xc7s25csga225-1" LaunchTime="1653178781">
   <File Type="PWROPT-DCP" Name="top_TrigTest3_pwropt.dcp"/>
   <File Type="ROUTE-PWR" Name="top_TrigTest3_power_routed.rpt"/>
   <File Type="PA-TCL" Name="top_TrigTest3.tcl"/>
@@ -104,7 +104,7 @@
     <File Path="$PSRCDIR/sources_1/imports/HDL/subpage_wintrig.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/subpage_wintrig.vhd"/>
-        <Attr Name="ImportTime" Val="1653008678"/>
+        <Attr Name="ImportTime" Val="1653178368"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -112,7 +112,23 @@
     <File Path="$PSRCDIR/sources_1/imports/HDL/top_TrigTest3.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/top_TrigTest3.vhd"/>
-        <Attr Name="ImportTime" Val="1653008664"/>
+        <Attr Name="ImportTime" Val="1653178354"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/charge_integratiobkb.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/charge_integratiobkb.vhd"/>
+        <Attr Name="ImportTime" Val="1548455588"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/charge_integration.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/charge_integration.vhd"/>
+        <Attr Name="ImportTime" Val="1548455588"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -128,7 +144,7 @@
     <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/ftdi245_cdc.vhd"/>
-        <Attr Name="ImportTime" Val="1653008664"/>
+        <Attr Name="ImportTime" Val="1653178354"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -144,7 +160,7 @@
     <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/MCRateMeter.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/MCRateMeter.vhd"/>
-        <Attr Name="ImportTime" Val="1653008663"/>
+        <Attr Name="ImportTime" Val="1653178344"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -160,7 +176,7 @@
     <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/polinvert.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/polinvert.vhd"/>
-        <Attr Name="ImportTime" Val="1653008670"/>
+        <Attr Name="ImportTime" Val="1653178359"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -208,7 +224,7 @@
     <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/xlx_oscilloscope_sync.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/xlx_oscilloscope_sync.vhd"/>
-        <Attr Name="ImportTime" Val="1653008659"/>
+        <Attr Name="ImportTime" Val="1653178353"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -217,6 +233,14 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/xlx_soft_gd.vhd"/>
         <Attr Name="ImportTime" Val="1565049970"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HDL/pcores/xlx_spectrum.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../HDL/pcores/xlx_spectrum.vhd"/>
+        <Attr Name="ImportTime" Val="1653178349"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

@@ -42,6 +42,48 @@
   "Category": "Undefined"
 },
 {
+  "Name": "inttime",
+  "Address": 131072,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "preint",
+  "Address": 131073,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "pileup",
+  "Address": 131074,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gain",
+  "Address": 131075,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ofs",
+  "Address": 131076,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "baseline",
+  "Address": 131077,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
   "Name": "ANALOG_OFFSET",
   "Address": 4294967289,
   "RegionSize": 1,
@@ -50,69 +92,121 @@
 }],
 "MMCComponents":[
 {
-  "Name": "Oscilloscope_0",
-  "Type": "Oscilloscope",
-  "Address": 1024,
-  "Version": "1.0.0.0",
-  "nsamples": 1024,
-  "Registers": [
-    {
-      "Name": "READ_STATUS",
-      "Address": 2048,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "READ_POSITION",
-      "Address": 2049,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "CONFIG_TRIGGER_MODE",
-      "Address": 2050,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "CONFIG_PRETRIGGER",
-      "Address": 2051,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "CONFIG_TRIGGER_LEVEL",
-      "Address": 2052,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "CONFIG_ARM",
-      "Address": 2053,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "CONFIG_DECIMATOR",
-      "Address": 2054,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    }
-  ],
-  "Channels": 1
-},
-{
   "Name": "RateMeter_0",
   "Type": "MCRateMeter",
   "Address": 65536,
   "Version": "1.0.0.0",
   "Channels": 2,
   "Registers": []
+},
+{
+  "Name": "Spectrum_0",
+  "Type": "Spectrum",
+  "Address": 196608,
+  "Version": "1.0.0.0",
+  "bins": 1024,
+  "Registers": [
+    {
+      "Name": "STATUS",
+      "Address": 262144,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG",
+      "Address": 262145,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_LIMIT",
+      "Address": 262146,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_REBIN",
+      "Address": 262147,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_MIN",
+      "Address": 262148,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_MAX",
+      "Address": 262149,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "CountsBit": 16
+},
+{
+  "Name": "Oscilloscope_0",
+  "Type": "Oscilloscope",
+  "Address": 264192,
+  "Version": "1.0.0.0",
+  "nsamples": 1024,
+  "Registers": [
+    {
+      "Name": "READ_STATUS",
+      "Address": 266240,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "READ_POSITION",
+      "Address": 266241,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_MODE",
+      "Address": 266242,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_PRETRIGGER",
+      "Address": 266243,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_LEVEL",
+      "Address": 266244,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_ARM",
+      "Address": 266245,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_DECIMATOR",
+      "Address": 266246,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "Channels": 2
 }],"Device":"SCIDK","Project":"TrigTest3"}
