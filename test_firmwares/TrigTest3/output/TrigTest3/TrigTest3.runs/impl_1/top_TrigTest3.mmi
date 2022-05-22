@@ -11,7 +11,7 @@
 <MemInfo Version="1" Minor="5">
   <MemoryArray InstPath="U9/U25/xpm_memory_sdpram_inst/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="U9/U25/xpm_memory_sdpram_inst/xpm_memory_base_inst" CoreMemory_Width="1" MemoryType="RAM_SDP">
-      <BRAM MemType="RAMB18" Placement="X2Y14">
+      <BRAM MemType="RAMB18" Placement="X2Y18">
         <DataWidth_PortA MSB="0" LSB="0"/>
         <AddressRange_PortA Begin="0" End="1023"/>
         <BitLayout_PortA pattern="p0_d1"/>
@@ -24,7 +24,7 @@
   </MemoryArray>
   <MemoryArray InstPath="U9/U24/USE_RAM.xpm_memory_sdpram_inst/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="U9/U24/USE_RAM.xpm_memory_sdpram_inst/xpm_memory_base_inst" CoreMemory_Width="1" MemoryType="RAM_SDP">
-      <BRAM MemType="RAMB18" Placement="X2Y18">
+      <BRAM MemType="RAMB18" Placement="X1Y18">
         <DataWidth_PortA MSB="0" LSB="0"/>
         <AddressRange_PortA Begin="0" End="1023"/>
         <BitLayout_PortA pattern="p0_d1"/>
@@ -37,7 +37,7 @@
   </MemoryArray>
   <MemoryArray InstPath="U22/GENCH[1].xpm_memory_sdpram_inst/xpm_memory_base_inst" MemoryPrimitive="block" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="U22/GENCH[1].xpm_memory_sdpram_inst/xpm_memory_base_inst" CoreMemory_Width="20" MemoryType="RAM_SDP">
-      <BRAM MemType="RAMB36" Placement="X1Y5">
+      <BRAM MemType="RAMB36" Placement="X1Y6">
         <DataWidth_PortA MSB="19" LSB="0"/>
         <AddressRange_PortA Begin="0" End="1023"/>
         <BitLayout_PortA pattern="p0_d20"/>
@@ -50,7 +50,7 @@
   </MemoryArray>
   <MemoryArray InstPath="U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst" MemoryPrimitive="block" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst" CoreMemory_Width="20" MemoryType="RAM_SDP">
-      <BRAM MemType="RAMB36" Placement="X1Y6">
+      <BRAM MemType="RAMB36" Placement="X1Y5">
         <DataWidth_PortA MSB="19" LSB="0"/>
         <AddressRange_PortA Begin="0" End="1023"/>
         <BitLayout_PortA pattern="p0_d20"/>
@@ -63,7 +63,7 @@
   </MemoryArray>
   <MemoryArray InstPath="U20/xpm_memory_tdpram_inst/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="U20/xpm_memory_tdpram_inst/xpm_memory_base_inst" CoreMemory_Width="16" MemoryType="RAM_TDP">
-      <BRAM MemType="RAMB18" Placement="X1Y8">
+      <BRAM MemType="RAMB18" Placement="X0Y8">
         <DataWidth_PortA MSB="15" LSB="0"/>
         <AddressRange_PortA Begin="0" End="1023"/>
         <BitLayout_PortA pattern="p0_d16"/>

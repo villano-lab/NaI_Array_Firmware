@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Sat May 21 18:15:23 2022
+// Date        : Sun May 22 16:30:32 2022
 // Host        : PHYS-NC3124-D02 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ_stub.v

@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sat May 21 18:19:51 2022
-# Process ID: 3068
+# Start of session at: Sun May 22 16:34:38 2022
+# Process ID: 12944
 # Current directory: C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1
 # Command line: vivado.exe -log top_TrigTest3.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_TrigTest3.tcl -notrace
 # Log file: C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/top_TrigTest3.vdi
@@ -15,7 +15,7 @@ Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Project 1-454] Reading design checkpoint 'c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ.dcp' for cell 'clk125'
 INFO: [Project 1-454] Reading design checkpoint 'c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/ip/main_clk_gen/main_clk_gen.dcp' for cell 'mcg'
-INFO: [Project 1-454] Reading design checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/.Xil/Vivado-3068-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp' for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO'
+INFO: [Project 1-454] Reading design checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/.Xil/Vivado-12944-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp' for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO'
 INFO: [Netlist 29-17] Analyzing 529 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2017.4
@@ -141,14 +141,14 @@ INFO: [Timing 38-35] Done setting XDC timing constraints. [C:/OpenHardware/UserP
 WARNING: [Vivado 12-1008] No clocks found for command 'get_clocks -of_objects [get_pins mcg/inst/mmcm_adv_inst/CLKOUT0]'. [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc:161]
 Resolution: Verify the create_clock command was called to create the clock object before it is referenced.
 INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc:161]
-get_clocks: Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1045.852 ; gain = 418.789
+get_clocks: Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1049.117 ; gain = 420.211
 CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-to [get_clocks -of_objects [get_pins mcg/inst/mmcm_adv_inst/CLKOUT0]]'. [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc:161]
 Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
 Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc]
 INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/ip/clk_125MHZ/clk_125MHZ.dcp'
-INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/.Xil/Vivado-3068-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp'
-INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/.Xil/Vivado-3068-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp'
-INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/.Xil/Vivado-3068-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/.Xil/Vivado-12944-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/.Xil/Vivado-12944-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/.Xil/Vivado-12944-PHYS-NC3124-D02/FTDI_FIFOs/FTDI_FIFOs.dcp'
 INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/ip/main_clk_gen/main_clk_gen.dcp'
 Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs_clocks.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0'
 Finished Parsing XDC File [c:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/ip/FTDI_FIFOs/FTDI_FIFOs_clocks.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO/U0'
@@ -468,11 +468,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 18 Infos, 1 Warnings, 101 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1045.852 ; gain = 739.805
+link_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1049.117 ; gain = 743.023
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7s25'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s25'
-INFO: [Common 17-86] Your Implementation license expires in 11 day(s)
+INFO: [Common 17-86] Your Implementation license expires in 10 day(s)
 Running DRC as a precondition to command opt_design
 
 Starting DRC Task
@@ -489,7 +489,7 @@ WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port gpio[7] expec
 INFO: [Project 1-461] DRC finished with 0 Errors, 9 Warnings
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1045.852 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1049.117 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Starting Logic Optimization Task
@@ -497,42 +497,42 @@ Starting Logic Optimization Task
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 2 inverter(s) to 3 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 249ad65a5
+Phase 1 Retarget | Checksum: 1ca8de417
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1045.852 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1049.117 ; gain = 0.000
 INFO: [Opt 31-389] Phase Retarget created 64 cells and removed 81 cells
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 2 Constant propagation | Checksum: 244f68800
+Phase 2 Constant propagation | Checksum: 193333ea8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1045.852 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1049.117 ; gain = 0.000
 INFO: [Opt 31-389] Phase Constant propagation created 32 cells and removed 133 cells
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: 1f711b067
+Phase 3 Sweep | Checksum: 1c1f79f85
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1045.852 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1049.117 ; gain = 0.000
 INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 52 cells
 
 Phase 4 BUFG optimization
-Phase 4 BUFG optimization | Checksum: 1f711b067
+Phase 4 BUFG optimization | Checksum: 1c1f79f85
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1045.852 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1049.117 ; gain = 0.000
 INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
 
 Phase 5 Shift Register Optimization
-Phase 5 Shift Register Optimization | Checksum: 1f711b067
+Phase 5 Shift Register Optimization | Checksum: 1c1f79f85
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1045.852 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1049.117 ; gain = 0.000
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1045.852 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 215c67304
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1049.117 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 1a0235124
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1045.852 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1049.117 ; gain = 0.000
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -550,21 +550,21 @@ Starting PowerOpt Patch Enables Task
 INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 6 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 2 WE to EN ports
 Number of BRAM Ports augmented: 0 newly gated: 2 Total Ports: 12
-Ending PowerOpt Patch Enables Task | Checksum: 22543e1cb
+Ending PowerOpt Patch Enables Task | Checksum: 23ec7f11d
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.091 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Ending Power Optimization Task | Checksum: 22543e1cb
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.094 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 23ec7f11d
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 1295.480 ; gain = 249.629
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 1297.559 ; gain = 248.441
 INFO: [Common 17-83] Releasing license: Implementation
 41 Infos, 10 Warnings, 101 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1295.480 ; gain = 249.629
+opt_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1297.559 ; gain = 248.441
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.057 . Memory (MB): peak = 1297.559 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/top_TrigTest3_opt.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file top_TrigTest3_drc_opted.rpt -pb top_TrigTest3_drc_opted.pb -rpx top_TrigTest3_drc_opted.rpx
 Command: report_drc -file top_TrigTest3_drc_opted.rpt -pb top_TrigTest3_drc_opted.pb -rpx top_TrigTest3_drc_opted.rpx
@@ -578,7 +578,7 @@ or use the create_debug_core and connect_debug_core Tcl commands to insert debug
 Command: place_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7s25'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s25'
-INFO: [Common 17-86] Your Implementation license expires in 11 day(s)
+INFO: [Common 17-86] Your Implementation license expires in 10 day(s)
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
@@ -587,13 +587,14 @@ INFO: [DRC 23-27] Running DRC with 2 threads
 WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
 WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1840 rule limit reached: 20 violations have been found.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[14]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[15]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[16]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[17]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[18]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[20]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[19]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[21]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[22]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[23]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
@@ -605,10 +606,9 @@ WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].x
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[29]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[30]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[31]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[16]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[23]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[27]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[24]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[29]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[13] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[16]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[13] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[17]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[13] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[18]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
@@ -644,92 +644,92 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1da5671f6
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1abd1e0cb
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1297.559 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 9b53010a
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 10dcab0db
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: f0357e06
+Phase 1.3 Build Placer Netlist Model | Checksum: 1b2241055
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: f0357e06
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1b2241055
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: f0357e06
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 1b2241055
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 2 Global Placement
-Phase 2 Global Placement | Checksum: 12a783287
+Phase 2 Global Placement | Checksum: 1b97852b0
 
-Time (s): cpu = 00:00:24 ; elapsed = 00:00:14 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:14 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 12a783287
+Phase 3.1 Commit Multi Column Macros | Checksum: 1b97852b0
 
-Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:14 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1d5e55401
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1c22185fd
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:15 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 20c37cd15
+Phase 3.3 Area Swap Optimization | Checksum: 1efa7a9b5
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 179bcd96f
+Phase 3.4 Pipeline Register Optimization | Checksum: 2402d16f7
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3.5 Timing Path Optimizer
-Phase 3.5 Timing Path Optimizer | Checksum: 179bcd96f
+Phase 3.5 Timing Path Optimizer | Checksum: 2402d16f7
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3.6 Fast Optimization
-Phase 3.6 Fast Optimization | Checksum: 21c66533a
+Phase 3.6 Fast Optimization | Checksum: 207d6ba22
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:16 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3.7 Small Shape Detail Placement
-Phase 3.7 Small Shape Detail Placement | Checksum: 17cabb07a
+Phase 3.7 Small Shape Detail Placement | Checksum: 11a86e4fa
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:20 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:20 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3.8 Re-assign LUT pins
-Phase 3.8 Re-assign LUT pins | Checksum: 18017bf25
+Phase 3.8 Re-assign LUT pins | Checksum: 1716ff23d
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:21 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:20 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3.9 Pipeline Register Optimization
-Phase 3.9 Pipeline Register Optimization | Checksum: 18017bf25
+Phase 3.9 Pipeline Register Optimization | Checksum: 26616d798
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:21 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:20 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3.10 Fast Optimization
-Phase 3.10 Fast Optimization | Checksum: 18017bf25
+Phase 3.10 Fast Optimization | Checksum: 26616d798
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:22 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 18017bf25
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:21 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 26616d798
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:22 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:22 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -737,62 +737,62 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 118d9b281
+Post Placement Optimization Initialization | Checksum: 13e42aa83
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
 INFO: [Place 46-31] BUFG insertion identified 0 candidate nets, 0 success, 0 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason.
-Phase 4.1.1.1 BUFG Insertion | Checksum: 118d9b281
+Phase 4.1.1.1 BUFG Insertion | Checksum: 13e42aa83
 
-Time (s): cpu = 00:00:37 ; elapsed = 00:00:25 . Memory (MB): peak = 1295.480 ; gain = 0.000
-INFO: [Place 30-746] Post Placement Timing Summary WNS=0.093. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 1f74a17cb
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:24 . Memory (MB): peak = 1297.559 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.091. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 17665fcd6
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:31 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Phase 4.1 Post Commit Optimization | Checksum: 1f74a17cb
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 17665fcd6
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:31 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 1f74a17cb
+Phase 4.2 Post Placement Cleanup | Checksum: 17665fcd6
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 1f74a17cb
+Phase 4.3 Placer Reporting | Checksum: 17665fcd6
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 4.4 Final Placement Cleanup
-Phase 4.4 Final Placement Cleanup | Checksum: 24db4e6cb
+Phase 4.4 Final Placement Cleanup | Checksum: 1c04ead71
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 24db4e6cb
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1c04ead71
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Ending Placer Task | Checksum: 17be620be
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Ending Placer Task | Checksum: e2b3c581
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
 64 Infos, 61 Warnings, 101 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:33 . Memory (MB): peak = 1295.480 ; gain = 0.000
+place_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:33 . Memory (MB): peak = 1297.559 ; gain = 0.000
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 1297.559 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/top_TrigTest3_placed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_io -file top_TrigTest3_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.096 . Memory (MB): peak = 1295.480 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.100 . Memory (MB): peak = 1297.559 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file top_TrigTest3_utilization_placed.rpt -pb top_TrigTest3_utilization_placed.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.152 . Memory (MB): peak = 1295.480 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.138 . Memory (MB): peak = 1297.559 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file top_TrigTest3_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1295.480 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1297.559 ; gain = 0.000
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7s25'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s25'
-INFO: [Common 17-86] Your Implementation license expires in 11 day(s)
+INFO: [Common 17-86] Your Implementation license expires in 10 day(s)
 Running DRC as a precondition to command route_design
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
@@ -801,119 +801,119 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
-Checksum: PlaceDB: f79cd169 ConstDB: 0 ShapeSum: 84494f55 RouteDB: 0
+Checksum: PlaceDB: 52a4f533 ConstDB: 0 ShapeSum: 900ed04e RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: 15c908df7
+Phase 1 Build RT Design | Checksum: f7c3f946
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:22 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Post Restoration Checksum: NetGraph: 5eac74f5 NumContArr: fde41902 Constraints: 0 Timing: 0
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:21 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Post Restoration Checksum: NetGraph: bec146e0 NumContArr: 3902b266 Constraints: 0 Timing: 0
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 15c908df7
+Phase 2.1 Create Timer | Checksum: f7c3f946
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:22 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:22 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 15c908df7
+Phase 2.2 Fix Topology Constraints | Checksum: f7c3f946
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:23 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:22 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 15c908df7
+Phase 2.3 Pre Route Cleanup | Checksum: f7c3f946
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:23 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:22 . Memory (MB): peak = 1297.559 ; gain = 0.000
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: b213ef25
+Phase 2.4 Update Timing | Checksum: 1280fff86
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:26 . Memory (MB): peak = 1295.480 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.132  | TNS=0.000  | WHS=-0.154 | THS=-51.380|
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:25 . Memory (MB): peak = 1297.559 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.130  | TNS=0.000  | WHS=-0.154 | THS=-54.458|
 
 
 Phase 2.5 Update Timing for Bus Skew
 
 Phase 2.5.1 Update Timing
-Phase 2.5.1 Update Timing | Checksum: b89a21ad
+Phase 2.5.1 Update Timing | Checksum: 141ee816b
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:27 . Memory (MB): peak = 1295.480 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.132  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:27 . Memory (MB): peak = 1297.559 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.130  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 2.5 Update Timing for Bus Skew | Checksum: b89a21ad
+Phase 2.5 Update Timing for Bus Skew | Checksum: 141ee816b
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:27 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Phase 2 Router Initialization | Checksum: 165f270b7
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:27 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Phase 2 Router Initialization | Checksum: 16436b7d0
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:27 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:27 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 13f870e91
+Phase 3 Initial Routing | Checksum: 16da50948
 
-Time (s): cpu = 00:00:37 ; elapsed = 00:00:28 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:28 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 706
- Number of Nodes with overlaps = 9
+ Number of Nodes with overlaps = 584
+ Number of Nodes with overlaps = 3
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.030  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.027  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 225e72bc8
+Phase 4.1 Global Iteration 0 | Checksum: d3188c5d
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 4.2 Global Iteration 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.030  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.026  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.2 Global Iteration 1 | Checksum: 11c892bda
+Phase 4.2 Global Iteration 1 | Checksum: 160067742
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Phase 4 Rip-up And Reroute | Checksum: 11c892bda
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Phase 4 Rip-up And Reroute | Checksum: 160067742
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
-Phase 5.1 Delay CleanUp | Checksum: 11c892bda
+Phase 5.1 Delay CleanUp | Checksum: 160067742
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 11c892bda
+Phase 5.2 Clock Skew Optimization | Checksum: 160067742
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Phase 5 Delay and Skew Optimization | Checksum: 11c892bda
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Phase 5 Delay and Skew Optimization | Checksum: 160067742
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:31 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 1eeba3377
+Phase 6.1.1 Update Timing | Checksum: d0285396
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:32 . Memory (MB): peak = 1295.480 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.030  | TNS=0.000  | WHS=0.057  | THS=0.000  |
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:32 . Memory (MB): peak = 1297.559 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.026  | TNS=0.000  | WHS=0.074  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 13a41af61
+Phase 6.1 Hold Fix Iter | Checksum: 13f1aa35d
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:32 . Memory (MB): peak = 1295.480 ; gain = 0.000
-Phase 6 Post Hold Fix | Checksum: 13a41af61
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:32 . Memory (MB): peak = 1297.559 ; gain = 0.000
+Phase 6 Post Hold Fix | Checksum: 13f1aa35d
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:33 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:32 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 4.06559 %
-  Global Horizontal Routing Utilization  = 5.12358 %
+  Global Vertical Routing Utilization    = 3.98751 %
+  Global Horizontal Routing Utilization  = 5.18008 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -922,43 +922,43 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 113739d4d
+Phase 7 Route finalize | Checksum: 14ea12809
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:33 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:32 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 113739d4d
+Phase 8 Verifying routed nets | Checksum: 14ea12809
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:33 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:32 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 1e33a9013
+Phase 9 Depositing Routes | Checksum: 1b2313beb
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:34 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:33 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.030  | TNS=0.000  | WHS=0.057  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.026  | TNS=0.000  | WHS=0.074  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 1e33a9013
+Phase 10 Post Router Timing | Checksum: 1b2313beb
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:34 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:33 . Memory (MB): peak = 1297.559 ; gain = 0.000
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:34 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:33 . Memory (MB): peak = 1297.559 ; gain = 0.000
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
 83 Infos, 61 Warnings, 101 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:36 . Memory (MB): peak = 1295.480 ; gain = 0.000
+route_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:36 . Memory (MB): peak = 1297.559 ; gain = 0.000
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 1295.480 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 1297.559 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/top_TrigTest3_routed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file top_TrigTest3_drc_routed.rpt -pb top_TrigTest3_drc_routed.pb -rpx top_TrigTest3_drc_routed.rpx
 Command: report_drc -file top_TrigTest3_drc_routed.rpt -pb top_TrigTest3_drc_routed.pb -rpx top_TrigTest3_drc_routed.rpx
@@ -973,7 +973,7 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 2 threads
 INFO: [Coretcl 2-1520] The results of Report Methodology are in file C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/impl_1/top_TrigTest3_methodology_drc_routed.rpt.
 report_methodology completed successfully
-report_methodology: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 1295.480 ; gain = 0.000
+report_methodology: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 1297.559 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_power -file top_TrigTest3_power_routed.rpt -pb top_TrigTest3_power_summary_routed.pb -rpx top_TrigTest3_power_routed.rpx
 Command: report_power -file top_TrigTest3_power_routed.rpt -pb top_TrigTest3_power_summary_routed.pb -rpx top_TrigTest3_power_routed.rpx
 INFO: [Power 33-23] Power model is not available for DNA_PORT_inst
@@ -994,7 +994,7 @@ INFO: [runtcl-4] Executing : report_clock_utilization -file top_TrigTest3_clock_
 Command: write_bitstream -force top_TrigTest3.bit -bin_file
 Attempting to get a license for feature 'Implementation' and/or device 'xc7s25'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s25'
-INFO: [Common 17-86] Your Implementation license expires in 11 day(s)
+INFO: [Common 17-86] Your Implementation license expires in 10 day(s)
 Running DRC as a precondition to command write_bitstream
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 2 threads
@@ -1013,20 +1013,20 @@ WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 
 WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1840 rule limit reached: 20 violations have been found.
 WARNING: [DRC DPIP-1] Input pipelining: DSP U12/r_V_fu_571_p2 input U12/r_V_fu_571_p2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 WARNING: [DRC DPIP-1] Input pipelining: DSP U12/r_V_fu_571_p2__0 input U12/r_V_fu_571_p2__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC PDRC-61] SLICEM_5lutO5_C5: Dangling output pin O5 on site SLICE_X2Y20:C5LUT. For this programming the O5 output pin should have a signal.
-WARNING: [DRC PDRC-61] SLICEM_5lutO5_C5: Dangling output pin O5 on site SLICE_X2Y28:C5LUT. For this programming the O5 output pin should have a signal.
-WARNING: [DRC PDRC-62] SLICEM_5lutO5_B5: Dangling output pin O5 on site SLICE_X2Y20:B5LUT. For this programming the O5 output pin should have a signal.
-WARNING: [DRC PDRC-62] SLICEM_5lutO5_B5: Dangling output pin O5 on site SLICE_X2Y21:B5LUT. For this programming the O5 output pin should have a signal.
-WARNING: [DRC PDRC-63] SLICEM_5lutO5_A5: Dangling output pin O5 on site SLICE_X12Y25:A5LUT. For this programming the O5 output pin should have a signal.
-WARNING: [DRC PDRC-63] SLICEM_5lutO5_A5: Dangling output pin O5 on site SLICE_X2Y20:A5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-61] SLICEM_5lutO5_C5: Dangling output pin O5 on site SLICE_X2Y26:C5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-61] SLICEM_5lutO5_C5: Dangling output pin O5 on site SLICE_X2Y29:C5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-62] SLICEM_5lutO5_B5: Dangling output pin O5 on site SLICE_X2Y26:B5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-62] SLICEM_5lutO5_B5: Dangling output pin O5 on site SLICE_X2Y29:B5LUT. For this programming the O5 output pin should have a signal.
+WARNING: [DRC PDRC-63] SLICEM_5lutO5_A5: Dangling output pin O5 on site SLICE_X2Y29:A5LUT. For this programming the O5 output pin should have a signal.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[14]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[15]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[16]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[17]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[18]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[20]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[19]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[21]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[22]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[23]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
@@ -1038,10 +1038,9 @@ WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].x
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[29]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[30]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[31]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ADDRBWRADDR[14] (net: U22/GENCH[0].xpm_memory_sdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[16]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[23]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[27]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[24]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[12] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[8]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[29]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[13] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[16]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[13] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[17]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[13] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[18]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
@@ -1059,8 +1058,8 @@ WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[13] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[30]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[13] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[31]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg has an input control pin U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/gen_wr_b.gen_word_narrow.mem_reg/ADDRBWRADDR[13] (net: U20/xpm_memory_tdpram_inst/xpm_memory_base_inst/addrb[9]) which is driven by a register (Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/goreg_dm.dout_i_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC RTSTAT-10] No routable loads: 51 net(s) have no routable loads. The problem bus(es) and/or net(s) are Inst_ftdi245_cdc/BUS_DATASTROBE, Inst_ftdi245_cdc/Inst_ftdi245/address_fifo_full, Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, Inst_ftdi245_cdc/not_full_and_pending, Inst_ftdi245_cdc/oSYNC_INT_WR, Inst_ftdi245_cdc/Inst_ftdi245/output_fifo_full, Inst_ftdi245_cdc/pending, Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i... and (the first 15 of 20 listed).
-INFO: [Vivado 12-3199] DRC finished with 0 Errors, 54 Warnings
+WARNING: [DRC RTSTAT-10] No routable loads: 51 net(s) have no routable loads. The problem bus(es) and/or net(s) are Inst_ftdi245_cdc/BUS_DATASTROBE, Inst_ftdi245_cdc/Inst_ftdi245/address_fifo_full, Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, Inst_ftdi245_cdc/not_full_and_pending, Inst_ftdi245_cdc/oSYNC_INT_WR, Inst_ftdi245_cdc/Inst_ftdi245/output_fifo_full, Inst_ftdi245_cdc/pending, Inst_ftdi245_cdc/DATA_READ_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, Inst_ftdi245_cdc/ADDRESS_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, Inst_ftdi245_cdc/DATAWRITE_FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i... and (the first 15 of 20 listed).
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 53 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Project 1-821] Please set project.enableDesignId to be 'true'.
 INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
@@ -1075,7 +1074,7 @@ Writing bitstream ./top_TrigTest3.bin...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-118] WebTalk data collection is enabled (User setting is ON. Install Setting is ON.).
 INFO: [Common 17-83] Releasing license: Implementation
-114 Infos, 116 Warnings, 101 Critical Warnings and 0 Errors encountered.
+114 Infos, 115 Warnings, 101 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:29 ; elapsed = 00:00:24 . Memory (MB): peak = 1727.824 ; gain = 427.781
-INFO: [Common 17-206] Exiting Vivado at Sat May 21 18:23:05 2022...
+write_bitstream: Time (s): cpu = 00:00:29 ; elapsed = 00:00:24 . Memory (MB): peak = 1723.926 ; gain = 426.367
+INFO: [Common 17-206] Exiting Vivado at Sun May 22 16:37:51 2022...

@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sat May 21 18:16:10 2022
-# Process ID: 21548
+# Start of session at: Sun May 22 16:31:20 2022
+# Process ID: 16156
 # Current directory: C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1
 # Command line: vivado.exe -log top_TrigTest3.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_TrigTest3.tcl
 # Log file: C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/top_TrigTest3.vds
@@ -14,11 +14,11 @@ Command: synth_design -top top_TrigTest3 -part xc7s25csga225-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s25'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s25'
-INFO: [Common 17-86] Your Synthesis license expires in 11 day(s)
+INFO: [Common 17-86] Your Synthesis license expires in 10 day(s)
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 8004 
+INFO: Helper process launched with PID 13952 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 408.570 ; gain = 103.699
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 409.535 ; gain = 105.141
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-1565] actual for formal port trigger is neither a static name nor a globally static expression [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd:847]
 WARNING: [Synth 8-1565] actual for formal port analog is neither a static name nor a globally static expression [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd:947]
@@ -59,10 +59,10 @@ INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/OpenHardwa
 INFO: [Synth 8-3491] module 'ftdi245' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245.vhd:40' bound to instance 'Inst_ftdi245' of component 'ftdi245' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd:383]
 INFO: [Synth 8-638] synthesizing module 'spi93lc56_16bit' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/spi93lc56_16bit.vhd:51]
 INFO: [Synth 8-256] done synthesizing module 'spi93lc56_16bit' (1#1382) [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/spi93lc56_16bit.vhd:51]
-INFO: [Synth 8-3491] module 'FTDI_FIFOs' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/realtime/FTDI_FIFOs_stub.vhdl:5' bound to instance 'ADDRESS_FIFO' of component 'FTDI_FIFOs' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd:417]
-INFO: [Synth 8-638] synthesizing module 'FTDI_FIFOs' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/realtime/FTDI_FIFOs_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'FTDI_FIFOs' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/realtime/FTDI_FIFOs_stub.vhdl:5' bound to instance 'DATAWRITE_FIFO' of component 'FTDI_FIFOs' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd:442]
-INFO: [Synth 8-3491] module 'FTDI_FIFOs' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/realtime/FTDI_FIFOs_stub.vhdl:5' bound to instance 'DATA_READ_FIFO' of component 'FTDI_FIFOs' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd:457]
+INFO: [Synth 8-3491] module 'FTDI_FIFOs' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/realtime/FTDI_FIFOs_stub.vhdl:5' bound to instance 'ADDRESS_FIFO' of component 'FTDI_FIFOs' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd:417]
+INFO: [Synth 8-638] synthesizing module 'FTDI_FIFOs' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/realtime/FTDI_FIFOs_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'FTDI_FIFOs' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/realtime/FTDI_FIFOs_stub.vhdl:5' bound to instance 'DATAWRITE_FIFO' of component 'FTDI_FIFOs' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd:442]
+INFO: [Synth 8-3491] module 'FTDI_FIFOs' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/realtime/FTDI_FIFOs_stub.vhdl:5' bound to instance 'DATA_READ_FIFO' of component 'FTDI_FIFOs' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd:457]
 WARNING: [Synth 8-614] signal 'reset' is read in the process but is not in the sensitivity list [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/ftdi245_cdc.vhd:526]
 	Parameter DEST_SYNC_FF bound to: 4 - type: integer 
 	Parameter INIT_SYNC_FF bound to: 0 - type: integer 
@@ -91,10 +91,10 @@ INFO: [Synth 8-113] binding component instance 'LEMO0_BUFF' to cell 'IOBUF' [C:/
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 	Parameter SLEW bound to: SLOW - type: string 
 INFO: [Synth 8-113] binding component instance 'LEMO2_BUFF' to cell 'IOBUF' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd:785]
-INFO: [Synth 8-3491] module 'main_clk_gen' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/realtime/main_clk_gen_stub.vhdl:5' bound to instance 'mcg' of component 'main_clk_gen' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd:798]
-INFO: [Synth 8-638] synthesizing module 'main_clk_gen' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/realtime/main_clk_gen_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'clk_125MHZ' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/realtime/clk_125MHZ_stub.vhdl:5' bound to instance 'clk125' of component 'CLK_125MHZ' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd:807]
-INFO: [Synth 8-638] synthesizing module 'clk_125MHZ' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/realtime/clk_125MHZ_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'main_clk_gen' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/realtime/main_clk_gen_stub.vhdl:5' bound to instance 'mcg' of component 'main_clk_gen' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd:798]
+INFO: [Synth 8-638] synthesizing module 'main_clk_gen' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/realtime/main_clk_gen_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'clk_125MHZ' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/realtime/clk_125MHZ_stub.vhdl:5' bound to instance 'clk125' of component 'CLK_125MHZ' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd:807]
+INFO: [Synth 8-638] synthesizing module 'clk_125MHZ' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/realtime/clk_125MHZ_stub.vhdl:13]
 INFO: [Synth 8-3491] module 'scidk_internal_i2c_manager' declared at 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/scidk_internal_i2c_manager.vhd:17' bound to instance 'Inst_scidk_internal_i2c_manager' of component 'scidk_internal_i2c_manager' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd:814]
 INFO: [Synth 8-638] synthesizing module 'scidk_internal_i2c_manager' [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/pcores/scidk_internal_i2c_manager.vhd:27]
 	Parameter input_clk bound to: 50000000 - type: integer 
@@ -809,7 +809,7 @@ WARNING: [Synth 8-3331] design XLX_SPECTRUM has unconnected port CONFIG[9]
 WARNING: [Synth 8-3331] design XLX_SPECTRUM has unconnected port CONFIG[8]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 497.320 ; gain = 192.449
+Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 498.621 ; gain = 194.227
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -920,7 +920,7 @@ WARNING: [Synth 8-3295] tying undriven pin Inst_ftdi245_cdc:REG_FLASH_ADDRESS_RD
 WARNING: [Synth 8-3295] tying undriven pin Inst_ftdi245_cdc:REG_FLASH_ADDRESS_RD[27] to constant 0 [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/sources_1/imports/HDL/top_TrigTest3.vhd:592]
 INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 497.320 ; gain = 192.449
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 498.621 ; gain = 194.227
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -929,16 +929,16 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp3/clk_125MHZ_in_context.xdc] for cell 'clk125'
-Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp3/clk_125MHZ_in_context.xdc] for cell 'clk125'
-Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO'
-Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO'
-Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO'
-Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO'
-Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO'
-Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO'
-Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp5/main_clk_gen_in_context.xdc] for cell 'mcg'
-Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-21548-PHYS-NC3124-D02/dcp5/main_clk_gen_in_context.xdc] for cell 'mcg'
+Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp3/clk_125MHZ_in_context.xdc] for cell 'clk125'
+Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp3/clk_125MHZ_in_context.xdc] for cell 'clk125'
+Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO'
+Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/ADDRESS_FIFO'
+Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO'
+Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/DATAWRITE_FIFO'
+Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO'
+Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp4/FTDI_FIFOs_in_context.xdc] for cell 'Inst_ftdi245_cdc/DATA_READ_FIFO'
+Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp5/main_clk_gen_in_context.xdc] for cell 'mcg'
+Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/.Xil/Vivado-16156-PHYS-NC3124-D02/dcp5/main_clk_gen_in_context.xdc] for cell 'mcg'
 Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc]
 WARNING: [Vivado 12-508] No pins matched 'mcg/inst/mmcm_adv_inst/CLKOUT0'. [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc:161]
 Finished Parsing XDC File [C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.srcs/constrs_1/imports/HDL/SCIDK_constraints.xdc]
@@ -1936,16 +1936,16 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 10 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 10 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 828.363 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 828.652 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 828.363 ; gain = 523.492
+Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 828.652 ; gain = 524.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s25csga225-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 828.363 ; gain = 523.492
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 828.652 ; gain = 524.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -2090,7 +2090,7 @@ Applied set_property DONT_TOUCH = true for U9/U25/xpm_memory_sdpram_inst. (const
 Applied set_property DONT_TOUCH = true for clk125. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for mcg. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 828.363 ; gain = 523.492
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 828.652 ; gain = 524.258
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'EEPROM_SM_reg' in module 'spi93lc56_16bit'
 INFO: [Synth 8-5545] ROM "edge" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -2264,7 +2264,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'SM_SEC_reg' using encoding
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'i2c_master_scidk_config'
 INFO: [Synth 8-3971] The signal gen_wr_b.gen_word_narrow.mem_reg was recognized as a true dual port RAM template.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 828.363 ; gain = 523.492
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 828.652 ; gain = 524.258
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -3724,9 +3724,8 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\U22/
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\U12/in1_V_preg_reg[15] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\U12/ap_phi_precharge_reg_pp0_iter1_energy_trigger_new_1_reg_268_reg[0] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (i_0/\U12/ap_CS_fsm_reg[0] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (i_0/\U12/ap_phi_precharge_reg_pp0_iter3_energy_trigger_new_2_reg_295_reg[0] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (i_0/\U9/U25/iDELAY_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\U22/D3high_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (i_0/\U12/ap_phi_precharge_reg_pp0_iter3_energy_trigger_new_2_reg_295_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\U9/U25/iDELAY_reg[9] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\U8/iRUN_reg )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (i_0/\Inst_scidk_internal_i2c_manager/IIC_devaddress_reg[6] )
@@ -3757,9 +3756,8 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\U12/
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\U8/oiRUN_reg )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (i_0/\Inst_scidk_internal_i2c_manager/iic_master/addr_rw_reg[7] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\Inst_scidk_internal_i2c_manager/iic_master/addr_rw_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\U22/tMemD3_reg[1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:00 ; elapsed = 00:02:04 . Memory (MB): peak = 828.363 ; gain = 523.492
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:45 ; elapsed = 00:01:51 . Memory (MB): peak = 828.652 ; gain = 524.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -3810,7 +3808,7 @@ Report RTL Partitions:
 |1     |ftdi245__GCB0      |           1|      8122|
 |2     |ftdi245__GCB1      |           1|      3233|
 |3     |ftdi245_cdc__GC0   |           1|      3916|
-|4     |TOP_TrigTest3__GC0 |           1|      4995|
+|4     |TOP_TrigTest3__GC0 |           1|      4994|
 +------+-------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
@@ -3821,13 +3819,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'mcg/sample_clk' to pin 'm
 INFO: [Synth 8-5578] Moved timing constraint from pin 'xpm_cdc_async_rst_inst/src_arst' to pin 'in00_inferred__0/i_0/O'
 INFO: [Synth 8-5819] Moved 4 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:28 ; elapsed = 00:02:32 . Memory (MB): peak = 971.070 ; gain = 666.199
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:07 ; elapsed = 00:02:13 . Memory (MB): peak = 963.746 ; gain = 659.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 979.793 ; gain = 674.922
+Finished Timing Optimization : Time (s): cpu = 00:02:09 ; elapsed = 00:02:15 . Memory (MB): peak = 972.520 ; gain = 668.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -3856,7 +3854,7 @@ Report RTL Partitions:
 |1     |ftdi245__GCB0      |           1|      8122|
 |2     |ftdi245__GCB1      |           1|      3233|
 |3     |ftdi245_cdc__GC0   |           1|      3916|
-|4     |TOP_TrigTest3__GC0 |           1|      4995|
+|4     |TOP_TrigTest3__GC0 |           1|      4994|
 +------+-------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -3867,7 +3865,7 @@ INFO: [Synth 8-4480] The timing for the instance U22/GENCH[0].xpm_memory_sdpram_
 INFO: [Synth 8-4480] The timing for the instance U22/GENCH[1].xpm_memory_sdpram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance U12/pre_intbuff_V_U/charge_integratiobkb_ram_U/ram_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:43 ; elapsed = 00:02:49 . Memory (MB): peak = 984.457 ; gain = 679.586
+Finished Technology Mapping : Time (s): cpu = 00:02:18 ; elapsed = 00:02:26 . Memory (MB): peak = 977.465 ; gain = 673.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -3891,7 +3889,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:45 ; elapsed = 00:02:52 . Memory (MB): peak = 984.457 ; gain = 679.586
+Finished IO Insertion : Time (s): cpu = 00:02:20 ; elapsed = 00:02:28 . Memory (MB): peak = 977.465 ; gain = 673.070
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -3904,7 +3902,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:45 ; elapsed = 00:02:52 . Memory (MB): peak = 984.457 ; gain = 679.586
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:20 ; elapsed = 00:02:28 . Memory (MB): peak = 977.465 ; gain = 673.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -3916,25 +3914,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:47 ; elapsed = 00:02:53 . Memory (MB): peak = 984.457 ; gain = 679.586
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:21 ; elapsed = 00:02:29 . Memory (MB): peak = 977.465 ; gain = 673.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:47 ; elapsed = 00:02:53 . Memory (MB): peak = 984.457 ; gain = 679.586
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:21 ; elapsed = 00:02:29 . Memory (MB): peak = 977.465 ; gain = 673.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:47 ; elapsed = 00:02:54 . Memory (MB): peak = 984.457 ; gain = 679.586
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:22 ; elapsed = 00:02:30 . Memory (MB): peak = 977.465 ; gain = 673.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:48 ; elapsed = 00:02:54 . Memory (MB): peak = 984.457 ; gain = 679.586
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:22 ; elapsed = 00:02:30 . Memory (MB): peak = 977.465 ; gain = 673.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -3978,11 +3976,11 @@ Report Cell Usage:
 |9     |DSP48E1             |     1|
 |10    |DSP48E1_2           |     1|
 |11    |LUT1                |   667|
-|12    |LUT2                |   734|
-|13    |LUT3                |   430|
-|14    |LUT4                |   682|
-|15    |LUT5                |   931|
-|16    |LUT6                |  1711|
+|12    |LUT2                |   772|
+|13    |LUT3                |   422|
+|14    |LUT4                |   640|
+|15    |LUT5                |   939|
+|16    |LUT6                |  1717|
 |17    |MUXF7               |    49|
 |18    |RAMB18E1            |     1|
 |19    |RAMB18E1_1          |     1|
@@ -3991,7 +3989,7 @@ Report Cell Usage:
 |22    |SRL16E              |    12|
 |23    |FDCE                |  1207|
 |24    |FDPE                |   146|
-|25    |FDRE                |  3296|
+|25    |FDRE                |  3298|
 |26    |FDSE                |    72|
 |27    |IBUF                |    17|
 |28    |IOBUF               |    11|
@@ -4003,22 +4001,22 @@ Report Instance Areas:
 +------+---------------------------------------------+------------------------------------------------+------+
 |      |Instance                                     |Module                                          |Cells |
 +------+---------------------------------------------+------------------------------------------------+------+
-|1     |top                                          |                                                | 10543|
+|1     |top                                          |                                                | 10547|
 |2     |  Inst_ftdi245_cdc                           |ftdi245_cdc                                     |  7194|
 |3     |    Inst_ftdi245                             |ftdi245                                         |  5237|
 |4     |      SEC_SYS                                |security                                        |  3716|
 |5     |        Inst_spi93lc56_16bit                 |spi93lc56_16bit                                 |   629|
 |6     |        md5i                                 |MD5                                             |  1648|
 |7     |    xpm_cdc_async_rst_inst                   |xpm_cdc_async_rst                               |     5|
-|8     |  Inst_scidk_internal_i2c_manager            |scidk_internal_i2c_manager                      |   176|
+|8     |  Inst_scidk_internal_i2c_manager            |scidk_internal_i2c_manager                      |   175|
 |9     |    iic_master                               |i2c_master_scidk_config                         |    90|
-|10    |  U12                                        |charge_integration                              |   606|
+|10    |  U12                                        |charge_integration                              |   601|
 |11    |    pre_intbuff_V_U                          |charge_integratiobkb                            |   123|
 |12    |      charge_integratiobkb_ram_U             |charge_integratiobkb_ram                        |   123|
-|13    |  U20                                        |XLX_SPECTRUM                                    |   164|
+|13    |  U20                                        |XLX_SPECTRUM                                    |   169|
 |14    |    xpm_memory_tdpram_inst                   |xpm_memory_tdpram                               |     5|
 |15    |      xpm_memory_base_inst                   |xpm_memory_base__parameterized0                 |     5|
-|16    |  U22                                        |XLX_OSCILLOSCOPE_SYNC                           |   739|
+|16    |  U22                                        |XLX_OSCILLOSCOPE_SYNC                           |   743|
 |17    |    \GENCH[0].xpm_memory_sdpram_inst         |xpm_memory_sdpram__parameterized0__1            |     2|
 |18    |      xpm_memory_base_inst                   |xpm_memory_base__parameterized1__1              |     2|
 |19    |    \GENCH[1].xpm_memory_sdpram_inst         |xpm_memory_sdpram__parameterized0               |     2|
@@ -4156,10 +4154,10 @@ Report Instance Areas:
 |151   |      \single_array[29].xpm_cdc_single_inst  |xpm_cdc_single__parameterized0__31              |     3|
 |152   |      \single_array[30].xpm_cdc_single_inst  |xpm_cdc_single__parameterized0__32              |     3|
 |153   |      \single_array[31].xpm_cdc_single_inst  |xpm_cdc_single__parameterized0__33              |     3|
-|154   |  U9                                         |SUBPAGE_wintrig                                 |   596|
+|154   |  U9                                         |SUBPAGE_wintrig                                 |   597|
 |155   |    U21                                      |polinvert                                       |    12|
-|156   |    U22                                      |TRIGGER_LEADING                                 |   189|
-|157   |    U23                                      |TRIGGER_LEADING_0                               |   165|
+|156   |    U22                                      |TRIGGER_LEADING                                 |   187|
+|157   |    U23                                      |TRIGGER_LEADING_0                               |   168|
 |158   |    U24                                      |SYNC_DELAY                                      |    96|
 |159   |      \USE_RAM.xpm_memory_sdpram_inst        |xpm_memory_sdpram                               |     1|
 |160   |        xpm_memory_base_inst                 |xpm_memory_base                                 |     1|
@@ -4168,14 +4166,14 @@ Report Instance Areas:
 |163   |        xpm_memory_base_inst                 |xpm_memory_base__1                              |     1|
 +------+---------------------------------------------+------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:48 ; elapsed = 00:02:54 . Memory (MB): peak = 984.457 ; gain = 679.586
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:22 ; elapsed = 00:02:30 . Memory (MB): peak = 977.465 ; gain = 673.070
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 786 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:16 ; elapsed = 00:02:41 . Memory (MB): peak = 984.457 ; gain = 348.543
-Synthesis Optimization Complete : Time (s): cpu = 00:02:48 ; elapsed = 00:02:54 . Memory (MB): peak = 984.457 ; gain = 679.586
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:52 ; elapsed = 00:02:18 . Memory (MB): peak = 977.465 ; gain = 343.039
+Synthesis Optimization Complete : Time (s): cpu = 00:02:22 ; elapsed = 00:02:30 . Memory (MB): peak = 977.465 ; gain = 673.070
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 509 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/FIFO_mode'; it is marked with attributes prohibiting Vivado debug.
 CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'Inst_ftdi245_cdc/Inst_ftdi245/RTX_read_machine[0]'; it is marked with attributes prohibiting Vivado debug.
@@ -4284,10 +4282,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   IOBUF => IOBUF (IBUF, OBUFT): 11 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-628 Infos, 496 Warnings, 100 Critical Warnings and 0 Errors encountered.
+626 Infos, 496 Warnings, 100 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:55 ; elapsed = 00:03:07 . Memory (MB): peak = 984.457 ; gain = 679.707
+synth_design: Time (s): cpu = 00:02:30 ; elapsed = 00:02:44 . Memory (MB): peak = 977.465 ; gain = 673.070
 INFO: [Common 17-1381] The checkpoint 'C:/OpenHardware/UserProject/NaI_Array_Firmware/test_firmwares/TrigTest3/output/TrigTest3/TrigTest3.runs/synth_1/top_TrigTest3.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_TrigTest3_utilization_synth.rpt -pb top_TrigTest3_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.121 . Memory (MB): peak = 984.457 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat May 21 18:19:37 2022...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.111 . Memory (MB): peak = 977.465 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun May 22 16:34:26 2022...
