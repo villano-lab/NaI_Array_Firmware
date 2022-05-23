@@ -10,7 +10,6 @@
 
 // Variables
 // ======================================================================
-NI_HANDLE handle;
 int ret;
 uint32_t    val;
 int verbose = 0;
@@ -224,11 +223,11 @@ int main(int argc, char* argv[])
 	//Connect to the board. 
 	if(USB2_ConnectDevice(BOARD_SERIAL_NUMBER, &handle) != 0) { 
 		printf("Unable to connect to the board!\n"); 
-		if(logfile != NULL){fprintf(logfile,"Unable to connect to the board at %s!\n",BOARD_IP_ADDRESS);};
+		if(logfile != NULL){fprintf(logfile,"Unable to connect to the board at %s!\n",BOARD_SERIAL_NUMBER);};
 		return (-1);
 	}else{
 		if(verbose>0){printf("Connected.\n");};
-		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
+		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_SERIAL_NUMBER);};
 	};
 
 	disable_q[0 ] = REG_disable_det_A_SET (disable[0 ], &handle);
