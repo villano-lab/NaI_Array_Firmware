@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "../../../../../SCIDK-SDKLinux/libSCIDK/include/SCIDK_API_C.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -66,10 +67,10 @@ SCILIB int __abstracted_mem_write(uint32_t *data, uint32_t count,
 										uint32_t address,  
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *written_data);
-SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
+/*SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
 										uint32_t address, 
 										uint32_t timeout_ms, NI_HANDLE *handle, 
-										uint32_t *read_data, uint32_t *valid_data);
+										uint32_t *read_data, uint32_t *valid_data);*/
 SCILIB int __abstracted_fifo_write(uint32_t *data, uint32_t count, 
 										uint32_t address,  
 										uint32_t timeout_ms, NI_HANDLE *handle, 

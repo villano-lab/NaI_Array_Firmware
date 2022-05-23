@@ -4,17 +4,22 @@
 
 #include "NIErrorCode.h"
 #include <stdint.h>
+#include <stdbool.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 
+#ifdef _WIN32
 #ifdef SCIDK_API_EXPORTS
 #define SCIDK_API extern "C" __declspec(dllexport) 
 	//__declspec(dllexport)
 #else
 #define SCIDK_API __declspec(dllimport)
+#endif
+#else
+#define SCIDK_API
 #endif
 	typedef int NI_HANDLE ;
 

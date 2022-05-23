@@ -2,13 +2,8 @@
 #include  <stdlib.h>
 #include <stdint.h>
 #include  <stdbool.h>
-
 #include "RegisterFile.h"
-
 #include  "circular_buffer.h"
-
-
-
 #include  "UT1AReplica_lib.h"
 
 
@@ -783,59 +778,58 @@ return __abstracted_mem_read(val, size, SCI_REG_Oscilloscope_0_FIFOADDRESS, time
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT(uint32_t *data_osc, uint32_t position, int32_t pre_trigger, uint32_t *read_analog, uint32_t *read_digital0, uint32_t *read_digital1, uint32_t *read_digital2, uint32_t *read_digital3)
-{
-int n_ch = 2;
-int n_samples = 1024;
-if (position > n_samples) return -1;
-for(int n=0; n< n_ch; n++)
-{
-	int current = position - pre_trigger;
-	if (current > 0)
-    {
-	    int k = 0;
-	    for (int i = current; i < n_samples - 1; i++)
-        {
-		 read_analog[k + (n_samples*n)] = data_osc[i + (n_samples*n)] & 65535;
-		 read_digital0[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 16 & 1;
-		 read_digital1[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 17 & 1;
-		 read_digital2[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
-		 read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 19 & 1;
-             k++;
-        }
-	    for (int i = 0; i < current - 1; i++)
-        {
-		 read_analog[k + (n_samples*n)] = data_osc[i + (n_samples*n)] & 65535;
-		 read_digital0[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 16 & 1;
-		 read_digital1[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 17 & 1;
-		 read_digital2[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
-		 read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 19 & 1;
-             k++;
-        }
-    }
-    else
-    {
-	    int k = 0;
-	    for (int i = n_samples+current; i < n_samples - 1; i++)
-        {
-		 read_analog[k + (n_samples*n)] = data_osc[i + (n_samples*n)] & 65535;
-		 read_digital0[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 16 & 1;
-		 read_digital1[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 17 & 1;
-		 read_digital2[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
-		 read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 19 & 1;
-             k++;
-        }
-	    for (int i = 0; i < n_samples + current - 1; i++)
-        {
-		 read_analog[k + (n_samples*n)] = data_osc[i + (n_samples*n)] & 65535;
-		 read_digital0[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 16 & 1;
-		 read_digital1[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 17 & 1;
-		 read_digital2[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
-		 read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 19 & 1;
-             k++;
-        }
-    }
-}
-return 0;
+SCILIB int OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT(uint32_t *data_osc, uint32_t position, int32_t pre_trigger, uint32_t *read_analog, uint32_t *read_digital0, uint32_t *read_digital1, uint32_t *read_digital2, uint32_t *read_digital3){
+	int n_ch = 2;
+	int n_samples = 1024;
+	if (position > n_samples) return -1;
+	for(int n=0; n< n_ch; n++)
+	{
+		int current = position - pre_trigger;
+		if (current > 0)
+		{
+			int k = 0;
+			for (int i = current; i < n_samples - 1; i++)
+			{
+			read_analog[k + (n_samples*n)] = data_osc[i + (n_samples*n)] & 65535;
+			read_digital0[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 16 & 1;
+			read_digital1[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 17 & 1;
+			read_digital2[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
+			read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 19 & 1;
+				k++;
+			}
+			for (int i = 0; i < current - 1; i++)
+			{
+			read_analog[k + (n_samples*n)] = data_osc[i + (n_samples*n)] & 65535;
+			read_digital0[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 16 & 1;
+			read_digital1[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 17 & 1;
+			read_digital2[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
+			read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 19 & 1;
+				k++;
+			}
+		}
+		else
+		{
+			int k = 0;
+			for (int i = n_samples+current; i < n_samples - 1; i++)
+			{
+			read_analog[k + (n_samples*n)] = data_osc[i + (n_samples*n)] & 65535;
+			read_digital0[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 16 & 1;
+			read_digital1[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 17 & 1;
+			read_digital2[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
+			read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 19 & 1;
+				k++;
+			}
+			for (int i = 0; i < n_samples + current - 1; i++)
+			{
+			read_analog[k + (n_samples*n)] = data_osc[i + (n_samples*n)] & 65535;
+			read_digital0[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 16 & 1;
+			read_digital1[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 17 & 1;
+			read_digital2[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
+			read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 19 & 1;
+				k++;
+			}
+		}
+	}
+	return 0;
 
 }

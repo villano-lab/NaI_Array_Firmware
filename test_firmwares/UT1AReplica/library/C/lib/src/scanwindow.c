@@ -1,11 +1,20 @@
 // Include
 // ======================================================================
+#include "Def.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
-//#include "SCIDK_Lib.h"
+#include <termios.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <time.h>
+#include <math.h>
+#include <string.h>
+#include <sys/time.h>
+#include <getopt.h>
 #include  "UT1AReplica_lib.h"
+#include "../../../../../SCIDK-SDKLinux/libSCIDK/include/SCIDK_API_C.h"
 #define BOARD_SERIAL_NUMBER "0001"
 
 // Variables
@@ -230,8 +239,8 @@ int main(int argc, char* argv[])
 		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_SERIAL_NUMBER);};
 	};
 
-	disable_q[0 ] = REG_disable_det_A_SET (disable[0 ], &handle);
-	disable_q[1 ] = REG_disable_det_B_SET (disable[1 ], &handle);
+	disable_q[0 ] = REG_disable_A_SET (disable[0 ], &handle);
+	disable_q[1 ] = REG_disable_B_SET (disable[1 ], &handle);
 
 	for(int i=0; i<2; i++){
 		if(disable_q[i] != 0){
