@@ -1,0 +1,219 @@
+{"Registers":[
+{
+  "Name": "pol",
+  "Address": 0,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "thrs",
+  "Address": 1,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "inhib",
+  "Address": 2,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "top",
+  "Address": 3,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "delay",
+  "Address": 4,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gate",
+  "Address": 5,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "inttime",
+  "Address": 131072,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "preint",
+  "Address": 131073,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "pileup",
+  "Address": 131074,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gain",
+  "Address": 131075,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ofs",
+  "Address": 131076,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "baseline",
+  "Address": 131077,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gatel",
+  "Address": 262150,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ANALOG_OFFSET",
+  "Address": 4294967289,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "AnalogAFE"
+}],
+"MMCComponents":[
+{
+  "Name": "RateMeter_0",
+  "Type": "MCRateMeter",
+  "Address": 65536,
+  "Version": "1.0.0.0",
+  "Channels": 2,
+  "Registers": []
+},
+{
+  "Name": "Spectrum_0",
+  "Type": "Spectrum",
+  "Address": 196608,
+  "Version": "1.0.0.0",
+  "bins": 1024,
+  "Registers": [
+    {
+      "Name": "STATUS",
+      "Address": 262144,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG",
+      "Address": 262145,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_LIMIT",
+      "Address": 262146,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_REBIN",
+      "Address": 262147,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_MIN",
+      "Address": 262148,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_MAX",
+      "Address": 262149,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "CountsBit": 16
+},
+{
+  "Name": "Oscilloscope_0",
+  "Type": "Oscilloscope",
+  "Address": 266240,
+  "Version": "1.0.0.0",
+  "nsamples": 1024,
+  "Registers": [
+    {
+      "Name": "READ_STATUS",
+      "Address": 270336,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "READ_POSITION",
+      "Address": 270337,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_MODE",
+      "Address": 270338,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_PRETRIGGER",
+      "Address": 270339,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_LEVEL",
+      "Address": 270340,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_ARM",
+      "Address": 270341,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_DECIMATOR",
+      "Address": 270342,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "Channels": 3
+}],"Device":"SCIDK","Project":"TrigTest4"}
