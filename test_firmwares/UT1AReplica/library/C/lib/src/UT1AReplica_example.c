@@ -13,13 +13,12 @@
 
 int main(int argc, char* argv[])
 {
+	printf("Got to the main function.");
 	NI_HANDLE handle;
 	int ret;
 	uint32_t    val;
 
 	if(USB2_ConnectDevice(BOARD_SERIAL_NUMBER, &handle) != 0) { printf("Unable to connect to the board!\n"); return (-1); };
-#ifndef CUSTOM_EXAMPLE		
-	
 	/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
 
 	uint32_t status_osc = 0;
@@ -62,12 +61,6 @@ int main(int argc, char* argv[])
 	}
 	printf("Download Finished");
 */
-
-
-	
-#else
-
-#endif
 
 	return 0;
 }

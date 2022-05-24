@@ -5,6 +5,7 @@
 
 #include "../include/SCIDK_API_C.h"
 #include "../include/FTDI_CPP_DLL.h"
+#include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
 
@@ -20,53 +21,56 @@ struct
 
 SCIDK_API NI_RESULT SCIDK_ConnectUSB(char *SN, NI_HANDLE *handle)
 {
+	printf("Entered SCIDK_ConnectUSB function.\n");
 	int newdevid;
    
 	int i;
 	unsigned int reg;
 	newdevid =-1;
 
-		for (i=0;i<MAX_NUMBER_OF_DEVICE;i++)
+	printf("Entering for loop...\n");
+	for (i=0;i<MAX_NUMBER_OF_DEVICE;i++)
+	{
+		if (Devices[i].valid == 0)
 		{
-			if (Devices[i].valid == 0)
-			{
-				newdevid = i;
-				break;
-			}
+			newdevid = i;
+			break;
 		}
-		if (newdevid == -1)
+	}
+	printf("Finished checking validity of devices.\n");
+	if (newdevid == -1)
+	{
+		return NI_TOO_MANY_DEVICES_CONNECTED;
+	}else
+	{
+		printf("Number of devices connected was valid.\n");
+		*handle = newdevid;
+		Devices[*handle].niSciDK_HAL = new NI_USBPHY () ;
+
+		printf("Checking device handles...\n");
+		if (Devices[*handle].niSciDK_HAL->OpenDeviceBySerialNumber (SN) == NI_OK )
 		{
-			return NI_TOO_MANY_DEVICES_CONNECTED;
-		}
-		else
-		{
-			*handle = newdevid;
-			Devices[*handle].niSciDK_HAL = new NI_USBPHY () ;
+			printf("Entered if statement.\n");
+			Devices[*handle].valid = 1;
+			NI_RESULT Status;
+			Devices[*handle].SN = atoi(SN);
 
+			uint32_t value;
 
-			if (Devices[*handle].niSciDK_HAL->OpenDeviceBySerialNumber (SN) == NI_OK )
-			{
-				Devices[*handle].valid = 1;
-				NI_RESULT Status;
-				Devices[*handle].SN = atoi(SN);
-
-				uint32_t value;
-
-				NI_WriteReg(0,
-					0xFFFFFFFF,
-					 handle);
-
-				NI_ReadReg(&value,
-					0xFFFFFFFF,
+			NI_WriteReg(0,
+				0xFFFFFFFF,
 					handle);
-				return NI_OK;
-			}
-		
 
-			//Connection failed
-			delete Devices[*handle].niSciDK_HAL;
-			return NI_ERROR;
-		}
+			NI_ReadReg(&value,
+				0xFFFFFFFF,
+				handle);
+			return NI_OK;
+		}else{
+		printf("If statement was false.\n");}
+		//Connection failed
+		delete Devices[*handle].niSciDK_HAL;
+		return NI_ERROR;
+	}
 
 	
 }
