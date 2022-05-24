@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
 {
 	//Before reading arguments, turn on all detectors and set gate values.
 	//This makes sure they are set to defaults without potentially overwriting user input
-	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
+	int thrs = 1024;	        //amount LESS THAN 2048 for threshold.
 	value = 3;
 	int gate_u = 100; 
 	int gate_l = 1;
@@ -269,11 +269,11 @@ int main(int argc, char* argv[])
 	//Pass them along to the system
 	if(verbose>0){printf("Configuring...\n");};
 	if(polarity==0){
-		thrs_q = REG_thrsh_SET(8192-thrs,&handle);	//Set cutoff for GT check
+		thrs_q = REG_thrsh_SET(2048-thrs,&handle);	//Set cutoff for GT check
 	}else if(polarity==1){
-		thrs_q = REG_thrsh_SET(8192+thrs,&handle);	//addition isn't working?
+		thrs_q = REG_thrsh_SET(2048+thrs,&handle);	//addition isn't working?
 	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
-	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
+	top_q = REG_top_SET(2048-top,&handle);	//Set cutoff for GT check
 	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
 	delay_q = REG_delay_SET(delay,&handle);			
 	gate_uq = REG_gate_u_SET(gate_u,&handle);			
@@ -303,9 +303,7 @@ int main(int argc, char* argv[])
 			if(verbose>1){printf("Updating top window:\n");};
 			top = thrs+40*i;
 			if(verbose>1){printf("%d\n",top);};
-
-	        	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
-
+	        top_q = REG_top_SET(2048-top,&handle);	//Set cutoff for GT check
 			//wait
 			sleep(10);
 			
