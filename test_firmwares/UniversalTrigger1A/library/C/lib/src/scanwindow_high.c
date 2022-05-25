@@ -22,45 +22,12 @@
 #include "Rtypes.h"*/
 
 #include  "UniversalTrigger1A_lib.h"
+#include  "UniversalTriggerShared.h"
 
-#define BOARD_IP_ADDRESS "134.84.150.42"
+//Other variables
+const char* program_name = "scanwindow_high";
 
-int verbose = 0;
-//Registers
-NI_HANDLE handle;
-int thrs_q;
-int top_q;
-int delay_q;
-int gate_uq;
-int gate_lq;
-int inhib_q;
-int polarity_q;
-char* selection;
-uint32_t value;
-int disable_q[24]; // array of disable_q instead of 24 initializations
-int disable[24];
-time_t tic, toc;
-const char* program_name = "scanwindow";
-FILE *fp;
-FILE *logfile;
-/*std::string outputfile="out.root";
-std::string BOARD_IP_ADDRESS = "134.84.150.42";
-char *board_ip_char = const_cast<char*>(BOARD_IP_ADDRESS.c_str());*/
-
-const struct option longopts[] =
-{
-	{"gate",	required_argument,	0,	'g'},
-	{"help",	no_argument,		0,	'h'},
-	{"log",		optional_argument,	0,	'l'},
-	{"quiet",	no_argument,		0,	'q'},
-	{"silent",	no_argument,		0,	's'},
-	{"verbose",	optional_argument,	0,	'v'},
-	{"version",	no_argument,		0,	'V'},
-	{"det",		required_argument,	0,	'd'},
-	{"thresh",	required_argument,	0,	't'},
-	{0,		0,			0,	0},
-};
-
+//Funcs
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
 	fprintf (stream, "Usage:  %s options \n", program_name);
   	fprintf (stream,
@@ -77,33 +44,6 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
 );
   exit (exit_code);
 };
-
-int kbhit(void)
-        {
-          struct termios oldt, newt;
-          int ch;
-          int oldf;
-
-          tcgetattr(STDIN_FILENO, &oldt);
-          newt = oldt;
-          newt.c_lflag &= ~(ICANON | ECHO);
-          tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-          oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
-          fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
-
-          ch = getchar();
-
-          tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-          fcntl(STDIN_FILENO, F_SETFL, oldf);
-
-          if(ch != EOF)
-          {
-            ungetc(ch, stdin);
-            return 1;
-          }
-
-          return 0;
-        }
 
 int main(int argc, char* argv[])
 {

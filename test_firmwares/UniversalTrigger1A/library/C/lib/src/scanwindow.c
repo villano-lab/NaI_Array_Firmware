@@ -22,104 +22,32 @@
 #include "Rtypes.h"*/
 
 #include  "UniversalTrigger1A_lib.h"
+#include  "UniversalTriggerShared.h"
 
-#define BOARD_IP_ADDRESS "134.84.150.42"
-
-int verbose = 0;
-//Registers
-NI_HANDLE handle;
-int thrs_q;
-int top_q;
-int delay_q;
-int gate_uq;
-int gate_lq;
-int inhib_q;
-int polarity_q;
-char* selection;
-uint32_t value;
-int disable_q[24]; // array of disable_q instead of 24 initializations
-int disable[24];
-time_t tic, toc;
 const char* program_name = "scanwindow";
-FILE *fp;
-FILE *logfile;
-/*std::string outputfile="out.root";
-std::string BOARD_IP_ADDRESS = "134.84.150.42";
-char *board_ip_char = const_cast<char*>(BOARD_IP_ADDRESS.c_str());*/
-
-const struct option longopts[] =
-{
-	{"gate",	required_argument,	0,	'g'},
-	{"help",	no_argument,		0,	'h'},
-	{"log",		optional_argument,	0,	'l'},
-	{"quiet",	no_argument,		0,	'q'},
-	{"silent",	no_argument,		0,	's'},
-	{"verbose",	optional_argument,	0,	'v'},
-	{"version",	no_argument,		0,	'V'},
-	{"det",		required_argument,	0,	'd'},
-	{"thresh",	required_argument,	0,	't'},
-	{0,		0,			0,	0},
-};
 
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
 	fprintf (stream, "Usage:  %s options \n", program_name);
   	fprintf (stream,
-	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
-	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
-	" -t,	--thresh	<threshold>		Set the value of the threshold (default: 4192). \n"
-	" -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in arbitrary(?) time units (integer. defaults: 1-100)\n"
-	"					The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n"
-	" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
-	" -s,-q,	--silent,--quiet,		Print nothing.\n"
-	" -l,	--log		<file>		Log terminal output.\n"
-	" -V, 	--version			Print version and exit.\n"
-	" -h,-?,	--help				Print this help function.\n"
-);
+		" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
+		"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
+		" -t,	--thresh	<threshold>		Set the value of the threshold (default: 4192). \n"
+		" -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in arbitrary(?) time units (integer. defaults: 1-100)\n"
+		"					The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n"
+		" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
+		" -s,-q,	--silent,--quiet,		Print nothing.\n"
+		" -l,	--log		<file>		Log terminal output.\n"
+		" -V, 	--version			Print version and exit.\n"
+		" -h,-?,	--help				Print this help function.\n"
+	);
   exit (exit_code);
 };
 
-int kbhit(void)
-        {
-          struct termios oldt, newt;
-          int ch;
-          int oldf;
-
-          tcgetattr(STDIN_FILENO, &oldt);
-          newt = oldt;
-          newt.c_lflag &= ~(ICANON | ECHO);
-          tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-          oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
-          fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
-
-          ch = getchar();
-
-          tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-          fcntl(STDIN_FILENO, F_SETFL, oldf);
-
-          if(ch != EOF)
-          {
-            ungetc(ch, stdin);
-            return 1;
-          }
-
-          return 0;
-        }
-
 int main(int argc, char* argv[])
 {
-	//Before reading arguments, turn on all detectors and set gate values.
-	//This makes sure they are set to defaults without potentially overwriting user input
-	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
-	value = 16777215;
-	int gate_u = 100; 
-	int gate_l = 1;
-
 	//Read options
-	int index;
-	int iarg=0;
 	while(iarg != -1){
-		iarg = getopt_long(argc, argv, "+d:t:l::shv::Vg:", longopts, &index);
-
+		iarg = getopt_long(argc, argv, "+d:t:l::shv::Vg:", longopts, &ind);
 		switch (iarg){
 		case 'h':
 			print_usage(stdout,0);
@@ -141,10 +69,7 @@ int main(int argc, char* argv[])
 			break;
 		case 'V':
 			printf("Scan Window\n");
-			printf("Copyright (c) 2022 Anthony Villano, Kitty Harris \n");
-			printf("License: The Expat license  <https://spdx.org/licenses/MIT.html> \n");
-			printf("This is free software: you are free to change and redistribute it. \n");
-			printf("There is NO WARRANTY, to the extent permitted by law. \n");
+			copyright();
 			return 0;
 			break;
 		case 'l':
@@ -153,19 +78,9 @@ int main(int argc, char* argv[])
 			break;
 		case 'd':
 			selection = optarg;
-			if(strcmp(selection,"PuBe") == 0 || strcmp(selection, "All") == 0 || strcmp(selection, "all") == 0){
-				value = 16777215;
-			}else if(strcmp(selection, "22Na") == 0|| strcmp(selection, "Na22") == 0 || strcmp(selection, "Na-22") == 0 || strcmp(selection, "22na") == 0 || strcmp(selection, "na22") == 0 || strcmp(selection, "na-22") == 0){
-				value = 7168; //10, 11, 12 (or 11, 12, 13 counting from 1)
-			}else if(strcmp(selection, "none") == 0 || strcmp(selection, "None") == 0){
-				value = 0;
-			}else{ //If it's actually a number, use the number
-				value = atoi(selection);
-				if(value < 0 || value > 16777215){
-					printf("Detector argument invalid. Please supply an integer from 0 to 16777215 or valid source ('PuBe', '22Na', 'All', 'None')");
-					return -1;
-				};
-			};
+			value = parse_detector_switch(selection);
+			if(value < 0 ){
+				return -1;}
 		case 't':
 			thrs = atoi(optarg);
 		case 'g':
@@ -187,82 +102,13 @@ int main(int argc, char* argv[])
 	if(verbose > 1){
 		printf("Detector string value supplied: %s\n",selection);
 	}
-	if(verbose > 1){
-		printf("Bitwise detector numeric value supplied: %d\n",value);
-	}
-	value = value ^ 16777215; //Bitwise flip since we're enabling but firmware is disabling.
-	//We'll disable anything that's 1 after the flip and leave everything else on
-	if(verbose > 2){
-		for(int i=0;i<24;i++){
-			printf("%d",value>>i & 1);
-		}
-		printf("\n");
-	}
-	for(int i=0; i<24; i++){
-		if(verbose > 1){printf("%d: %d, %d \n",i,value >> i, (value >> i) & 1);}
-		disable[i] = (value >> i) & 1;
-	}
-	if(verbose > 1){
-		printf("Bit-flipped detector value: %d\n",value);
-	}
-	if(verbose>0){
-		printf("Set to enable the following detectors: ");
-		for(int i=0;i<24;i++){
-			if(disable[i] == 0){
-				printf("%d, ",i);
-			}
-		}
-		printf("\b\b.\n");
-	};
-	if(verbose>1){
-		printf("Set to disable the following detectors: ");
-		for(int i=0;i<24;i++){
-			if(disable[i] == 1){
-				printf("%d, ",i);
-			}
-		}
-		printf("\b\b.\n");
-	}
+	disable = on_to_off(disable_t,value,verbose);
 
 	//Connect to the board. 
-	if(verbose > 0){
-		printf("Running in verbose mode. Verbosity:%d\n",verbose);
-	};
-	R_Init();
-	//If can't connect to the board, abort.
-	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
-		if(verbose>-1){printf("Unable to connect to the board!\n");};
-		if(logfile != NULL){fprintf(logfile,"Unable to connect to the board at %s!\n",BOARD_IP_ADDRESS);};
-		return (-1); 
-	}else{
-		if(verbose>0){printf("Connected.\n");};
-		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
-	};
+	int connect_q = connect(verbose);
+	if(connect_q != 0){return connect_q;}
 
-	disable_q[0 ] = REG_disable_det_0_SET (disable[0 ], &handle);
-	disable_q[1 ] = REG_disable_det_1_SET (disable[1 ], &handle);
-	disable_q[2 ] = REG_disable_det_2_SET (disable[2 ], &handle);
-	disable_q[3 ] = REG_disable_det_3_SET (disable[3 ], &handle);
-	disable_q[4 ] = REG_disable_det_4_SET (disable[4 ], &handle);
-	disable_q[5 ] = REG_disable_det_5_SET (disable[5 ], &handle);
-	disable_q[6 ] = REG_disable_det_6_SET (disable[6 ], &handle);
-	disable_q[7 ] = REG_disable_det_7_SET (disable[7 ], &handle);
-	disable_q[8 ] = REG_disable_det_8_SET (disable[8 ], &handle);
-	disable_q[9 ] = REG_disable_det_9_SET (disable[9 ], &handle);
-	disable_q[10] = REG_disable_det_10_SET(disable[10], &handle);
-	disable_q[11] = REG_disable_det_11_SET(disable[11], &handle);
-	disable_q[12] = REG_disable_det_12_SET(disable[12], &handle);
-	disable_q[13] = REG_disable_det_13_SET(disable[13], &handle);
-	disable_q[14] = REG_disable_det_14_SET(disable[14], &handle);
-	disable_q[15] = REG_disable_det_15_SET(disable[15], &handle);
-	disable_q[16] = REG_disable_det_16_SET(disable[16], &handle);
-	disable_q[17] = REG_disable_det_17_SET(disable[17], &handle);
-	disable_q[18] = REG_disable_det_18_SET(disable[18], &handle);
-	disable_q[19] = REG_disable_det_19_SET(disable[19], &handle);
-	disable_q[20] = REG_disable_det_20_SET(disable[20], &handle);
-	disable_q[21] = REG_disable_det_21_SET(disable[21], &handle);
-	disable_q[22] = REG_disable_det_22_SET(disable[22], &handle);
-	disable_q[23] = REG_disable_det_23_SET(disable[23], &handle);
+	disable_q = disable_dets(disable_t, disable);
 
 	for(int i=0; i<24; i++){
 		if(disable_q[i] != 0){

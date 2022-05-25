@@ -6,8 +6,6 @@
 
 #include  "UniversalTrigger1A_lib.h"
 
-#define BOARD_IP_ADDRESS "192.168.15.116"
-
 
 
 
