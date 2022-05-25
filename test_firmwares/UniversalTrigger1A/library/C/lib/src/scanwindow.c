@@ -36,6 +36,7 @@ int gate_lq;
 int inhib_q;
 int polarity_q;
 char* selection;
+char* gtemp;
 uint32_t value;
 int disable_q[24]; // array of disable_q instead of 24 initializations
 int disable[24];
@@ -107,6 +108,8 @@ int kbhit(void)
 
 int main(int argc, char* argv[])
 {
+	int gateflag = 0;
+
 	//Before reading arguments, turn on all detectors and set gate values.
 	//This makes sure they are set to defaults without potentially overwriting user input
 	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
@@ -166,13 +169,16 @@ int main(int argc, char* argv[])
 					return -1;
 				};
 			};
+			break;
 		case 't':
+			if(verbose > 1){printf("Threshold supplied: %s\n",optarg);}
 			thrs = atoi(optarg);
+			if(verbose > 1){printf("Threshold successfully set to %d.\n",thrs);}
+			break;
 		case 'g':
-			if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",optarg);}
-				gate_l = atoi(strtok (optarg," ,.-"));
-				gate_u = atoi(strtok (NULL," ,.-"));
-			if(verbose > 1){printf("%d, %d\n",gate_l,gate_u);}
+			if(verbose > 2){printf("Hey I'm in case g\n");}
+			gateflag = 1;
+			gtemp = optarg;
 		}
 	}
 
@@ -182,6 +188,15 @@ int main(int argc, char* argv[])
 	if(verbose > 0){
 		printf("Running in verbose mode. Verbosity: %d\n",verbose);
 	};
+
+	//Convert gtemp into the two gates.
+	if(gateflag == 1){ //if gate was set,
+		if(verbose > 2){printf("Are we even supposed to be here? %d\n",gateflag);}
+		if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",gtemp);}
+			gate_l = atoi(strtok (gtemp," ,.-"));
+			gate_u = atoi(strtok (NULL," ,.-"));
+		if(verbose > 1){printf("%d, %d\n",gate_l,gate_u);}
+	}
 
 	//Detector on/off
 	if(verbose > 1){
