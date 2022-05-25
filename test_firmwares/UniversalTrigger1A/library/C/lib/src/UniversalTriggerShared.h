@@ -37,6 +37,8 @@ extern int disable_t[24];
 extern int ind;
 extern int iarg;
 extern const struct option longopts[];
+extern char* gtemp;
+extern int gateflag;
 //Other Variables
 extern time_t tic, toc;
 extern FILE *fp;

@@ -49,6 +49,8 @@ int disable_t[24];
 //Command-line-reading Variables
 int ind;
 int iarg=0;
+int gateflag=0;
+char* gtemp;
 //Other Variables
 time_t tic, toc;
 FILE *fp;
