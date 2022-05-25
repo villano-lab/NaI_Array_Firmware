@@ -29,10 +29,11 @@ const char* program_name = "scanwindow";
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
 	fprintf (stream, "Usage:  %s options \n", program_name);
   	fprintf (stream,
-		" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
+		" -D,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
 		"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
+		" -d,	--delay	<delay length>	Set the value of the delay time in clock ticks (integer. default: 50)\n"
 		" -t,	--thresh	<threshold>		Set the value of the threshold (default: 4192). \n"
-		" -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in arbitrary(?) time units (integer. defaults: 1-100)\n"
+		" -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in clock ticks (integer. defaults: 1-100)\n"
 		"					The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n"
 		" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
 		" -s,-q,	--silent,--quiet,		Print nothing.\n"
@@ -45,18 +46,9 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
 
 int main(int argc, char* argv[])
 {
-	int gateflag = 0;
-
-	//Before reading arguments, turn on all detectors and set gate values.
-	//This makes sure they are set to defaults without potentially overwriting user input
-	int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
-	value = 16777215;
-	int gate_u = 100; 
-	int gate_l = 1;
-
 	//Read options
 	while(iarg != -1){
-		iarg = getopt_long(argc, argv, "+d:t:l::shv::Vg:", longopts, &ind);
+		iarg = getopt_long(argc, argv, "+D:t:i:l::shv::Vg:d:", longopts, &ind);
 		switch (iarg){
 		case 'h':
 			print_usage(stdout,0);
@@ -85,7 +77,7 @@ int main(int argc, char* argv[])
 			if(optarg){logfile = fopen(optarg,"w");
 			}else{logfile = fopen("log.txt","w");};
 			break;
-		case 'd':
+		case 'D':
 			selection = optarg;
 			value = parse_detector_switch(selection);
 			if(value < 0 ){return -1;} //If there's an error, pass it through.
@@ -100,6 +92,12 @@ int main(int argc, char* argv[])
 			gateflag = 1;
 			gtemp = optarg;
 			break;
+		case 'i':
+			inhib = atoi(optarg);
+			break;
+		case 'd':
+			delay = atoi(optarg);
+			break;
 		}
 	}
 
@@ -112,11 +110,7 @@ int main(int argc, char* argv[])
 
 	//Convert gtemp into the two gates.
 	if(gateflag == 1){ //if gate was set,
-		if(verbose > 2){printf("Are we even supposed to be here? %d\n",gateflag);}
-		if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",gtemp);}
-			gate_l = atoi(strtok (gtemp," ,.-"));
-			gate_u = atoi(strtok (NULL," ,.-"));
-		if(verbose > 1){printf("%d, %d\n",gate_l,gate_u);}
+		parse_gate(gtemp,verbose);
 	}
 
 	//Detector on/off
@@ -126,8 +120,11 @@ int main(int argc, char* argv[])
 	disable = on_to_off(disable_t,value,verbose);
 
 	//Connect to the board. 
-	int connect_q = connect(verbose);
-	if(connect_q != 0){return connect_q;}
+	int connect_q = connect_staticaddr(verbose);
+	if(connect_q != 0){
+		printf("Board connection error code: %d\n",connect_q);
+		return connect_q;
+	}
 
 	disable_q = disable_dets(disable_t, disable);
 
@@ -138,12 +135,8 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	//Configure settings
+	//Final run setup
     int top = thrs; //top of the window in trigger window
-	int inhib = 1000;		//inhibition time on trigger block
-	int delay = 50;
-	//things you probably won't change
-	int polarity = 0;	//zero for negative, one for positive
 	//things that are set based on external factors
 	double extgain = 5;	//gain set from the browser interface
 	
@@ -151,8 +144,15 @@ int main(int argc, char* argv[])
 		fprintf(logfile,"============ Settings ============\n");
 		fprintf(logfile,"Starting threshold:			%d\n",thrs);
 		fprintf(logfile,"Trigger Inhibition Time:		%d\n",inhib);
+		fprintf(logfile,"Upper Gate:					%d\n",gate_u);
+		fprintf(logfile,"Lower Gate: 					%d\n",gate_l);
 		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);
-		fprintf(logfile,"External gain (filename only):	%g\n\n",extgain); //need a better name for "external gain"
+		fprintf(logfile,"External gain (filename only):	%g\n",extgain); //need a better name for "external gain"
+		fprintf(logfile,"Detectors enabled:				\n");
+		for(int i=0;i++;i<24){
+			if(disable[i] == 0){fprintf(logfile,"%d, ",i);}
+		}
+		fprintf(logfile,"\b\b\n\n"); //clear trailing comma and space before inserting two newlines.
 	};
 	
 	//Pass them along to the system
@@ -161,31 +161,22 @@ int main(int argc, char* argv[])
 		thrs_q = REG_thrsh_SET(8192-thrs,&handle);	//Set cutoff for GT check
 	}else if(polarity==1){
 		thrs_q = REG_thrsh_SET(8192+thrs,&handle);	//addition isn't working?
-	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
-	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
-	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
+	}else{printf("Polarity is invalid! (Must be 1 or 0; was %d.) Aborting...\n",polarity); return -1;}
+	top_q 	= REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
+	inhib_q = REG_inhib_SET(inhib,&handle);		//Set number of clock ticks to inhibit data by
 	delay_q = REG_delay_SET(delay,&handle);			
 	gate_uq = REG_gate_u_SET(gate_u,&handle);			
 	gate_lq = REG_gate_l_SET(gate_l,&handle);	
-	
 	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
 	
 	//Run phase - undo reset
 	if(verbose>0){printf("Setting up rate counter... \n");};
 	tic = time(NULL);
-
-        //set up the rate counter
-        int rate_q;
-        uint32_t rateval[160]; //needs to be pre-allocated
-        uint32_t ratechan=1;
-        uint32_t ratetimeout=10; //timeout in ms
-        uint32_t rateread_data=0;
-        uint32_t ratevalid_data=0;
 	
 	fprintf(fp,"ttop, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
 	//Collect data
-        sleep(10); //sleep before data taking
+    sleep(10); //sleep before data taking
 	int i;
         for(i=0; i<102; i++){	
             //reset the threshold
@@ -193,7 +184,7 @@ int main(int argc, char* argv[])
 			top = thrs+40*i;
 			if(verbose>1){printf("%d\n",top);};
 
-	        	top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
+	        top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
 
 			//wait
 			sleep(10);
@@ -211,18 +202,10 @@ int main(int argc, char* argv[])
 	if(verbose>0){printf("Data collection complete.\n");};
 	toc = time(NULL);
 	int elapsed = (int)toc-(int)tic; 	//total time elapsed
-	if(verbose>1){
+	if(verbose>2){
 		printf("%d to %d\n",(int)tic,(int)toc);
 		printf("%d\n",elapsed);	//debug
 	};
-	int hours = floor(elapsed / 3600);
-	int minutes = floor((elapsed % 3600)/60);
-	int seconds = floor((elapsed % 60));
-	char* timestamp = malloc(100);
-	snprintf(timestamp,100,"%02d-%02d-%02d",hours,minutes,seconds);
-	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
-	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
-	if(verbose>1){printf("Closing files...");};
 	if(logfile != NULL){fclose(logfile);};
 	fclose(fp);
 	return 0;

@@ -15,13 +15,14 @@
 const struct option longopts[] =
 {
 	{"gate",	required_argument,	0,	'g'},
+	{"delay",	required_argument,	0,	'd'},
 	{"help",	no_argument,		0,	'h'},
 	{"log",		optional_argument,	0,	'l'},
 	{"quiet",	no_argument,		0,	'q'},
 	{"silent",	no_argument,		0,	's'},
 	{"verbose",	optional_argument,	0,	'v'},
 	{"version",	no_argument,		0,	'V'},
-	{"det",		required_argument,	0,	'd'},
+	{"det",		required_argument,	0,	'D'},
 	{"thresh",	required_argument,	0,	't'},
 	{0,		0,			0,	0},
 };
@@ -32,6 +33,9 @@ int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
 uint32_t value = 16777215;
 int gate_u = 100; 
 int gate_l = 1;
+int delay = 50;
+//things you probably won't change
+int polarity = 0;	//zero for negative, one for positive
 //Register-reading Variables
 NI_HANDLE handle;
 int thrs_q;
@@ -51,11 +55,19 @@ int ind;
 int iarg=0;
 int gateflag=0;
 char* gtemp;
+int inhib;
 //Other Variables
+int top;
 time_t tic, toc;
 FILE *fp;
 FILE *logfile;
-
+//Rate Counter Variables
+int rate_q;
+uint32_t rateval[160]; //needs to be pre-allocated
+uint32_t ratechan=1;
+uint32_t ratetimeout=10; //timeout in ms
+uint32_t rateread_data=0;
+uint32_t ratevalid_data=0;
 
 //Functions
 //=======================================================================================
@@ -89,6 +101,23 @@ int parse_detector_switch(char* selection){
         }
     };
 }
+int parse_gate(char* gatestring, int verbose){
+	if(verbose > 2){printf("Are we even supposed to be here? %d\n",gateflag);}
+	if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",gatestring);}
+	gate_l = atoi(strtok (gatestring," ,.-"));
+	gate_u = atoi(strtok (NULL," ,.-"));
+	if(verbose > 1){printf("%d, %d\n",gate_l,gate_u);}
+}
+void print_timestamp(int elapsed, int verbose){
+	int hours = floor(elapsed / 3600);
+	int minutes = floor((elapsed % 3600)/60);
+	int seconds = floor((elapsed % 60));
+	char* timestamp = malloc(100);
+	snprintf(timestamp,100,"%02d-%02d-%02d",hours,minutes,seconds);
+	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
+	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
+	if(verbose>1){printf("Closing files...");};
+}
 
 //Converting functions
 int *on_to_off(int *off, int on, int verbose){
@@ -109,11 +138,13 @@ int *on_to_off(int *off, int on, int verbose){
     for(int i=0; i<24; i++){
 		if(verbose > 1){printf("%d: %d, %d \n",i,on >> i, (on >> i) & 1);}
 		off[i] = (on >> i) & 1;
+		if(verbose > 2){printf("success!\n");}
 	}
+	// if(verbose > 2){printf("moving on...\n");}
     if(verbose>0){
 		printf("Set to enable the following detectors: ");
 		for(int i=0;i<24;i++){
-			if(disable[i] == 0){
+			if(off[i] == 0){
 				printf("%d, ",i);
 			}
 		}
@@ -122,7 +153,7 @@ int *on_to_off(int *off, int on, int verbose){
 	if(verbose>1){
 		printf("Set to disable the following detectors: ");
 		for(int i=0;i<24;i++){
-			if(disable[i] == 1){
+			if(off[i] == 1){
 				printf("%d, ",i);
 			}
 		}
@@ -133,7 +164,7 @@ int *on_to_off(int *off, int on, int verbose){
 
 //Other functions
 
-int connect(int verbose){
+int connect_staticaddr(int verbose){
     R_Init();
 	//If can't connect to the board, abort.
 	if(R_ConnectDevice(BOARD_IP_ADDRESS, 8888, &handle) != 0) { 
