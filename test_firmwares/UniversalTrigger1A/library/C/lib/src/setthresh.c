@@ -29,15 +29,15 @@ const char* program_name = "setthresh";
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
 	fprintf (stream, "Usage:  %s options [ threshold ]\n", program_name);
   	fprintf (stream,
-	" -d,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
-	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
-	" -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in arbitrary(?) time units (integer. defaults: 1-100)\n"
-	"					The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n"
-	" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
-	" -s,-q,	--silent,--quiet,		Print nothing.\n"
-	" -l,	--log		<file>		Log terminal output.\n"
-	" -V, 	--version			Print version and exit.\n"
-	" -h,-?,	--help				Print this help function.\n"
+		DET_TEXT
+		GATE_TEXT
+		DELAY_TEXT
+		INHIB_TEXT
+		VERBOSE_TEXT
+		SILENT_TEXT
+		LOG_TEXT
+		VERSION_TEXT
+		HELP_TEXT
 );
   exit (exit_code);
 };
@@ -46,14 +46,12 @@ int main(int argc, char* argv[])
 {
 	//Before reading arguments, turn on all detectors.
 	//This makes sure they are all on by default without potentially overwriting user input
-	int gate_u = 100; 
-	int gate_l = 1;
 
 	//Read options
 	int index;
 	int iarg=0;
 	while(iarg != -1){
-		iarg = getopt_long(argc, argv, "+d:l::shv::V", longopts, &index);
+		iarg = getopt_long(argc, argv, "+D:l::shv::V", longopts, &index);
 
 		switch (iarg){
 		case 'h':

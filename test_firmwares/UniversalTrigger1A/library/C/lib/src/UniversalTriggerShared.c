@@ -16,6 +16,7 @@ const struct option longopts[] =
 {
 	{"gate",	required_argument,	0,	'g'},
 	{"delay",	required_argument,	0,	'd'},
+	{"inhibit",	required_argument,	0,	'i'},
 	{"help",	no_argument,		0,	'h'},
 	{"log",		optional_argument,	0,	'l'},
 	{"quiet",	no_argument,		0,	'q'},
@@ -24,6 +25,7 @@ const struct option longopts[] =
 	{"version",	no_argument,		0,	'V'},
 	{"det",		required_argument,	0,	'D'},
 	{"thresh",	required_argument,	0,	't'},
+	{"range",	required_argument,	0,	'r'},
 	{0,		0,			0,	0},
 };
 
@@ -32,8 +34,13 @@ int verbose = 0;
 int thrs = 4192;	        //amount LESS THAN 8192 for threshold.
 uint32_t value = 16777215;
 int gate_u = 100; 
-int gate_l = 1;
+int gate_l = 0;
+int range_l = 0;
+int range_u = 4080;
+int range_s = 40;
 int delay = 50;
+int inhib = 1000;
+int baseline = 8192;
 //things you probably won't change
 int polarity = 0;	//zero for negative, one for positive
 //Register-reading Variables
@@ -54,9 +61,11 @@ int disable_t[24];
 int ind;
 int iarg=0;
 int gateflag=0;
+int rangeflag=0;
+char* rtemp;
 char* gtemp;
-int inhib;
 //Other Variables
+int i;
 int top;
 time_t tic, toc;
 FILE *fp;
@@ -104,9 +113,17 @@ int parse_detector_switch(char* selection){
 int parse_gate(char* gatestring, int verbose){
 	if(verbose > 2){printf("Are we even supposed to be here? %d\n",gateflag);}
 	if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",gatestring);}
-	gate_l = atoi(strtok (gatestring," ,.-"));
-	gate_u = atoi(strtok (NULL," ,.-"));
+	gate_l = atoi(strtok (gatestring," ,.-:"));
+	gate_u = atoi(strtok (NULL," ,.-:"));
 	if(verbose > 1){printf("%d, %d\n",gate_l,gate_u);}
+}
+int parse_range(char* gatestring, int verbose){
+	if(verbose > 2){printf("Are we even supposed to be here? %d\n",rangeflag);}
+	if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",rangestring);}
+	range_l = atoi(strtok (rangestring," ,.-"));
+	range_u = atoi(strtok (NULL," ,.-"));
+	range_s = atoi(strtok (NULL," ,.-"));
+	if(verbose > 1){printf("%d, %d, %d\n",range_l,range_u,range_s);}
 }
 void print_timestamp(int elapsed, int verbose){
 	int hours = floor(elapsed / 3600);
@@ -204,6 +221,17 @@ int *disable_dets(int *disable_q, int disable[24]){
 	disable_q[22] = REG_disable_det_22_SET(disable[22], &handle);
 	disable_q[23] = REG_disable_det_23_SET(disable[23], &handle);
     return disable_q;
+}
+
+int set_by_polarity(int (*f)(int, NI_HANDLE),int polarity, int value){
+	if(polarity==0){
+		return f(baseline - value,&handle);
+	}else if(polarity==1){
+		return f(baseline + value,&handle);
+	}else{
+		printf("Polarity is invalid! (Must be 1 or 0; was %d.)\n",polarity); 
+		return -1;
+	}
 }
 
 int kbhit(void){

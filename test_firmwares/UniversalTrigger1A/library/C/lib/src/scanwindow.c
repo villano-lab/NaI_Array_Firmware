@@ -29,17 +29,17 @@ const char* program_name = "scanwindow";
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
 	fprintf (stream, "Usage:  %s options \n", program_name);
   	fprintf (stream,
-		" -D,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
-		"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
-		" -d,	--delay	<delay length>	Set the value of the delay time in clock ticks (integer. default: 50)\n"
-		" -t,	--thresh	<threshold>		Set the value of the threshold (default: 4192). \n"
-		" -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in clock ticks (integer. defaults: 1-100)\n"
-		"					The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n"
-		" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
-		" -s,-q,	--silent,--quiet,		Print nothing.\n"
-		" -l,	--log		<file>		Log terminal output.\n"
-		" -V, 	--version			Print version and exit.\n"
-		" -h,-?,	--help				Print this help function.\n"
+		DET_TEXT
+		GATE_TEXT
+		DELAY_TEXT
+		INHIB_TEXT
+		THRESH_TEXT
+		RANGE_TEXT
+		VERBOSE_TEXT
+		SILENT_TEXT
+		LOG_TEXT
+		VERSION_TEXT
+		HELP_TEXT
 	);
   exit (exit_code);
 };
@@ -92,6 +92,10 @@ int main(int argc, char* argv[])
 			gateflag = 1;
 			gtemp = optarg;
 			break;
+		case 'r':
+			rangeflag = 1;
+			rtemp = optarg;
+			break;
 		case 'i':
 			inhib = atoi(optarg);
 			break;
@@ -108,9 +112,12 @@ int main(int argc, char* argv[])
 		printf("Running in verbose mode. Verbosity: %d\n",verbose);
 	};
 
-	//Convert gtemp into the two gates.
+	//Convert gtemp into the two gates and rtemp into min/max/step
 	if(gateflag == 1){ //if gate was set,
 		parse_gate(gtemp,verbose);
+	}
+	if(rangeflag == 1){ //if range was set,
+		parse_range(rtemp,verbose);
 	}
 
 	//Detector on/off
@@ -126,6 +133,7 @@ int main(int argc, char* argv[])
 		return connect_q;
 	}
 
+	//Now set all the values we determined above
 	disable_q = disable_dets(disable_t, disable);
 
 	for(int i=0; i<24; i++){
@@ -136,7 +144,7 @@ int main(int argc, char* argv[])
 	}
 
 	//Final run setup
-    int top = thrs; //top of the window in trigger window
+    int top = thrs + range_l; //top of the window in trigger window
 	//things that are set based on external factors
 	double extgain = 5;	//gain set from the browser interface
 	
@@ -148,6 +156,7 @@ int main(int argc, char* argv[])
 		fprintf(logfile,"Lower Gate: 					%d\n",gate_l);
 		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);
 		fprintf(logfile,"External gain (filename only):	%g\n",extgain); //need a better name for "external gain"
+		fprintf(logfile,"Upper threshold scanning from %d to %d in steps of %d.\n",gate_l,gate_u,gate_s);
 		fprintf(logfile,"Detectors enabled:				\n");
 		for(int i=0;i++;i<24){
 			if(disable[i] == 0){fprintf(logfile,"%d, ",i);}
@@ -157,12 +166,11 @@ int main(int argc, char* argv[])
 	
 	//Pass them along to the system
 	if(verbose>0){printf("Configuring...\n");};
-	if(polarity==0){
-		thrs_q = REG_thrsh_SET(8192-thrs,&handle);	//Set cutoff for GT check
-	}else if(polarity==1){
-		thrs_q = REG_thrsh_SET(8192+thrs,&handle);	//addition isn't working?
-	}else{printf("Polarity is invalid! (Must be 1 or 0; was %d.) Aborting...\n",polarity); return -1;}
-	top_q 	= REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
+	thrs_q = set_by_polarity(REG_thrsh_SET,polarity,thrs);
+	if(thrs_q != 0){
+		printf("Error from REG_thrsh_SET. Aborting.\n");
+		return thrs_q;
+	}
 	inhib_q = REG_inhib_SET(inhib,&handle);		//Set number of clock ticks to inhibit data by
 	delay_q = REG_delay_SET(delay,&handle);			
 	gate_uq = REG_gate_u_SET(gate_u,&handle);			
@@ -176,27 +184,29 @@ int main(int argc, char* argv[])
 	fprintf(fp,"ttop, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
 	//Collect data
-    sleep(10); //sleep before data taking
-	int i;
-        for(i=0; i<102; i++){	
-            //reset the threshold
-			if(verbose>1){printf("Updating top window:\n");};
-			top = thrs+40*i;
-			if(verbose>1){printf("%d\n",top);};
+	while(top < range_u){	
+		//reset the threshold
+		if(verbose>1){printf("Updated top threshold:\n");};
+		if(verbose>1){printf("%d\n",top);};
 
-	        top_q = REG_top_SET(8192-top,&handle);	//Set cutoff for GT check
+		top_q = set_by_polarity(REG_top_SET,polarity,top);
+		if(top_q != 0){
+			printf("Error from REG_top_SET. Aborting.\n");
+			return top_q;
+		}
 
-			//wait
-			sleep(10);
-			
-			//get the rate
-			if(verbose > 1){printf("Retreiving data...\n");};
-			rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, &rateread_data, &ratevalid_data);
-			if(verbose > 1){printf("Rateval: %f\n",rateval[0]/10.0);};
+		//wait
+		sleep(10);
+		
+		//get the rate
+		if(verbose > 1){printf("Retreiving data...\n");};
+		rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, &handle, &rateread_data, &ratevalid_data);
+		if(verbose > 1){printf("Rateval: %f\n",rateval[0]/10.0);};
 
-			//write the rate
-			fprintf(fp,"%d, %f\n",top,rateval[0]/10.0);
-	        if(verbose>1){printf("top: %d ; rate: %f Hz\n",top,rateval[0]/10.0);};
+		//write the rate
+		fprintf(fp,"%d, %f\n",top,rateval[0]/10.0);
+		if(verbose>1){printf("top: %d ; rate: %f Hz\n",top,rateval[0]/10.0);};
+		top += range_s;
 	};
 
 	if(verbose>0){printf("Data collection complete.\n");};
@@ -206,6 +216,7 @@ int main(int argc, char* argv[])
 		printf("%d to %d\n",(int)tic,(int)toc);
 		printf("%d\n",elapsed);	//debug
 	};
+	print_timestamp(elapsed,verbose);
 	if(logfile != NULL){fclose(logfile);};
 	fclose(fp);
 	return 0;
