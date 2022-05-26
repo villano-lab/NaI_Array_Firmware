@@ -28,20 +28,19 @@ const char* program_name = "scanwindow";
 
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
 	fprintf (stream, "Usage:  %s options \n", program_name);
-  	fprintf (stream,
-		DET_TEXT
-		GATE_TEXT
-		DELAY_TEXT
-		INHIB_TEXT
-		THRESH_TEXT
-		RANGE_TEXT
-		VERBOSE_TEXT
-		SILENT_TEXT
-		LOG_TEXT
-		VERSION_TEXT
-		HELP_TEXT
-	);
-  exit (exit_code);
+  	fprintf (stream, DET_TEXT);
+	fprintf (stream, GATE_TEXT);
+	fprintf (stream, DELAY_TEXT);
+	fprintf (stream, INHIB_TEXT);
+	fprintf (stream, THRESH_TEXT);
+	fprintf (stream, RANGE_TEXT);
+	fprintf (stream, VERBOSE_TEXT);
+	fprintf (stream, SILENT_TEXT);
+	fprintf (stream, LOG_TEXT);
+	fprintf (stream, VERSION_TEXT);
+	fprintf (stream, HELP_TEXT);
+	
+	exit (exit_code);
 };
 
 int main(int argc, char* argv[])
@@ -156,7 +155,7 @@ int main(int argc, char* argv[])
 		fprintf(logfile,"Lower Gate: 					%d\n",gate_l);
 		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);
 		fprintf(logfile,"External gain (filename only):	%g\n",extgain); //need a better name for "external gain"
-		fprintf(logfile,"Upper threshold scanning from %d to %d in steps of %d.\n",gate_l,gate_u,gate_s);
+		fprintf(logfile,"Upper threshold scanning from %d to %d in steps of %d.\n",range_l,range_u,range_s);
 		fprintf(logfile,"Detectors enabled:				\n");
 		for(int i=0;i++;i<24){
 			if(disable[i] == 0){fprintf(logfile,"%d, ",i);}

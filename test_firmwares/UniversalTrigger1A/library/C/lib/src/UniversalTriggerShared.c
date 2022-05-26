@@ -66,7 +66,7 @@ char* rtemp;
 char* gtemp;
 //Other Variables
 int i;
-int top;
+int top = 8192;
 time_t tic, toc;
 FILE *fp;
 FILE *logfile;
@@ -117,7 +117,7 @@ int parse_gate(char* gatestring, int verbose){
 	gate_u = atoi(strtok (NULL," ,.-:"));
 	if(verbose > 1){printf("%d, %d\n",gate_l,gate_u);}
 }
-int parse_range(char* gatestring, int verbose){
+int parse_range(char* rangestring, int verbose){
 	if(verbose > 2){printf("Are we even supposed to be here? %d\n",rangeflag);}
 	if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",rangestring);}
 	range_l = atoi(strtok (rangestring," ,.-"));
@@ -223,7 +223,7 @@ int *disable_dets(int *disable_q, int disable[24]){
     return disable_q;
 }
 
-int set_by_polarity(int (*f)(int, NI_HANDLE),int polarity, int value){
+int set_by_polarity(int (*f)(uint32_t, NI_HANDLE*), int polarity, int value){
 	if(polarity==0){
 		return f(baseline - value,&handle);
 	}else if(polarity==1){

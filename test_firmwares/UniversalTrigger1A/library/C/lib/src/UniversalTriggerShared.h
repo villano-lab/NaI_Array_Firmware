@@ -12,42 +12,18 @@
 
 //Defaults
 #define BOARD_IP_ADDRESS ("134.84.150.42")
-#define DET_TEXT (
-    " -D,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n"
-	"					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n"
-)
-#define GATE_TEXT (
-    " -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in clock ticks (integer. defaults: 0-100)\n"
-    "					The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n"
-)
-#define DELAY_TEXT (
-    " -d,	--delay	<delay length>	Set the value of the delay time in clock ticks (integer. default: 50)\n"
-)
-#define INHIB_TEXT (
-    " -i,	--inhibit	<inhibit>	Set the value of the inhibit time in clock ticks (integer. default: 1000)\n"
-)
-#define THRESH_TEXT (
-    " -t,	--thresh	<threshold>		Set the value of the (lower) threshold (default: 4192). \n"
-)
-#define RANGE_TEXT (
-    " -r,	--range	'<lower #> <upper #> <step size>'	Set the range and step size for upper thresholds to be scanned (default: min 0, max 4080, step size 40).\n"
-	"					These are set in terms of their distance from the lower threshold; a lower value of 0 indicates starting from the same value as threshold.\n"
-)
-#define VERBOSE_TEXT (
-    " -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n"
-)
-#define SILENT_TEXT (
-    " -s,-q,	--silent,--quiet,		Print nothing.\n"
-)
-#define LOG_TEXT (
-    " -l,	--log		<file>		Log terminal output.\n"
-)
-#define VERSION_TEXT (
-    " -V, 	--version			Print version and exit.\n"
-)
-#define HELP_TEXT (
-    " -h,-?,	--help				Print this help function.\n"
-)
+#define DET_TEXT (" -D,	--det	<# or source name>	Choose which detectors to trigger on (default: all).\n					Number values are bitwise from 0 to all 1s in 24 bit (16777215).\n")
+#define GATE_TEXT (" -g,	--gate	'<lower #> <upper #>'	Set the gate times for the upper and lower triggers in clock ticks (integer. defaults: 0-100)\n					The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n")
+#define DELAY_TEXT (" -d,	--delay	<delay length>	Set the value of the delay time in clock ticks (integer. default: 50)\n")
+#define INHIB_TEXT (" -i,	--inhibit	<inhibit>	Set the value of the inhibit time in clock ticks (integer. default: 1000)\n")
+#define THRESH_TEXT (" -t,	--thresh	<threshold>		Set the value of the (lower) threshold (default: 4192). \n")
+#define RANGE_TEXT (" -r,	--range	'<lower #> <upper #> <step size>'	Set the range and step size for upper thresholds to be scanned (default: min 0, max 4080, step size 40).\n					These are set in terms of their distance from the lower threshold; a lower value of 0 indicates starting from the same value as threshold.\n")
+#define VERBOSE_TEXT (" -v,	--verbose	<level>		Print verbose messages at the specified level (1 if unspecified).\n")
+#define SILENT_TEXT (" -s,-q,	--silent,--quiet,		Print nothing.\n")
+#define LOG_TEXT (" -l,	--log		<file>		Log terminal output.\n")
+#define VERSION_TEXT (" -V, 	--version			Print version and exit.\n")
+#define HELP_TEXT (" -h,-?,	--help				Print this help function.\n")
+#define TOP_TEXT (" -T,   --top   <value> Set the upper threshold to the given value (default: 8192).\n")
 
 //Variables
 extern int verbose;
@@ -107,12 +83,12 @@ void copyright();                                                       //print 
 //parsing functions
 int parse_detector_switch(char* selection);                             //parse a string representing detector on/off
 int parse_gate(char* gatestring, int verbose);                          //parse a string representing multiple gate values
-int parse_range(char* gatestring, int verbose)                          //parse a string representing a range of values with step size
+int parse_range(char* gatestring, int verbose);                         //parse a string representing a range of values with step size
 void print_timestamp(int elapsed, int verbose);                         //parse a time elapsed value and print it in readable format
 //converting functions
 int *on_to_off(int *off, int on, int verbose);                          //convert a detectors on bit vector to a detectors off bit vector
 //other functions
 int connect_staticaddr(int verbose);                                    //connect to the board, with print functions.
 int *disable_dets(int *disable_q, int disable[24]);                     //disable detectors based on input array
-int set_by_polarity(int (*f)(int, NI_HANDLE),int polarity, int value);  //run a REG_?_SET function to set a value above or below the baseline, depending on the polarity.
+int set_by_polarity(int (*f)(uint32_t, NI_HANDLE*), int polarity, int value);  //run a REG_?_SET function to set a value above or below the baseline, depending on the polarity.
 int kbhit(void);                                                        //allow keyboard interrupt

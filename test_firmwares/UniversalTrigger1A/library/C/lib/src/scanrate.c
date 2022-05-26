@@ -28,30 +28,25 @@ const char* program_name = "scanrate";
 
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
 	fprintf (stream, "Usage:  %s options \n", program_name);
-  	fprintf (stream,
-	  DET_TEXT
-	  GATE_TEXT
-	  DELAY_TEXT
-	  INHIB_TEXT
-	  RANGE_TEXT
-	  VERBOSE_TEXT
-	  SILENT_TEXT
-	  LOG_TEXT
-	  VERSION_TEXT
-	  HELP_TEXT
-);
-  exit (exit_code);
+  	fprintf (stream, DET_TEXT);
+	fprintf (stream, DELAY_TEXT);
+	fprintf (stream, INHIB_TEXT);
+	fprintf (stream, TOP_TEXT);
+	fprintf (stream, RANGE_TEXT);
+	fprintf (stream, VERBOSE_TEXT);
+	fprintf (stream, SILENT_TEXT);
+	fprintf (stream, LOG_TEXT);
+	fprintf (stream, VERSION_TEXT);
+	fprintf (stream, HELP_TEXT);
+
+	exit (exit_code);
 };
 
 int main(int argc, char* argv[])
 {
-	//Override defaults with a new default before parsing args.
-	range_u = 8240;
-	range_s = 80;
-
 	//Read options
 	while(iarg != -1){
-		iarg = getopt_long(argc, argv, "+d:i:l::shv::Vg:d:", longopts, &ind);
+		iarg = getopt_long(argc, argv, "+d:i:l::shv::Vg:d:T:", longopts, &ind);
 		switch (iarg){
 		case 'h':
 			print_usage(stdout,0);
@@ -103,6 +98,9 @@ int main(int argc, char* argv[])
 		case 'd':
 			delay = atoi(optarg);
 			break;
+		case 'T':
+			top = atoi(optarg);
+			break;
 		}
 	}
 
@@ -146,7 +144,6 @@ int main(int argc, char* argv[])
 
 	//Final run setup
 	int thrs = 0;	        //amount LESS THAN 8192 for threshold.
-	int top = 8192; 		//way high so it's irrelevant
 	//things that are set based on external factors
 	double extgain = 5;	//gain set from the browser interface
 	
@@ -158,6 +155,7 @@ int main(int argc, char* argv[])
 		fprintf(logfile,"Lower Gate: 					%d\n",gate_l);
 		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);
 		fprintf(logfile,"External gain (filename only):	%g\n",extgain); //need a better name for "external gain"
+		fprintf(logfile,"Lower threshold scanning from %d to %d in steps of %d.\n",range_l,range_u,range_s);
 		fprintf(logfile,"Detectors enabled:				\n");
 		for(int i=0;i++;i<24){
 			if(disable[i] == 0){fprintf(logfile,"%d, ",i);}
@@ -199,7 +197,7 @@ int main(int argc, char* argv[])
 
 		thrs_q = set_by_polarity(REG_thrsh_SET,polarity,thrs);
 		if(thrs_q != 0){
-			printf("Error from REG_thrs_SET. Aborting.\n")
+			printf("Error from REG_thrs_SET. Aborting.\n");
 			return thrs_q;
 		}
 
