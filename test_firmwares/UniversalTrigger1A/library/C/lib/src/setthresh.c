@@ -27,17 +27,20 @@
 const char* program_name = "setthresh";
 
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
-	fprintf (stream, "Usage:  %s options [ threshold ]\n", program_name);
+	fprintf (stream, "Usage:  %s options \n", program_name);
   	fprintf (stream, DET_TEXT);
 	fprintf (stream, GATE_TEXT);
 	fprintf (stream, DELAY_TEXT);
 	fprintf (stream, INHIB_TEXT);
+	fprintf (stream, THRESH_TEXT);
 	fprintf (stream, TOP_TEXT);
 	fprintf (stream, VERBOSE_TEXT);
 	fprintf (stream, SILENT_TEXT);
 	fprintf (stream, LOG_TEXT);
 	fprintf (stream, VERSION_TEXT);
 	fprintf (stream, HELP_TEXT);
+	fprintf (stream, RESET_TEXT);
+	fprintf (stream, FORCE_TEXT);
 	
 	exit (exit_code);
 };
@@ -48,9 +51,14 @@ int main(int argc, char* argv[])
 	int index;
 	int iarg=0;
 	while(iarg != -1){
-		iarg = getopt_long(argc, argv, "+D:i:l::shv::Vg:d:T:", longopts, &index);
-
+		iarg = getopt_long(argc, argv, "+D:i:l::shv::Vg:d:T:Rf", longopts, &index);
 		switch (iarg){
+		case 'f':
+			force = 1;
+			break;
+		case 'R':
+			reset = 1;
+			break;
 		case 'h':
 			print_usage(stdout,0);
 			return 0;
@@ -89,34 +97,63 @@ int main(int argc, char* argv[])
 			gtemp = optarg;
 			break;
 		case 'i':
+			inhibflag = 1;
 			inhib = atoi(optarg);
 			break;
 		case 'd':
+			delayflag = 1;
 			delay = atoi(optarg);
 			break;
+		case 't':
+			threshflag = 1;
+			if(verbose > 1){printf("Threshold supplied: %s\n",optarg);}
+			thrs = atoi(optarg);
+			if(verbose > 1){printf("Threshold successfully set to %d.\n",thrs);}
+			break;
 		case 'T':
+			topflag = 1;
 			top = atoi(optarg);
 			break;
 		}
 	}
-
-	//Main argument
-  	if(optind==argc){
-    	printf("ERROR! No threshold value was given to set.");
-    	exit(1);
-  	}
-  	int thrs = atoi(argv[optind]);
 
 	//Verbosity message
 	if(verbose > 0){
 		printf("Running in verbose mode. Verbosity: %d\n",verbose);
 	};
 
-	//Detector on/off
-	if(verbose > 1){
-		printf("Detector string value supplied: %s\n",selection);
+	if(reset == 1){
+		if(force == 0){
+			printf("Reset all un-provided variables to their default values? (y/n): ");
+			inputstart: scanf("%s",&userinput);
+			if(userinput == "y" || userinput == "yes" || userinput == "Y" || userinput == "Yes" || userinput == "YES"){
+				inhibflag, delayflag, threshflag, topflag, detflag, gateflag = 1;
+			}else if(userinput == "n" || userinput == "no" || userinput == "N" || userinput == "No" || userinput == "NO"){
+				if(verbose>-1){printf("Proceeding with provided values only.");}
+			}else{
+				printf("Please enter 'y' or 'n': ");
+				goto inputstart;
+			}
+			//user input. abort or proceed.
+		}else if(force == 1){
+			inhibflag, delayflag, threshflag, topflag, detflag, gateflag = 1;
+		}else{
+			printf("Somehow, the force variable was set to an invalid value (%d). Aborting. Please submit a bug report.\n",force);
+			return -1;
+		}
 	}
-	disable = on_to_off(disable_t,value,verbose);
+
+	if(verbose > -1 && polflag == 0 && (threshflag == 1 || topflag == 1)){
+		printf("No polarity supplied. Thresholds will be set assuming negative polarity.")
+	}
+
+	//Detector on/off
+	if(detflag == 1){
+		if(verbose > 1){
+			printf("Detector string value supplied: %s\n",selection);
+		}
+		disable = on_to_off(disable_t,value,verbose);
+	}
 
 	//Connect to the board. 
 	int connect_q = connect_staticaddr(verbose);
@@ -126,50 +163,64 @@ int main(int argc, char* argv[])
 	}
 
 	//Now set all the values we determined above
-	disable_q = disable_dets(disable_t, disable);
-
-
-	for(int i=0; i<24; i++){
-		if(disable_q[i] != 0){
-			printf("Unable to set on/off state of detector #%d! Aborting.\n",i);
-			return -1;
+	if(detflag == 1){
+		disable_q = disable_dets(disable_t, disable);
+		for(int i=0; i<24; i++){
+			if(disable_q[i] != 0){
+				printf("Unable to set on/off state of detector #%d! Aborting.\n",i);
+				return -1;
+			}
 		}
 	}
 
 	//Configure settings
-    if(verbose>-1){printf("Set threshold to: %d.\n",thrs);}
-	//things that are set based on external factors
-	double extgain = 5;	//gain set from the browser interface
+	if(threshflag == 1){
+		if(verbose>-1){printf("Set threshold to: %d.\n",thrs);}
+	}
 	
 	if(logfile != NULL){
 		fprintf(logfile,"============ Settings ============\n");
-		fprintf(logfile,"Starting threshold:			%d\n",thrs);
-		fprintf(logfile,"Trigger Inhibition Time:		%d\n",inhib);
-		fprintf(logfile,"Upper Gate:					%d\n",gate_u);
-		fprintf(logfile,"Lower Gate: 					%d\n",gate_l);
-		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);
-		fprintf(logfile,"External gain (filename only):	%g\n",extgain); //need a better name for "external gain"
-		fprintf(logfile,"Detectors enabled:				\n");
-		for(int i=0;i++;i<24){
-			if(disable[i] == 0){fprintf(logfile,"%d, ",i);}
+		if(threshflag 	== 1){		fprintf(logfile,"Lower threshold:				%d\n",thrs);}
+		if(topflag	 	== 1){		fprintf(logfile,"Upper threshold:				%d\n",top);}
+		if(inhibflag	== 1){		fprintf(logfile,"Trigger Inhibition Time:		%d\n",inhib);}
+		if(gateflag		== 1){
+									fprintf(logfile,"Upper Gate:					%d\n",gate_u);
+									fprintf(logfile,"Lower Gate: 					%d\n",gate_l);
 		}
-		fprintf(logfile,"\b\b\n\n"); //clear trailing comma and space before inserting two newlines.
+		if(delayflag	== 1){		fprintf(logfile,"Delay:							%d\n",delay);}
+		if(polflag		== 1){		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);}
+		if(detflag		== 1){
+									fprintf(logfile,"Detectors enabled:				\n");
+			for(int i=0;i++;i<24){
+				if(disable[i] == 0){fprintf(logfile,"%d, ",i);}
+			}
+									fprintf(logfile,"\b\b\n\n"); //clear trailing comma and space before inserting two newlines.
 	};
 	
 	//Pass them along to the system
 	if(verbose>0){printf("Configuring...\n");};
-	thrs_q = set_by_polarity(REG_thrsh_SET,polarity,thrs);
-	if(thrs_q != 0){
-		printf("Error from REG_thrsh_SET. Aborting.\n");
-		return thrs_q;
+
+	if(threshflag == 1){	
+		thrs_q = set_by_polarity(REG_thrsh_SET,polarity,thrs);
+		if(thrs_q != 0){
+			printf("Error from REG_thrsh_SET. Aborting.\n");
+			return thrs_q;
+		}
 	}
-	if(polarity==0){
-		thrs_q = REG_thrsh_SET(8192-thrs,&handle);	//Set cutoff for GT check
-	}else if(polarity==1){
-		thrs_q = REG_thrsh_SET(8192+thrs,&handle);	//addition isn't working?
-	}else{printf("Polarity is invalid! (Must be 1 or 0.) Aborting...\n"); return -1;}
-	inhib_q = REG_inhib_SET(inhib,&handle);			//Set number of samples to delay data by
-	polarity_q = REG_polarity_SET(polarity,&handle);	//Set polarity to negative
+	if(topflag == 1){
+		top_q = set_by_polarity(REG_top_SET,polarity,top);
+		if(top_q != 0){
+			printf("Error from REG_top_SET. Aborting.\n");
+			return top_q;
+		}
+	}
+	if(inhibflag == 1){	inhib_q = REG_inhib_SET(inhib,&handle);	}
+	if(polflag == 1){polarity_q = REG_polarity_SET(polarity,&handle); }	//Set polarity
+	if(gateflag == 1){
+		gate_lq 				= REG_gate_l_SET(gate_l,&handle); 
+		gate_uq					= REG_gate_u_SET(gate_u,&handle);
+	}
+	if(delayflag == 1){delay_q 	= REG_delay_SET(delay,&handle); }
 	
 	return 0;
 }

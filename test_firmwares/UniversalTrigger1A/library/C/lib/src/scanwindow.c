@@ -144,8 +144,6 @@ int main(int argc, char* argv[])
 
 	//Final run setup
     int top = thrs + range_l; //top of the window in trigger window
-	//things that are set based on external factors
-	double extgain = 5;	//gain set from the browser interface
 	
 	if(logfile != NULL){
 		fprintf(logfile,"============ Settings ============\n");
@@ -154,7 +152,6 @@ int main(int argc, char* argv[])
 		fprintf(logfile,"Upper Gate:					%d\n",gate_u);
 		fprintf(logfile,"Lower Gate: 					%d\n",gate_l);
 		fprintf(logfile,"Polarity (Neg 0, Pos 1):		%d\n",polarity);
-		fprintf(logfile,"External gain (filename only):	%g\n",extgain); //need a better name for "external gain"
 		fprintf(logfile,"Upper threshold scanning from %d to %d in steps of %d.\n",range_l,range_u,range_s);
 		fprintf(logfile,"Detectors enabled:				\n");
 		for(int i=0;i++;i<24){

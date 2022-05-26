@@ -25,7 +25,10 @@ const struct option longopts[] =
 	{"version",	no_argument,		0,	'V'},
 	{"det",		required_argument,	0,	'D'},
 	{"thresh",	required_argument,	0,	't'},
+	{"top",		required_argument,	0,	'T'},
 	{"range",	required_argument,	0,	'r'},
+	{"reset",	no_argument,		0,	'R'},
+	{"force",	no_argument,		0,	'f'},
 	{0,		0,			0,	0},
 };
 
@@ -41,6 +44,7 @@ int range_s = 40;
 int delay = 50;
 int inhib = 1000;
 int baseline = 8192;
+int top = 8192;
 //things you probably won't change
 int polarity = 0;	//zero for negative, one for positive
 //Register-reading Variables
@@ -62,11 +66,17 @@ int ind;
 int iarg=0;
 int gateflag=0;
 int rangeflag=0;
+int delayflag=0;
+int inhibflag=0;
+int threshflag=0;
+int topflag=0;
+int polflag=0;
+int force=0;
 char* rtemp;
 char* gtemp;
 //Other Variables
 int i;
-int top = 8192;
+char userinput;
 time_t tic, toc;
 FILE *fp;
 FILE *logfile;

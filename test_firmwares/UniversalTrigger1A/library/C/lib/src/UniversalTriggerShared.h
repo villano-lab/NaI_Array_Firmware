@@ -24,6 +24,8 @@
 #define VERSION_TEXT (" -V, 	--version			Print version and exit.\n")
 #define HELP_TEXT (" -h,-?,	--help				Print this help function.\n")
 #define TOP_TEXT (" -T,   --top   <value> Set the upper threshold to the given value (default: 8192).\n")
+#define RESET_TEXT (" -R,   --reset     Reset all unsupplied values to their defaults.\n")
+#define FORCE_TEXT (" -f,   --force     Skip all user input.\n")
 
 //Variables
 extern int verbose;
@@ -39,6 +41,7 @@ extern int inhib;
 extern int delay;
 extern int polarity;
 extern int baseline;
+extern int top;
 //Register-reading Variables
 extern NI_HANDLE handle;
 extern int thrs_q;
@@ -61,9 +64,18 @@ extern char* gtemp;
 extern char* rtemp;
 extern int gateflag;
 extern int rangeflag;
+extern int detflag;
+extern int gateflag;
+extern nit delayflag;
+extern int inhibflag;
+exern int delayflag;
+extern int threshflag;
+extern int topflag;
+extern int polflag;
+extern int force;
 //Other Variables
 extern int i;
-extern int top;
+extern char userinput;
 extern time_t tic, toc;
 extern FILE *fp;
 extern FILE *logfile;
