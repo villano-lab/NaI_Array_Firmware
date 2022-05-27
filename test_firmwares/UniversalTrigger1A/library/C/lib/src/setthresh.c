@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 	int index;
 	int iarg=0;
 	while(iarg != -1){
-		iarg = getopt_long(argc, argv, "+D:i:l::shv::Vg:d:T:Rf", longopts, &index);
+		iarg = getopt_long(argc, argv, "+D:i:t:l::shv::Vg:d:T:Rf", longopts, &index);
 		switch (iarg){
 		case 'f':
 			force = 1;
@@ -125,12 +125,13 @@ int main(int argc, char* argv[])
 	if(reset == 1){
 		if(force == 0){
 			printf("Reset all un-provided variables to their default values? (y/n): ");
-			inputstart: scanf("%s",&userinput);
-			if(userinput == "y" || userinput == "yes" || userinput == "Y" || userinput == "Yes" || userinput == "YES"){
+			inputstart: scanf("%3s",userinput);
+			if(strcasecmp(userinput, "y") == 0 || strcasecmp(userinput, "yes") == 0|| strcasecmp(userinput, "1") == 0){
 				inhibflag, delayflag, threshflag, topflag, detflag, gateflag = 1;
-			}else if(userinput == "n" || userinput == "no" || userinput == "N" || userinput == "No" || userinput == "NO"){
+			}else if(strcasecmp(userinput, "n") == 0 || strcasecmp(userinput, "no") == 0 || userinput == "0"){
 				if(verbose>-1){printf("Proceeding with provided values only.");}
 			}else{
+				if(verbose > 2){printf("You supplied: %s. ",userinput);}
 				printf("Please enter 'y' or 'n': ");
 				goto inputstart;
 			}
@@ -144,7 +145,7 @@ int main(int argc, char* argv[])
 	}
 
 	if(verbose > -1 && polflag == 0 && (threshflag == 1 || topflag == 1)){
-		printf("No polarity supplied. Thresholds will be set assuming negative polarity.")
+		printf("No polarity supplied. Thresholds will be set assuming negative polarity.\n");
 	}
 
 	//Detector on/off
@@ -195,7 +196,8 @@ int main(int argc, char* argv[])
 				if(disable[i] == 0){fprintf(logfile,"%d, ",i);}
 			}
 									fprintf(logfile,"\b\b\n\n"); //clear trailing comma and space before inserting two newlines.
-	};
+		};
+	}
 	
 	//Pass them along to the system
 	if(verbose>0){printf("Configuring...\n");};

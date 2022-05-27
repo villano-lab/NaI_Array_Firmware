@@ -69,14 +69,16 @@ int rangeflag=0;
 int delayflag=0;
 int inhibflag=0;
 int threshflag=0;
+int detflag=0;
 int topflag=0;
 int polflag=0;
+int reset=0;
 int force=0;
 char* rtemp;
 char* gtemp;
 //Other Variables
 int i;
-char userinput;
+char userinput[3];
 time_t tic, toc;
 FILE *fp;
 FILE *logfile;
@@ -104,11 +106,11 @@ void copyright(){
 //Parsing functions
 int parse_detector_switch(char* selection){
     int value; //need this in order to parse it inside the else statement.
-    if(strcmp(selection,"PuBe") == 0 || strcmp(selection, "All") == 0 || strcmp(selection, "all") == 0){
+    if(strcasecmp(selection,"PuBe") == 0 || strcasecmp(selection, "All") == 0 ){
         return 16777215;
-    }else if(strcmp(selection, "22Na") == 0|| strcmp(selection, "Na22") == 0 || strcmp(selection, "Na-22") == 0 || strcmp(selection, "22na") == 0 || strcmp(selection, "na22") == 0 || strcmp(selection, "na-22") == 0){
+    }else if(strcasecmp(selection, "NaI") == 0 || strcasecmp(selection, "22na") == 0 || strcasecmp(selection, "na22") == 0 || strcasecmp(selection, "na-22") == 0){
         return 7168; //10, 11, 12 (or 11, 12, 13 counting from 1)
-    }else if(strcmp(selection, "none") == 0 || strcmp(selection, "None") == 0){
+    }else if(strcasecmp(selection, "none") == 0){
         return 0;
     }else{ //If it's actually a number, use the number
         value = atoi(selection);

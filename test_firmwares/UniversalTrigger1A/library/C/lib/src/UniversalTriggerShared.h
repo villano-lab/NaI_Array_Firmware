@@ -53,7 +53,7 @@ extern int gate_lq;
 extern int inhib_q;
 extern int polarity_q;
 extern char* selection;
-extern int *disable_q;  // point to array of disable instead of 24 initializations
+extern int *disable_q;  // point to array of disable instead of 24 iintializations
 extern int *disable;
 extern int disable_t[24];
 //Command-line-reading Variables
@@ -66,16 +66,17 @@ extern int gateflag;
 extern int rangeflag;
 extern int detflag;
 extern int gateflag;
-extern nit delayflag;
+extern int delayflag;
 extern int inhibflag;
-exern int delayflag;
+extern int delayflag;
 extern int threshflag;
 extern int topflag;
 extern int polflag;
+extern int reset;
 extern int force;
 //Other Variables
 extern int i;
-extern char userinput;
+extern char userinput[3];
 extern time_t tic, toc;
 extern FILE *fp;
 extern FILE *logfile;
