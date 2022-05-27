@@ -172,11 +172,15 @@ int main(int argc, char* argv[])
 				return -1;
 			}
 		}
+	}else if(verbose > 1){
+		printf("Detector flag is off. Skipping.\n");
 	}
 
-	//Configure settings
+	//Some printing statements
 	if(threshflag == 1){
-		if(verbose>-1){printf("Set threshold to: %d.\n",thrs);}
+		if(verbose>-1){printf("Setting threshold to: %d.\n",thrs);}
+	}else if(verbose > 1){
+		printf("Lower threshold flag is off. Skipping.\n");
 	}
 	
 	if(logfile != NULL){
@@ -209,20 +213,75 @@ int main(int argc, char* argv[])
 			return thrs_q;
 		}
 	}
+	//set top
 	if(topflag == 1){
 		top_q = set_by_polarity(REG_top_SET,polarity,top);
 		if(top_q != 0){
 			printf("Error from REG_top_SET. Aborting.\n");
 			return top_q;
+		}else if(verbose > 0){
+			printf("Successfully set upper threshold to %d.\n",top);
 		}
+	}else if(verbose > 1){
+		printf("Top threshold flag is off. Skipping.\n");
 	}
-	if(inhibflag == 1){	inhib_q = REG_inhib_SET(inhib,&handle);	}
-	if(polflag == 1){polarity_q = REG_polarity_SET(polarity,&handle); }	//Set polarity
+
+	//set inhib
+	if(inhibflag == 1){	
+		inhib_q = REG_inhib_SET(inhib,&handle);	
+		if(inhib_q != 0){
+			printf("Error from REG_inhib_SET. Aborting.\n");
+			return inhib_q;
+		}else if(verbose > 0){
+			printf("Successfully set inhib to %d.\n",inhib);
+		}
+	}else if(verbose > 1){
+		printf("Inhibit flag is off. Skipping.\n");
+	}
+
+	//set polarity
+	if(polflag == 1){
+		polarity_q = REG_polarity_SET(polarity,&handle); 
+		if(polarity_q != 0){
+			printf("Error from REG_polarity_SET. Aborting.\n");
+			return polarity_q;
+		}else if(verbose > 0){
+			printf("Successfully set polarity to %d.\n",polarity);
+		}
+	}else if(verbose > 1){
+		printf("Polarity flag is off. Skipping.\n");
+	}
+
+	//set gates
 	if(gateflag == 1){
-		gate_lq 				= REG_gate_l_SET(gate_l,&handle); 
+		gate_lq 				= REG_gate_l_SET(gate_l,&handle);
+		if(gate_lq != 0){
+			printf("Error from REG_gate_l_SET. Aborting.\n");
+			return gate_lq;
+		}
 		gate_uq					= REG_gate_u_SET(gate_u,&handle);
+		if(gate_uq != 0){
+			printf("Error from REG_gate_u_SET. Aborting.\n");
+			return gate_uq;
+		}else if(verbose > 0){
+			printf("Successfully set lower gate to %d and upper gate to %d.\n",gate_l,gate_u);
+		}
+	}else if(verbose > 1){
+		printf("Gate flag is off. Skipping.\n");
 	}
-	if(delayflag == 1){delay_q 	= REG_delay_SET(delay,&handle); }
+
+	//set delay
+	if(delayflag == 1){
+		delay_q 	= REG_delay_SET(delay,&handle); 
+		if(delay_q != 0){
+			printf("Error from REG_delay_SET. Aborting.\n");
+			return delay_q;
+		}else if(verbose > 0){
+			printf("Successfully set delay to %d.\n",delay);
+		}
+	}else if(verbose > 1){
+		printf("Delay flag is off. Skipping.\n");
+	}
 	
 	return 0;
 }
