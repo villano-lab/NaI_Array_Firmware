@@ -118,6 +118,9 @@ int main(int argc, char* argv[])
 	if(rangeflag == 1){ //if range was set,
 		parse_range(rtemp,verbose);
 	}
+	if(verbose > 1){
+		printf("range min: %d. range max: %d. step size: %d.\n",range_l,range_u,range_s);
+	}
 
 	//Detector on/off
 	if(verbose > 1){
@@ -134,7 +137,6 @@ int main(int argc, char* argv[])
 
 	//Now set all the values we determined above
 	disable_q = disable_dets(disable_t, disable);
-
 	for(int i=0; i<24; i++){
 		if(disable_q[i] != 0){
 			printf("Unable to set on/off state of detector #%d! Aborting.\n",i);
@@ -177,10 +179,10 @@ int main(int argc, char* argv[])
 	if(verbose>0){printf("Setting up rate counter... \n");};
 	tic = time(NULL);
 	
-	fprintf(fp,"ttop, rate\n"); // add a header row
+	fprintf(fp,"top, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
 	//Collect data
-	while(top < range_u){	
+	while(top < thrs + range_u){	
 		//reset the threshold
 		if(verbose>1){printf("Updated top threshold:\n");};
 		if(verbose>1){printf("%d\n",top);};
@@ -204,6 +206,7 @@ int main(int argc, char* argv[])
 		if(verbose>1){printf("top: %d ; rate: %f Hz\n",top,rateval[0]/10.0);};
 		top += range_s;
 	};
+	if(verbose > 2){printf("top: %d, limit: %d. Time to stop!\n",top,thrs+range_u);}
 
 	if(verbose>0){printf("Data collection complete.\n");};
 	toc = time(NULL);
