@@ -30,7 +30,8 @@ SCI_REG_disable_det_21= 0x0001001C
 SCI_REG_disable_det_22= 0x0001001D
 SCI_REG_disable_det_23= 0x0001001E
 SCI_REG_disable_det_24= 0x0001001F
-SCI_REG_skip= 0x00010020
+SCI_REG_gate_l= 0x00010020
+SCI_REG_gate_u= 0x00010021
 
 SCI_REG_RateMeter_0_FIFOADDRESS= 0x0
 

@@ -30,6 +30,7 @@
 #define SCI_REG_disable_det_22 0x0001001D
 #define SCI_REG_disable_det_23 0x0001001E
 #define SCI_REG_disable_det_24 0x0001001F
-#define SCI_REG_skip 0x00010020
+#define SCI_REG_gate_l 0x00010020
+#define SCI_REG_gate_u 0x00010021
 #define SCI_REG_RateMeter_0_FIFOADDRESS 0x0
 

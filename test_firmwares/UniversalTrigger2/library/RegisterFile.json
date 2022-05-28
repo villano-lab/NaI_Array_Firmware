@@ -224,8 +224,15 @@
   "Category": "Undefined"
 },
 {
-  "Name": "skip",
+  "Name": "gate_l",
   "Address": 65568,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gate_u",
+  "Address": 65569,
   "RegionSize": 1,
   "Description": "",
   "Category": "Undefined"
