@@ -626,13 +626,21 @@ SCILIB int REG_disable_det_24_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_disable_det_24, handle);
 }
-SCILIB int REG_skip_GET(uint32_t *val, NI_HANDLE *handle)
+SCILIB int REG_gate_l_GET(uint32_t *val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_read(val, SCI_REG_skip, handle);
+     return __abstracted_reg_read(val, SCI_REG_gate_l, handle);
 }
-SCILIB int REG_skip_SET(uint32_t val, NI_HANDLE *handle)
+SCILIB int REG_gate_l_SET(uint32_t val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_skip, handle);
+     return __abstracted_reg_write(val, SCI_REG_gate_l, handle);
+}
+SCILIB int REG_gate_u_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_gate_u, handle);
+}
+SCILIB int REG_gate_u_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_gate_u, handle);
 }
 //-----------------------------------------------------------------
 //-

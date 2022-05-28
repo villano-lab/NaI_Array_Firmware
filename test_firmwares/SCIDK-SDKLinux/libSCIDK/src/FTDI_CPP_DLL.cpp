@@ -84,8 +84,11 @@ NI_RESULT NI_USBPHY::EnumerateUsbDevice (char *pvArg1, char *board_model, unsign
 
 NI_RESULT NI_USBPHY::OpenDeviceBySerialNumber (char *SN)
 {
+	printf("Got to OpenDeviceBySerialNumber.\n");
 	FT_STATUS ftStatus;
+	printf("Retrieving status for %s...\n",SN);
 	ftStatus = FT_OpenEx(SN,FT_OPEN_BY_SERIAL_NUMBER,&ftHandle); 
+	printf("Retrieved status. Checking status data...\n");
 	if (ftStatus == FT_OK) { 
 		ConnectionStatus = NI_CONNECTED;
 		if (FT_ResetDevice(ftHandle) != FT_OK)

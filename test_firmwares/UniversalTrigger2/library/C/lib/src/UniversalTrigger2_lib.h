@@ -183,8 +183,10 @@ SCILIB int REG_disable_det_23_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_disable_det_23_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_disable_det_24_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_disable_det_24_SET(uint32_t val, NI_HANDLE *handle);
-SCILIB int REG_skip_GET(uint32_t *val, NI_HANDLE *handle);
-SCILIB int REG_skip_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_gate_l_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_gate_l_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_gate_u_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_gate_u_SET(uint32_t val, NI_HANDLE *handle);
 //-----------------------------------------------------------------
 //-
 //- RATE_METER_RateMeter_0_GET_DATA

@@ -338,12 +338,20 @@ def REG_disable_det_24_SET(data, handle):
     err = __abstracted_reg_write(data, UniversalTrigger2_RegisterFile.SCI_REG_disable_det_24, handle)
     return err
 
-def REG_skip_GET(handle):
-    [err, data] = __abstracted_reg_read(UniversalTrigger2_RegisterFile.SCI_REG_skip, handle)
+def REG_gate_l_GET(handle):
+    [err, data] = __abstracted_reg_read(UniversalTrigger2_RegisterFile.SCI_REG_gate_l, handle)
     return err, data
 
-def REG_skip_SET(data, handle):
-    err = __abstracted_reg_write(data, UniversalTrigger2_RegisterFile.SCI_REG_skip, handle)
+def REG_gate_l_SET(data, handle):
+    err = __abstracted_reg_write(data, UniversalTrigger2_RegisterFile.SCI_REG_gate_l, handle)
+    return err
+
+def REG_gate_u_GET(handle):
+    [err, data] = __abstracted_reg_read(UniversalTrigger2_RegisterFile.SCI_REG_gate_u, handle)
+    return err, data
+
+def REG_gate_u_SET(data, handle):
+    err = __abstracted_reg_write(data, UniversalTrigger2_RegisterFile.SCI_REG_gate_u, handle)
     return err
 
 

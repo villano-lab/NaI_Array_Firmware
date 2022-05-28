@@ -6,6 +6,9 @@ ex2
 *.so
 *.exe
 *.bin
+*.dll
+*.out
+*.pb
 test_firmwares/SCIDK-SDKLinux/SciDKSDK_test/SciDKSDK_test
 test_firmwares/SCIDK-SDKLinux/linux
 #Other make/compile results
@@ -21,10 +24,23 @@ out.csv
 HDL/
 output/*/
 VC++/
+#Vivado runtime stuff
+*.xpr
+*.xdc
+*.vh
+*.vhdl
+*.v
+*.vds
+*.rpt
+*.runs/
+*.srcs/
+*.hw/
 #Caches
 .build-debug/
 Debug/
 *.cache
 tmp/
-#Visual Studio Configuration
+#Visual Studio Files
 .vs/
+*.sln
+*.vcxproj

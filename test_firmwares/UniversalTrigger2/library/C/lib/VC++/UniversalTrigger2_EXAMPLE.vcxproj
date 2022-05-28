@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>7765dead-32d4-4d55-b23e-28c806b96d7a</ProjectGuid>
+    <ProjectGuid>a50b2b41-378c-42e2-b4c6-ca6227cc3b8d</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>UniversalTrigger2</RootNamespace>
 	<ProjectName>UniversalTrigger2</ProjectName>
