@@ -32,5 +32,14 @@
 #define SCI_REG_disable_det_24 0x0001001F
 #define SCI_REG_gate_l 0x00010020
 #define SCI_REG_gate_u 0x00010021
+#define SCI_REG_Oscilloscope_0_FIFOADDRESS 0x18000
+#define SCI_REG_Oscilloscope_0_READ_STATUS 0x20000
+#define SCI_REG_Oscilloscope_0_READ_POSITION 0x20001
+#define SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_MODE 0x20002
+#define SCI_REG_Oscilloscope_0_CONFIG_PRETRIGGER 0x20003
+#define SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_LEVEL 0x20004
+#define SCI_REG_Oscilloscope_0_CONFIG_ARM 0x20005
+#define SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR 0x20006
+
 #define SCI_REG_RateMeter_0_FIFOADDRESS 0x0
 
