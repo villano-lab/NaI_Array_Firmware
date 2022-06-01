@@ -1,0 +1,23 @@
+from compile_sw_Functions import *
+from ctypes import *
+import matplotlib.pyplot as plt
+import time
+
+[ListOfDevices, count] = ListDevices()
+if (count > 0):
+
+    board = ListOfDevices[0].encode('utf-8')
+
+    [err, handle] = ConnectDevice(board)
+    if (err == 0):
+        print("Successful connection to board ", board)
+    else:
+        print("Connection Error")
+        exit(-1)
+    
+    while True:
+        r1 = REG_AN_IN_GET(handle)[1]
+        r2 = REG_CNTR_GET(handle)[1]
+        print("Analog value: " + str(r1) + "   Timer:" + str(r2) + "\n")
+
+
