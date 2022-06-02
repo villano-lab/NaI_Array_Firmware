@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "UniversalTrigger1A_lib.h"
+#include "UniversalTrigger2_lib.h"
 #include "Def.h"
 #include <stdio.h>
 #include <stdlib.h>

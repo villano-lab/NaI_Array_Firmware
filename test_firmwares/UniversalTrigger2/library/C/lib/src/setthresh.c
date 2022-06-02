@@ -21,7 +21,7 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "UniversalTrigger1A_lib.h"
+#include  "UniversalTrigger2_lib.h"
 #include  "UniversalTriggerShared.h"
 
 const char* program_name = "setthresh";
@@ -50,6 +50,7 @@ int main(int argc, char* argv[])
 	//Read options
 	int index;
 	int iarg=0;
+	int polarity=1;
 	while(iarg != -1){
 		iarg = getopt_long(argc, argv, "+D:i:t:l::shv::Vg:d:T:Rf", longopts, &index);
 		switch (iarg){

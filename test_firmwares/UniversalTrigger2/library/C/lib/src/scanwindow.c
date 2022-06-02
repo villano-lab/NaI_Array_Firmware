@@ -21,7 +21,7 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "UniversalTrigger1A_lib.h"
+#include  "UniversalTrigger2_lib.h"
 #include  "UniversalTriggerShared.h"
 
 const char* program_name = "scanwindow";
