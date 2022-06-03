@@ -380,6 +380,22 @@ def REG_read_SET(data, handle):
     err = __abstracted_reg_write(data, UniversalTrigger3_RegisterFile.SCI_REG_read, handle)
     return err
 
+def REG_empty_GET(handle):
+    [err, data] = __abstracted_reg_read(UniversalTrigger3_RegisterFile.SCI_REG_empty, handle)
+    return err, data
+
+def REG_empty_SET(data, handle):
+    err = __abstracted_reg_write(data, UniversalTrigger3_RegisterFile.SCI_REG_empty, handle)
+    return err
+
+def REG_full_GET(handle):
+    [err, data] = __abstracted_reg_read(UniversalTrigger3_RegisterFile.SCI_REG_full, handle)
+    return err, data
+
+def REG_full_SET(data, handle):
+    err = __abstracted_reg_write(data, UniversalTrigger3_RegisterFile.SCI_REG_full, handle)
+    return err
+
 
 
 def OSCILLOSCOPE_Oscilloscope_0_START(handle):
