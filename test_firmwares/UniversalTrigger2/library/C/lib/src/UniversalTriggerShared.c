@@ -44,7 +44,7 @@ int range_s = 40;
 int delay = 50;
 int inhib = 1000;
 int baseline = 200;
-int top = 8192;
+int top = 16384;
 //things you probably won't change
 int polarity = 1;	//zero for negative, one for positive
 //Register-reading Variables
@@ -105,7 +105,6 @@ void copyright(){
 
 //Parsing functions
 int parse_detector_switch(char* selection){
-    int value; //need this in order to parse it inside the else statement.
     if(strcasecmp(selection,"PuBe") == 0 || strcasecmp(selection, "All") == 0 ){
         return 16777215;
     }else if(strcasecmp(selection, "NaI") == 0 || strcasecmp(selection, "22na") == 0 || strcasecmp(selection, "na22") == 0 || strcasecmp(selection, "na-22") == 0){
@@ -118,6 +117,7 @@ int parse_detector_switch(char* selection){
             printf("Detector argument invalid. Please supply an integer from 0 to 16777215 or valid source ('PuBe', '22Na', 'All', 'None')");
             return -1;
         }else{
+            if(verbose>2){printf("Turned %s into %u.\n",selection,value);}
             return value;
         }
     };
@@ -156,7 +156,7 @@ int *on_to_off(int *off, int on, int verbose){
 	on = on ^ 16777215; //Bitwise flip since we're enabling but firmware is disabling.
 	//We'll disable anything that's 1 after the flip and leave everything else on
     if(verbose > 1){
-		printf("Bit-flipped detector value: %d\n",value);
+		printf("Bit-flipped detector value: %d\n",on);
 	}
 	if(verbose > 2){
 		for(int i=0;i<24;i++){

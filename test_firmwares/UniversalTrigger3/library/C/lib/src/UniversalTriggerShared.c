@@ -64,8 +64,12 @@ int disable_t[24];
 int ratereset_q;
 int read_q;
 int write_q;
+int empty_q;
+int full_q;
 int fifo_q;
 uint32_t fifo;
+uint32_t empty;
+uint32_t full;
 //Command-line-reading Variables
 int ind;
 int iarg=0;
@@ -110,11 +114,9 @@ void copyright(){
 
 //Parsing functions
 int parse_detector_switch(char* selection){
-    int value; //need this in order to parse it inside the else statement.
     if(strcasecmp(selection,"muon") == 0 ){
     	return 14680064; //21, 22, 23
-    }
-    if(strcasecmp(selection,"PuBe") == 0 || strcasecmp(selection, "All") == 0 ){
+    }else if(strcasecmp(selection,"PuBe") == 0 || strcasecmp(selection, "All") == 0 ){
         return 16777215;
     }else if(strcasecmp(selection, "NaI") == 0 || strcasecmp(selection, "22na") == 0 || strcasecmp(selection, "na22") == 0 || strcasecmp(selection, "na-22") == 0){
         return 7168; //10, 11, 12

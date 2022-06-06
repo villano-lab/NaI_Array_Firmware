@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 {
 	//Read options
 	while(iarg != -1){
-		iarg = getopt_long(argc, argv, "+d:i:l::shv::Vg:d:T:", longopts, &ind);
+		iarg = getopt_long(argc, argv, "+d:i:l::shv::Vg:D:T:r:", longopts, &ind);
 		switch (iarg){
 		case 'h':
 			print_usage(stdout,0);
@@ -81,6 +81,7 @@ int main(int argc, char* argv[])
 		case 'D':
 			selection = optarg;
 			parse_detector_switch(selection);
+			if(verbose > 2){printf("value: %u\n",value);}
 			if(value < 0 ){return -1;} //If there's an error, pass it through.
 			break;
 		case 'g':
@@ -123,7 +124,11 @@ int main(int argc, char* argv[])
 	if(verbose > 1){
 		printf("Detector string value supplied: %s\n",selection);
 	}
+	if(verbose > 2){
+		printf("Detector integer value interpreted: %u\n",value);
+	}
 	disable = on_to_off(disable_t,value,verbose);
+	if(verbose > 2){printf("\n");}
 
 	//Connect to the board.
 	int connect_q = connect_staticaddr(verbose);

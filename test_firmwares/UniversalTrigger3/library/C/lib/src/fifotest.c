@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 {
 	//Read options
 	while(iarg != -1){
-		iarg = getopt_long(argc, argv, "+d:i:l::shv::Vg:d:T:", longopts, &ind);
+		iarg = getopt_long(argc, argv, "d:i:l::shv::Vg:D:T:", longopts, &ind);
 		switch (iarg){
 		case 'h':
 			print_usage(stdout,0);
@@ -114,12 +114,21 @@ int main(int argc, char* argv[])
 		fifo_q = REG_fifo_GET(&fifo,&handle);
 		if(fifo_q != 0){
 			printf("Error! Failed to get the `fifo` variable.\n");
-			return read_q;
+			return fifo_q;
 		}
 		//print fifo variable
 		printf("\r%u",fifo);
 		sleep(5);
 	}
 	printf("\n");
+	read_q = REG_read_SET(1,&handle);
+		if(read_q != 0){
+			printf("Error! Failed to set the `write` variable.\n");
+			return read_q;}
+			sleep(1);
+	empty_q = REG_empty_GET(&empty,&handle);
+	if(empty_q !=0){
+		printf("Error! Failed to set the 'empty' variable.\n");
+		return empty_q;}		
 	return 0;
-}
+}	
