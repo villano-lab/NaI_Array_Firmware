@@ -402,14 +402,6 @@ SCILIB int REG_top_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_top, handle);
 }
-SCILIB int REG_gate_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_gate, handle);
-}
-SCILIB int REG_gate_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_gate, handle);
-}
 SCILIB int REG_inhib_GET(uint32_t *val, NI_HANDLE *handle)
 {
      return __abstracted_reg_read(val, SCI_REG_inhib, handle);
@@ -649,14 +641,6 @@ SCILIB int REG_fifo_GET(uint32_t *val, NI_HANDLE *handle)
 SCILIB int REG_fifo_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_fifo, handle);
-}
-SCILIB int REG_write_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_write, handle);
-}
-SCILIB int REG_write_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_write, handle);
 }
 SCILIB int REG_read_GET(uint32_t *val, NI_HANDLE *handle)
 {

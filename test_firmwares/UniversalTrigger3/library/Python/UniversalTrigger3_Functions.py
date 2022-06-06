@@ -116,14 +116,6 @@ def REG_top_SET(data, handle):
     err = __abstracted_reg_write(data, UniversalTrigger3_RegisterFile.SCI_REG_top, handle)
     return err
 
-def REG_gate_GET(handle):
-    [err, data] = __abstracted_reg_read(UniversalTrigger3_RegisterFile.SCI_REG_gate, handle)
-    return err, data
-
-def REG_gate_SET(data, handle):
-    err = __abstracted_reg_write(data, UniversalTrigger3_RegisterFile.SCI_REG_gate, handle)
-    return err
-
 def REG_inhib_GET(handle):
     [err, data] = __abstracted_reg_read(UniversalTrigger3_RegisterFile.SCI_REG_inhib, handle)
     return err, data
@@ -362,14 +354,6 @@ def REG_fifo_GET(handle):
 
 def REG_fifo_SET(data, handle):
     err = __abstracted_reg_write(data, UniversalTrigger3_RegisterFile.SCI_REG_fifo, handle)
-    return err
-
-def REG_write_GET(handle):
-    [err, data] = __abstracted_reg_read(UniversalTrigger3_RegisterFile.SCI_REG_write, handle)
-    return err, data
-
-def REG_write_SET(data, handle):
-    err = __abstracted_reg_write(data, UniversalTrigger3_RegisterFile.SCI_REG_write, handle)
     return err
 
 def REG_read_GET(handle):
