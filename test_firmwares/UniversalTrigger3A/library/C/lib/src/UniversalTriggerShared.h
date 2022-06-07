@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "UniversalTrigger3_lib.h"
+#include "UniversalTrigger3A_lib.h"
 #include "Def.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -62,6 +62,8 @@ extern int write_q;
 extern int empty_q;
 extern int full_q;
 extern int fifo_q;
+extern int orcheck_q;
+extern uint32_t orcheck;
 extern uint32_t fifo;
 extern uint32_t empty;
 extern uint32_t full;
