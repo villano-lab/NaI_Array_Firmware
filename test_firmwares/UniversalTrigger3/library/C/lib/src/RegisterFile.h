@@ -35,6 +35,7 @@
 #define SCI_REG_read 0x00030001
 #define SCI_REG_empty 0x00030002
 #define SCI_REG_full 0x00030003
+#define SCI_REG_write 0x00030004
 #define SCI_REG_Oscilloscope_0_FIFOADDRESS 0x8000
 #define SCI_REG_Oscilloscope_0_READ_STATUS 0x10000
 #define SCI_REG_Oscilloscope_0_READ_POSITION 0x10001

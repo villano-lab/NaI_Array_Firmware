@@ -257,6 +257,13 @@
   "RegionSize": 1,
   "Description": "",
   "Category": "Undefined"
+},
+{
+  "Name": "write",
+  "Address": 196612,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
 }],
 "MMCComponents":[
 {
