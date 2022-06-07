@@ -271,6 +271,13 @@
   "RegionSize": 1,
   "Description": "",
   "Category": "Undefined"
+},
+{
+  "Name": "stopwrite",
+  "Address": 196614,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
 }],
 "MMCComponents":[
 {
