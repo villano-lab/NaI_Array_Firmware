@@ -202,6 +202,8 @@ SCILIB int REG_full_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_full_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_write_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_write_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_orcheck_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_orcheck_SET(uint32_t val, NI_HANDLE *handle);
 //-----------------------------------------------------------------
 //-
 //- OSCILLOSCOPE_Oscilloscope_0_START

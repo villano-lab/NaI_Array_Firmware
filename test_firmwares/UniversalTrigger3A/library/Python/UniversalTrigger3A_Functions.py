@@ -388,6 +388,14 @@ def REG_write_SET(data, handle):
     err = __abstracted_reg_write(data, UniversalTrigger3A_RegisterFile.SCI_REG_write, handle)
     return err
 
+def REG_orcheck_GET(handle):
+    [err, data] = __abstracted_reg_read(UniversalTrigger3A_RegisterFile.SCI_REG_orcheck, handle)
+    return err, data
+
+def REG_orcheck_SET(data, handle):
+    err = __abstracted_reg_write(data, UniversalTrigger3A_RegisterFile.SCI_REG_orcheck, handle)
+    return err
+
 
 
 def OSCILLOSCOPE_Oscilloscope_0_START(handle):

@@ -674,6 +674,14 @@ SCILIB int REG_write_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_write, handle);
 }
+SCILIB int REG_orcheck_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_orcheck, handle);
+}
+SCILIB int REG_orcheck_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_orcheck, handle);
+}
 //-----------------------------------------------------------------
 //-
 //- OSCILLOSCOPE_Oscilloscope_0_START
