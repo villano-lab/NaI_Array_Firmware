@@ -17,7 +17,7 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "UniversalTrigger3_lib.h"
+#include  "UniversalTrigger3A_lib.h"
 #include  "UniversalTriggerShared.h"
 
 const char* program_name = "fifotest";
@@ -87,6 +87,21 @@ int main(int argc, char* argv[])
 		return connect_q;
 	}
 	
+	//set up variables before reset.
+	read_q = REG_read_SET(0,&handle);
+	if(read_q != 0){
+		printf("Error! Failed to set the `read` variable.\n");
+		return read_q;
+	}
+	write_q = REG_write_SET(0,&handle);
+	if(write_q != 0){
+			printf("Error! Failed to set the `write` variable.\n");
+			return write_q;
+		}	
+	int i=1;
+	if(verbose>0){printf("Running until interrupt. Press any key to stop printing.\n");}
+	if(verbose>0){printf("If you are not getting any triggers, please try running `setthresh.exe -R` and try again.\n");}
+	
 	//Reset everything real quick
 	ratereset_q = REG_ratereset_SET(1,&handle);
 	if(ratereset_q != 0){
@@ -98,57 +113,44 @@ int main(int argc, char* argv[])
 		printf("Error! Failed to set the 'reset' variable.\n");
 		return ratereset_q;
 	}
-	read_q = REG_read_SET(0,&handle);
-	if(read_q != 0){
-		printf("Error! Failed to set the `read` variable.\n");
-		return read_q;
-	}
-	
-	empty = 0; //go into the loop
-	full = 0; //both of them even
-	write_q = REG_write_SET(1,&handle);
-	if(write_q != 0){
-			printf("Error! Failed to set the `write` variable.\n");
-			return write_q;
-		}
-	if(verbose > -1){printf("Filling FIFO...\n");}
-	while(full == 0){
-		full_q = REG_full_GET(&full,&handle);
-		if(full_q != 0){
-			printf("Error! Failed to get the `full` variable.\n");
-			return full_q;
-		}
-		if(verbose > 2){printf("Still going (%u)...\n",full);}
-	}
-	if(verbose > -1){printf("Alright, time to empty it.\n");}
-	while(empty == 0){
-		//tell fifo to read
-		read_q = REG_read_SET(1,&handle);
-		if(read_q != 0){
-			printf("Error! Failed to set the `read` variable.\n");
-			return read_q;
-		}
-		//read fifo variable
-		fifo_q = REG_fifo_GET(&fifo,&handle);
-		if(fifo_q != 0){
-			printf("Error! Failed to get the `fifo` variable.\n");
-			return fifo_q;
-		}
-		//print fifo variable
-		printf("%u; ",fifo);
-		//check if we're losing data
-		full_q = REG_full_GET(&full,&handle);
-		if(full_q != 0){
-			printf("Error! Failed to get the `full` variable.\n");
-			return full_q;
-		}
-		if(verbose > -1 && full == 1){printf("WARNING: The FIFO is full!\n");}
-		//check if empty
+	while(kbhit() != 1){
+		//check if there's data.
 		empty_q = REG_empty_GET(&empty,&handle);
 		if(empty_q != 0){
 			printf("Error! Failed to get the `empty` variable.\n");
 			return empty_q;
+		} //if there is,
+		if(empty != 1){
+			//print a warning if we're not keeping up.
+			full_q = REG_full_GET(&full,&handle);
+			if(full_q != 0){
+				printf("Error! Failed to get the `full` variable.\n");
+				return full_q;
+			}
+			if(verbose > -1 && full == 1){printf("WARNING: The FIFO is full!\n");}
+			//read out a piece
+			read_q = REG_read_SET(1,&handle);
+			if(read_q != 0){
+				printf("Error! Failed to set the `read` variable.\n");
+				return read_q;
+			}
+			read_q = REG_read_SET(0,&handle);
+			if(read_q != 0){
+				printf("Error! Failed to set the `read` variable.\n");
+				return read_q;
+			}
+			fifo_q = REG_fifo_GET(&fifo,&handle);
+			if(fifo_q != 0){
+				printf("Error! Failed to get the `fifo` variable.\n");
+				return fifo_q;
+			}
+			//print fifo variable
+			if(verbose > 0){printf("%u (%d); ",fifo,i);}
+			i++;
 		}
+		
+	}
+	while(empty == 0){
 	}
 	printf("\n"); //be nice to the terminal
 	//stop reading & writing and reset.

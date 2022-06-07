@@ -33,10 +33,10 @@ ObjectsFileList        :="$(ProjectName).txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
 LinkOptions            :=  
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
+IncludePath            :=  
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)r5560 
+Libs                   := 
 ArLibs                 :=  "r5560" 
 LibPath                := $(LibraryPathSwitch). 
 

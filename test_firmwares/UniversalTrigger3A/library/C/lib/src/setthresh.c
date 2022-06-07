@@ -21,7 +21,7 @@
 #include "TFile.h"
 #include "Rtypes.h"*/
 
-#include  "UniversalTrigger3_lib.h"
+#include  "UniversalTrigger3A_lib.h"
 #include  "UniversalTriggerShared.h"
 
 const char* program_name = "setthresh";
@@ -151,7 +151,7 @@ int main(int argc, char* argv[])
 	}
 
 	if(verbose > -1 && polflag == 0 && (threshflag == 1 || topflag == 1)){
-		printf("No polarity supplied. Thresholds will be set assuming negative polarity.\n");
+		printf("No polarity supplied. Thresholds will be set assuming negative polarity is being flipped to positive.\n");
 	}
 
 	//Detector on/off
