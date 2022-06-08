@@ -144,7 +144,7 @@ void print_timestamp(int elapsed, int verbose){
 	char* timestamp = malloc(100);
 	snprintf(timestamp,100,"%02d-%02d-%02d",hours,minutes,seconds);
 	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
-	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
+	if(verbose>0){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
 	if(verbose>1){printf("Closing files...");};
 }
 

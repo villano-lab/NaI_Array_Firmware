@@ -43,8 +43,8 @@ int range_u = 4080;
 int range_s = 40;
 int delay = 50;
 int inhib = 1000;
-int baseline = 8192;
-int top = 8192;
+int baseline = 200;
+int top = 16384;
 //things you probably won't change
 int polarity = 1;	//zero for negative, one for positive
 //Register-reading Variables
