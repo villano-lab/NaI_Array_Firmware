@@ -64,6 +64,7 @@ int disable_t[24];
 int ratereset_q;
 int read_q;
 int write_q;
+int stopwrite_q;
 int empty_q;
 int full_q;
 int fifo_q;
@@ -145,8 +146,8 @@ int parse_range(char* rangestring, int verbose){
 	if(verbose > 2){printf("Are we even supposed to be here? %d\n",rangeflag);}
 	if(verbose > 1){printf ("Splitting string \"%s\" into tokens:\n",rangestring);}
 	range_l = atoi(strtok (rangestring," ,.-"));
-	range_u = atoi(strtok (NULL," ,.-"));
-	range_s = atoi(strtok (NULL," ,.-"));
+	range_u = atoi(strtok (NULL," ,.:-"));
+	range_s = atoi(strtok (NULL," ,.:-"));
 	if(verbose > 1){printf("%d, %d, %d\n",range_l,range_u,range_s);}
 }
 void print_timestamp(int elapsed, int verbose){
@@ -156,7 +157,7 @@ void print_timestamp(int elapsed, int verbose){
 	char* timestamp = malloc(100);
 	snprintf(timestamp,100,"%02d-%02d-%02d",hours,minutes,seconds);
 	if(verbose>1){printf("Timestamp: %s\n",timestamp);};
-	if(verbose>-1){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
+	if(verbose>0){printf("Time elapsed: %02d:%02d:%02d \n",hours,minutes,seconds);};
 	if(verbose>1){printf("Closing files...");};
 }
 
@@ -213,7 +214,7 @@ int connect_staticaddr(int verbose){
 		if(logfile != NULL){fprintf(logfile,"Unable to connect to the board at %s!\n",BOARD_IP_ADDRESS);};
 		return (-1); 
 	}else{
-		if(verbose>0){printf("Connected.\n");};
+		if(verbose>-1){printf("Connected.\n");};
 		if(logfile != NULL){fprintf(logfile,"Connected to board at %s\n",BOARD_IP_ADDRESS);};
         return 0;
 	};

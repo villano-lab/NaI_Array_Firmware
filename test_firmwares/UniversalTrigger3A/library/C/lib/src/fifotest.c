@@ -36,6 +36,7 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
 
 int main(int argc, char* argv[])
 {
+	clock_t begin, end;
 	//Read options
 	while(iarg != -1){
 		iarg = getopt_long(argc, argv, "d:i:l::shv::Vg:D:T:", longopts, &ind);
@@ -98,7 +99,7 @@ int main(int argc, char* argv[])
 			printf("Error! Failed to set the `write` variable.\n");
 			return write_q;
 		}	
-	int i=1;
+	int i=0;
 	if(verbose>0){printf("Running until interrupt. Press any key to stop printing.\n");}
 	if(verbose>0){printf("If you are not getting any triggers, please try running `setthresh.exe -R` and try again.\n");}
 	
@@ -113,43 +114,76 @@ int main(int argc, char* argv[])
 		printf("Error! Failed to set the 'reset' variable.\n");
 		return ratereset_q;
 	}
-	while(kbhit() != 1){
-		//check if there's data.
+	stopwrite_q = REG_stopwrite_SET(0,&handle);
+	if(stopwrite_q != 0){
+		printf("Error! Failed to set the `stopwrite` variable.\n");
+		return stopwrite_q;
+	}
+	tic = time(NULL);
+	empty = 0;
+	
+	//Main loop!============================================================
+	// =====================================================================
+	while(empty != 1){
+		//print a warning if we're not keeping up.
+		end = clock();
+		if(verbose > 2){printf("Time spent re-entering the loop: %f us\n.",(double)(end - begin)*1000000/CLOCKS_PER_SEC);}
+		begin = clock();
+		full_q = REG_full_GET(&full,&handle);
+		if(full_q != 0){
+			printf("Error! Failed to get the `full` variable.\n");
+			return full_q;
+		}
+		if(full == 1){
+			toc = time(NULL);
+			if(verbose>-1){printf("WARNING: The FIFO is full! Temporarily disabling writing. Number of entries before filling: %d. Seconds taken to fill FIFO: %d\n",i,(int)toc-(int)tic);}
+			stopwrite_q = REG_stopwrite_SET(1,&handle);
+			if(stopwrite_q != 0){
+				printf("Error! Failed to set the `stopwrite` variable.\n");
+				return stopwrite_q;
+			}
+		}
+		end = clock();
+		if(verbose > 2){printf("Time spent handling whether the FIFO was full: %f us\n.",(double)(end - begin)*1000000/CLOCKS_PER_SEC);}
+		//read out a piece
+		begin = clock();
+		read_q = REG_read_SET(1,&handle);
+		if(read_q != 0){
+			printf("Error! Failed to set the `read` variable.\n");
+			return read_q;
+		}
+		read_q = REG_read_SET(0,&handle);
+		if(read_q != 0){
+			printf("Error! Failed to set the `read` variable.\n");
+			return read_q;
+		}
+		fifo_q = REG_fifo_GET(&fifo,&handle);
+		if(fifo_q != 0){
+			printf("Error! Failed to get the `fifo` variable.\n");
+			return fifo_q;
+		}
+		end = clock();
+		if(verbose > 2){printf("Time spent retrieving an entry: %f us\n.",(double)(end - begin)*1000000/CLOCKS_PER_SEC);}
+		//print fifo variable
+		begin = clock();
+		i++;
+		toc = time(NULL);
+		if(verbose > 0 && verbose < 3){printf("%u (%d); ",fifo,i);}
 		empty_q = REG_empty_GET(&empty,&handle);
 		if(empty_q != 0){
-			printf("Error! Failed to get the `empty` variable.\n");
+			printf("\nError! Failed to get the `empty` variable.\n");
 			return empty_q;
-		} //if there is,
-		if(empty != 1){
-			//print a warning if we're not keeping up.
-			full_q = REG_full_GET(&full,&handle);
-			if(full_q != 0){
-				printf("Error! Failed to get the `full` variable.\n");
-				return full_q;
-			}
-			if(verbose > -1 && full == 1){printf("WARNING: The FIFO is full!\n");}
-			//read out a piece
-			read_q = REG_read_SET(1,&handle);
-			if(read_q != 0){
-				printf("Error! Failed to set the `read` variable.\n");
-				return read_q;
-			}
-			read_q = REG_read_SET(0,&handle);
-			if(read_q != 0){
-				printf("Error! Failed to set the `read` variable.\n");
-				return read_q;
-			}
-			fifo_q = REG_fifo_GET(&fifo,&handle);
-			if(fifo_q != 0){
-				printf("Error! Failed to get the `fifo` variable.\n");
-				return fifo_q;
-			}
-			//print fifo variable
-			if(verbose > 0){printf("%u (%d); ",fifo,i);}
-			i++;
 		}
-		
+		end = clock();
+		if(verbose > 2){printf("Time spent setting up to start the loop over again: %f us\n.",(double)(end - begin)*1000000/CLOCKS_PER_SEC);}
+		begin = clock();
 	}
+	//when we're done emptying,
+	if(verbose > -1){
+		fflush(stdout); //flush the print buffer here
+		printf("Emptied the FIFO! Number of entries this round (%d seconds): %d (FIFO size: 32).\n",(int)toc-(int)tic,i);
+	}
+	
 	while(empty == 0){
 	}
 	printf("\n"); //be nice to the terminal
