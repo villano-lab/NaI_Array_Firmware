@@ -60,4 +60,4 @@ echo ""
 #this will take 15 minutes
 echo "Running window scan."
 echo "===================="
-./scanwindow.exe -t4337 -r0-12000-120 -D"All" -g20-200 -d75
+./scanwindow.exe -t4337 -r0-16000-160 -D"All" -g20-200 -d75
