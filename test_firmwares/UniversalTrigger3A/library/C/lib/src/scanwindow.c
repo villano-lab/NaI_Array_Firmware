@@ -181,6 +181,7 @@ int main(int argc, char* argv[])
 	
 	fprintf(fp,"top, rate\n"); // add a header row
 	if(verbose>0){printf("Collecting data! \n");};
+	sleep(5); //let the board catch up to settings.
 	//Collect data
 	while(top < thrs + range_u){	
 		//reset the threshold
