@@ -133,7 +133,7 @@ SCILIB int ClearBuffer(void *buffer_handle);
 
 
 typedef struct  {
-    uint32_t row[0];
+    uint32_t row[1];
 }t_CP_0_struct;
 
 

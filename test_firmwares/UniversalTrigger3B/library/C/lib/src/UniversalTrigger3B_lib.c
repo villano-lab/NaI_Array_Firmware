@@ -1458,7 +1458,7 @@ SCILIB int CPACK_CP_0_RECONSTRUCT_DATA(void *buffer_handle, t_generic_event_coll
 {
 	cbuf_handle_t cbuf;
 	cbuf = (cbuf_handle_t)buffer_handle;
-	int PacketSize =1;
+	int PacketSize =2;
 	int in_sync = 0;
 	uint64_t event_timecode = 0;
 	uint32_t ev_energy = 0;
@@ -1487,13 +1487,29 @@ SCILIB int CPACK_CP_0_RECONSTRUCT_DATA(void *buffer_handle, t_generic_event_coll
 		circular_buf_get(cbuf, &mpe);
 
 		if (in_sync == 0) {
-			if (mpe != 0xIN_1)
+			if (mpe != 0x42424242)
 			{
 				continue;
 			}
 			in_sync = 1;
 		    ch_index =0;
 			continue;
+		}
+		if (in_sync == 1) {
+			temp_data.row[0]  =  mpe;
+			decoded_packets->packets[k].payload = malloc(sizeof(t_CP_0_struct));
+			if (decoded_packets->packets[k].payload != NULL) {
+			    *((t_CP_0_struct*)decoded_packets->packets[k].payload) = temp_data;
+			    k++;
+			    decoded_packets->valid_packets = k;
+			}
+			if (k > decoded_packets->allocated_packets) return 0;
+			
+			in_sync = 0;
+			if (circular_buf_size(cbuf) >= PacketSize)
+			    continue;
+			else
+			    break;
 		}
 	}
 
