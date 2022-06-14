@@ -1,88 +1,19 @@
-Running dets 1-4.
-=================
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 658.000000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 101.200000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 108.300000 Hz
-
-Running dets 2-8.
-=================
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 112.100000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 92.400000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 87.800000 Hz
-
-Running dets 9-12.
-==================
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 91.500000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 108.700000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 107.600000 Hz
-
-Running dets 13-16.
-===================
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 107.000000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 111.300000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 115.000000 Hz
-
-Running dets 17-20.
-===================
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 112.200000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 132.400000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 130.700000 Hz
-
-Running dets 21-23.
-===================
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 130.000000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 62.200000 Hz
-
-connecting to: 134.84.150.42:8888
-Connected.
-rate: 62.500000 Hz
-
-Running window scan.
-====================
-connecting to: 134.84.150.42:8888
-Connected.
+detectors, rate
+#1-4, 658.000000
+1-4, 101.200000
+1-4, 108.300000
+5-8, 112.100000
+5-8, 92.400000
+5-8, 87.800000
+9-12, 91.500000
+9-12, 108.700000
+9-12, 107.600000
+13-16, 107.000000
+13-16, 111.300000
+13-16, 115.000000
+17-20, 112.200000
+17-20, 132.400000
+17-20, 130.700000
+#21-23, 130.000000
+21-23, 62.200000
+21-23, 62.500000

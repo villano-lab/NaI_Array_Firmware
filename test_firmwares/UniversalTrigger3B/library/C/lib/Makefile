@@ -36,7 +36,7 @@ LinkOptions            :=
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := 
+Libs                   := $(LibrarySwitch)r5560 
 ArLibs                 :=  "r5560" 
 LibPath                := $(LibraryPathSwitch). 
 
