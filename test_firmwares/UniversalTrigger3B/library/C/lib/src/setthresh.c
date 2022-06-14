@@ -91,6 +91,7 @@ int main(int argc, char* argv[])
 			selection = optarg;
 			value = parse_detector_switch(selection);
 			if(value < 0 ){return -1;} //If there's an error, pass it through.
+			detflag = 1;
 			break;
 		case 'g':
 			if(verbose > 2){printf("Hey I'm in case g\n");}
