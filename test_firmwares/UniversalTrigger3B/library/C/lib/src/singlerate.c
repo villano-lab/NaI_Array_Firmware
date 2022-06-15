@@ -173,7 +173,9 @@ int main(int argc, char* argv[])
 	//Run phase - undo reset
 	if(verbose>0){printf("Setting up rate counter... \n");};
 	tic = time(NULL);
-    
+    	
+	sleep(10);
+
 	if(verbose>0){printf("Collecting data for 10 seconds! \n");};
 	//Collect data
 	//wait
@@ -185,7 +187,7 @@ int main(int argc, char* argv[])
 	if(verbose > 1){printf("Rateval: %f\n",rateval[0]/10.0);};
 
 	//print the rate
-	printf("rate: %f Hz\n",rateval[0]/10.0);
+	printf("%f\n",rateval[0]/10.0);
 
 	if(verbose>0){printf("Data collection complete.\n");};
 	toc = time(NULL);
