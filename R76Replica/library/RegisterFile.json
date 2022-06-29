@@ -1,0 +1,182 @@
+{"Registers":[
+{
+  "Name": "gate_l",
+  "Address": 0,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "polarity",
+  "Address": 1,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "thrsh",
+  "Address": 2,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "inhib",
+  "Address": 3,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "delay",
+  "Address": 4,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ratereset",
+  "Address": 5,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gate_u",
+  "Address": 6,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "top",
+  "Address": 7,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_A",
+  "Address": 8,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "disable_B",
+  "Address": 9,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "skip",
+  "Address": 10,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "count",
+  "Address": 262144,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "skip_attempts",
+  "Address": 266247,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "eq_count",
+  "Address": 266248,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ANALOG_OFFSET",
+  "Address": 4294967289,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "AnalogAFE"
+}],
+"MMCComponents":[
+{
+  "Name": "RateMeter_0",
+  "Type": "MCRateMeter",
+  "Address": 196608,
+  "Version": "1.0.0.0",
+  "Channels": 1,
+  "Registers": []
+},
+{
+  "Name": "RateMeter_Reduced",
+  "Type": "MCRateMeter",
+  "Address": 65536,
+  "Version": "1.0.0.0",
+  "Channels": 1,
+  "Registers": []
+},
+{
+  "Name": "Oscilloscope_0",
+  "Type": "Oscilloscope",
+  "Address": 264192,
+  "Version": "1.0.0.0",
+  "nsamples": 1024,
+  "Registers": [
+    {
+      "Name": "READ_STATUS",
+      "Address": 266240,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "READ_POSITION",
+      "Address": 266241,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_MODE",
+      "Address": 266242,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_PRETRIGGER",
+      "Address": 266243,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_LEVEL",
+      "Address": 266244,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_ARM",
+      "Address": 266245,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_DECIMATOR",
+      "Address": 266246,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "Channels": 2
+}],"Device":"SCIDK","Project":"R76Replica"}
