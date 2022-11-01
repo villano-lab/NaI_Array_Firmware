@@ -1,0 +1,152 @@
+{"Registers":[
+{
+  "Name": "disable_det_1",
+  "Address": 0,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gate_l",
+  "Address": 1,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "polarity",
+  "Address": 2,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "thrsh_1",
+  "Address": 3,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "inhib",
+  "Address": 4,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "delay",
+  "Address": 5,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gate_u",
+  "Address": 6,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "top_1",
+  "Address": 7,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "int_time",
+  "Address": 8,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "pre_int",
+  "Address": 9,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "baseline",
+  "Address": 10,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "stopwrite",
+  "Address": 11,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "write",
+  "Address": 12,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "read",
+  "Address": 13,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+}],
+"MMCComponents":[
+{
+  "Name": "Spectrum_1",
+  "Type": "Spectrum",
+  "Address": 65536,
+  "Version": "1.0.0.0",
+  "bins": 1024,
+  "Registers": [
+    {
+      "Name": "STATUS",
+      "Address": 131072,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG",
+      "Address": 131073,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_LIMIT",
+      "Address": 131074,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_REBIN",
+      "Address": 131075,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_MIN",
+      "Address": 131076,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_MAX",
+      "Address": 131077,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "CountsBit": 16
+}],"Device":"DT5560","Project":"Spectrum_Test"}
