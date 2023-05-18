@@ -1,0 +1,23 @@
+#define SCI_REG_ALL_FIFO_RESET 0xFFFFF908
+#define SCI_REG_ratereset 0x00011007
+#define SCI_REG_gate_l 0x00011008
+#define SCI_REG_gate_u 0x00011009
+#define SCI_REG_polarity 0x0001100A
+#define SCI_REG_thrsh 0x0001100B
+#define SCI_REG_inhib 0x0001100C
+#define SCI_REG_delay 0x0001100D
+#define SCI_REG_top 0x0001100E
+#define SCI_REG_disable_A 0x0001100F
+#define SCI_REG_disable_B 0x00011010
+#define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
+#define SCI_REG_RateMeter_0_FIFOADDRESS 0x0
+
+#define SCI_REG_Oscilloscope_0_FIFOADDRESS 0x10800
+#define SCI_REG_Oscilloscope_0_READ_STATUS 0x11000
+#define SCI_REG_Oscilloscope_0_READ_POSITION 0x11001
+#define SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_MODE 0x11002
+#define SCI_REG_Oscilloscope_0_CONFIG_PRETRIGGER 0x11003
+#define SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_LEVEL 0x11004
+#define SCI_REG_Oscilloscope_0_CONFIG_ARM 0x11005
+#define SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR 0x11006
+

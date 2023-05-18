@@ -1,182 +1,164 @@
-{"Registers":[
 {
-  "Name": "gate_l",
-  "Address": 0,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "polarity",
-  "Address": 1,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "thrsh",
-  "Address": 2,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "inhib",
-  "Address": 3,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "delay",
-  "Address": 4,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "ratereset",
-  "Address": 5,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "gate_u",
-  "Address": 6,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "top",
-  "Address": 7,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "disable_A",
-  "Address": 8,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "disable_B",
-  "Address": 9,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "skip",
-  "Address": 10,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "count",
-  "Address": 262144,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "skip_attempts",
-  "Address": 266247,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "eq_count",
-  "Address": 266248,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-},
-{
-  "Name": "ANALOG_OFFSET",
-  "Address": 4294967289,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "AnalogAFE"
-}],
-"MMCComponents":[
-{
-  "Name": "RateMeter_0",
-  "Type": "MCRateMeter",
-  "Address": 196608,
-  "Version": "1.0.0.0",
-  "Channels": 1,
-  "Registers": []
-},
-{
-  "Name": "RateMeter_Reduced",
-  "Type": "MCRateMeter",
-  "Address": 65536,
-  "Version": "1.0.0.0",
-  "Channels": 1,
-  "Registers": []
-},
-{
-  "Name": "Oscilloscope_0",
-  "Type": "Oscilloscope",
-  "Address": 264192,
-  "Version": "1.0.0.0",
-  "nsamples": 1024,
+  "Device": "SCIDK",
   "Registers": [
     {
-      "Name": "READ_STATUS",
-      "Address": 266240,
+      "Name": "ratereset",
+      "Address": 69639,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "READ_POSITION",
-      "Address": 266241,
+      "Name": "gate_l",
+      "Address": 69640,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "CONFIG_TRIGGER_MODE",
-      "Address": 266242,
+      "Name": "gate_u",
+      "Address": 69641,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "CONFIG_PRETRIGGER",
-      "Address": 266243,
+      "Name": "polarity",
+      "Address": 69642,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "CONFIG_TRIGGER_LEVEL",
-      "Address": 266244,
+      "Name": "thrsh",
+      "Address": 69643,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "CONFIG_ARM",
-      "Address": 266245,
+      "Name": "inhib",
+      "Address": 69644,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "CONFIG_DECIMATOR",
-      "Address": 266246,
+      "Name": "delay",
+      "Address": 69645,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
+    },
+    {
+      "Name": "top",
+      "Address": 69646,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "disable_A",
+      "Address": 69647,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "disable_B",
+      "Address": 69648,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "ANALOG_OFFSET",
+      "Address": 4294967289,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "AnalogAFE"
     }
   ],
-  "Channels": 2
-}],"Device":"SCIDK","Project":"R76Replica"}
+  "Version": 0.0,
+  "GenerationData": "0001-01-01T00:00:00",
+  "MMCComponents": [
+    {
+      "Name": "RateMeter_0",
+      "Type": "MCRateMeter",
+      "Address": 0,
+      "Version": "1.0.0.0",
+      "WordSize": 0,
+      "nsamples": 0,
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [],
+      "Channels": 1,
+      "ChannelsList": null
+    },
+    {
+      "Name": "Oscilloscope_0",
+      "Type": "Oscilloscope",
+      "Address": 67584,
+      "Version": "1.0.0.0",
+      "WordSize": 0,
+      "nsamples": 1024,
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Address": 69632,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "READ_POSITION",
+          "Address": 69633,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_TRIGGER_MODE",
+          "Address": 69634,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_PRETRIGGER",
+          "Address": 69635,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_TRIGGER_LEVEL",
+          "Address": 69636,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_ARM",
+          "Address": 69637,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_DECIMATOR",
+          "Address": 69638,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 2,
+      "ChannelsList": null
+    }
+  ]
+}

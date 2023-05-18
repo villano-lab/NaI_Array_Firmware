@@ -13,6 +13,8 @@
 #define SCI_REG_count 0x00040000
 #define SCI_REG_skip_attempts 0x00041007
 #define SCI_REG_eq_count 0x00041008
+#define SCI_REG_eq_count_2 0x00041009
+#define SCI_REG_gated_count 0x0004100A
 #define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
 #define SCI_REG_RateMeter_0_FIFOADDRESS 0x30000
 

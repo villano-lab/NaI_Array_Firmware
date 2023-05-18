@@ -284,6 +284,14 @@ SCILIB void free_packet_collection (t_generic_event_collection *decoded_packets)
 }
 
 
+SCILIB int REG_ratereset_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_ratereset, handle);
+}
+SCILIB int REG_ratereset_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_ratereset, handle);
+}
 SCILIB int REG_gate_l_GET(uint32_t *val, NI_HANDLE *handle)
 {
      return __abstracted_reg_read(val, SCI_REG_gate_l, handle);
@@ -291,6 +299,14 @@ SCILIB int REG_gate_l_GET(uint32_t *val, NI_HANDLE *handle)
 SCILIB int REG_gate_l_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_gate_l, handle);
+}
+SCILIB int REG_gate_u_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_gate_u, handle);
+}
+SCILIB int REG_gate_u_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_gate_u, handle);
 }
 SCILIB int REG_polarity_GET(uint32_t *val, NI_HANDLE *handle)
 {
@@ -324,22 +340,6 @@ SCILIB int REG_delay_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_delay, handle);
 }
-SCILIB int REG_ratereset_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_ratereset, handle);
-}
-SCILIB int REG_ratereset_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_ratereset, handle);
-}
-SCILIB int REG_gate_u_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_gate_u, handle);
-}
-SCILIB int REG_gate_u_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_gate_u, handle);
-}
 SCILIB int REG_top_GET(uint32_t *val, NI_HANDLE *handle)
 {
      return __abstracted_reg_read(val, SCI_REG_top, handle);
@@ -363,54 +363,6 @@ SCILIB int REG_disable_B_GET(uint32_t *val, NI_HANDLE *handle)
 SCILIB int REG_disable_B_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_disable_B, handle);
-}
-SCILIB int REG_skip_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_skip, handle);
-}
-SCILIB int REG_skip_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_skip, handle);
-}
-SCILIB int REG_count_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_count, handle);
-}
-SCILIB int REG_count_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_count, handle);
-}
-SCILIB int REG_skip_attempts_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_skip_attempts, handle);
-}
-SCILIB int REG_skip_attempts_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_skip_attempts, handle);
-}
-SCILIB int REG_eq_count_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_eq_count, handle);
-}
-SCILIB int REG_eq_count_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_eq_count, handle);
-}
-SCILIB int REG_eq_count_2_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_eq_count_2, handle);
-}
-SCILIB int REG_eq_count_2_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_eq_count_2, handle);
-}
-SCILIB int REG_gated_count_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_gated_count, handle);
-}
-SCILIB int REG_gated_count_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_gated_count, handle);
 }
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle)
 {
@@ -516,108 +468,6 @@ return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_0_FIFOADDRESS, tim
 SCILIB int RATE_METER_RateMeter_0_GET_DATA_COUNTS(uint32_t *val, uint32_t channels, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
 {
 return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_0_FIFOADDRESS+512, timeout, handle, read_data, valid_data);
-
-}
-//-----------------------------------------------------------------
-//-
-//- RATE_METER_RateMeter_Reduced_GET_DATA
-//-
-//- USAGE: 
-//- 
-//-
-//- ARGUMENTS:
-//- 	             val  PARAM_OUT   uint32_t
-//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	             val   PARAM_IN   channels
-//- 		number of word to download from the buffer.
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	             val   PARAM_IN    int32_t
-//- 		timeout in ms
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	       read_data  PARAM_OUT    int32_t
-//- 		number of word read from the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	      valid_data  PARAM_OUT    int32_t
-//- 		number of word valid in the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int RATE_METER_RateMeter_Reduced_GET_DATA(uint32_t *val, uint32_t channels, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
-{
-return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_Reduced_FIFOADDRESS, timeout, handle, read_data, valid_data);
-
-}
-//-----------------------------------------------------------------
-//-
-//- RATE_METER_RateMeter_Reduced_GET_DATA_COUNTS
-//-
-//- USAGE: 
-//- 
-//-
-//- ARGUMENTS:
-//- 	             val  PARAM_OUT   uint32_t
-//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	             val   PARAM_IN   channels
-//- 		number of word to download from the buffer.
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	             val   PARAM_IN    int32_t
-//- 		timeout in ms
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	       read_data  PARAM_OUT    int32_t
-//- 		number of word read from the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	      valid_data  PARAM_OUT    int32_t
-//- 		number of word valid in the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int RATE_METER_RateMeter_Reduced_GET_DATA_COUNTS(uint32_t *val, uint32_t channels, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
-{
-return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_Reduced_FIFOADDRESS+512, timeout, handle, read_data, valid_data);
 
 }
 //-----------------------------------------------------------------
