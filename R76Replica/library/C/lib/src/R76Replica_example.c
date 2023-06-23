@@ -3,22 +3,33 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "SCIDK_Lib.h"
-
 #include  "R76Replica_lib.h"
+#include "RegisterFile.h"
+#include "scisdk/scisdk_defines.h"
+#include "scisdk/SciSDK_DLL.h"
 
-#define BOARD_SERIAL_NUMBER "0001"
+#define BOARD_SERIAL_NUMBER "13251"
 
 
 
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]){
 	NI_HANDLE handle;
 	int ret;
 	uint32_t    val;
 
-	if(USB2_ConnectDevice(BOARD_SERIAL_NUMBER, &handle) != 0) { printf("Unable to connect to the board!\n"); return (-1); };
-#ifndef CUSTOM_EXAMPLE		
+	int adddevice = SCISDK_AddNewDevice( "usb:0403:6001", "DT1260","../../RegisterFile.json", "SCISDK", &handle);
+	if(adddevice != 0){
+		printf("Unable to create device.\n");
+		return(adddevice);
+	}
+	if(
+		USB2_ConnectDevice(BOARD_SERIAL_NUMBER, &handle) 
+		//AddNewDevice("usb:13251","dt1260")
+		//0 //test line
+		!= 0
+	) { printf("Unable to connect to the board!\n"); return (-1); };
+	#ifndef CUSTOM_EXAMPLE		
 	
 	/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
 
@@ -62,13 +73,9 @@ int main(int argc, char* argv[])
 	}
 	printf("Download Finished");
 */
-
-
 	
-#else
-
-#endif
-
+	#else
+	#endif
 	return 0;
 }
 

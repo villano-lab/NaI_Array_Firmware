@@ -9,6 +9,7 @@ ex2
 *.dll
 *.out
 *.pb
+*.zip
 test_firmwares/SCIDK-SDKLinux/SciDKSDK_test/SciDKSDK_test
 test_firmwares/SCIDK-SDKLinux/linux
 #Other make/compile results
@@ -44,3 +45,5 @@ tmp/
 .vs/
 *.sln
 *.vcxproj
+#Links
+**/src/scisdk
