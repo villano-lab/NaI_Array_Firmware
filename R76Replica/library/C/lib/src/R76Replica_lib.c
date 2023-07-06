@@ -1,16 +1,10 @@
 #include "SCIDK_Lib.h"
-#include  <stdlib.h>
+#include <stdlib.h>
 #include <stdint.h>
-#include  <stdbool.h>
-
+#include <stdbool.h>
 #include "RegisterFile.h"
-
-#include  "circular_buffer.h"
-
-
-
-#include  "R76Replica_lib.h"
-
+#include "circular_buffer.h"
+#include "R76Replica_lib.h"
 
 SCILIB int USB2_ConnectDevice( char *IPAddress_or_SN, NI_HANDLE *handle)
 {

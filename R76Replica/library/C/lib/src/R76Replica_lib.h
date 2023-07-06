@@ -2,16 +2,16 @@
 #include "Def.h"
 #include <stdint.h>
 #include <stdlib.h>
-#include  <stdbool.h>
+#include <stdbool.h>
 
 #ifdef __cplusplus
 #ifdef SCICOMPILER_EXPORTS
-#define SCILIB extern "C" __declspec(dllexport) 
+#define SCILIB extern "C" __attribute__((visibility("default")))
 #else
-#define SCILIB extern "C" __declspec(dllimport)
+#define SCILIB extern "C" __attribute__((visibility("default")))
 #endif
 #else
-#define SCILIB __declspec(dllexport) 
+#define SCILIB __attribute__((visibility("default")))
 #endif
 
 typedef struct
@@ -57,20 +57,20 @@ SCILIB int __abstracted_mem_write(uint32_t *data, uint32_t count,
 										uint32_t address,  
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *written_data);
-SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
+/*SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
 										uint32_t address, 
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *read_data, uint32_t *valid_data);
 SCILIB int __abstracted_fifo_write(uint32_t *data, uint32_t count, 
 										uint32_t address,  
 										uint32_t timeout_ms, NI_HANDLE *handle, 
-										uint32_t *written_data);
+										uint32_t *written_data);*/
 SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
 										uint32_t address, 
 										uint32_t address_status, 
 										bool blocking,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
-										uint32_t *read_data, uint32_t *valid_data);
+										uint32_t *read_data, uint32_t *valid_data);//*/
 										
 SCILIB int __abstracted_reg_write(uint32_t data, uint32_t address, NI_HANDLE *handle);
 SCILIB int __abstracted_reg_read(uint32_t *data, uint32_t address, NI_HANDLE *handle);

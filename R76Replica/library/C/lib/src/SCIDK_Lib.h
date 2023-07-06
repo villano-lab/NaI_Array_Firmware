@@ -4,6 +4,7 @@
 
 #include "NIErrorCode.h"
 #include <stdint.h>
+#include <stdbool.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -11,10 +12,10 @@ extern "C" {
 
 
 #ifdef SCIDK_API_EXPORTS
-#define SCIDK_API extern "C" __declspec(dllexport) 
+#define SCIDK_API extern "C" __attribute__((visibility("default")))
 	//__declspec(dllexport)
 #else
-#define SCIDK_API __declspec(dllimport)
+#define SCIDK_API __attribute__((visibility("default")))
 #endif
 	typedef int NI_HANDLE ;
 
