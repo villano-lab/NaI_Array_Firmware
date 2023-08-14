@@ -137,11 +137,12 @@ int main(int argc, char* argv[])
 		if(full == 1){
 			toc = time(NULL);
 			if(verbose>-1){printf("WARNING: The FIFO is full! Temporarily disabling writing. Number of entries before filling: %d. Seconds taken to fill FIFO: %d\n",i,(int)toc-(int)tic);}
+			if(logfile != NULL){fprintf(logfile,"FIFO was full. Temporarily disabling writing. Seconds to fill fifo: %d.\n",(int)toc-(int)tic);}
 			stopwrite_q = REG_stopwrite_SET(1,&handle);
-			if(stopwrite_q != 0){
-				printf("Error! Failed to set the `stopwrite` variable.\n");
-				return stopwrite_q;
-			}
+                	if(stopwrite_q != 0){
+                        	printf("Error! Failed to set the `stopwrite` variable.\n");
+                        	return stopwrite_q;
+                	}
 		}
 		end = clock();
 		if(verbose > 2){printf("Time spent handling whether the FIFO was full: %f us\n.",(double)(end - begin)*1000000/CLOCKS_PER_SEC);}
@@ -169,11 +170,13 @@ int main(int argc, char* argv[])
 		i++;
 		toc = time(NULL);
 		if(verbose > 0 && verbose < 3){printf("%u (%d); ",fifo,i);}
+		if(logfile != NULL){fprintf(logfile,"%u (%d)\n",fifo,i);}
 		empty_q = REG_empty_GET(&empty,&handle);
 		if(empty_q != 0){
 			printf("\nError! Failed to get the `empty` variable.\n");
 			return empty_q;
 		}
+		
 		end = clock();
 		if(verbose > 2){printf("Time spent setting up to start the loop over again: %f us\n.",(double)(end - begin)*1000000/CLOCKS_PER_SEC);}
 		begin = clock();
@@ -181,11 +184,10 @@ int main(int argc, char* argv[])
 	//when we're done emptying,
 	if(verbose > -1){
 		fflush(stdout); //flush the print buffer here
-		printf("Emptied the FIFO! Number of entries this round (%d seconds): %d (FIFO size: 32).\n",(int)toc-(int)tic,i);
+		printf("Emptied the FIFO! Number of entries this round (%d seconds): %d (FIFO size: something big that I forgot, like 10 or 100 thousand?).\n",(int)toc-(int)tic,i);
+		if(logfile != NULL){fprintf(logfile,"Emptied %d entries over the course of %d seconds.\n",i,(int)toc-(int)tic);}
 	}
 	
-	while(empty == 0){
-	}
 	printf("\n"); //be nice to the terminal
 	//stop reading & writing and reset.
 	read_q = REG_read_SET(0,&handle);

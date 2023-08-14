@@ -1,0 +1,5 @@
+So! Resource explorer sees our header. The code here does not.
+It sees a value that is of an appropriate size, but the value is incorrect.
+It is also the same value each time (within the same run, anyway), as expected.
+Therefore the code runs, but rejects every single packet, and then feeds back garbage data when prompted.
+Why!?
