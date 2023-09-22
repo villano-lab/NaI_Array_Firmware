@@ -1,0 +1,37 @@
+#define SCI_REG_ALL_FIFO_RESET 0xFFFFF908
+#define SCI_REG_CN 0x00000000
+#define SCI_REG_pol 0x00000001
+#define SCI_REG_thrs 0x00000002
+#define SCI_REG_inhib 0x00000003
+#define SCI_REG_top 0x00000004
+#define SCI_REG_delay 0x00000005
+#define SCI_REG_gate 0x00000006
+#define SCI_REG_gatel 0x00000007
+#define SCI_REG_xdelay 0x00000008
+#define SCI_REG_inttime 0x00000009
+#define SCI_REG_preint 0x0000000A
+#define SCI_REG_pileup 0x0000000B
+#define SCI_REG_gain 0x0000000C
+#define SCI_REG_ofs 0x0000000D
+#define SCI_REG_bl 0x0000000E
+#define SCI_REG_noflip0flip1 0x0000000F
+#define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
+#define SCI_REG_Spectrum_0_FIFOADDRESS 0x10000
+#define SCI_REG_Spectrum_0_STATUS 0x20000
+#define SCI_REG_Spectrum_0_CONFIG 0x20001
+#define SCI_REG_Spectrum_0_CONFIG_LIMIT 0x20002
+#define SCI_REG_Spectrum_0_CONFIG_REBIN 0x20003
+#define SCI_REG_Spectrum_0_CONFIG_MIN 0x20004
+#define SCI_REG_Spectrum_0_CONFIG_MAX 0x20005
+
+#define SCI_REG_Digitizer_0_FIFOADDRESS 0x20007
+#define SCI_REG_Digitizer_0_STATUS 0x20008
+#define SCI_REG_Digitizer_0_INFO 0x20009
+#define SCI_REG_Digitizer_0_CONFIG 0x2000A
+#define SCI_REG_Digitizer_0_ACQ_LEN 0x2000B
+
+#define SCI_REG_CP_0_FIFOADDRESS 0x2000D
+#define SCI_REG_CP_0_READ_STATUS 0x2000E
+#define SCI_REG_CP_0_READ_VALID_WORDS 0x2000F
+#define SCI_REG_CP_0_CONFIG 0x20010
+
