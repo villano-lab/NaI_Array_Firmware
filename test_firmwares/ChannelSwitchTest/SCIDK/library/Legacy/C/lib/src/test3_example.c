@@ -6,7 +6,7 @@
 
 #include  "test3_lib.h"
 
-#define BOARD_SERIAL_NUMBER "0001"
+#define BOARD_SERIAL_NUMBER "13251"
 
 
 

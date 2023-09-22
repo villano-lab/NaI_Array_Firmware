@@ -5,8 +5,12 @@
 #include "SCIDK_Lib.h"
 #include  "R76Replica_lib.h"
 #include "RegisterFile.h"
-#include "scisdk/scisdk_defines.h"
-#include "scisdk/SciSDK_DLL.h"
+//#include "scisdk/scisdk_defines.h"
+//#include "scisdk/SciSDK_DLL.h"
+//#include "scisdk/NIErrorCode.h"
+#include <scisdk/scisdk_defines.h>
+#include <scisdk/SciSDK_DLL.h>
+#include <scisdk/NIErrorCode.h>
 
 #define BOARD_SERIAL_NUMBER "13251"
 
