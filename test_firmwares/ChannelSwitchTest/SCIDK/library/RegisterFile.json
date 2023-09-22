@@ -1,0 +1,369 @@
+{"Registers":[
+{
+  "Name": "CN",
+  "Type": null,
+  "Address": 0,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "pol",
+  "Type": null,
+  "Address": 1,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "thrs",
+  "Type": null,
+  "Address": 2,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "inhib",
+  "Type": null,
+  "Address": 3,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "top",
+  "Type": null,
+  "Address": 4,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "delay",
+  "Type": null,
+  "Address": 5,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gate",
+  "Type": null,
+  "Address": 6,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gatel",
+  "Type": null,
+  "Address": 7,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "xdelay",
+  "Type": null,
+  "Address": 8,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "inttime",
+  "Type": null,
+  "Address": 9,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "preint",
+  "Type": null,
+  "Address": 10,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "pileup",
+  "Type": null,
+  "Address": 11,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gain",
+  "Type": null,
+  "Address": 12,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ofs",
+  "Type": null,
+  "Address": 13,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "bl",
+  "Type": null,
+  "Address": 14,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "noflip0flip1",
+  "Type": null,
+  "Address": 15,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ANALOG_OFFSET",
+  "Type": null,
+  "Address": 4294967289,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "AnalogAFE"
+}],
+"MMCComponents":[
+{
+  "Name": "Spectrum_0",
+  "Type": "Spectrum",
+  "Address": 65536,
+  "Version": "1.0.1.0",
+  "bins": 1024,
+  "Registers": [
+    {
+      "Name": "STATUS",
+      "Type": null,
+      "Address": 131072,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG",
+      "Type": null,
+      "Address": 131073,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_LIMIT",
+      "Type": null,
+      "Address": 131074,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_REBIN",
+      "Type": null,
+      "Address": 131075,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_MIN",
+      "Type": null,
+      "Address": 131076,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_MAX",
+      "Type": null,
+      "Address": 131077,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "CountsBit": 16
+},
+{
+  "Name": "Digitizer_0",
+  "Type": "WaveDump",
+  "Address": 131079,
+  "Version": "1.1.0.0",
+  "WordSize": 0,
+  "Channels": 2,
+  "nsamples": 1024,
+  "UseDMA": false,
+  "Registers": [
+    {
+      "Name": "STATUS",
+      "Type": null,
+      "Address": 131080,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "INFO",
+      "Type": null,
+      "Address": 131081,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG",
+      "Type": null,
+      "Address": 131082,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "ACQ_LEN",
+      "Type": null,
+      "Address": 131083,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ]
+},
+{
+  "Name": "CP_0",
+  "Type": "CustomPacket",
+  "Address": 131085,
+  "Version": "1.1.0.0",
+  "Channels": 0,
+  "Registers": [
+    {
+      "Name": "READ_STATUS",
+      "Type": null,
+      "Address": 131086,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "READ_VALID_WORDS",
+      "Type": null,
+      "Address": 131087,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG",
+      "Type": null,
+      "Address": 131088,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "UseDMA": false,
+  "listOfWord": [
+    {
+      "PioWE": [
+        {
+          "Type": "Constant",
+          "Signal": "80000000",
+          "BitStart": 0,
+          "BitStop": 31,
+          "SliceStart": 31,
+          "SliceStop": 0,
+          "Value": "80000000",
+          "ValueFormat": "Hex"
+        }
+      ]
+    },
+    {
+      "PioWE": [
+        {
+          "Type": "Input",
+          "Signal": "IN_1",
+          "BitStart": 0,
+          "BitStop": 15,
+          "SliceStart": 15,
+          "SliceStop": 0,
+          "Value": "IN_1",
+          "ValueFormat": ""
+        },
+        {
+          "Type": "Input",
+          "Signal": "IN_3",
+          "BitStart": 16,
+          "BitStop": 31,
+          "SliceStart": 15,
+          "SliceStop": 0,
+          "Value": "IN_3",
+          "ValueFormat": ""
+        }
+      ]
+    },
+    {
+      "PioWE": [
+        {
+          "Type": "Input",
+          "Signal": "IN_2",
+          "BitStart": 0,
+          "BitStop": 15,
+          "SliceStart": 15,
+          "SliceStop": 0,
+          "Value": "IN_2",
+          "ValueFormat": ""
+        },
+        {
+          "Type": "Input",
+          "Signal": "IN_3",
+          "BitStart": 16,
+          "BitStop": 31,
+          "SliceStart": 15,
+          "SliceStop": 0,
+          "Value": "IN_3",
+          "ValueFormat": ""
+        }
+      ]
+    }
+  ],
+  "BufferLength": 0
+}],"Device":"SCIDK","Project":"test3"}
