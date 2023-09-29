@@ -45,43 +45,6 @@ if (count > 0):
         print("Start Error")
 
 
-    
-        
-    # Documentation and examples on GitHub
-    # https://github.com/NuclearInstruments/scicompiler-wave-digitizer
-    #
-
-    TargetWaveNumber = 20
-    ChannelsEnable = 4
-    WaveformLen = 2400
-
-    size_list = (ChannelsEnable*WaveformLen + 10)
-    TargetDataNumber = size_list * TargetWaveNumber/2
-
-    ReadDataNumber = 0
-    
-    Timeout_ms = 1000
-    DownloadDataValues = []
-
-    LISTMODULE_Digitizer_0_SetLen(handle, WaveformLen) 
-
-    fp = open('data.hex','wb')
-    if (LISTMODULE_Digitizer_0_START(handle, ChannelsEnable) == True):
-        while(ReadDataNumber < TargetDataNumber):
-            [err, List_Data, List_Read_Data, List_Valid_Data] = LISTMODULE_Digitizer_0_GET_DATA(size_list, Timeout_ms, handle)    
-            ReadDataNumber += List_Valid_Data.value
-            print("Total Downloaded Data: ", ReadDataNumber)
-            ReadDataNumber += List_Valid_Data.value
-            np_arr  = np.ctypeslib.as_array(List_Data)[:List_Valid_Data.value]
-            fp.write(np_arr.tobytes())
-
-    else:
-        print("Start Error")
-
-    fp.close 
-
-
-
     plt.ion()
     plt.show()
     N_Packet = 100
@@ -142,4 +105,41 @@ if (count > 0):
             plt.pause(0.01)
         else:
             print("Start Error")
+
+    
+        
+    # Documentation and examples on GitHub
+    # https://github.com/NuclearInstruments/scicompiler-wave-digitizer
+    #
+
+    TargetWaveNumber = 20
+    ChannelsEnable = 4
+    WaveformLen = 2400
+
+    size_list = (ChannelsEnable*WaveformLen + 10)
+    TargetDataNumber = size_list * TargetWaveNumber/2
+
+    ReadDataNumber = 0
+    
+    Timeout_ms = 1000
+    DownloadDataValues = []
+
+    LISTMODULE_Digitizer_0_SetLen(handle, WaveformLen) 
+
+    fp = open('data.hex','wb')
+    if (LISTMODULE_Digitizer_0_START(handle, ChannelsEnable) == True):
+        while(ReadDataNumber < TargetDataNumber):
+            [err, List_Data, List_Read_Data, List_Valid_Data] = LISTMODULE_Digitizer_0_GET_DATA(size_list, Timeout_ms, handle)    
+            ReadDataNumber += List_Valid_Data.value
+            print("Total Downloaded Data: ", ReadDataNumber)
+            ReadDataNumber += List_Valid_Data.value
+            np_arr  = np.ctypeslib.as_array(List_Data)[:List_Valid_Data.value]
+            fp.write(np_arr.tobytes())
+
+    else:
+        print("Start Error")
+
+    fp.close 
+
+
 
