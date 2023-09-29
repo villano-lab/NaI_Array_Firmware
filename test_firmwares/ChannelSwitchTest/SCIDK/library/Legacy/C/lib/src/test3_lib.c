@@ -656,184 +656,6 @@ return __abstracted_mem_read(val, size, SCI_REG_Spectrum_0_FIFOADDRESS, timeout,
 }
 //-----------------------------------------------------------------
 //-
-//- LISTMODULE_Digitizer_0_RESET
-//-
-//- Clear list content
-//-
-//- ARGUMENTS:
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_RESET(NI_HANDLE *handle)
-
-{
-return __abstracted_reg_write(2,SCI_REG_Digitizer_0_CONFIG, handle);
-
-}
-//-----------------------------------------------------------------
-//-
-//- LISTMODULE_Digitizer_0_START
-//-
-//- Start List acquisition. The list is automatically flushed upon start operation. The function set the number of acquired channels
-//-
-//- ARGUMENTS:
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_START(NI_HANDLE *handle, int nchannels)
-
-{
-int r1 = __abstracted_reg_write(2+ (nchannels << 8),SCI_REG_Digitizer_0_CONFIG, handle);
-int r2 = __abstracted_reg_write(0+ (nchannels << 8),SCI_REG_Digitizer_0_CONFIG, handle);
-int r3 = __abstracted_reg_write(1+ (nchannels << 8),SCI_REG_Digitizer_0_CONFIG, handle);
-if ((r1 == 0) && (r2 == 0) && (r3 == 0))
-    return 0;
-else
-    return -1;
-
-}
-//-----------------------------------------------------------------
-//-
-//- LISTMODULE_Digitizer_0_SetLen
-//-
-//- Start List acquisition. The list is automatically flushed upon start operation. The function set the number of acquired channels
-//-
-//- ARGUMENTS:
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_SetLen(NI_HANDLE *handle, int length)
-
-{
-int r1 = __abstracted_reg_write(length,SCI_REG_Digitizer_0_ACQ_LEN, handle);
-if (r1 == 0)
-    return 0;
-else
-    return -1;
-
-}
-//-----------------------------------------------------------------
-//-
-//- LISTMODULE_Digitizer_0_STATUS
-//-
-//- Get List status
-//-
-//- ARGUMENTS:
-//- 	          status  PARAM_OUT    int32_t
-//- 		Return the oscilloscope status
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//- 		0) No data available
-//- 		1) Data available
-//-
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_STATUS(uint32_t *status, NI_HANDLE *handle)
-
-{
-int err;
-uint32_t int_status=0;
-err= __abstracted_reg_read(&int_status, SCI_REG_Digitizer_0_STATUS, handle);
-*status = int_status & 0xF;
-return err;
-
-}
-//-----------------------------------------------------------------
-//-
-//- LISTMODULE_Digitizer_0_DOWNLOAD
-//-
-//- Download data from fifo buffer. If data are not available the command stall until the timout occuredUSAGE: 
-//-     LISTMODULE_Digitizer_0_DOWNLOAD(data_buffer, BUFFER_SIZE_Digitizer_0, 1000, handle, rd, vp);
-//- 
-//-
-//- ARGUMENTS:
-//- 	             val  PARAM_OUT   uint32_t
-//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	            size   PARAM_IN   uint32_t
-//- 		number of word to download from the buffer.
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	         timeout   PARAM_IN    int32_t
-//- 		timeout in ms
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	       read_data  PARAM_OUT   uint32_t
-//- 		number of word read from the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	      valid_data  PARAM_OUT   uint32_t
-//- 		number of word valid in the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
-
-{
-return __abstracted_fifo_read(val, size, SCI_REG_Digitizer_0_FIFOADDRESS, SCI_REG_Digitizer_0_STATUS,1, timeout, handle, read_data, valid_data);
-
-}
-//-----------------------------------------------------------------
-//-
 //- CPACK_CP_0_START
 //-
 //- Start acquisition.
@@ -1559,5 +1381,183 @@ for(int n=0; n< n_ch; n++)
     }
 }
 return 0;
+
+}
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_RESET
+//-
+//- Clear list content
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_RESET(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(2,SCI_REG_Digitizer_0_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_START
+//-
+//- Start List acquisition. The list is automatically flushed upon start operation. The function set the number of acquired channels
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_START(NI_HANDLE *handle, int nchannels)
+
+{
+int r1 = __abstracted_reg_write(2+ (nchannels << 8),SCI_REG_Digitizer_0_CONFIG, handle);
+int r2 = __abstracted_reg_write(0+ (nchannels << 8),SCI_REG_Digitizer_0_CONFIG, handle);
+int r3 = __abstracted_reg_write(1+ (nchannels << 8),SCI_REG_Digitizer_0_CONFIG, handle);
+if ((r1 == 0) && (r2 == 0) && (r3 == 0))
+    return 0;
+else
+    return -1;
+
+}
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_SetLen
+//-
+//- Start List acquisition. The list is automatically flushed upon start operation. The function set the number of acquired channels
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_SetLen(NI_HANDLE *handle, int length)
+
+{
+int r1 = __abstracted_reg_write(length,SCI_REG_Digitizer_0_ACQ_LEN, handle);
+if (r1 == 0)
+    return 0;
+else
+    return -1;
+
+}
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_STATUS
+//-
+//- Get List status
+//-
+//- ARGUMENTS:
+//- 	          status  PARAM_OUT    int32_t
+//- 		Return the oscilloscope status
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//- 		0) No data available
+//- 		1) Data available
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_STATUS(uint32_t *status, NI_HANDLE *handle)
+
+{
+int err;
+uint32_t int_status=0;
+err= __abstracted_reg_read(&int_status, SCI_REG_Digitizer_0_STATUS, handle);
+*status = int_status & 0xF;
+return err;
+
+}
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_DOWNLOAD
+//-
+//- Download data from fifo buffer. If data are not available the command stall until the timout occuredUSAGE: 
+//-     LISTMODULE_Digitizer_0_DOWNLOAD(data_buffer, BUFFER_SIZE_Digitizer_0, 1000, handle, rd, vp);
+//- 
+//-
+//- ARGUMENTS:
+//- 	             val  PARAM_OUT   uint32_t
+//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	            size   PARAM_IN   uint32_t
+//- 		number of word to download from the buffer.
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	         timeout   PARAM_IN    int32_t
+//- 		timeout in ms
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	       read_data  PARAM_OUT   uint32_t
+//- 		number of word read from the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	      valid_data  PARAM_OUT   uint32_t
+//- 		number of word valid in the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
+
+{
+return __abstracted_fifo_read(val, size, SCI_REG_Digitizer_0_FIFOADDRESS, SCI_REG_Digitizer_0_STATUS,1, timeout, handle, read_data, valid_data);
 
 }
