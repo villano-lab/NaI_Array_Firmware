@@ -54,57 +54,6 @@ int main(int argc, char* argv[])
 */
 /* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
 
-	
-	// Documentation and example on GitHub
-	// https://github.com/NuclearInstruments/scicompiler-wave-digitizer
-	//
-
-
-	FILE *fp_dgtz = NULL;
-
-	uint32_t status_list = 0;
-	uint32_t *data_list;
-	uint32_t read_data_list;
-	uint32_t valid_data_list;
-	uint32_t size_list;
-	int32_t timeout_list = 1000;
-	uint32_t ReadListNumber = 0;
-	int32_t TargetDataNumber;
-
-	//How many waves acquire (20)
-	uint32_t TargetWaveNumber = 20;
-	//Enable channels 1,2,3,4
-	uint32_t ChannelsEnable = 4;
-	//How many samples per wave (1000)
-	uint32_t WaveformLen = 2400;
-
-	size_list = (ChannelsEnable*WaveformLen + 10);
-	data_list = malloc(size_list * sizeof(uint32_t));
-	TargetDataNumber = size_list * TargetWaveNumber / 2;
-
-	//Set Digitizer wave Len
-	if (LISTMODULE_Digitizer_0_SetLen(&handle, WaveformLen) != 0) printf("Reset Error");
-
-	//Set Digitizer enabled channels and start acquisition
-	if (LISTMODULE_Digitizer_0_START(&handle, ChannelsEnable) != 0) printf("Start Error");
-	
-	//Dump Data and write on file
-	fopen_s(&fp_dgtz, "data.hex", "wb");
-	printf("Start download\n");
-	while (TargetDataNumber > 0) {
-		if (LISTMODULE_Digitizer_0_DOWNLOAD(data_list, size_list, timeout_list, &handle, &read_data_list, &valid_data_list) != 0) printf("Get Data Error");
-		if (valid_data_list > 0) {
-			fwrite(data_list, 4, valid_data_list, fp_dgtz);
-			printf("."); fflush(stdout);
-		}
-		TargetDataNumber -= valid_data_list;
-	}
-
-	fclose(fp_dgtz);
-	printf("Download Finished\n");
-*/
-/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
-
 	uint32_t status_frame = 0;
 	uint32_t N_Packet = 100;
 	uint32_t data_frame[100000];
@@ -198,6 +147,57 @@ int main(int argc, char* argv[])
 		e++;
 	}
 	printf("Download Finished");
+*/
+/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
+
+	
+	// Documentation and example on GitHub
+	// https://github.com/NuclearInstruments/scicompiler-wave-digitizer
+	//
+
+
+	FILE *fp_dgtz = NULL;
+
+	uint32_t status_list = 0;
+	uint32_t *data_list;
+	uint32_t read_data_list;
+	uint32_t valid_data_list;
+	uint32_t size_list;
+	int32_t timeout_list = 1000;
+	uint32_t ReadListNumber = 0;
+	int32_t TargetDataNumber;
+
+	//How many waves acquire (20)
+	uint32_t TargetWaveNumber = 20;
+	//Enable channels 1,2,3,4
+	uint32_t ChannelsEnable = 4;
+	//How many samples per wave (1000)
+	uint32_t WaveformLen = 2400;
+
+	size_list = (ChannelsEnable*WaveformLen + 10);
+	data_list = malloc(size_list * sizeof(uint32_t));
+	TargetDataNumber = size_list * TargetWaveNumber / 2;
+
+	//Set Digitizer wave Len
+	if (LISTMODULE_Digitizer_0_SetLen(&handle, WaveformLen) != 0) printf("Reset Error");
+
+	//Set Digitizer enabled channels and start acquisition
+	if (LISTMODULE_Digitizer_0_START(&handle, ChannelsEnable) != 0) printf("Start Error");
+	
+	//Dump Data and write on file
+	fopen_s(&fp_dgtz, "data.hex", "wb");
+	printf("Start download\n");
+	while (TargetDataNumber > 0) {
+		if (LISTMODULE_Digitizer_0_DOWNLOAD(data_list, size_list, timeout_list, &handle, &read_data_list, &valid_data_list) != 0) printf("Get Data Error");
+		if (valid_data_list > 0) {
+			fwrite(data_list, 4, valid_data_list, fp_dgtz);
+			printf("."); fflush(stdout);
+		}
+		TargetDataNumber -= valid_data_list;
+	}
+
+	fclose(fp_dgtz);
+	printf("Download Finished\n");
 */
 
 
