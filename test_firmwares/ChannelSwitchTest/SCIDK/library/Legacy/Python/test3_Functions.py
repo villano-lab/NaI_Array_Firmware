@@ -251,39 +251,6 @@ def SPECTRUM_Spectrum_0_GET_DATA(Bin, timeout_ms, handle):
 
 
 
-def LISTMODULE_Digitizer_0_RESET(handle):
-    err = __abstracted_reg_write(2, test3_RegisterFile.SCI_REG_Digitizer_0_CONFIG, handle)
-    return err
-
-def LISTMODULE_Digitizer_0_START(handle, channels):
-    err = __abstracted_reg_write(2 + (channels<<8), test3_RegisterFile.SCI_REG_Digitizer_0_CONFIG, handle)
-    if (err != 0):
-       return False
-    err = __abstracted_reg_write(0 + (channels<<8), test3_RegisterFile.SCI_REG_Digitizer_0_CONFIG, handle)
-    if (err != 0):
-       return False
-    err = __abstracted_reg_write(1 + (channels<<8), test3_RegisterFile.SCI_REG_Digitizer_0_CONFIG, handle)
-    if (err != 0):
-       return False
-    return True
-
-def LISTMODULE_Digitizer_0_SetLen(handle, length):
-    err = __abstracted_reg_write(length, test3_RegisterFile.SCI_REG_Digitizer_0_ACQ_LEN, handle)
-    if (err != 0):
-       return False
-    return True
-
-def LISTMODULE_Digitizer_0_GET_STATUS(handle):
-    [err, status] = __abstracted_reg_read(test3_RegisterFile.SCI_REG_Digitizer_0_STATUS, handle)
-    status = status & 0xf
-    return err, status
-
-def LISTMODULE_Digitizer_0_GET_DATA(Data_Number, timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_fifo_read(Data_Number, test3_RegisterFile.SCI_REG_Digitizer_0_FIFOADDRESS, test3_RegisterFile.SCI_REG_Digitizer_0_STATUS,1, timeout_ms, handle)
-    return err, data, read_data, valid_data
-
-
-
 
 def CPACK_CP_0_RESET(handle):
 	err = __abstracted_reg_write(2, test3_RegisterFile.SCI_REG_CP_0_CONFIG, handle)
@@ -464,4 +431,37 @@ def OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopeP
                 Digital3[k+ OscilloscopeSamples * n] = (OscilloscopeData[i+ OscilloscopeSamples * n] >> 19 & 1)
                 k = k + 1
     return Analog, Digital0, Digital1,Digital2, Digital3
+
+
+
+def LISTMODULE_Digitizer_0_RESET(handle):
+    err = __abstracted_reg_write(2, test3_RegisterFile.SCI_REG_Digitizer_0_CONFIG, handle)
+    return err
+
+def LISTMODULE_Digitizer_0_START(handle, channels):
+    err = __abstracted_reg_write(2 + (channels<<8), test3_RegisterFile.SCI_REG_Digitizer_0_CONFIG, handle)
+    if (err != 0):
+       return False
+    err = __abstracted_reg_write(0 + (channels<<8), test3_RegisterFile.SCI_REG_Digitizer_0_CONFIG, handle)
+    if (err != 0):
+       return False
+    err = __abstracted_reg_write(1 + (channels<<8), test3_RegisterFile.SCI_REG_Digitizer_0_CONFIG, handle)
+    if (err != 0):
+       return False
+    return True
+
+def LISTMODULE_Digitizer_0_SetLen(handle, length):
+    err = __abstracted_reg_write(length, test3_RegisterFile.SCI_REG_Digitizer_0_ACQ_LEN, handle)
+    if (err != 0):
+       return False
+    return True
+
+def LISTMODULE_Digitizer_0_GET_STATUS(handle):
+    [err, status] = __abstracted_reg_read(test3_RegisterFile.SCI_REG_Digitizer_0_STATUS, handle)
+    status = status & 0xf
+    return err, status
+
+def LISTMODULE_Digitizer_0_GET_DATA(Data_Number, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_fifo_read(Data_Number, test3_RegisterFile.SCI_REG_Digitizer_0_FIFOADDRESS, test3_RegisterFile.SCI_REG_Digitizer_0_STATUS,1, timeout_ms, handle)
+    return err, data, read_data, valid_data
 
