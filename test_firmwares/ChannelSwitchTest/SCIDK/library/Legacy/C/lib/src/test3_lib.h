@@ -106,15 +106,15 @@ SCILIB char *ReadFirmwareInformation(NI_HANDLE *handle);
 
 
 
-
-
-
-
-
-
 typedef struct  {
     uint32_t row[2];
 }t_CP_0_struct;
+
+
+
+
+
+
 
 
 
@@ -361,150 +361,6 @@ SCILIB int SPECTRUM_Spectrum_0_STATUS(uint32_t *status,NI_HANDLE *handle);
 //-----------------------------------------------------------------
 
 SCILIB int SPECTRUM_Spectrum_0_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data);
-//-----------------------------------------------------------------
-//-
-//- LISTMODULE_Digitizer_0_RESET
-//-
-//- Clear list content
-//-
-//- ARGUMENTS:
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_RESET(NI_HANDLE *handle)
-;
-//-----------------------------------------------------------------
-//-
-//- LISTMODULE_Digitizer_0_START
-//-
-//- Start List acquisition. The list is automatically flushed upon start operation. The function set the number of acquired channels
-//-
-//- ARGUMENTS:
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_START(NI_HANDLE *handle, int nchannels)
-;
-//-----------------------------------------------------------------
-//-
-//- LISTMODULE_Digitizer_0_SetLen
-//-
-//- Start List acquisition. The list is automatically flushed upon start operation. The function set the number of acquired channels
-//-
-//- ARGUMENTS:
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_SetLen(NI_HANDLE *handle, int length)
-;
-//-----------------------------------------------------------------
-//-
-//- LISTMODULE_Digitizer_0_STATUS
-//-
-//- Get List status
-//-
-//- ARGUMENTS:
-//- 	          status  PARAM_OUT    int32_t
-//- 		Return the oscilloscope status
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//- 		0) No data available
-//- 		1) Data available
-//-
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_STATUS(uint32_t *status, NI_HANDLE *handle)
-;
-//-----------------------------------------------------------------
-//-
-//- LISTMODULE_Digitizer_0_DOWNLOAD
-//-
-//- Download data from fifo buffer. If data are not available the command stall until the timout occuredUSAGE: 
-//-     LISTMODULE_Digitizer_0_DOWNLOAD(data_buffer, BUFFER_SIZE_Digitizer_0, 1000, handle, rd, vp);
-//- 
-//-
-//- ARGUMENTS:
-//- 	             val  PARAM_OUT   uint32_t
-//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	            size   PARAM_IN   uint32_t
-//- 		number of word to download from the buffer.
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	         timeout   PARAM_IN    int32_t
-//- 		timeout in ms
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	       read_data  PARAM_OUT   uint32_t
-//- 		number of word read from the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	      valid_data  PARAM_OUT   uint32_t
-//- 		number of word valid in the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int LISTMODULE_Digitizer_0_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
-;
 //-----------------------------------------------------------------
 //-
 //- CPACK_CP_0_START
@@ -1047,3 +903,147 @@ SCILIB int OSCILLOSCOPE_Oscilloscope_0_DOWNLOAD(uint32_t *val, uint32_t size, in
 //-----------------------------------------------------------------
 
 SCILIB int OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT(uint32_t *data_osc, uint32_t position, int32_t pre_trigger, uint32_t *read_analog, uint32_t *read_digital0, uint32_t *read_digital1, uint32_t *read_digital2, uint32_t *read_digital3);
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_RESET
+//-
+//- Clear list content
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_RESET(NI_HANDLE *handle)
+;
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_START
+//-
+//- Start List acquisition. The list is automatically flushed upon start operation. The function set the number of acquired channels
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_START(NI_HANDLE *handle, int nchannels)
+;
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_SetLen
+//-
+//- Start List acquisition. The list is automatically flushed upon start operation. The function set the number of acquired channels
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_SetLen(NI_HANDLE *handle, int length)
+;
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_STATUS
+//-
+//- Get List status
+//-
+//- ARGUMENTS:
+//- 	          status  PARAM_OUT    int32_t
+//- 		Return the oscilloscope status
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//- 		0) No data available
+//- 		1) Data available
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_STATUS(uint32_t *status, NI_HANDLE *handle)
+;
+//-----------------------------------------------------------------
+//-
+//- LISTMODULE_Digitizer_0_DOWNLOAD
+//-
+//- Download data from fifo buffer. If data are not available the command stall until the timout occuredUSAGE: 
+//-     LISTMODULE_Digitizer_0_DOWNLOAD(data_buffer, BUFFER_SIZE_Digitizer_0, 1000, handle, rd, vp);
+//- 
+//-
+//- ARGUMENTS:
+//- 	             val  PARAM_OUT   uint32_t
+//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	            size   PARAM_IN   uint32_t
+//- 		number of word to download from the buffer.
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	         timeout   PARAM_IN    int32_t
+//- 		timeout in ms
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	       read_data  PARAM_OUT   uint32_t
+//- 		number of word read from the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	      valid_data  PARAM_OUT   uint32_t
+//- 		number of word valid in the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int LISTMODULE_Digitizer_0_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
+;
