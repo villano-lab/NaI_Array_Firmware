@@ -218,17 +218,14 @@
   "CountsBit": 16
 },
 {
-  "Name": "Digitizer_0",
-  "Type": "WaveDump",
+  "Name": "CP_0",
+  "Type": "CustomPacket",
   "Address": 131079,
   "Version": "1.1.0.0",
-  "WordSize": 0,
-  "Channels": 2,
-  "nsamples": 1024,
-  "UseDMA": false,
+  "Channels": 0,
   "Registers": [
     {
-      "Name": "STATUS",
+      "Name": "READ_STATUS",
       "Type": null,
       "Address": 131080,
       "Version": null,
@@ -237,7 +234,7 @@
       "Category": "Undefined"
     },
     {
-      "Name": "INFO",
+      "Name": "READ_VALID_WORDS",
       "Type": null,
       "Address": 131081,
       "Version": null,
@@ -249,51 +246,6 @@
       "Name": "CONFIG",
       "Type": null,
       "Address": 131082,
-      "Version": null,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "ACQ_LEN",
-      "Type": null,
-      "Address": 131083,
-      "Version": null,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    }
-  ]
-},
-{
-  "Name": "CP_0",
-  "Type": "CustomPacket",
-  "Address": 131085,
-  "Version": "1.1.0.0",
-  "Channels": 0,
-  "Registers": [
-    {
-      "Name": "READ_STATUS",
-      "Type": null,
-      "Address": 131086,
-      "Version": null,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "READ_VALID_WORDS",
-      "Type": null,
-      "Address": 131087,
-      "Version": null,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "CONFIG",
-      "Type": null,
-      "Address": 131088,
       "Version": null,
       "RegionSize": 1,
       "Description": "",
@@ -446,4 +398,52 @@
   "SamplingFrequency": 0,
   "TimeMultiplexing": 1,
   "DecimatorMax": 0
+},
+{
+  "Name": "Digitizer_0",
+  "Type": "WaveDump",
+  "Address": 135176,
+  "Version": "1.1.0.0",
+  "WordSize": 0,
+  "Channels": 2,
+  "nsamples": 1024,
+  "UseDMA": false,
+  "Registers": [
+    {
+      "Name": "STATUS",
+      "Type": null,
+      "Address": 135177,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "INFO",
+      "Type": null,
+      "Address": 135178,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG",
+      "Type": null,
+      "Address": 135179,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "ACQ_LEN",
+      "Type": null,
+      "Address": 135180,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ]
 }],"Device":"SCIDK","Project":"test3"}
