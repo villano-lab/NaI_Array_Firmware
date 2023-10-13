@@ -1,0 +1,212 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include "SCIDK_Lib.h"
+
+#include  "test5_lib.h"
+
+#define BOARD_SERIAL_NUMBER "0001"
+
+
+
+
+int main(int argc, char* argv[])
+{
+	NI_HANDLE handle;
+	int ret;
+	uint32_t    val;
+
+	if(USB2_ConnectDevice(BOARD_SERIAL_NUMBER, &handle) != 0) { printf("Unable to connect to the board!\n"); return (-1); };
+#ifndef CUSTOM_EXAMPLE		
+	
+	/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
+
+	uint32_t status_spectrum= 0;
+	int32_t Rebin = 0;
+	int32_t LimitMode = 0;
+	int32_t LimitValue = 0;
+	uint32_t data_spectrum[1024];
+	uint32_t read_data_spectrum;
+	uint32_t valid_data_spectrum;
+	uint32_t bins = 1024;
+	int32_t timeout_spectrum = 1000;
+	uint32_t spectrum[1024];
+
+	if (SPECTRUM_Spectrum_0_SET_PARAMETERS(Rebin, LimitMode, LimitValue, &handle) != 0) printf("Set Parameters Error");
+	if (SPECTRUM_Spectrum_0_FLUSH(&handle) != 0) printf("Flush Error");
+	if (SPECTRUM_Spectrum_0_RESET(&handle) != 0) printf("Reset Error");
+	if (SPECTRUM_Spectrum_0_START(&handle) == 0) {
+		if (SPECTRUM_Spectrum_0_STATUS(&status_spectrum, &handle) == 0) {
+			while (status_spectrum != 0)
+			{
+				if (SPECTRUM_Spectrum_0_DOWNLOAD(&data_spectrum, bins, timeout_spectrum, &handle, &read_data_spectrum, &valid_data_spectrum) == 0)
+				{
+					for (int i = 0; i < 1024; i++)
+						spectrum[i] = data_spectrum[i];
+				}
+				else  printf("Data Download Error");
+			}
+			if (SPECTRUM_Spectrum_0_STOP(&handle) != 0) printf("Stop Error");
+		}
+	}
+	else printf("Start Error");
+*/
+/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
+
+	uint32_t status_osc = 0;
+	uint32_t data_osc[1024];
+	uint32_t read_data_osc;
+	uint32_t valid_data_osc;
+	uint32_t position = 0;
+	int32_t decimator = 0;
+	int32_t pre_trigger = 100;
+	int32_t software_trigger = 0;
+	int32_t analog_trigger = 1;
+	int32_t digital0_trigger = 0;
+	int32_t digital1_trigger = 0;
+	int32_t digital2_trigger = 0;
+	int32_t digital3_trigger = 0;
+	int32_t trigger_channel = 0;
+	int32_t trigger_edge = 0;
+	int32_t trigger_level = 1000;
+	int32_t timeout_osc = 1000;
+	int32_t size_osc = 1024;
+	uint32_t read_analog[1024];
+	uint32_t read_digital0[1024];
+	uint32_t read_digital1[1024];
+	uint32_t read_digital2[1024];
+	uint32_t read_digital3[1024];
+	int Osc_Events = 10;
+	int e = 0;
+	while (e<Osc_Events)
+	{
+		if (OSCILLOSCOPE_Oscilloscope_0_SET_PARAMETERS(decimator, pre_trigger, software_trigger, analog_trigger, digital0_trigger, digital1_trigger,
+			digital2_trigger, digital3_trigger, trigger_channel, trigger_edge, trigger_level, &handle) != 0) printf("Set Parameters Error");
+		if (OSCILLOSCOPE_Oscilloscope_0_START(&handle) != 0) printf("Start Error");
+		while (status_osc != 1)
+			if (OSCILLOSCOPE_Oscilloscope_0_STATUS(&status_osc, &handle) != 0) printf("Status Error");
+
+		if (OSCILLOSCOPE_Oscilloscope_0_POSITION(&position, &handle) != 0) printf("Position Error");
+		if (OSCILLOSCOPE_Oscilloscope_0_DOWNLOAD(data_osc, size_osc, timeout_osc, &handle, &read_data_osc, &valid_data_osc) != 0) printf("Get Data Error");
+		if (OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT(data_osc, position, pre_trigger, read_analog, read_digital0, read_digital1, read_digital2, read_digital3) != 0) printf("Reconstruction Error");
+		e++;
+	}
+	printf("Download Finished");
+*/
+/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
+
+	
+	// Documentation and example on GitHub
+	// https://github.com/NuclearInstruments/scicompiler-wave-digitizer
+	//
+
+
+	FILE *fp_dgtz = NULL;
+
+	uint32_t status_list = 0;
+	uint32_t *data_list;
+	uint32_t read_data_list;
+	uint32_t valid_data_list;
+	uint32_t size_list;
+	int32_t timeout_list = 1000;
+	uint32_t ReadListNumber = 0;
+	int32_t TargetDataNumber;
+
+	//How many waves acquire (20)
+	uint32_t TargetWaveNumber = 20;
+	//Enable channels 1,2,3,4
+	uint32_t ChannelsEnable = 4;
+	//How many samples per wave (1000)
+	uint32_t WaveformLen = 2400;
+
+	size_list = (ChannelsEnable*WaveformLen + 10);
+	data_list = malloc(size_list * sizeof(uint32_t));
+	TargetDataNumber = size_list * TargetWaveNumber / 2;
+
+	//Set Digitizer wave Len
+	if (LISTMODULE_Digitizer_0_SetLen(&handle, WaveformLen) != 0) printf("Reset Error");
+
+	//Set Digitizer enabled channels and start acquisition
+	if (LISTMODULE_Digitizer_0_START(&handle, ChannelsEnable) != 0) printf("Start Error");
+	
+	//Dump Data and write on file
+	fopen_s(&fp_dgtz, "data.hex", "wb");
+	printf("Start download\n");
+	while (TargetDataNumber > 0) {
+		if (LISTMODULE_Digitizer_0_DOWNLOAD(data_list, size_list, timeout_list, &handle, &read_data_list, &valid_data_list) != 0) printf("Get Data Error");
+		if (valid_data_list > 0) {
+			fwrite(data_list, 4, valid_data_list, fp_dgtz);
+			printf("."); fflush(stdout);
+		}
+		TargetDataNumber -= valid_data_list;
+	}
+
+	fclose(fp_dgtz);
+	printf("Download Finished\n");
+*/
+/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
+
+	uint32_t status_frame = 0;
+	uint32_t N_Packet = 100;
+	uint32_t data_frame[100000];
+	uint32_t read_data_frame;
+	uint32_t valid_data_frame;
+	uint32_t valid_data_enqueued;
+
+	uint32_t N_Total_Events = 10000;
+	uint32_t ReadDataNumber = 0;
+	int32_t timeout_frame = 1000;
+	t_generic_event_collection decoded_packets;
+
+	//Configuration flag
+	int32_t FrameSync = 0;
+	int32_t	FrameWait = 0;
+	int32_t	FrameMask = 3;
+	int32_t	FrameExternalTrigger = 0;
+	int32_t	FrameOrTrigger = 1;
+
+	void *BufferDownloadHandler = NULL;
+	Utility_ALLOCATE_DOWNLOAD_BUFFER(&BufferDownloadHandler, 1024*1024);
+	printf("%x\n", BufferDownloadHandler);
+
+	if (CPACK_CP_0_RESET(&handle) != 0) printf("Reset Error");
+	if (CPACK_CP_0_START(&handle) != 0) printf("Start Error");
+	if (CPACK_CP_0_STATUS(&status_frame, &handle) != 0) printf("Status Error");
+	if (status_frame >0)
+	{
+		while (1)
+		{
+			valid_data_frame = 0;
+			if (CPACK_CP_0_DOWNLOAD(&data_frame, N_Packet * (<<<PACKET_SIZE_HERE_IN_WORK>>>), timeout_frame, &handle, &read_data_frame, &valid_data_frame) != 0) printf("Data Download Error");
+			
+			valid_data_enqueued = 0;
+			Utility_ENQUEUE_DATA_IN_DOWNLOAD_BUFFER(BufferDownloadHandler, data_frame, valid_data_frame, &valid_data_enqueued);
+
+			if (CPACK_CP_0_RECONSTRUCT_DATA(BufferDownloadHandler, &decoded_packets) == 0)
+			{
+				printf(".");
+				for (int i =0;i<decoded_packets.valid_packets;i++){
+				    t_CP_0_struct *data = decoded_packets.packets[i].payload;
+				    printf("%d\n", data->row[0]);
+				}
+				free_packet_collection(&decoded_packets);
+			}
+			ReadDataNumber = ReadDataNumber+ N_Packet;
+	}
+		printf("Download completed");
+	}
+	else printf("Status Error");
+
+*/
+
+
+	
+#else
+
+#endif
+
+	return 0;
+}
+
+ 
