@@ -14,7 +14,7 @@
 #define SCI_REG_gain 0x0000000C
 #define SCI_REG_ofs 0x0000000D
 #define SCI_REG_bl 0x0000000E
-#define SCI_REG_noflip0flip1 0x0000000F
+#define SCI_REG_reset 0x00021018
 #define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
 #define SCI_REG_Spectrum_0_FIFOADDRESS 0x10000
 #define SCI_REG_Spectrum_0_STATUS 0x20000
@@ -33,14 +33,14 @@
 #define SCI_REG_Oscilloscope_0_CONFIG_ARM 0x21005
 #define SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR 0x21006
 
-#define SCI_REG_Digitizer_0_FIFOADDRESS 0x21008
-#define SCI_REG_Digitizer_0_STATUS 0x21009
-#define SCI_REG_Digitizer_0_INFO 0x2100A
-#define SCI_REG_Digitizer_0_CONFIG 0x2100B
-#define SCI_REG_Digitizer_0_ACQ_LEN 0x2100C
-
 #define SCI_REG_CP_0_FIFOADDRESS 0x2100E
 #define SCI_REG_CP_0_READ_STATUS 0x2100F
 #define SCI_REG_CP_0_READ_VALID_WORDS 0x21010
 #define SCI_REG_CP_0_CONFIG 0x21011
+
+#define SCI_REG_Digitizer_1_FIFOADDRESS 0x21013
+#define SCI_REG_Digitizer_1_STATUS 0x21014
+#define SCI_REG_Digitizer_1_INFO 0x21015
+#define SCI_REG_Digitizer_1_CONFIG 0x21016
+#define SCI_REG_Digitizer_1_ACQ_LEN 0x21017
 
