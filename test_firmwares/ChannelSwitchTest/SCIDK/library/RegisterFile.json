@@ -107,8 +107,8 @@
       "Category": "Undefined"
     },
     {
-      "Name": "noflip0flip1",
-      "Address": 15,
+      "Name": "reset",
+      "Address": 135192,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
@@ -258,55 +258,6 @@
       "DecimatorMax": 0
     },
     {
-      "Name": "Digitizer_0",
-      "Type": "WaveDump",
-      "Address": 135176,
-      "Version": "1.1.0.0",
-      "bins": 0,
-      "CountsBit": 0,
-      "UseDMA": false,
-      "Registers": [
-        {
-          "Name": "STATUS",
-          "Address": 135177,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined"
-        },
-        {
-          "Name": "INFO",
-          "Address": 135178,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined"
-        },
-        {
-          "Name": "CONFIG",
-          "Address": 135179,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined"
-        },
-        {
-          "Name": "ACQ_LEN",
-          "Address": 135180,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined"
-        }
-      ],
-      "Channels": 2,
-      "ChannelsList": null,
-      "nsamples": 1024,
-      "WordSize": 0,
-      "WordEnob": 0,
-      "AnalogInputs": 0,
-      "DigitalInputs": 0,
-      "SamplingFrequency": 0,
-      "TimeMultiplexing": 0,
-      "DecimatorMax": 0
-    },
-    {
       "Name": "CP_0",
       "Type": "CustomPacket",
       "Address": 135182,
@@ -340,6 +291,55 @@
       "Channels": 0,
       "ChannelsList": null,
       "nsamples": 0,
+      "WordSize": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "Digitizer_1",
+      "Type": "WaveDump",
+      "Address": 135187,
+      "Version": "1.1.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Address": 135188,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "INFO",
+          "Address": 135189,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG",
+          "Address": 135190,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "ACQ_LEN",
+          "Address": 135191,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 4,
+      "ChannelsList": null,
+      "nsamples": 1024,
       "WordSize": 0,
       "WordEnob": 0,
       "AnalogInputs": 0,
