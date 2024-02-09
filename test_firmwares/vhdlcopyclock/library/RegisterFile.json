@@ -1,0 +1,11 @@
+{"Registers":[
+{
+  "Name": "ANALOG_OFFSET",
+  "Type": null,
+  "Address": 4294967289,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "AnalogAFE"
+}],
+"MMCComponents":[],"Device":"SCIDK","Project":"vhdlcopyclock"}

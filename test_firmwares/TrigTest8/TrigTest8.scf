@@ -38012,7 +38012,11 @@
   <Name>TrigTest8</Name>
   <Name_userside>TrigTest3</Name_userside>
   <CreationDate>5/19/2022 5:48:33 PM</CreationDate>
+<<<<<<< Updated upstream
   <LastEditDate>8/3/2023 2:37:54 PM</LastEditDate>
+=======
+  <LastEditDate>8/19/2022 1:02:23 PM</LastEditDate>
+>>>>>>> Stashed changes
   <AppVersion>2022.7.0.4</AppVersion>
   <PrjFolder>C:\Users\hellmala\Documents\GitHub\NaI_Array_Firmware\test_firmwares</PrjFolder>
   <PrjTarget>SCIDK</PrjTarget>
