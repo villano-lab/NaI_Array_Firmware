@@ -5,7 +5,7 @@
        <MODEL>A</MODEL>
    </SUPPORTED_PLATFORM>
    <FPGA>
-       <version>2024.02.08.</version>
+       <version>2024.02.09.</version>
        <filename>top_vhdlclock.bin</filename>
    </FPGA>
    <HWJSON>
