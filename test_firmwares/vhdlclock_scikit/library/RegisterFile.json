@@ -1,0 +1,190 @@
+{"Registers":[
+{
+  "Name": "counts",
+  "Type": null,
+  "Address": 0,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "greater",
+  "Type": null,
+  "Address": 1,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "Tx_Done",
+  "Type": null,
+  "Address": 2,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "Tx_Done_Ever",
+  "Type": null,
+  "Address": 3,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "FM_Out",
+  "Type": null,
+  "Address": 4,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "to_encode",
+  "Type": null,
+  "Address": 5,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "timing",
+  "Type": null,
+  "Address": 6,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "reset",
+  "Type": null,
+  "Address": 7,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gate",
+  "Type": null,
+  "Address": 4103,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "freq",
+  "Type": null,
+  "Address": 131072,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ANALOG_OFFSET",
+  "Type": null,
+  "Address": 4294967289,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "AnalogAFE"
+}],
+"MMCComponents":[
+{
+  "Name": "Oscilloscope_1",
+  "Type": "Oscilloscope",
+  "Address": 2048,
+  "Version": "1.0.0.0",
+  "Registers": [
+    {
+      "Name": "READ_STATUS",
+      "Type": "Register",
+      "Address": 4096,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "READ_POSITION",
+      "Type": "Register",
+      "Address": 4097,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_MODE",
+      "Type": "Register",
+      "Address": 4098,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_PRETRIGGER",
+      "Type": "Register",
+      "Address": 4099,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_LEVEL",
+      "Type": "Register",
+      "Address": 4100,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_ARM",
+      "Type": "Register",
+      "Address": 4101,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_DECIMATOR",
+      "Type": "Register",
+      "Address": 4102,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "nsamples": 1024,
+  "Channels": 2,
+  "WordSize": 16,
+  "WordEnob": 16,
+  "AnalogInputs": 1,
+  "DigitalInputs": 4,
+  "SamplingFrequency": 0,
+  "TimeMultiplexing": 1,
+  "DecimatorMax": 0,
+  "DecimatorAveraging": false
+},
+{
+  "Name": "RateMeter_0",
+  "Type": "MCRateMeter",
+  "Address": 65536,
+  "Version": "1.0.0.0",
+  "Channels": 2,
+  "Registers": []
+}],"Device":"SCIDK","Project":"vhdlclock_scikit"}
