@@ -364,6 +364,14 @@ SCILIB int REG_freq_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_freq, handle);
 }
+SCILIB int REG_l1inout_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_l1inout, handle);
+}
+SCILIB int REG_l1inout_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_l1inout, handle);
+}
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_ANALOG_OFFSET, handle);

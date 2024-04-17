@@ -143,6 +143,14 @@ def REG_freq_GET(handle):
 def REG_freq_SET(data, handle):
     err = __abstracted_reg_write(data, vhdlclock_scikit_RegisterFile.SCI_REG_freq, handle)
     return err
+
+def REG_l1inout_GET(handle):
+    [err, data] = __abstracted_reg_read(vhdlclock_scikit_RegisterFile.SCI_REG_l1inout, handle)
+    return err, data
+
+def REG_l1inout_SET(data, handle):
+    err = __abstracted_reg_write(data, vhdlclock_scikit_RegisterFile.SCI_REG_l1inout, handle)
+    return err
 def REG_ANALOG_OFFSET_SET(data, handle):
     err = __abstracted_reg_write(data, vhdlclock_scikit_RegisterFile.SCI_REG_ANALOG_OFFSET, handle)
     return err

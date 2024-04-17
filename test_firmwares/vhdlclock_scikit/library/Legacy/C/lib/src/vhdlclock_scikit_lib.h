@@ -122,6 +122,8 @@ SCILIB int REG_gate_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_gate_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_freq_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_freq_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_l1inout_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_l1inout_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle);
 //-----------------------------------------------------------------
 //-

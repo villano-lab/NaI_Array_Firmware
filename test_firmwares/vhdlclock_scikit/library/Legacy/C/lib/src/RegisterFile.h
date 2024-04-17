@@ -9,6 +9,7 @@
 #define SCI_REG_reset 0x00000007
 #define SCI_REG_gate 0x00001007
 #define SCI_REG_freq 0x00020000
+#define SCI_REG_l1inout 0x00020001
 #define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
 #define SCI_REG_Oscilloscope_1_FIFOADDRESS 0x800
 #define SCI_REG_Oscilloscope_1_READ_STATUS 0x1000
