@@ -2,71 +2,50 @@
   "Device": "SCIDK",
   "Registers": [
     {
-      "Name": "ratereset",
-      "Address": 69639,
+      "Name": "Tx_Done_Ever",
+      "Address": 139278,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "gate_l",
-      "Address": 69640,
+      "Name": "reset",
+      "Address": 139277,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "gate_u",
-      "Address": 69641,
+      "Name": "timestamp",
+      "Address": 139279,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "polarity",
-      "Address": 69642,
+      "Name": "trigger_code",
+      "Address": 393222,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "thrsh",
-      "Address": 69643,
+      "Name": "trigger_code",
+      "Address": 393222,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "inhib",
-      "Address": 69644,
+      "Name": "tc_nonzero",
+      "Address": 393223,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
     },
     {
-      "Name": "delay",
-      "Address": 69645,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "top",
-      "Address": 69646,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "disable_A",
-      "Address": 69647,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "disable_B",
-      "Address": 69648,
+      "Name": "unequal",
+      "Address": 393239,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
@@ -79,86 +58,656 @@
       "Category": "AnalogAFE"
     }
   ],
-  "Version": 0.0,
+  "Version": null,
   "GenerationData": "0001-01-01T00:00:00",
   "MMCComponents": [
     {
+      "Name": "disable_det",
+      "Type": "MultiChannelRegister",
+      "Address": 131077,
+      "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "CH0",
+          "Address": 131078,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CH1",
+          "Address": 131079,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "thrsh",
+      "Type": "MultiChannelRegister",
+      "Address": 131073,
+      "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "CH0",
+          "Address": 131074,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CH1",
+          "Address": 131075,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "top",
+      "Type": "MultiChannelRegister",
+      "Address": 131081,
+      "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "CH0",
+          "Address": 131082,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CH1",
+          "Address": 131083,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "base",
+      "Type": "MultiChannelRegister",
+      "Address": 4,
+      "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "CH0",
+          "Address": 5,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CH1",
+          "Address": 6,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
       "Name": "RateMeter_0",
       "Type": "MCRateMeter",
-      "Address": 0,
+      "Address": 65536,
       "Version": "1.0.0.0",
-      "WordSize": 0,
-      "nsamples": 0,
       "bins": 0,
       "CountsBit": 0,
       "UseDMA": false,
       "Registers": [],
       "Channels": 1,
-      "ChannelsList": null
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
     },
     {
-      "Name": "Oscilloscope_0",
-      "Type": "Oscilloscope",
-      "Address": 67584,
+      "Name": "trig",
+      "Type": "RegisterFile",
+      "Address": 8,
       "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "polarity",
+          "Address": 9,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "inhib",
+          "Address": 10,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "gate_l",
+          "Address": 11,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "gate_u",
+          "Address": 12,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "delay",
+          "Address": 13,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
       "WordSize": 0,
-      "nsamples": 1024,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "trig",
+      "Type": "RegisterFile",
+      "Address": 8,
+      "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "polarity",
+          "Address": 9,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "inhib",
+          "Address": 10,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "gate_l",
+          "Address": 11,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "gate_u",
+          "Address": 12,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "delay",
+          "Address": 13,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "int",
+      "Type": "RegisterFile",
+      "Address": 0,
+      "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "time",
+          "Address": 1,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "pre",
+          "Address": 2,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "Oscilloscope_1",
+      "Type": "Oscilloscope",
+      "Address": 135168,
+      "Version": "1.0.0.0",
       "bins": 0,
       "CountsBit": 0,
       "UseDMA": false,
       "Registers": [
         {
           "Name": "READ_STATUS",
-          "Address": 69632,
+          "Address": 139264,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
         },
         {
           "Name": "READ_POSITION",
-          "Address": 69633,
+          "Address": 139265,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
         },
         {
           "Name": "CONFIG_TRIGGER_MODE",
-          "Address": 69634,
+          "Address": 139266,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
         },
         {
           "Name": "CONFIG_PRETRIGGER",
-          "Address": 69635,
+          "Address": 139267,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
         },
         {
           "Name": "CONFIG_TRIGGER_LEVEL",
-          "Address": 69636,
+          "Address": 139268,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
         },
         {
           "Name": "CONFIG_ARM",
-          "Address": 69637,
+          "Address": 139269,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
         },
         {
           "Name": "CONFIG_DECIMATOR",
-          "Address": 69638,
+          "Address": 139270,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
         }
       ],
-      "Channels": 2,
-      "ChannelsList": null
+      "Channels": 3,
+      "ChannelsList": null,
+      "nsamples": 1024,
+      "WordSize": 16,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 16,
+      "AnalogInputs": 1,
+      "DigitalInputs": 4,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 1,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "Spectrum_0",
+      "Type": "Spectrum",
+      "Address": 196608,
+      "Version": "1.0.1.0",
+      "bins": 1024,
+      "CountsBit": 32,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Address": 262144,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG",
+          "Address": 262145,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_LIMIT",
+          "Address": 262146,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_REBIN",
+          "Address": 262147,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_MIN",
+          "Address": 262148,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_MAX",
+          "Address": 262149,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "Spectrum_1",
+      "Type": "Spectrum",
+      "Address": 327680,
+      "Version": "1.0.1.0",
+      "bins": 1024,
+      "CountsBit": 32,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Address": 393216,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG",
+          "Address": 393217,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_LIMIT",
+          "Address": 393218,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_REBIN",
+          "Address": 393219,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_MIN",
+          "Address": 393220,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_MAX",
+          "Address": 393221,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "diag",
+      "Type": "RegisterFile",
+      "Address": 393225,
+      "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "greater",
+          "Address": 393226,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "Tx_Done",
+          "Address": 393227,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "FM_Out",
+          "Address": 393228,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "to_encode",
+          "Address": 393229,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "timing",
+          "Address": 393230,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "full",
+          "Address": 393231,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "counts",
+          "Address": 393232,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "wmtest",
+          "Address": 393233,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "All_Energies",
+      "Type": "CustomPacket",
+      "Address": 393235,
+      "Version": "1.1.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Address": 393236,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "READ_VALID_WORDS",
+          "Address": 393237,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG",
+          "Address": 393238,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
     }
   ]
 }

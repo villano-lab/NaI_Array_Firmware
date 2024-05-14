@@ -4,6 +4,12 @@
 
 
 
+
+
+
+
+
+
 import R76Replica_RegisterFile
 from ctypes import *
 import array
@@ -64,84 +70,52 @@ def __abstracted_fifo_read(count, address, address_status, blocking, timeout_ms,
     return err, data, read_data, valid_data 	
 	
 
-def REG_ratereset_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_ratereset, handle)
+def REG_reset_GET(handle):
+    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_reset, handle)
     return err, data
 
-def REG_ratereset_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_ratereset, handle)
+def REG_reset_SET(data, handle):
+    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_reset, handle)
     return err
 
-def REG_gate_l_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_gate_l, handle)
+def REG_Tx_Done_Ever_GET(handle):
+    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_Tx_Done_Ever, handle)
     return err, data
 
-def REG_gate_l_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_gate_l, handle)
+def REG_Tx_Done_Ever_SET(data, handle):
+    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_Tx_Done_Ever, handle)
     return err
 
-def REG_gate_u_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_gate_u, handle)
+def REG_timestamp_GET(handle):
+    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_timestamp, handle)
     return err, data
 
-def REG_gate_u_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_gate_u, handle)
+def REG_timestamp_SET(data, handle):
+    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_timestamp, handle)
     return err
 
-def REG_polarity_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_polarity, handle)
+def REG_trigger_code_GET(handle):
+    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_trigger_code, handle)
     return err, data
 
-def REG_polarity_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_polarity, handle)
+def REG_trigger_code_SET(data, handle):
+    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_trigger_code, handle)
     return err
 
-def REG_thrsh_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_thrsh, handle)
+def REG_tc_nonzero_GET(handle):
+    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_tc_nonzero, handle)
     return err, data
 
-def REG_thrsh_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_thrsh, handle)
+def REG_tc_nonzero_SET(data, handle):
+    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_tc_nonzero, handle)
     return err
 
-def REG_inhib_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_inhib, handle)
+def REG_unequal_GET(handle):
+    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_unequal, handle)
     return err, data
 
-def REG_inhib_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_inhib, handle)
-    return err
-
-def REG_delay_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_delay, handle)
-    return err, data
-
-def REG_delay_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_delay, handle)
-    return err
-
-def REG_top_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_top, handle)
-    return err, data
-
-def REG_top_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_top, handle)
-    return err
-
-def REG_disable_A_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_disable_A, handle)
-    return err, data
-
-def REG_disable_A_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_disable_A, handle)
-    return err
-
-def REG_disable_B_GET(handle):
-    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_disable_B, handle)
-    return err, data
-
-def REG_disable_B_SET(data, handle):
-    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_disable_B, handle)
+def REG_unequal_SET(data, handle):
+    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_unequal, handle)
     return err
 def REG_ANALOG_OFFSET_SET(data, handle):
     err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_ANALOG_OFFSET, handle)
@@ -163,28 +137,28 @@ def RATE_METER_RateMeter_0_GET_DATA_COUNTS(channels, timeout_ms, handle):
 
 
 
-def OSCILLOSCOPE_Oscilloscope_0_START(handle):
-    err = __abstracted_reg_write(0, R76Replica_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_ARM, handle)
+def OSCILLOSCOPE_Oscilloscope_1_START(handle):
+    err = __abstracted_reg_write(0, R76Replica_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_ARM, handle)
     if (err != 0):
        return False
-    err = __abstracted_reg_write(1, R76Replica_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_ARM, handle)
+    err = __abstracted_reg_write(1, R76Replica_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_ARM, handle)
     if (err != 0):
        return False
     return True
 
-def OSCILLOSCOPE_Oscilloscope_0_SET_DECIMATOR(OscilloscopeDecimator, handle):
-    err = __abstracted_reg_write(OscilloscopeDecimator, R76Replica_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR, handle)
+def OSCILLOSCOPE_Oscilloscope_1_SET_DECIMATOR(OscilloscopeDecimator, handle):
+    err = __abstracted_reg_write(OscilloscopeDecimator, R76Replica_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR, handle)
     return err
 
-def OSCILLOSCOPE_Oscilloscope_0_SET_PRETRIGGER(OscilloscopePreTrigger, handle):
-    err = __abstracted_reg_write(OscilloscopePreTrigger, R76Replica_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_PRETRIGGER, handle)
+def OSCILLOSCOPE_Oscilloscope_1_SET_PRETRIGGER(OscilloscopePreTrigger, handle):
+    err = __abstracted_reg_write(OscilloscopePreTrigger, R76Replica_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_PRETRIGGER, handle)
     return err
 
-def OSCILLOSCOPE_Oscilloscope_0_SET_TRIGGER_LEVEL(OscilloscopeTriggerLevel, handle):
-    err = __abstracted_reg_write(OscilloscopeTriggerLevel, R76Replica_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_LEVEL, handle)
+def OSCILLOSCOPE_Oscilloscope_1_SET_TRIGGER_LEVEL(OscilloscopeTriggerLevel, handle):
+    err = __abstracted_reg_write(OscilloscopeTriggerLevel, R76Replica_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_LEVEL, handle)
     return err
 
-def OSCILLOSCOPE_Oscilloscope_0_SET_TRIGGER_MODE(OscilloscopeTriggerMode, OscilloscopeTriggerChannel, OscilloscopeTriggerEdge, handle):
+def OSCILLOSCOPE_Oscilloscope_1_SET_TRIGGER_MODE(OscilloscopeTriggerMode, OscilloscopeTriggerChannel, OscilloscopeTriggerEdge, handle):
     AnalogTrigger = 0
     Digital0Trigger = 0
     Digital1Trigger = 0
@@ -209,23 +183,23 @@ def OSCILLOSCOPE_Oscilloscope_0_SET_TRIGGER_MODE(OscilloscopeTriggerMode, Oscill
         Edge = 1
     triggermode = c_int(0)
     triggermode = (OscilloscopeTriggerChannel << 8)  + (SoftwareTrigger << 7 ) + (Edge << 3) + (SoftwareTrigger << 1) + AnalogTrigger +(Digital0Trigger << 2) + (Digital1Trigger << 2) + Digital1Trigger + (Digital2Trigger << 2) + (Digital2Trigger << 1) + (Digital3Trigger << 2) + (Digital3Trigger << 1) + Digital3Trigger
-    err = __abstracted_reg_write(triggermode, R76Replica_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_MODE, handle)
+    err = __abstracted_reg_write(triggermode, R76Replica_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_MODE, handle)
     return err
 
-def OSCILLOSCOPE_Oscilloscope_0_GET_STATUS(handle):
-    [err, status] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_Oscilloscope_0_READ_STATUS, handle)
+def OSCILLOSCOPE_Oscilloscope_1_GET_STATUS(handle):
+    [err, status] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_Oscilloscope_1_READ_STATUS, handle)
     return err, status
 
-def OSCILLOSCOPE_Oscilloscope_0_GET_POSITION(handle):
-    [err, position] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_Oscilloscope_0_READ_POSITION, handle)
+def OSCILLOSCOPE_Oscilloscope_1_GET_POSITION(handle):
+    [err, position] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_Oscilloscope_1_READ_POSITION, handle)
     return err, position
 
-def OSCILLOSCOPE_Oscilloscope_0_GET_DATA(timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(2048, R76Replica_RegisterFile.SCI_REG_Oscilloscope_0_FIFOADDRESS, timeout_ms, handle)
+def OSCILLOSCOPE_Oscilloscope_1_GET_DATA(timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(3072, R76Replica_RegisterFile.SCI_REG_Oscilloscope_1_FIFOADDRESS, timeout_ms, handle)
     return err, data, read_data, valid_data
 
-def OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopePosition, OscilloscopePreTrigger):
-    OscilloscopeChannels = 2
+def OSCILLOSCOPE_Oscilloscope_1_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopePosition, OscilloscopePreTrigger):
+    OscilloscopeChannels = 3
     OscilloscopeSamples = 1024
     Analog = list(range(OscilloscopeSamples*OscilloscopeChannels))
     Digital0 = list(range(OscilloscopeSamples*OscilloscopeChannels))
@@ -267,4 +241,182 @@ def OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopeP
                 Digital3[k+ OscilloscopeSamples * n] = (OscilloscopeData[i+ OscilloscopeSamples * n] >> 19 & 1)
                 k = k + 1
     return Analog, Digital0, Digital1,Digital2, Digital3
+
+
+
+def SPECTRUM_Spectrum_0_RESET(handle):
+    err = __abstracted_reg_write(2, R76Replica_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_START(handle):
+    err = __abstracted_reg_write(4, R76Replica_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_FLUSH(handle):
+    err = __abstracted_reg_write(1, R76Replica_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_STOP(handle):
+    err = __abstracted_reg_write(0, R76Replica_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_SET_PARAMETERS(Bin, AcquisitionMode, TargetValue, handle):
+    rebin_value=0
+    if (Bin == 8192):
+        rebin_value= 1
+    if (Bin == 4096):
+        rebin_value= 2
+    if (Bin == 2048):
+        rebin_value= 3
+    if (Bin == 1024):
+        rebin_value= 4
+    if (Bin == 512):
+        rebin_value= 5
+    if (Bin == 256):
+        rebin_value= 6
+    if (Bin == 128):
+        rebin_value= 7
+    err = __abstracted_reg_write(rebin_value, R76Replica_RegisterFile.SCI_REG_Spectrum_0_CONFIG_REBIN, handle)
+    acq_mode=0
+    if (AcquisitionMode =="Event"):
+        acq_mode=(1 << 30) + TargetValue
+    if (AcquisitionMode =="Time"):
+        acq_mode=(1 << 31) + TargetValue*1000
+    err = __abstracted_reg_write(acq_mode, R76Replica_RegisterFile.SCI_REG_Spectrum_0_CONFIG_LIMIT, handle)
+    return err
+
+def SPECTRUM_Spectrum_0_GET_STATUS(handle):
+    [err, status] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_Spectrum_0_STATUS, handle)
+    return err, status
+
+def SPECTRUM_Spectrum_0_GET_DATA(Bin, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(Bin, R76Replica_RegisterFile.SCI_REG_Spectrum_0_FIFOADDRESS, timeout_ms, handle)
+    return err, data, read_data, valid_data
+
+
+
+def SPECTRUM_Spectrum_1_RESET(handle):
+    err = __abstracted_reg_write(2, R76Replica_RegisterFile.SCI_REG_Spectrum_1_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_START(handle):
+    err = __abstracted_reg_write(4, R76Replica_RegisterFile.SCI_REG_Spectrum_1_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_FLUSH(handle):
+    err = __abstracted_reg_write(1, R76Replica_RegisterFile.SCI_REG_Spectrum_1_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_STOP(handle):
+    err = __abstracted_reg_write(0, R76Replica_RegisterFile.SCI_REG_Spectrum_1_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_SET_PARAMETERS(Bin, AcquisitionMode, TargetValue, handle):
+    rebin_value=0
+    if (Bin == 8192):
+        rebin_value= 1
+    if (Bin == 4096):
+        rebin_value= 2
+    if (Bin == 2048):
+        rebin_value= 3
+    if (Bin == 1024):
+        rebin_value= 4
+    if (Bin == 512):
+        rebin_value= 5
+    if (Bin == 256):
+        rebin_value= 6
+    if (Bin == 128):
+        rebin_value= 7
+    err = __abstracted_reg_write(rebin_value, R76Replica_RegisterFile.SCI_REG_Spectrum_1_CONFIG_REBIN, handle)
+    acq_mode=0
+    if (AcquisitionMode =="Event"):
+        acq_mode=(1 << 30) + TargetValue
+    if (AcquisitionMode =="Time"):
+        acq_mode=(1 << 31) + TargetValue*1000
+    err = __abstracted_reg_write(acq_mode, R76Replica_RegisterFile.SCI_REG_Spectrum_1_CONFIG_LIMIT, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_GET_STATUS(handle):
+    [err, status] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_Spectrum_1_STATUS, handle)
+    return err, status
+
+def SPECTRUM_Spectrum_1_GET_DATA(Bin, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(Bin, R76Replica_RegisterFile.SCI_REG_Spectrum_1_FIFOADDRESS, timeout_ms, handle)
+    return err, data, read_data, valid_data
+
+
+
+
+def CPACK_All_Energies_RESET(handle):
+	err = __abstracted_reg_write(2, R76Replica_RegisterFile.SCI_REG_All_Energies_CONFIG, handle)
+	err = __abstracted_reg_write(0, R76Replica_RegisterFile.SCI_REG_All_Energies_CONFIG, handle)
+	return err
+
+def CPACK_All_Energies_FLUSH(handle):
+	err = __abstracted_reg_write(4, R76Replica_RegisterFile.SCI_REG_All_Energies_CONFIG, handle)
+	err = __abstracted_reg_write(0, R76Replica_RegisterFile.SCI_REG_All_Energies_CONFIG, handle)
+	return err
+
+def CPACK_All_Energies_START(handle):
+	err = __abstracted_reg_write(2, R76Replica_RegisterFile.SCI_REG_All_Energies_CONFIG, handle)
+	if (err != 0):
+	   return False
+	err = __abstracted_reg_write(0, R76Replica_RegisterFile.SCI_REG_All_Energies_CONFIG, handle)
+	if (err != 0):
+	   return False
+	err = __abstracted_reg_write(1, R76Replica_RegisterFile.SCI_REG_All_Energies_CONFIG, handle)
+	if (err != 0):
+	   return False
+	return True
+
+def CPACK_All_Energies_GET_STATUS(handle):
+	[err, status] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_All_Energies_READ_STATUS, handle)
+	status = status & 0xf
+	return err, status
+
+def CPACK_All_Energies_GET_AVAILABLE_DATA(handle):
+	[err, status] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_All_Energies_READ_VALID_WORDS, handle)
+	return err, status
+
+def CPACK_All_Energies_GET_DATA(n_packet, timeout_ms, handle):
+	data_length = n_packet *( 3 + <<<NUMBER OF PACKET LINES AFTER THE HEADER HERE>>>)
+	[err, data, read_data, valid_data] = __abstracted_fifo_read(data_length, R76Replica_RegisterFile.SCI_REG_All_Energies_FIFOADDRESS, R76Replica_RegisterFile.SCI_REG_All_Energies_READ_STATUS, True, timeout_ms, handle)
+	return err, data, read_data, valid_data
+
+
+def CPACK_All_Energies_RECONSTRUCT_DATA(FrameData):
+	in_sync = 0
+	tot_data = len(FrameData)
+	n_ch = <<<NUMBER OF PACKET LINES AFTER THE HEADER HERE>>>
+	n_packet = tot_data / (n_ch + 3)
+	event_energy, Time_Code, Pack_Id, Energy = ([] for i in range(4))
+	for i in range(len(FrameData)):
+		mpe = FrameData[i]
+		if (in_sync == 0):
+			if (mpe != 0x<<<YOUR HEADER HERE>>>):
+				continue
+			in_sync = 1
+			continue
+		if (in_sync == 1):
+			event_timecode = mpe 
+			Time_Code.append(event_timecode)
+			in_sync = 2
+			continue
+		if (in_sync == 2):
+			Pack_Id.append(mpe)
+			in_sync = 3
+			ch_index = 0
+			continue
+		if (in_sync == 3):
+			if (mpe == 0x<<<YOUR HEADER HERE>>>):
+				in_sync = 1
+			else:
+				ev_energy = mpe
+				event_energy.append(ev_energy)
+				ch_index += 1
+				if (ch_index == n_ch):
+					Energy.append(event_energy)
+					event_energy = []
+					in_sync = 0
+	return Time_Code, Pack_Id, Energy
 
