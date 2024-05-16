@@ -1,3 +1,9 @@
 name;type;address;value
-trig_polarity;Decimal;9;1
-reset;Decimal;2200D;1
+reset;Decimal;62019;1
+top_CH0;Decimal;62009;10000000
+thrsh_CH0;Decimal;60008;14300
+trig_polarity;Decimal;1;1
+trig_gate_l;Decimal;3;10
+trig_delay;Decimal;5;20
+int_time;Decimal;6000C;100
+diag_to_encode;Hexadecimal;62010;14a
