@@ -1,10 +1,10 @@
 #define SCI_REG_ALL_FIFO_RESET 0xFFFFF908
-#define SCI_REG_unequal 0x00062015
-#define SCI_REG_tc_nonzero 0x00062016
-#define SCI_REG_trigger_code 0x00062017
-#define SCI_REG_timestamp 0x00062018
-#define SCI_REG_reset 0x00062019
-#define SCI_REG_timestamp2 0x0006201A
+#define SCI_REG_unequal 0x0006200B
+#define SCI_REG_tc_nonzero 0x0006200C
+#define SCI_REG_trigger_code 0x0006200D
+#define SCI_REG_timestamp 0x0006200E
+#define SCI_REG_reset 0x0006200F
+#define SCI_REG_timestamp2 0x00062010
 #define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
 #define SCI_REG_disable_det_CH0 0x60010
 #define SCI_REG_disable_det_CH1 0x60011
@@ -45,20 +45,6 @@
 #define SCI_REG_Spectrum_1_CONFIG_MIN 0x60004
 #define SCI_REG_Spectrum_1_CONFIG_MAX 0x60005
 
-#define SCI_REG_diag_greater 0x6200D
-#define SCI_REG_diag_Tx_Done 0x6200E
-#define SCI_REG_diag_FM_Out 0x6200F
-#define SCI_REG_diag_to_encode 0x62010
-#define SCI_REG_diag_timing 0x62011
-#define SCI_REG_diag_full 0x62012
-#define SCI_REG_diag_counts 0x62013
-#define SCI_REG_diag_wmtest 0x62014
-
-#define SCI_REG_All_Energies_FIFOADDRESS 0x60017
-#define SCI_REG_All_Energies_READ_STATUS 0x60018
-#define SCI_REG_All_Energies_READ_VALID_WORDS 0x60019
-#define SCI_REG_All_Energies_CONFIG 0x6001A
-
 #define SCI_REG_Oscilloscope_1_FIFOADDRESS 0x61000
 #define SCI_REG_Oscilloscope_1_READ_STATUS 0x62000
 #define SCI_REG_Oscilloscope_1_READ_POSITION 0x62001
@@ -68,8 +54,21 @@
 #define SCI_REG_Oscilloscope_1_CONFIG_ARM 0x62005
 #define SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR 0x62006
 
-#define SCI_REG_diag_time_lower 0x6201D
-#define SCI_REG_diag_time_upper 0x6201E
-#define SCI_REG_diag_time_full 0x6201F
-#define SCI_REG_diag_time_normal 0x62020
+#define SCI_REG_diag_time_lower 0x62013
+#define SCI_REG_diag_time_upper 0x62014
+#define SCI_REG_diag_time_full 0x62015
+#define SCI_REG_diag_time_normal 0x62016
+
+#define SCI_REG_diag_greater 0x62019
+#define SCI_REG_diag_FM_Out 0x6201A
+#define SCI_REG_diag_to_encode 0x6201B
+#define SCI_REG_diag_timing 0x6201C
+#define SCI_REG_diag_full 0x6201D
+#define SCI_REG_diag_counts 0x6201E
+#define SCI_REG_diag_debug 0x6201F
+
+#define SCI_REG_All_Energies_FIFOADDRESS 0x62021
+#define SCI_REG_All_Energies_READ_STATUS 0x62022
+#define SCI_REG_All_Energies_READ_VALID_WORDS 0x62023
+#define SCI_REG_All_Energies_CONFIG 0x62024
 

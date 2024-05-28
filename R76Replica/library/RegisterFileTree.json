@@ -365,205 +365,6 @@
       "Path": "/Spectrum_1"
     },
     {
-      "Name": "diag",
-      "Type": "RegisterFile",
-      "Address": 401420,
-      "Version": "1.0.0.0",
-      "Registers": [
-        {
-          "Name": "greater",
-          "Type": "Register",
-          "Address": 401421,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "Tx_Done",
-          "Type": "Register",
-          "Address": 401422,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "FM_Out",
-          "Type": "Register",
-          "Address": 401423,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "to_encode",
-          "Type": "Register",
-          "Address": 401424,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "timing",
-          "Type": "Register",
-          "Address": 401425,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "full",
-          "Type": "Register",
-          "Address": 401426,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "counts",
-          "Type": "Register",
-          "Address": 401427,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "wmtest",
-          "Type": "Register",
-          "Address": 401428,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        }
-      ],
-      "Path": "/diag"
-    },
-    {
-      "Name": "All_Energies",
-      "Type": "CustomPacket",
-      "Address": 393239,
-      "Version": "1.1.0.0",
-      "Channels": 0,
-      "Registers": [
-        {
-          "Name": "READ_STATUS",
-          "Type": null,
-          "Address": 393240,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        },
-        {
-          "Name": "READ_VALID_WORDS",
-          "Type": null,
-          "Address": 393241,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        },
-        {
-          "Name": "CONFIG",
-          "Type": null,
-          "Address": 393242,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        }
-      ],
-      "UseDMA": false,
-      "listOfWord": [
-        {
-          "PioWE": [
-            {
-              "Type": "Constant",
-              "Signal": "80000000",
-              "BitStart": 0,
-              "BitStop": 31,
-              "SliceStart": 31,
-              "SliceStop": 0,
-              "Value": "80000000",
-              "ValueFormat": "Hex"
-            }
-          ]
-        },
-        {
-          "PioWE": [
-            {
-              "Type": "Input",
-              "Signal": "IN_1",
-              "BitStart": 0,
-              "BitStop": 31,
-              "SliceStart": 31,
-              "SliceStop": 0,
-              "Value": "IN_1",
-              "ValueFormat": ""
-            }
-          ]
-        },
-        {
-          "PioWE": [
-            {
-              "Type": "Input",
-              "Signal": "IN_2",
-              "BitStart": 0,
-              "BitStop": 31,
-              "SliceStart": 31,
-              "SliceStop": 0,
-              "Value": "IN_2",
-              "ValueFormat": ""
-            }
-          ]
-        },
-        {
-          "PioWE": [
-            {
-              "Type": "Input",
-              "Signal": "IN_3",
-              "BitStart": 0,
-              "BitStop": 15,
-              "SliceStart": 15,
-              "SliceStop": 0,
-              "Value": "IN_3",
-              "ValueFormat": ""
-            },
-            {
-              "Type": "Input",
-              "Signal": "IN_4",
-              "BitStart": 16,
-              "BitStop": 31,
-              "SliceStart": 15,
-              "SliceStop": 0,
-              "Value": "IN_4",
-              "ValueFormat": ""
-            }
-          ]
-        }
-      ],
-      "BufferLength": 32768,
-      "Path": "/All_Energies"
-    },
-    {
       "Name": "Oscilloscope_1",
       "Type": "Oscilloscope",
       "Address": 397312,
@@ -655,13 +456,13 @@
     {
       "Name": "diag_time",
       "Type": "RegisterFile",
-      "Address": 401436,
+      "Address": 401426,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "lower",
           "Type": "Register",
-          "Address": 401437,
+          "Address": 401427,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -671,7 +472,7 @@
         {
           "Name": "upper",
           "Type": "Register",
-          "Address": 401438,
+          "Address": 401428,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -681,7 +482,7 @@
         {
           "Name": "full",
           "Type": "Register",
-          "Address": 401439,
+          "Address": 401429,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -691,7 +492,7 @@
         {
           "Name": "normal",
           "Type": "Register",
-          "Address": 401440,
+          "Address": 401430,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -702,9 +503,208 @@
       "Path": "/diag_time"
     },
     {
+      "Name": "diag",
+      "Type": "RegisterFile",
+      "Address": 401432,
+      "Version": "1.0.0.0",
+      "Registers": [
+        {
+          "Name": "greater",
+          "Type": "Register",
+          "Address": 401433,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "FM_Out",
+          "Type": "Register",
+          "Address": 401434,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "to_encode",
+          "Type": "Register",
+          "Address": 401435,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "timing",
+          "Type": "Register",
+          "Address": 401436,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "full",
+          "Type": "Register",
+          "Address": 401437,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "counts",
+          "Type": "Register",
+          "Address": 401438,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "debug",
+          "Type": "Register",
+          "Address": 401439,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        }
+      ],
+      "Path": "/diag"
+    },
+    {
+      "Name": "All_Energies",
+      "Type": "CustomPacket",
+      "Address": 401441,
+      "Version": "1.1.0.0",
+      "Channels": 0,
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Type": null,
+          "Address": 401442,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "READ_VALID_WORDS",
+          "Type": null,
+          "Address": 401443,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 401444,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "UseDMA": false,
+      "listOfWord": [
+        {
+          "PioWE": [
+            {
+              "Type": "Constant",
+              "Signal": "80000000",
+              "BitStart": 0,
+              "BitStop": 31,
+              "SliceStart": 31,
+              "SliceStop": 0,
+              "Value": "80000000",
+              "ValueFormat": "Hex"
+            }
+          ]
+        },
+        {
+          "PioWE": [
+            {
+              "Type": "Input",
+              "Signal": "IN_1",
+              "BitStart": 0,
+              "BitStop": 31,
+              "SliceStart": 31,
+              "SliceStop": 0,
+              "Value": "IN_1",
+              "ValueFormat": ""
+            }
+          ]
+        },
+        {
+          "PioWE": [
+            {
+              "Type": "Input",
+              "Signal": "IN_2",
+              "BitStart": 0,
+              "BitStop": 15,
+              "SliceStart": 15,
+              "SliceStop": 0,
+              "Value": "IN_2",
+              "ValueFormat": ""
+            },
+            {
+              "Type": "Constant",
+              "Signal": "c001",
+              "BitStart": 16,
+              "BitStop": 31,
+              "SliceStart": 15,
+              "SliceStop": 0,
+              "Value": "c001",
+              "ValueFormat": "Hex"
+            }
+          ]
+        },
+        {
+          "PioWE": [
+            {
+              "Type": "Input",
+              "Signal": "IN_3",
+              "BitStart": 0,
+              "BitStop": 15,
+              "SliceStart": 15,
+              "SliceStop": 0,
+              "Value": "IN_3",
+              "ValueFormat": ""
+            },
+            {
+              "Type": "Input",
+              "Signal": "IN_4",
+              "BitStart": 16,
+              "BitStop": 31,
+              "SliceStart": 15,
+              "SliceStop": 0,
+              "Value": "IN_4",
+              "ValueFormat": ""
+            }
+          ]
+        }
+      ],
+      "BufferLength": 32768,
+      "Path": "/All_Energies"
+    },
+    {
       "Name": "reset",
       "Type": "Register",
-      "Address": 401433,
+      "Address": 401423,
       "Version": "1.0.0.0",
       "RegionSize": 1,
       "Description": "",
@@ -712,19 +712,9 @@
       "Path": "/reset"
     },
     {
-      "Name": "timestamp",
-      "Type": "Register",
-      "Address": 401432,
-      "Version": "1.0.0.0",
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined",
-      "Path": "/timestamp"
-    },
-    {
       "Name": "trigger_code",
       "Type": "Register",
-      "Address": 401431,
+      "Address": 401421,
       "Version": "1.0.0.0",
       "RegionSize": 1,
       "Description": "",
@@ -734,7 +724,7 @@
     {
       "Name": "tc_nonzero",
       "Type": "Register",
-      "Address": 401430,
+      "Address": 401420,
       "Version": "1.0.0.0",
       "RegionSize": 1,
       "Description": "",
@@ -744,12 +734,22 @@
     {
       "Name": "unequal",
       "Type": "Register",
-      "Address": 401429,
+      "Address": 401419,
       "Version": "1.0.0.0",
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined",
       "Path": "/unequal"
+    },
+    {
+      "Name": "timestamp",
+      "Type": "Register",
+      "Address": 401422,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/timestamp"
     },
     {
       "Name": "ANALOG_OFFSET",
@@ -770,5 +770,5 @@
   "Magic": "790125E3",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2024-05-16T16:06:41.8398405-06:00"
+  "BuildDate": "2024-05-28T13:36:08.6427083-06:00"
 }
