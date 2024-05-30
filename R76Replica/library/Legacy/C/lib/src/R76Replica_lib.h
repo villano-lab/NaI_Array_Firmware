@@ -2,17 +2,24 @@
 #include "Def.h"
 #include <stdint.h>
 #include <stdlib.h>
-#include  <stdbool.h>
+#include <stdbool.h>
+//copied
+#include <scisdk/scisdk_defines.h>
+#include <scisdk/SciSDK_DLL.h>
+#include <scisdk/NIErrorCode.h>
+#include "SCIDK_Lib.h"
 
-#ifdef __cplusplus
+/*#ifdef __cplusplus
 #ifdef SCICOMPILER_EXPORTS
 #define SCILIB extern "C" __declspec(dllexport) 
 #else
 #define SCILIB extern "C" __declspec(dllimport)
 #endif
 #else
-#define SCILIB __declspec(dllexport) 
-#endif
+#define SCILIB __declspec(dllexport)
+#endif*/
+#define SCILIB extern "C"
+//#define NI_HANDLE tR5560_Handle //placeholder, added in, not sure what this type should actually be.
 
 typedef struct
 {
@@ -32,7 +39,6 @@ typedef struct
 } t_FRAME_packet_collection;
 
 
-
 typedef struct
 {
 	int board;
@@ -48,30 +54,28 @@ typedef struct
 	int valid_packets;
 } t_generic_event_collection;
 
-
 SCILIB int USB2_ListDevices(char *ListOfDevice, char *model,  int *Count);
 SCILIB int USB2_ConnectDevice(char *serial_number, NI_HANDLE *handle);
 SCILIB int USB2_CloseConnection(NI_HANDLE *handle);
 
-SCILIB int __abstracted_mem_write(uint32_t *data, uint32_t count, 
-										uint32_t address,  
+SCILIB int __abstracted_mem_write(uint32_t *data, uint32_t count,
+										uint32_t address,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *written_data);
-SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
-										uint32_t address, 
-										uint32_t timeout_ms, NI_HANDLE *handle, 
-										uint32_t *read_data, uint32_t *valid_data);
-SCILIB int __abstracted_fifo_write(uint32_t *data, uint32_t count, 
-										uint32_t address,  
+SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count,uint32_t address, //edited; didn't match .c?
+	uint32_t address_status,bool blocking, uint32_t timeout_ms, NI_HANDLE *handle,
+	uint32_t *read_data, uint32_t *valid_data);
+SCILIB int __abstracted_fifo_write(uint32_t *data, uint32_t count,
+										uint32_t address,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *written_data);
-SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
-										uint32_t address, 
+SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count,
+										uint32_t address,
 										uint32_t address_status, 
 										bool blocking,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *read_data, uint32_t *valid_data);
-										
+
 SCILIB int __abstracted_reg_write(uint32_t data, uint32_t address, NI_HANDLE *handle);
 SCILIB int __abstracted_reg_read(uint32_t *data, uint32_t address, NI_HANDLE *handle);
 
@@ -90,53 +94,9 @@ SCILIB int IICUser_WriteData(uint8_t address, uint8_t *value, int len, NI_IIC_HA
 
 SCILIB char *ReadFirmwareInformation(NI_HANDLE *handle);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 typedef struct  {
     uint32_t row[3];
 }t_All_Energies_struct;
-
-
 
 SCILIB int REG_unequal_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_unequal_SET(uint32_t val, NI_HANDLE *handle);
@@ -155,8 +115,8 @@ SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle);
 //-
 //- RATE_METER_RateMeter_0_GET_DATA
 //-
-//- USAGE: 
-//- 
+//- USAGE:
+//-
 //-
 //- ARGUMENTS:
 //- 	             val  PARAM_OUT   uint32_t
@@ -287,7 +247,7 @@ SCILIB int SPECTRUM_Spectrum_0_START(NI_HANDLE *handle)
 //-
 //-----------------------------------------------------------------
 
-SCILIB int SPECTRUM_Spectrum_0_START(NI_HANDLE *handle)
+SCILIB int SPECTRUM_Spectrum_0_STOP(NI_HANDLE *handle)
 ;
 //-----------------------------------------------------------------
 //-
@@ -309,7 +269,7 @@ SCILIB int SPECTRUM_Spectrum_0_START(NI_HANDLE *handle)
 //-
 //-----------------------------------------------------------------
 
-SCILIB int SPECTRUM_Spectrum_0_START(NI_HANDLE *handle)
+SCILIB int SPECTRUM_Spectrum_0_FLUSH(NI_HANDLE *handle)
 ;
 //-----------------------------------------------------------------
 //-
@@ -331,7 +291,7 @@ SCILIB int SPECTRUM_Spectrum_0_START(NI_HANDLE *handle)
 //-
 //-----------------------------------------------------------------
 
-SCILIB int SPECTRUM_Spectrum_0_START(NI_HANDLE *handle)
+SCILIB int SPECTRUM_Spectrum_0_RESET(NI_HANDLE *handle)
 ;
 //-----------------------------------------------------------------
 //-
@@ -490,7 +450,7 @@ SCILIB int SPECTRUM_Spectrum_1_START(NI_HANDLE *handle)
 //-
 //-----------------------------------------------------------------
 
-SCILIB int SPECTRUM_Spectrum_1_START(NI_HANDLE *handle)
+SCILIB int SPECTRUM_Spectrum_1_STOP(NI_HANDLE *handle)
 ;
 //-----------------------------------------------------------------
 //-
@@ -512,7 +472,7 @@ SCILIB int SPECTRUM_Spectrum_1_START(NI_HANDLE *handle)
 //-
 //-----------------------------------------------------------------
 
-SCILIB int SPECTRUM_Spectrum_1_START(NI_HANDLE *handle)
+SCILIB int SPECTRUM_Spectrum_1_FLUSH(NI_HANDLE *handle)
 ;
 //-----------------------------------------------------------------
 //-
@@ -534,7 +494,7 @@ SCILIB int SPECTRUM_Spectrum_1_START(NI_HANDLE *handle)
 //-
 //-----------------------------------------------------------------
 
-SCILIB int SPECTRUM_Spectrum_1_START(NI_HANDLE *handle)
+SCILIB int SPECTRUM_Spectrum_1_RESET(NI_HANDLE *handle)
 ;
 //-----------------------------------------------------------------
 //-

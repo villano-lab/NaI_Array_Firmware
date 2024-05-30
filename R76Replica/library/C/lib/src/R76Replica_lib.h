@@ -3,8 +3,13 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
+//blindly copied from example
+#include <scisdk/scisdk_defines.h>
+#include <scisdk/SciSDK_DLL.h>
+#include <scisdk/NIErrorCode.h>
+#include "SCIDK_Lib.h"
 
-#ifdef __cplusplus
+/*#ifdef __cplusplus
 #ifdef SCICOMPILER_EXPORTS
 #define SCILIB extern "C" __attribute__((visibility("default")))
 #else
@@ -12,7 +17,8 @@
 #endif
 #else
 #define SCILIB __attribute__((visibility("default")))
-#endif
+#endif*/
+#define SCILIB
 
 typedef struct
 {

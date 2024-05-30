@@ -12,10 +12,10 @@ extern "C" {
 
 
 #ifdef SCIDK_API_EXPORTS
-#define SCIDK_API extern "C" __declspec(dllexport) 
+#define SCIDK_API// extern "C" __declspec(dllexport) 
 	//__declspec(dllexport)
 #else
-#define SCIDK_API __declspec(dllimport)
+#define SCIDK_API// __declspec(dllimport)
 #endif
 	typedef int NI_HANDLE ;
 
