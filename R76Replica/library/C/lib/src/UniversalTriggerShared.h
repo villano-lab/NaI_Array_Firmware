@@ -16,6 +16,7 @@
 #include "../scisdk_rebuild/scisdk_defines.h"
 #include "../scisdk_rebuild/SciSDK_DLL.h"
 #include "../scisdk_rebuild/NIErrorCode.h"
+#include "../scisdk_rebuild/scisdk_core.h"
 
 //Text defines
 #define BOARD_SERIAL_NUMBER ("13251")
@@ -164,7 +165,7 @@ int REG_top_SET(uint32_t value, NI_HANDLE* handle);                           //
 int REG_thrsh_SET(uint32_t value, NI_HANDLE* handle);                         //set all lower thesholds to a bin number
 //multichannel functions
 int *disable_dets(int *disable_q, int disable[24]);                     //disable detectors based on input array
-int *set_thresholds(const char* side, int polarity, float energy, int *thresh_q);            //run the REG_?_0_SET functions for either upper or lower thresholds, all at once, for a single energy value.
+int *set_thresholds(const char* side, int polarity, float energy, int *thresh_q, SciSDK* sdk); //run the REG_?_0_SET functions for either upper or lower thresholds, all at once, for a single energy value.
 uint32_t *spectra_PARAMS(int *spectra_q,int32_t Rebin, int32_t LimitMode, int32_t LimitValue); //set up spectrum parameters
 uint32_t *spectra_START(uint32_t *spectra_q);
 uint32_t *spectra_STOP(uint32_t *spectra_q);
@@ -174,6 +175,6 @@ uint32_t *spectra_SET(uint32_t rebin, uint32_t limit_mode, uint32_t limit_value,
 uint32_t *spectra_STATUS(uint32_t *spectra_q);
 uint32_t *spectra_DOWNLOAD(uint32_t *specdat, uint32_t timeout, uint32_t *specread_q, uint32_t *specvalid_q);
 //utility functions
-int connect_staticaddr(int verbose);                                    //connect to the board, with print functions.
-int set_by_polarity(uint32_t address, int polarity, int value);  //run a REG_?_SET function to set a value above or below the baseline, depending on the polarity.
-int kbhit(void);                                                        //allow keyboard interrupt
+//int connect_staticaddr(int verbose,SciSDK* sdk);                		//connect to the board, with print functions.
+int set_by_polarity(uint32_t address, int polarity, int value, SciSDK* sdk);	//run a REG_?_SET function to set a value above or below the baseline, depending on the polarity.
+int kbhit(void);								//allow keyboard interrupt

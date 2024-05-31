@@ -22,7 +22,8 @@
 #include "Rtypes.h"*/
 
 //#include  "Legacy/R76Firmware_lib.h"
-#include  "UniversalTriggerShared.h"
+#include "UniversalTriggerShared.h"
+#include "../scisdk_rebuild/scisdk_core.h"
 
 const char* program_name = "setregisters";
 
@@ -52,6 +53,7 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
 };
 
 int main(int argc, char* argv[]){
+	SciSDK* _sdk = new SciSDK;
 
 	//Read options
 	int index;
@@ -220,14 +222,14 @@ int main(int argc, char* argv[]){
 		disable = on_to_off(disable_t,value,verbose);
 	}
 
-	//Connect to the board. 
-	int connect_q = connect_staticaddr(verbose);
+	//Connect to the board.
+	int connect_q = SCIDK_ConnectUSB(BOARD_SERIAL_NUMBER,(NI_HANDLE*)_sdk);
 	if(connect_q != 0){
 		printf("Board connection error code: %d\n",connect_q);
 		return connect_q;
 	}
 
-	//Some printing statements	
+	//Some printing statements
 	if(skipflag == 1){
 		if(verbose>0){
 			if(skip >1){
@@ -266,7 +268,7 @@ int main(int argc, char* argv[]){
 									fprintf(logfile,"\b\b\n\n"); //clear trailing comma and space before inserting two newlines.
 		};
 	}
-	
+
 	//Pass them along to the system
 	if(verbose>0){printf("Configuring...\n");};
 
@@ -285,8 +287,8 @@ int main(int argc, char* argv[]){
 		printf("Detector flag is off (%d). Skipping.\n",detflag);
 	}
 
-	if(threshflag == 1){	
-		thresh_q = set_thresholds("low",polarity,thrs,thresh_t);
+	if(threshflag == 1){
+		thresh_q = set_thresholds("low",polarity,thrs,thresh_t,_sdk);
 		if(verbose > 2){printf("Ran set_thresholds. Checking output...\n");}
 		for(int i=0; i<24; i++){
 			if(thresh_q[i] != 0){
@@ -300,7 +302,7 @@ int main(int argc, char* argv[]){
 	}
 	//set top
 	if(topflag == 1){
-		thresh_q = set_thresholds("high",polarity,top,thresh_t);
+		thresh_q = set_thresholds("high",polarity,top,thresh_t,_sdk);
 		for(int i=0; i<24; i++){
 			if(thresh_q[i] != 0){
 				printf("Unable to set upper threshold of detector #%d! Aborting.\n",i);
@@ -312,20 +314,9 @@ int main(int argc, char* argv[]){
 		printf("Top threshold flag is off. Skipping.\n");
 	}
 
-	//set skip
-	if(skipflag == 1){
-		skip_q = 0;//REG_skip_SET(skip,&handle); //doesn't exist anymore
-		if(skip_q != 0){
-			printf("Error from REG_skip_SET. Aborting.\n");
-			return skip_q;
-		}else if(verbose > 0){
-			printf("Successfully set skip to %d.\n",skip);
-		}
-	}
-
 	//set inhib
 	if(inhibflag == 1){
-		inhib_q =  __abstracted_reg_write(inhib,SCI_REG_trig_inhib,&handle);//REG_inhib_SET(inhib,&handle);
+		inhib_q =  __abstracted_reg_write(inhib,SCI_REG_trig_inhib,(NI_HANDLE*)_sdk);//REG_inhib_SET(inhib,(NI_HANDLE*)_sdk);
 		if(inhib_q != 0){
 			printf("Error from REG_inhib_SET. Aborting.\n");
 			return inhib_q;
@@ -338,7 +329,7 @@ int main(int argc, char* argv[]){
 
 	//set polarity
 	if(polflag == 1){
-		polarity_q =  __abstracted_reg_write(polarity,SCI_REG_trig_polarity,&handle);
+		polarity_q =  __abstracted_reg_write(polarity,SCI_REG_trig_polarity,(NI_HANDLE*)_sdk);
 		if(polarity_q != 0){
 			printf("Error from REG_polarity_SET. Aborting.\n");
 			return polarity_q;
@@ -351,14 +342,14 @@ int main(int argc, char* argv[]){
 
 	//set gates
 	if(gateflagl == 1){
-		gate_lq =  __abstracted_reg_write(gate_l,SCI_REG_trig_gate_l,&handle);
+		gate_lq =  __abstracted_reg_write(gate_l,SCI_REG_trig_gate_l,(NI_HANDLE*)_sdk);
 		if(gate_lq != 0){
 			printf("Error from REG_gate_l_SET. Aborting.\n");
 			return gate_lq;
 		}
 	}else if(verbose>1){printf("Gate flag is off. Skipping lower gate.\n");}
 	if(gateflagu == 1){
-		gate_uq	=  __abstracted_reg_write(gate_u,SCI_REG_trig_gate_u,&handle);
+		gate_uq	=  __abstracted_reg_write(gate_u,SCI_REG_trig_gate_u,(NI_HANDLE*)_sdk);
 		if(gate_uq != 0){
 			printf("Error from REG_gate_u_SET. Aborting.\n");
 			return gate_uq;
@@ -369,7 +360,7 @@ int main(int argc, char* argv[]){
 
 	//set delay
 	if(delayflag == 1){
-		delay_q =  __abstracted_reg_write(delay,SCI_REG_trig_delay,&handle);
+		delay_q =  __abstracted_reg_write(delay,SCI_REG_trig_delay,(NI_HANDLE*)_sdk);
 		if(delay_q != 0){
 			printf("Error from REG_delay_SET. Aborting.\n");
 			return delay_q;
@@ -381,7 +372,7 @@ int main(int argc, char* argv[]){
 	}
 
 	if(preflag == 1){
-		pre_int_q =  __abstracted_reg_write(pre_int,SCI_REG_int_pre,&handle);
+		pre_int_q =  __abstracted_reg_write(pre_int,SCI_REG_int_pre,(NI_HANDLE*)_sdk);
 		if(pre_int_q != 0){
 			printf("Error from REG_pre_int_SET. Aborting.\n");
 			return pre_int_q;
@@ -391,7 +382,7 @@ int main(int argc, char* argv[]){
 	}
 
 	if(intflag == 1){
-		int_time_q =  __abstracted_reg_write(int_time,SCI_REG_int_time,&handle);
+		int_time_q =  __abstracted_reg_write(int_time,SCI_REG_int_time,(NI_HANDLE*)_sdk);
 		if(pre_int_q != 0){
 			printf("Error from REG_int_time_SET. Aborting.\n");
 			return int_time_q;
@@ -401,7 +392,7 @@ int main(int argc, char* argv[]){
 	}
 
 	if(baseflag == 1){
-		baseline_q = __abstracted_reg_write(baseline,SCI_REG_base_CH0,&handle) && __abstracted_reg_write(baseline,SCI_REG_base_CH1,&handle);
+		baseline_q = __abstracted_reg_write(baseline,SCI_REG_base_CH0,(NI_HANDLE*)_sdk) && __abstracted_reg_write(baseline,SCI_REG_base_CH1,(NI_HANDLE*)_sdk);
 		if(baseline_q != 0){
 			printf("Error from REG_baseline_SET. Aborting.\n");
 			return baseline_q;

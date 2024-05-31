@@ -15,6 +15,7 @@
 #include "../scisdk_rebuild/scisdk_defines.h"
 #include "../scisdk_rebuild/SciSDK_DLL.h"
 #include "../scisdk_rebuild/NIErrorCode.h"
+#include "../scisdk_rebuild/scisdk_core.h"
 #include "SCIDK_Lib.h"
 
 //Variables
@@ -64,7 +65,6 @@ int pre_int = 100;   //^same here
 //things you probably won't change
 int polarity = 1;	//zero for negative, one for positive
 //Register-reading Variables
-NI_HANDLE handle;
 int delay_q;
 int gate_uq;
 int gate_lq;
@@ -443,193 +443,21 @@ int energy_to_bin(int detnum, float energy){ //take an energy (MeV) and convert 
 	}
 }
 
-//Compatibility functions
-
-/*int REG_thrsh_SET(uint32_t value, NI_HANDLE *handle){
-	thresh_q[0 ] = set_by_polarity(REG_thrsh_0_SET, polarity,value);
-	thresh_q[1 ] = set_by_polarity(REG_thrsh_1_SET, polarity,value);
-	thresh_q[2 ] = set_by_polarity(REG_thrsh_2_SET, polarity,value);
-	thresh_q[3 ] = set_by_polarity(REG_thrsh_3_SET, polarity,value);
-	thresh_q[4 ] = set_by_polarity(REG_thrsh_4_SET, polarity,value);
-	thresh_q[5 ] = set_by_polarity(REG_thrsh_5_SET, polarity,value);
-	thresh_q[6 ] = set_by_polarity(REG_thrsh_6_SET, polarity,value);
-	thresh_q[7 ] = set_by_polarity(REG_thrsh_7_SET, polarity,value);
-	thresh_q[8 ] = set_by_polarity(REG_thrsh_8_SET, polarity,value);
-	thresh_q[9 ] = set_by_polarity(REG_thrsh_9_SET, polarity,value);
-	thresh_q[10] = set_by_polarity(REG_thrsh_10_SET,polarity,value);
-	thresh_q[11] = set_by_polarity(REG_thrsh_11_SET,polarity,value);
-	thresh_q[12] = set_by_polarity(REG_thrsh_12_SET,polarity,value);
-	thresh_q[13] = set_by_polarity(REG_thrsh_13_SET,polarity,value);
-	thresh_q[14] = set_by_polarity(REG_thrsh_14_SET,polarity,value);
-	thresh_q[15] = set_by_polarity(REG_thrsh_15_SET,polarity,value);
-	thresh_q[16] = set_by_polarity(REG_thrsh_16_SET,polarity,value);
-	thresh_q[17] = set_by_polarity(REG_thrsh_17_SET,polarity,value);
-	thresh_q[18] = set_by_polarity(REG_thrsh_18_SET,polarity,value);
-	thresh_q[19] = set_by_polarity(REG_thrsh_19_SET,polarity,value);
-	thresh_q[20] = set_by_polarity(REG_thrsh_20_SET,polarity,value);
-	thresh_q[21] = set_by_polarity(REG_thrsh_21_SET,polarity,value);
-	thresh_q[22] = set_by_polarity(REG_thrsh_22_SET,polarity,value);
-	thresh_q[23] = set_by_polarity(REG_thrsh_23_SET,polarity,value);
-	for(int i=0; i<24; i++){
-		if(thresh_q[i] != 0){
-			printf("Unable to set on/off state of detector #%d! Aborting.\n",i);
-			return thresh_q[i];
-		}
-	}
-	return 0;
-}
-
-int REG_top_SET(uint32_t value, NI_HANDLE *handle){
-	thresh_q[0 ] = set_by_polarity(REG_top_0_SET, polarity,value);
-	thresh_q[1 ] = set_by_polarity(REG_top_1_SET, polarity,value);
-	thresh_q[2 ] = set_by_polarity(REG_top_2_SET, polarity,value);
-	thresh_q[3 ] = set_by_polarity(REG_top_3_SET, polarity,value);
-	thresh_q[4 ] = set_by_polarity(REG_top_4_SET, polarity,value);
-	thresh_q[5 ] = set_by_polarity(REG_top_5_SET, polarity,value);
-	thresh_q[6 ] = set_by_polarity(REG_top_6_SET, polarity,value);
-	thresh_q[7 ] = set_by_polarity(REG_top_7_SET, polarity,value);
-	thresh_q[8 ] = set_by_polarity(REG_top_8_SET, polarity,value);
-	thresh_q[9 ] = set_by_polarity(REG_top_9_SET, polarity,value);
-	thresh_q[10] = set_by_polarity(REG_top_10_SET,polarity,value);
-	thresh_q[11] = set_by_polarity(REG_top_11_SET,polarity,value);
-	thresh_q[12] = set_by_polarity(REG_top_12_SET,polarity,value);
-	thresh_q[13] = set_by_polarity(REG_top_13_SET,polarity,value);
-	thresh_q[14] = set_by_polarity(REG_top_14_SET,polarity,value);
-	thresh_q[15] = set_by_polarity(REG_top_15_SET,polarity,value);
-	thresh_q[16] = set_by_polarity(REG_top_16_SET,polarity,value);
-	thresh_q[17] = set_by_polarity(REG_top_17_SET,polarity,value);
-	thresh_q[18] = set_by_polarity(REG_top_18_SET,polarity,value);
-	thresh_q[19] = set_by_polarity(REG_top_19_SET,polarity,value);
-	thresh_q[20] = set_by_polarity(REG_top_20_SET,polarity,value);
-	thresh_q[21] = set_by_polarity(REG_top_21_SET,polarity,value);
-	thresh_q[22] = set_by_polarity(REG_top_22_SET,polarity,value);
-	thresh_q[23] = set_by_polarity(REG_top_23_SET,polarity,value);
-/*	thresh_q[24] = set_by_polarity(REG_top_24_SET,polarity,value);
-//	thresh_q[25] = set_by_polarity(REG_top_25_SET,polarity,value);
-//	thresh_q[26] = set_by_polarity(REG_top_26_SET,polarity,value);
-//	thresh_q[27] = set_by_polarity(REG_top_27_SET,polarity,value);
-//	thresh_q[28] = set_by_polarity(REG_top_28_SET,polarity,value);
-//	thresh_q[29] = set_by_polarity(REG_top_29_SET,polarity,value);
-//	thresh_q[30] = set_by_polarity(REG_top_30_SET,polarity,value);
-//	thresh_q[31] = set_by_polarity(REG_top_31_SET,polarity,value);
-}*/
-
 //Other functions
 
-int connect_staticaddr(int verbose){
-
-	int adddevice = SCISDK_AddNewDevice((char*)"usb:0403:6001",(char*)"DT1260",(char*)"../../RegisterFile.json",(char*)"SCISDK", (void*)&handle);
-        if(adddevice != 0){
-                printf("Unable to create device.\n");
-                return(adddevice);
-        }
-        if(
-                USB2_ConnectDevice((char*)BOARD_SERIAL_NUMBER, &handle)
-                //AddNewDevice("usb:13251","dt1260")
-                //0 //test line
-                != 0
-        ){
-		printf("Unable to connect to the board!\n");
-		return (-1);
-	}
-	else{ return(0);}
-}
-
-int *disable_dets(int *disable_q, int disable[32]){
-	disable_q[0 ] = __abstracted_reg_write(disable[0 ], SCI_REG_disable_det_CH0, &handle);
-	disable_q[1 ] = __abstracted_reg_write(disable[1 ], SCI_REG_disable_det_CH1, &handle);
-/*	disable_q[2 ] = __abstracted_reg_write(disable[2 ], SCI_REG_disable_det_2, &handle);
-	disable_q[3 ] = __abstracted_reg_write(disable[3 ], SCI_REG_disable_det_3, &handle);
-	disable_q[4 ] = __abstracted_reg_write(disable[4 ], SCI_REG_disable_det_4, &handle);
-	disable_q[5 ] = __abstracted_reg_write(disable[5 ], SCI_REG_disable_det_5, &handle);
-	disable_q[6 ] = __abstracted_reg_write(disable[6 ], SCI_REG_disable_det_6, &handle);
-	disable_q[7 ] = __abstracted_reg_write(disable[7 ], SCI_REG_disable_det_7, &handle);
-	disable_q[8 ] = __abstracted_reg_write(disable[8 ], SCI_REG_disable_det_8, &handle);
-	disable_q[9 ] = __abstracted_reg_write(disable[9 ], SCI_REG_disable_det_9, &handle);
-	disable_q[10] = __abstracted_reg_write(disable[10], SCI_REG_disable_det_10, &handle);
-	disable_q[11] = __abstracted_reg_write(disable[11], SCI_REG_disable_det_11, &handle);
-	disable_q[12] = __abstracted_reg_write(disable[12], SCI_REG_disable_det_12, &handle);
-	disable_q[13] = __abstracted_reg_write(disable[13], SCI_REG_disable_det_13, &handle);
-	disable_q[14] = __abstracted_reg_write(disable[14], SCI_REG_disable_det_14, &handle);
-	disable_q[15] = __abstracted_reg_write(disable[15], SCI_REG_disable_det_15, &handle);
-	disable_q[16] = __abstracted_reg_write(disable[16], SCI_REG_disable_det_16, &handle);
-	disable_q[17] = __abstracted_reg_write(disable[17], SCI_REG_disable_det_17, &handle);
-	disable_q[18] = __abstracted_reg_write(disable[18], SCI_REG_disable_det_18, &handle);
-	disable_q[19] = __abstracted_reg_write(disable[19], SCI_REG_disable_det_19, &handle);
-	disable_q[20] = __abstracted_reg_write(disable[20], SCI_REG_disable_det_20, &handle);
-	disable_q[21] = __abstracted_reg_write(disable[21], SCI_REG_disable_det_21, &handle);
-	disable_q[22] = __abstracted_reg_write(disable[22], SCI_REG_disable_det_22, &handle);
-	disable_q[23] = __abstracted_reg_write(disable[23], SCI_REG_disable_det_23, &handle);
-	disable_q[24] = REG_disable_det_24_SET(disable[24], &handle);
-//	disable_q[25] = REG_disable_det_25_SET(disable[25], &handle);
-//	disable_q[26] = REG_disable_det_26_SET(disable[26], &handle);
-//	disable_q[27] = REG_disable_det_27_SET(disable[27], &handle);
-//	disable_q[28] = REG_disable_det_28_SET(disable[28], &handle);
-//	disable_q[29] = REG_disable_det_29_SET(disable[29], &handle);
-//	disable_q[30] = REG_disable_det_30_SET(disable[30], &handle);
-//	disable_q[31] = REG_disable_det_31_SET(disable[31], &handle);*/
+int *disable_dets(int *disable_q, int disable[32], SciSDK* _sdk){
+	disable_q[0 ] = __abstracted_reg_write(disable[0 ], SCI_REG_disable_det_CH0, (NI_HANDLE*)_sdk);
+	disable_q[1 ] = __abstracted_reg_write(disable[1 ], SCI_REG_disable_det_CH1, (NI_HANDLE*)_sdk);
     return disable_q;
 }
 
-int *set_thresholds(const char* side, int polarity, float energy, int *thresh_q){
+int *set_thresholds(const char* side, int polarity, float energy, int *thresh_q, SciSDK* _sdk){
 	if(strcasecmp(side,"lower") == 0 || strcasecmp(side,"thrs") == 0 || strcasecmp(side,"thresh") == 0 || strcasecmp(side,"thrsh") == 0 || strcasecmp(side,"lo") == 0 || strcasecmp(side,"low") == 0){
-		thresh_q[0 ] = set_by_polarity(SCI_REG_thrsh_CH0, polarity,energy_to_bin(0 ,energy));
-		thresh_q[1 ] = set_by_polarity(SCI_REG_thrsh_CH1, polarity,energy_to_bin(1 ,energy));
-		/*thresh_q[2 ] = set_by_polarity(SCI_REG_thrsh_2, polarity,energy_to_bin(2 ,energy));
-		thresh_q[3 ] = set_by_polarity(SCI_REG_thrsh_3, polarity,energy_to_bin(3 ,energy));
-		thresh_q[4 ] = set_by_polarity(SCI_REG_thrsh_4, polarity,energy_to_bin(4 ,energy));
-		thresh_q[5 ] = set_by_polarity(SCI_REG_thrsh_5, polarity,energy_to_bin(5 ,energy));
-		thresh_q[6 ] = set_by_polarity(SCI_REG_thrsh_6, polarity,energy_to_bin(6 ,energy));
-		thresh_q[7 ] = set_by_polarity(SCI_REG_thrsh_7, polarity,energy_to_bin(7 ,energy));
-		thresh_q[8 ] = set_by_polarity(SCI_REG_thrsh_8, polarity,energy_to_bin(8 ,energy));
-		thresh_q[9 ] = set_by_polarity(SCI_REG_thrsh_9, polarity,energy_to_bin(9 ,energy));
-		thresh_q[10] = set_by_polarity(SCI_REG_thrsh_10,polarity,energy_to_bin(10,energy));
-		thresh_q[11] = set_by_polarity(SCI_REG_thrsh_11,polarity,energy_to_bin(11,energy));
-		thresh_q[12] = set_by_polarity(SCI_REG_thrsh_12,polarity,energy_to_bin(12,energy));
-		thresh_q[13] = set_by_polarity(SCI_REG_thrsh_13,polarity,energy_to_bin(13,energy));
-		thresh_q[14] = set_by_polarity(SCI_REG_thrsh_14,polarity,energy_to_bin(14,energy));
-		thresh_q[15] = set_by_polarity(SCI_REG_thrsh_15,polarity,energy_to_bin(15,energy));
-		thresh_q[16] = set_by_polarity(SCI_REG_thrsh_16,polarity,energy_to_bin(16,energy));
-		thresh_q[17] = set_by_polarity(SCI_REG_thrsh_17,polarity,energy_to_bin(17,energy));
-		thresh_q[18] = set_by_polarity(SCI_REG_thrsh_18,polarity,energy_to_bin(18,energy));
-		thresh_q[19] = set_by_polarity(SCI_REG_thrsh_19,polarity,energy_to_bin(19,energy));
-		thresh_q[20] = set_by_polarity(SCI_REG_thrsh_20,polarity,energy_to_bin(20,energy));
-		thresh_q[21] = set_by_polarity(SCI_REG_thrsh_21,polarity,energy_to_bin(21,energy));
-		thresh_q[22] = set_by_polarity(SCI_REG_thrsh_22,polarity,energy_to_bin(22,energy));
-		thresh_q[23] = set_by_polarity(SCI_REG_thrsh_23,polarity,energy_to_bin(23,energy));
-		thresh_q[24] = set_by_polarity(REG_thrsh_24_SET,polarity,energy_to_bin(24,energy));
-		thresh_q[25] = set_by_polarity(REG_thrsh_25_SET,polarity,energy_to_bin(25,energy));
-		thresh_q[26] = set_by_polarity(REG_thrsh_26_SET,polarity,energy_to_bin(26,energy));
-		thresh_q[27] = set_by_polarity(REG_thrsh_27_SET,polarity,energy_to_bin(27,energy));
-		thresh_q[28] = set_by_polarity(REG_thrsh_28_SET,polarity,energy_to_bin(28,energy));
-		thresh_q[29] = set_by_polarity(REG_thrsh_29_SET,polarity,energy_to_bin(29,energy));
-		thresh_q[30] = set_by_polarity(REG_thrsh_30_SET,polarity,energy_to_bin(30,energy));
-		thresh_q[31] = set_by_polarity(REG_thrsh_31_SET,polarity,energy_to_bin(31,energy));*/ //these do not exist yet.
+		thresh_q[0 ] = set_by_polarity(SCI_REG_thrsh_CH0, polarity,energy_to_bin(0 ,energy), _sdk);
+		thresh_q[1 ] = set_by_polarity(SCI_REG_thrsh_CH1, polarity,energy_to_bin(1 ,energy),_sdk);
 	}else if(strcasecmp(side,"upper") == 0 || strcasecmp(side,"up") == 0 || strcasecmp(side,"hi") == 0 || strcasecmp(side,"higher") == 0 || strcasecmp(side,"high") == 0 || strcasecmp(side,"top") == 0){
-		thresh_q[0 ] = set_by_polarity(SCI_REG_top_CH0, polarity,energy_to_bin(0 ,energy));
-		thresh_q[1 ] = set_by_polarity(SCI_REG_top_CH1, polarity,energy_to_bin(1 ,energy));
-		/*thresh_q[2 ] = set_by_polarity(SCI_REG_top_2, polarity,energy_to_bin(2 ,energy));
-		thresh_q[3 ] = set_by_polarity(SCI_REG_top_3, polarity,energy_to_bin(3 ,energy));
-		thresh_q[4 ] = set_by_polarity(SCI_REG_top_4, polarity,energy_to_bin(4 ,energy));
-		thresh_q[5 ] = set_by_polarity(SCI_REG_top_5, polarity,energy_to_bin(5 ,energy));
-		thresh_q[6 ] = set_by_polarity(SCI_REG_top_6, polarity,energy_to_bin(6 ,energy));
-		thresh_q[7 ] = set_by_polarity(SCI_REG_top_7, polarity,energy_to_bin(7 ,energy));
-		thresh_q[8 ] = set_by_polarity(SCI_REG_top_8, polarity,energy_to_bin(8 ,energy));
-		thresh_q[9 ] = set_by_polarity(SCI_REG_top_9, polarity,energy_to_bin(9 ,energy));
-		thresh_q[10] = set_by_polarity(SCI_REG_top_10,polarity,energy_to_bin(10,energy));
-		thresh_q[11] = set_by_polarity(SCI_REG_top_11,polarity,energy_to_bin(11,energy));
-		thresh_q[12] = set_by_polarity(SCI_REG_top_12,polarity,energy_to_bin(12,energy));
-		thresh_q[13] = set_by_polarity(SCI_REG_top_13,polarity,energy_to_bin(13,energy));
-		thresh_q[14] = set_by_polarity(SCI_REG_top_14,polarity,energy_to_bin(14,energy));
-		thresh_q[15] = set_by_polarity(SCI_REG_top_15,polarity,energy_to_bin(15,energy));
-		thresh_q[16] = set_by_polarity(SCI_REG_top_16,polarity,energy_to_bin(16,energy));
-		thresh_q[17] = set_by_polarity(SCI_REG_top_17,polarity,energy_to_bin(17,energy));
-		thresh_q[18] = set_by_polarity(SCI_REG_top_18,polarity,energy_to_bin(18,energy));
-		thresh_q[19] = set_by_polarity(SCI_REG_top_19,polarity,energy_to_bin(19,energy));
-		thresh_q[20] = set_by_polarity(SCI_REG_top_20,polarity,energy_to_bin(20,energy));
-		thresh_q[21] = set_by_polarity(SCI_REG_top_21,polarity,energy_to_bin(21,energy));
-		thresh_q[22] = set_by_polarity(SCI_REG_top_22,polarity,energy_to_bin(22,energy));
-		thresh_q[23] = set_by_polarity(SCI_REG_top_23,polarity,energy_to_bin(23,energy));*/
+		thresh_q[0 ] = set_by_polarity(SCI_REG_top_CH0, polarity,energy_to_bin(0 ,energy),_sdk);
+		thresh_q[1 ] = set_by_polarity(SCI_REG_top_CH1, polarity,energy_to_bin(1 ,energy),_sdk);
 	}else{
 		printf("Invalid 'side' passed to set_thresholds. Please submit a bug report.\n");
 		exit(-1);
@@ -637,211 +465,57 @@ int *set_thresholds(const char* side, int polarity, float energy, int *thresh_q)
 	return thresh_q;
 }
 
-uint32_t *spectra_START(uint32_t *spectra_q){
-	spectra_q[0 ] = SPECTRUM_Spectrum_0_START (&handle);
-	spectra_q[1 ] = SPECTRUM_Spectrum_1_START (&handle);
-	/*spectra_q[2 ] = SPECTRUM_Spectrum_2_START (&handle);
-	spectra_q[3 ] = SPECTRUM_Spectrum_3_START (&handle);
-	spectra_q[4 ] = SPECTRUM_Spectrum_4_START (&handle);
-	spectra_q[5 ] = SPECTRUM_Spectrum_5_START (&handle);
-	spectra_q[6 ] = SPECTRUM_Spectrum_6_START (&handle);
-	spectra_q[7 ] = SPECTRUM_Spectrum_7_START (&handle);
-	spectra_q[8 ] = SPECTRUM_Spectrum_8_START (&handle);
-	spectra_q[9 ] = SPECTRUM_Spectrum_9_START (&handle);
-	spectra_q[10] = SPECTRUM_Spectrum_10_START(&handle);
-	spectra_q[11] = SPECTRUM_Spectrum_11_START(&handle);
-	spectra_q[12] = SPECTRUM_Spectrum_12_START(&handle);
-	spectra_q[13] = SPECTRUM_Spectrum_13_START(&handle);
-	spectra_q[14] = SPECTRUM_Spectrum_14_START(&handle);
-	spectra_q[15] = SPECTRUM_Spectrum_15_START(&handle);
-	spectra_q[16] = SPECTRUM_Spectrum_16_START(&handle);
-	spectra_q[17] = SPECTRUM_Spectrum_17_START(&handle);
-	spectra_q[18] = SPECTRUM_Spectrum_18_START(&handle);
-	spectra_q[19] = SPECTRUM_Spectrum_19_START(&handle);
-	spectra_q[20] = SPECTRUM_Spectrum_20_START(&handle);
-	spectra_q[21] = SPECTRUM_Spectrum_21_START(&handle);
-	spectra_q[22] = SPECTRUM_Spectrum_22_START(&handle);
-	spectra_q[23] = SPECTRUM_Spectrum_23_START(&handle);*/
+uint32_t *spectra_START(uint32_t *spectra_q,SciSDK* _sdk){
+	spectra_q[0 ] = SPECTRUM_Spectrum_0_START ((NI_HANDLE*)_sdk);
+	spectra_q[1 ] = SPECTRUM_Spectrum_1_START ((NI_HANDLE*)_sdk);
 	return spectra_q;
 }
 
-uint32_t *spectra_STOP(uint32_t *spectra_q){
-	spectra_q[0 ] = SPECTRUM_Spectrum_0_STOP (&handle);
-	spectra_q[1 ] = SPECTRUM_Spectrum_1_STOP (&handle);
-	/*spectra_q[2 ] = SPECTRUM_Spectrum_2_STOP (&handle);
-	spectra_q[3 ] = SPECTRUM_Spectrum_3_STOP (&handle);
-	spectra_q[4 ] = SPECTRUM_Spectrum_4_STOP (&handle);
-	spectra_q[5 ] = SPECTRUM_Spectrum_5_STOP (&handle);
-	spectra_q[6 ] = SPECTRUM_Spectrum_6_STOP (&handle);
-	spectra_q[7 ] = SPECTRUM_Spectrum_7_STOP (&handle);
-	spectra_q[8 ] = SPECTRUM_Spectrum_8_STOP (&handle);
-	spectra_q[9 ] = SPECTRUM_Spectrum_9_STOP (&handle);
-	spectra_q[10] = SPECTRUM_Spectrum_10_STOP(&handle);
-	spectra_q[11] = SPECTRUM_Spectrum_11_STOP(&handle);
-	spectra_q[12] = SPECTRUM_Spectrum_12_STOP(&handle);
-	spectra_q[13] = SPECTRUM_Spectrum_13_STOP(&handle);
-	spectra_q[14] = SPECTRUM_Spectrum_14_STOP(&handle);
-	spectra_q[15] = SPECTRUM_Spectrum_15_STOP(&handle);
-	spectra_q[16] = SPECTRUM_Spectrum_16_STOP(&handle);
-	spectra_q[17] = SPECTRUM_Spectrum_17_STOP(&handle);
-	spectra_q[18] = SPECTRUM_Spectrum_18_STOP(&handle);
-	spectra_q[19] = SPECTRUM_Spectrum_19_STOP(&handle);
-	spectra_q[20] = SPECTRUM_Spectrum_20_STOP(&handle);
-	spectra_q[21] = SPECTRUM_Spectrum_21_STOP(&handle);
-	spectra_q[22] = SPECTRUM_Spectrum_22_STOP(&handle);
-	spectra_q[23] = SPECTRUM_Spectrum_23_STOP(&handle);*/
+uint32_t *spectra_STOP(uint32_t *spectra_q,SciSDK* _sdk){
+	spectra_q[0 ] = SPECTRUM_Spectrum_0_STOP ((NI_HANDLE*)_sdk);
+	spectra_q[1 ] = SPECTRUM_Spectrum_1_STOP ((NI_HANDLE*)_sdk);
 	return spectra_q;
 }
 
-uint32_t *spectra_FLUSH(uint32_t *spectra_q){
-	spectra_q[0 ] = SPECTRUM_Spectrum_0_FLUSH (&handle);
-	spectra_q[1 ] = SPECTRUM_Spectrum_1_FLUSH (&handle);
-	/*spectra_q[2 ] = SPECTRUM_Spectrum_2_FLUSH (&handle);
-	spectra_q[3 ] = SPECTRUM_Spectrum_3_FLUSH (&handle);
-	spectra_q[4 ] = SPECTRUM_Spectrum_4_FLUSH (&handle);
-	spectra_q[5 ] = SPECTRUM_Spectrum_5_FLUSH (&handle);
-	spectra_q[6 ] = SPECTRUM_Spectrum_6_FLUSH (&handle);
-	spectra_q[7 ] = SPECTRUM_Spectrum_7_FLUSH (&handle);
-	spectra_q[8 ] = SPECTRUM_Spectrum_8_FLUSH (&handle);
-	spectra_q[9 ] = SPECTRUM_Spectrum_9_FLUSH (&handle);
-	spectra_q[10] = SPECTRUM_Spectrum_10_FLUSH(&handle);
-	spectra_q[11] = SPECTRUM_Spectrum_11_FLUSH(&handle);
-	spectra_q[12] = SPECTRUM_Spectrum_12_FLUSH(&handle);
-	spectra_q[13] = SPECTRUM_Spectrum_13_FLUSH(&handle);
-	spectra_q[14] = SPECTRUM_Spectrum_14_FLUSH(&handle);
-	spectra_q[15] = SPECTRUM_Spectrum_15_FLUSH(&handle);
-	spectra_q[16] = SPECTRUM_Spectrum_16_FLUSH(&handle);
-	spectra_q[17] = SPECTRUM_Spectrum_17_FLUSH(&handle);
-	spectra_q[18] = SPECTRUM_Spectrum_18_FLUSH(&handle);
-	spectra_q[19] = SPECTRUM_Spectrum_19_FLUSH(&handle);
-	spectra_q[20] = SPECTRUM_Spectrum_20_FLUSH(&handle);
-	spectra_q[21] = SPECTRUM_Spectrum_21_FLUSH(&handle);
-	spectra_q[22] = SPECTRUM_Spectrum_22_FLUSH(&handle);
-	spectra_q[23] = SPECTRUM_Spectrum_23_FLUSH(&handle);*/
+uint32_t *spectra_FLUSH(uint32_t *spectra_q,SciSDK* _sdk){
+	spectra_q[0 ] = SPECTRUM_Spectrum_0_FLUSH ((NI_HANDLE*)_sdk);
+	spectra_q[1 ] = SPECTRUM_Spectrum_1_FLUSH ((NI_HANDLE*)_sdk);
 	return spectra_q;
 }
 
-uint32_t *spectra_RESET(uint32_t *spectra_q){
-	spectra_q[0 ] = SPECTRUM_Spectrum_0_RESET (&handle);
-	spectra_q[1 ] = SPECTRUM_Spectrum_1_RESET (&handle);
-	/*spectra_q[2 ] = SPECTRUM_Spectrum_2_RESET (&handle);
-	spectra_q[3 ] = SPECTRUM_Spectrum_3_RESET (&handle);
-	spectra_q[4 ] = SPECTRUM_Spectrum_4_RESET (&handle);
-	spectra_q[5 ] = SPECTRUM_Spectrum_5_RESET (&handle);
-	spectra_q[6 ] = SPECTRUM_Spectrum_6_RESET (&handle);
-	spectra_q[7 ] = SPECTRUM_Spectrum_7_RESET (&handle);
-	spectra_q[8 ] = SPECTRUM_Spectrum_8_RESET (&handle);
-	spectra_q[9 ] = SPECTRUM_Spectrum_9_RESET (&handle);
-	spectra_q[10] = SPECTRUM_Spectrum_10_RESET(&handle);
-	spectra_q[11] = SPECTRUM_Spectrum_11_RESET(&handle);
-	spectra_q[12] = SPECTRUM_Spectrum_12_RESET(&handle);
-	spectra_q[13] = SPECTRUM_Spectrum_13_RESET(&handle);
-	spectra_q[14] = SPECTRUM_Spectrum_14_RESET(&handle);
-	spectra_q[15] = SPECTRUM_Spectrum_15_RESET(&handle);
-	spectra_q[16] = SPECTRUM_Spectrum_16_RESET(&handle);
-	spectra_q[17] = SPECTRUM_Spectrum_17_RESET(&handle);
-	spectra_q[18] = SPECTRUM_Spectrum_18_RESET(&handle);
-	spectra_q[19] = SPECTRUM_Spectrum_19_RESET(&handle);
-	spectra_q[20] = SPECTRUM_Spectrum_20_RESET(&handle);
-	spectra_q[21] = SPECTRUM_Spectrum_21_RESET(&handle);
-	spectra_q[22] = SPECTRUM_Spectrum_22_RESET(&handle);
-	spectra_q[23] = SPECTRUM_Spectrum_23_RESET(&handle);*/
+uint32_t *spectra_RESET(uint32_t *spectra_q,SciSDK* _sdk){
+	spectra_q[0 ] = SPECTRUM_Spectrum_0_RESET ((NI_HANDLE*)_sdk);
+	spectra_q[1 ] = SPECTRUM_Spectrum_1_RESET ((NI_HANDLE*)_sdk);
 	return spectra_q;
 }
 
-uint32_t *spectra_SET(uint32_t rebin, uint32_t limit_mode, uint32_t limit_value, uint32_t *spectra_q){
-	spectra_q[0 ] = SPECTRUM_Spectrum_0_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	spectra_q[1 ] = SPECTRUM_Spectrum_1_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	/*spectra_q[2 ] = SPECTRUM_Spectrum_2_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	spectra_q[3 ] = SPECTRUM_Spectrum_3_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	spectra_q[4 ] = SPECTRUM_Spectrum_4_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	spectra_q[5 ] = SPECTRUM_Spectrum_5_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	spectra_q[6 ] = SPECTRUM_Spectrum_6_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	spectra_q[7 ] = SPECTRUM_Spectrum_7_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	spectra_q[8 ] = SPECTRUM_Spectrum_8_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	spectra_q[9 ] = SPECTRUM_Spectrum_9_SET_PARAMETERS (rebin,limit_mode,limit_value,&handle);
-	spectra_q[10] = SPECTRUM_Spectrum_10_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[11] = SPECTRUM_Spectrum_11_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[12] = SPECTRUM_Spectrum_12_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[13] = SPECTRUM_Spectrum_13_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[14] = SPECTRUM_Spectrum_14_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[15] = SPECTRUM_Spectrum_15_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[16] = SPECTRUM_Spectrum_16_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[17] = SPECTRUM_Spectrum_17_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[18] = SPECTRUM_Spectrum_18_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[19] = SPECTRUM_Spectrum_19_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[20] = SPECTRUM_Spectrum_20_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[21] = SPECTRUM_Spectrum_21_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[22] = SPECTRUM_Spectrum_22_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);
-	spectra_q[23] = SPECTRUM_Spectrum_23_SET_PARAMETERS(rebin,limit_mode,limit_value,&handle);*/
+uint32_t *spectra_SET(uint32_t rebin, uint32_t limit_mode, uint32_t limit_value, uint32_t *spectra_q,SciSDK* _sdk){
+	spectra_q[0 ] = SPECTRUM_Spectrum_0_SET_PARAMETERS (rebin,limit_mode,limit_value,(NI_HANDLE*)_sdk);
+	spectra_q[1 ] = SPECTRUM_Spectrum_1_SET_PARAMETERS (rebin,limit_mode,limit_value,(NI_HANDLE*)_sdk);
 	return spectra_q;
 }
 
-uint32_t *spectra_STATUS(uint32_t *spectra_q){
-	SPECTRUM_Spectrum_0_STATUS (&spectra_q[0 ],&handle);
-	SPECTRUM_Spectrum_1_STATUS (&spectra_q[1 ],&handle);
-	/*SPECTRUM_Spectrum_2_STATUS (&spectra_q[2 ],&handle);
-	SPECTRUM_Spectrum_3_STATUS (&spectra_q[3 ],&handle);
-	SPECTRUM_Spectrum_4_STATUS (&spectra_q[4 ],&handle);
-	SPECTRUM_Spectrum_5_STATUS (&spectra_q[5 ],&handle);
-	SPECTRUM_Spectrum_6_STATUS (&spectra_q[6 ],&handle);
-	SPECTRUM_Spectrum_7_STATUS (&spectra_q[7 ],&handle);
-	SPECTRUM_Spectrum_8_STATUS (&spectra_q[8 ],&handle);
-	SPECTRUM_Spectrum_9_STATUS (&spectra_q[9 ],&handle);
-	SPECTRUM_Spectrum_10_STATUS(&spectra_q[10],&handle);
-	SPECTRUM_Spectrum_11_STATUS(&spectra_q[11],&handle);
-	SPECTRUM_Spectrum_12_STATUS(&spectra_q[12],&handle);
-	SPECTRUM_Spectrum_13_STATUS(&spectra_q[13],&handle);
-	SPECTRUM_Spectrum_14_STATUS(&spectra_q[14],&handle);
-	SPECTRUM_Spectrum_15_STATUS(&spectra_q[15],&handle);
-	SPECTRUM_Spectrum_16_STATUS(&spectra_q[16],&handle);
-	SPECTRUM_Spectrum_17_STATUS(&spectra_q[17],&handle);
-	SPECTRUM_Spectrum_18_STATUS(&spectra_q[18],&handle);
-	SPECTRUM_Spectrum_19_STATUS(&spectra_q[19],&handle);
-	SPECTRUM_Spectrum_20_STATUS(&spectra_q[20],&handle);
-	SPECTRUM_Spectrum_21_STATUS(&spectra_q[21],&handle);
-	SPECTRUM_Spectrum_22_STATUS(&spectra_q[22],&handle);
-	SPECTRUM_Spectrum_23_STATUS(&spectra_q[23],&handle);*/
+uint32_t *spectra_STATUS(uint32_t *spectra_q,SciSDK* _sdk){
+	SPECTRUM_Spectrum_0_STATUS (&spectra_q[0 ],(NI_HANDLE*)_sdk);
+	SPECTRUM_Spectrum_1_STATUS (&spectra_q[1 ],(NI_HANDLE*)_sdk);
 	return spectra_q;
 }
 
-uint32_t *spectra_DOWNLOAD(uint32_t *specdat, uint32_t timeout, uint32_t *specread_q, uint32_t *specvalid_q){
-	SPECTRUM_Spectrum_0_DOWNLOAD (&specdat[0 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[0 ], &specvalid_q[0 ]);
-	SPECTRUM_Spectrum_1_DOWNLOAD (&specdat[1 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[1 ], &specvalid_q[1 ]);
-	/*SPECTRUM_Spectrum_2_DOWNLOAD (&specdat[2 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[2 ], &specvalid_q[2 ]);
-	SPECTRUM_Spectrum_3_DOWNLOAD (&specdat[3 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[3 ], &specvalid_q[3 ]);
-	SPECTRUM_Spectrum_4_DOWNLOAD (&specdat[4 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[4 ], &specvalid_q[4 ]);
-	SPECTRUM_Spectrum_5_DOWNLOAD (&specdat[5 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[5 ], &specvalid_q[5 ]);
-	SPECTRUM_Spectrum_6_DOWNLOAD (&specdat[6 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[6 ], &specvalid_q[6 ]);
-	SPECTRUM_Spectrum_7_DOWNLOAD (&specdat[7 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[7 ], &specvalid_q[7 ]);
-	SPECTRUM_Spectrum_8_DOWNLOAD (&specdat[8 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[8 ], &specvalid_q[8 ]);
-	SPECTRUM_Spectrum_9_DOWNLOAD (&specdat[9 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[9 ], &specvalid_q[9 ]);
-	SPECTRUM_Spectrum_10_DOWNLOAD(&specdat[10*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[10], &specvalid_q[10]);
-	SPECTRUM_Spectrum_11_DOWNLOAD(&specdat[11*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[11], &specvalid_q[11]);
-	SPECTRUM_Spectrum_12_DOWNLOAD(&specdat[12*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[12], &specvalid_q[12]);
-	SPECTRUM_Spectrum_13_DOWNLOAD(&specdat[13*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[13], &specvalid_q[13]);
-	SPECTRUM_Spectrum_14_DOWNLOAD(&specdat[14*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[14], &specvalid_q[14]);
-	SPECTRUM_Spectrum_15_DOWNLOAD(&specdat[15*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[15], &specvalid_q[15]);
-	SPECTRUM_Spectrum_16_DOWNLOAD(&specdat[16*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[16], &specvalid_q[16]);
-	SPECTRUM_Spectrum_17_DOWNLOAD(&specdat[17*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[17], &specvalid_q[17]);
-	SPECTRUM_Spectrum_18_DOWNLOAD(&specdat[18*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[18], &specvalid_q[18]);
-	SPECTRUM_Spectrum_19_DOWNLOAD(&specdat[19*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[19], &specvalid_q[19]);
-	SPECTRUM_Spectrum_20_DOWNLOAD(&specdat[20*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[20], &specvalid_q[20]);
-	SPECTRUM_Spectrum_21_DOWNLOAD(&specdat[21*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[21], &specvalid_q[21]);
-	SPECTRUM_Spectrum_22_DOWNLOAD(&specdat[22*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[22], &specvalid_q[22]);
-	SPECTRUM_Spectrum_23_DOWNLOAD(&specdat[23*17*BUFFER_SIZE],BUFFER_SIZE, timeout, &handle, &specread_q[23], &specvalid_q[23]);*/
+uint32_t *spectra_DOWNLOAD(uint32_t *specdat, uint32_t timeout, uint32_t *specread_q, uint32_t *specvalid_q, SciSDK* _sdk){
+	SPECTRUM_Spectrum_0_DOWNLOAD (&specdat[0 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, (NI_HANDLE*)_sdk, &specread_q[0 ], &specvalid_q[0 ]);
+	SPECTRUM_Spectrum_1_DOWNLOAD (&specdat[1 *17*BUFFER_SIZE],BUFFER_SIZE, timeout, (NI_HANDLE*)_sdk, &specread_q[1 ], &specvalid_q[1 ]);
 	return specdat;
 }
 
-int set_by_polarity(uint32_t address, int polarity, int value){
+int set_by_polarity(uint32_t address, int polarity, int value,SciSDK* _sdk){
 	if(polarity==0){
 		uint32_t newval = baseline - value;
-		return __abstracted_reg_write(newval,address,&handle);
+		return __abstracted_reg_write(newval,address,(NI_HANDLE*)_sdk);
 	}else if(polarity==1){
 		uint32_t newval = baseline + value;
-		return __abstracted_reg_write(newval,address,&handle);
+		return __abstracted_reg_write(newval,address,(NI_HANDLE*)_sdk);
 	}else{
-		printf("Polarity is invalid! (Must be 1 or 0; was %d.)\n",polarity); 
+		printf("Polarity is invalid! (Must be 1 or 0; was %d.)\n",polarity);
 		return -1;
 	}
 }
@@ -871,3 +545,4 @@ int kbhit(void){
 
 	return 0;
 }
+

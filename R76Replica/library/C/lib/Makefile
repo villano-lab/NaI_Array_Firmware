@@ -39,6 +39,7 @@ RcIncludePath          :=
 Libs                   :=
 ArLibs                 :=  "SCIDK"
 LibPath                := $(LibraryPathSwitch).
+HeaderDepends	       := src/UniversalTriggerShared.h src/Legacy/R76Replica_lib.h scisdk_rebuild/scisdk_core.h scisdk_rebuild/scisdk_defines.h scisdk_rebuild/SciSDK_DLL.h scisdk_rebuild/NIErrorCode.h
 
 ##
 ## Common variables
@@ -67,7 +68,7 @@ Objects=$(Objects0)
 ## Main Build Targets
 ##
 .PHONY: all clean PreBuild PrePreBuild PostBuild MakeIntermediateDirs
-all: $(OutputFile) libUTS1260.so setregisters scanrate scanupper scanwindow singlerate fifotest getspectrum teststatus packettest
+all: $(OutputFile) libUTS1260.so setregisters scanrate scanupper scanwindow singlerate fifotest getspectrum teststatus packettest smalltest
 
 $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 	@$(MakeDirCommand) $(@D)
@@ -77,36 +78,38 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 	@$(MakeDirCommand) ".build-debug"
 	@echo rebuilt > ".build-debug/$(ProjectName)"
 
-libUTS1260.so: $(OutputFile) src/UniversalTriggerShared.c src/UniversalTriggerShared.h
+libUTS1260.so: $(OutputFile) src/UniversalTriggerShared.c $(HeaderDepends)
 	$(CXX) -shared -fPIC -c -o libUTS1260.so src/UniversalTriggerShared.c $(CVER)
 	mv libUTS1260.so ./gcc/libUTS1260.so
-fifotest: %: $(OutputFile) src/%.c
+fifotest: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o fifotest src/fifotest.c $(LIBFLAGS) -lm -ldl
-getspectrum: %: $(OutputFile) src/%.c
+getspectrum: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o getspectrum src/getspectrum.c $(LIBFLAGS) -lm -ldl
-setregisters: %: $(OutputFile) src/%.c
+setregisters: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o setregisters src/setregisters.c $(LIBFLAGS) -lm -ldl
-scanrate: %: $(OutputFile) src/%.c
+scanrate: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o scanrate src/scanrate.c $(LIBFLAGS) -lm -ldl
-scanupper: %: $(OutputFile) src/%.c
+scanupper: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o scanupper src/scanupper.c $(LIBFLAGS) -lm -ldl
-scanwindow: %: $(OutputFile) src/%.c
+scanwindow: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o scanwindow src/scanwindow.c $(LIBFLAGS) -lm -ldl
-singlerate: %: $(OutputFile) src/%.c
+singlerate: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o singlerate src/singlerate.c $(LIBFLAGS) -lm -ldl
-teststatus: %: $(OutputFile) src/%.c
+teststatus: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o teststatus src/teststatus.c $(LIBFLAGS) -lm -ldl
-packettest: %: $(OutputFile) src/%.c
+packettest: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o packettest src/packettest.c $(LIBFLAGS) -lm -ldl
+smalltest: %: $(OutputFile) src/%.c $(HeaderDepends)
+	$(CXX) $(CXXFLAGS) -o smalltest src/smalltest.c $(LIBFLAGS) -lboardsdriver
 
 MakeIntermediateDirs:
 	@test -d ./Debug || $(MakeDirCommand) ./Debug
