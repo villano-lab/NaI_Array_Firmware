@@ -123,20 +123,6 @@ def REG_ANALOG_OFFSET_SET(data, handle):
 
 
 
-
-def RATE_METER_RateMeter_0_GET_DATA(channels, timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, R76Replica_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS, timeout_ms, handle)
-    return err, data, read_data, valid_data
-
-
-
-
-def RATE_METER_RateMeter_0_GET_DATA_COUNTS(channels, timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, R76Replica_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS + 512, timeout_ms, handle)
-    return err, data, read_data, valid_data
-
-
-
 def SPECTRUM_Spectrum_0_RESET(handle):
     err = __abstracted_reg_write(2, R76Replica_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
     return err
@@ -419,4 +405,18 @@ def CPACK_All_Energies_RECONSTRUCT_DATA(FrameData):
 					event_energy = []
 					in_sync = 0
 	return Time_Code, Pack_Id, Energy
+
+
+
+
+def RATE_METER_RateMeter_0_GET_DATA(channels, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, R76Replica_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS, timeout_ms, handle)
+    return err, data, read_data, valid_data
+
+
+
+
+def RATE_METER_RateMeter_0_GET_DATA_COUNTS(channels, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(channels, R76Replica_RegisterFile.SCI_REG_RateMeter_0_FIFOADDRESS + 512, timeout_ms, handle)
+    return err, data, read_data, valid_data
 

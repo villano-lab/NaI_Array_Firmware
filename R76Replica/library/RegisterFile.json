@@ -3,13 +3,13 @@
     {
       "Name": "disable_det",
       "Type": "MultiChannelRegister",
-      "Address": 393231,
+      "Address": 262159,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "CH0",
           "Type": "11",
-          "Address": 393232,
+          "Address": 262160,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -19,7 +19,7 @@
         {
           "Name": "CH1",
           "Type": "11",
-          "Address": 393233,
+          "Address": 262161,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -32,13 +32,13 @@
     {
       "Name": "thrsh",
       "Type": "MultiChannelRegister",
-      "Address": 393223,
+      "Address": 262151,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "CH0",
           "Type": "11",
-          "Address": 393224,
+          "Address": 262152,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -48,7 +48,7 @@
         {
           "Name": "CH1",
           "Type": "11",
-          "Address": 393225,
+          "Address": 262153,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -61,13 +61,13 @@
     {
       "Name": "top",
       "Type": "MultiChannelRegister",
-      "Address": 401416,
+      "Address": 270344,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "CH0",
           "Type": "11",
-          "Address": 401417,
+          "Address": 270345,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -77,7 +77,7 @@
         {
           "Name": "CH1",
           "Type": "11",
-          "Address": 401418,
+          "Address": 270346,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -90,13 +90,13 @@
     {
       "Name": "base",
       "Type": "MultiChannelRegister",
-      "Address": 393235,
+      "Address": 262163,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "CH0",
           "Type": "11",
-          "Address": 393236,
+          "Address": 262164,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -106,7 +106,7 @@
         {
           "Name": "CH1",
           "Type": "11",
-          "Address": 393237,
+          "Address": 262165,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -115,15 +115,6 @@
         }
       ],
       "Path": "/base"
-    },
-    {
-      "Name": "RateMeter_0",
-      "Type": "MCRateMeter",
-      "Address": 196608,
-      "Version": "1.0.0.0",
-      "Channels": 1,
-      "Registers": [],
-      "Path": "/RateMeter_0"
     },
     {
       "Name": "trig",
@@ -187,13 +178,13 @@
     {
       "Name": "int",
       "Type": "RegisterFile",
-      "Address": 393227,
+      "Address": 262155,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "time",
           "Type": "Register",
-          "Address": 393228,
+          "Address": 262156,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -203,7 +194,7 @@
         {
           "Name": "pre",
           "Type": "Register",
-          "Address": 393229,
+          "Address": 262157,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -287,14 +278,14 @@
     {
       "Name": "Spectrum_1",
       "Type": "Spectrum",
-      "Address": 327680,
+      "Address": 196608,
       "Version": "1.0.1.0",
       "bins": 1024,
       "Registers": [
         {
           "Name": "STATUS",
           "Type": null,
-          "Address": 393216,
+          "Address": 262144,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -304,7 +295,7 @@
         {
           "Name": "CONFIG",
           "Type": null,
-          "Address": 393217,
+          "Address": 262145,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -314,7 +305,7 @@
         {
           "Name": "CONFIG_LIMIT",
           "Type": null,
-          "Address": 393218,
+          "Address": 262146,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -324,7 +315,7 @@
         {
           "Name": "CONFIG_REBIN",
           "Type": null,
-          "Address": 393219,
+          "Address": 262147,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -334,7 +325,7 @@
         {
           "Name": "CONFIG_MIN",
           "Type": null,
-          "Address": 393220,
+          "Address": 262148,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -344,7 +335,7 @@
         {
           "Name": "CONFIG_MAX",
           "Type": null,
-          "Address": 393221,
+          "Address": 262149,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -358,13 +349,13 @@
     {
       "Name": "Oscilloscope_1",
       "Type": "Oscilloscope",
-      "Address": 397312,
+      "Address": 266240,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "READ_STATUS",
           "Type": "Register",
-          "Address": 401408,
+          "Address": 270336,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -374,7 +365,7 @@
         {
           "Name": "READ_POSITION",
           "Type": "Register",
-          "Address": 401409,
+          "Address": 270337,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -384,7 +375,7 @@
         {
           "Name": "CONFIG_TRIGGER_MODE",
           "Type": "Register",
-          "Address": 401410,
+          "Address": 270338,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -394,7 +385,7 @@
         {
           "Name": "CONFIG_PRETRIGGER",
           "Type": "Register",
-          "Address": 401411,
+          "Address": 270339,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -404,7 +395,7 @@
         {
           "Name": "CONFIG_TRIGGER_LEVEL",
           "Type": "Register",
-          "Address": 401412,
+          "Address": 270340,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -414,7 +405,7 @@
         {
           "Name": "CONFIG_ARM",
           "Type": "Register",
-          "Address": 401413,
+          "Address": 270341,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -424,7 +415,7 @@
         {
           "Name": "CONFIG_DECIMATOR",
           "Type": "Register",
-          "Address": 401414,
+          "Address": 270342,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -447,13 +438,13 @@
     {
       "Name": "diag_time",
       "Type": "RegisterFile",
-      "Address": 401426,
+      "Address": 270354,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "lower",
           "Type": "Register",
-          "Address": 401427,
+          "Address": 270355,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -463,7 +454,7 @@
         {
           "Name": "upper",
           "Type": "Register",
-          "Address": 401428,
+          "Address": 270356,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -473,7 +464,7 @@
         {
           "Name": "full",
           "Type": "Register",
-          "Address": 401429,
+          "Address": 270357,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -483,7 +474,7 @@
         {
           "Name": "normal",
           "Type": "Register",
-          "Address": 401430,
+          "Address": 270358,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -494,95 +485,16 @@
       "Path": "/diag_time"
     },
     {
-      "Name": "diag",
-      "Type": "RegisterFile",
-      "Address": 401432,
-      "Version": "1.0.0.0",
-      "Registers": [
-        {
-          "Name": "greater",
-          "Type": "Register",
-          "Address": 401433,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "FM_Out",
-          "Type": "Register",
-          "Address": 401434,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "to_encode",
-          "Type": "Register",
-          "Address": 401435,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "timing",
-          "Type": "Register",
-          "Address": 401436,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "full",
-          "Type": "Register",
-          "Address": 401437,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "counts",
-          "Type": "Register",
-          "Address": 401438,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "debug",
-          "Type": "Register",
-          "Address": 401439,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        }
-      ],
-      "Path": "/diag"
-    },
-    {
       "Name": "All_Energies",
       "Type": "CustomPacket",
-      "Address": 401441,
+      "Address": 270369,
       "Version": "1.1.0.0",
       "Channels": 0,
       "Registers": [
         {
           "Name": "READ_STATUS",
           "Type": null,
-          "Address": 401442,
+          "Address": 270370,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -592,7 +504,7 @@
         {
           "Name": "READ_VALID_WORDS",
           "Type": null,
-          "Address": 401443,
+          "Address": 270371,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -602,7 +514,7 @@
         {
           "Name": "CONFIG",
           "Type": null,
-          "Address": 401444,
+          "Address": 270372,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -691,58 +603,76 @@
       ],
       "BufferLength": 32768,
       "Path": "/All_Energies"
+    },
+    {
+      "Name": "RateMeter_0",
+      "Type": "MCRateMeter",
+      "Address": 327680,
+      "Version": "1.0.0.0",
+      "Channels": 1,
+      "Registers": [],
+      "Path": "/RateMeter_0"
+    },
+    {
+      "Name": "diag",
+      "Type": "RegisterFile",
+      "Address": 270360,
+      "Version": "1.0.0.0",
+      "Registers": [
+        {
+          "Name": "FM_Out",
+          "Type": "Register",
+          "Address": 270361,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "to_encode",
+          "Type": "Register",
+          "Address": 270362,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "full",
+          "Type": "Register",
+          "Address": 270363,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "debug",
+          "Type": "Register",
+          "Address": 270364,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        }
+      ],
+      "Path": "/diag"
     }
   ],
   "Registers": [
     {
       "Name": "reset",
       "Type": "Register",
-      "Address": 401423,
+      "Address": 270351,
       "Version": "1.0.0.0",
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined",
       "Path": "/reset"
-    },
-    {
-      "Name": "trigger_code",
-      "Type": "Register",
-      "Address": 401421,
-      "Version": "1.0.0.0",
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined",
-      "Path": "/trigger_code"
-    },
-    {
-      "Name": "tc_nonzero",
-      "Type": "Register",
-      "Address": 401420,
-      "Version": "1.0.0.0",
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined",
-      "Path": "/tc_nonzero"
-    },
-    {
-      "Name": "unequal",
-      "Type": "Register",
-      "Address": 401419,
-      "Version": "1.0.0.0",
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined",
-      "Path": "/unequal"
-    },
-    {
-      "Name": "timestamp",
-      "Type": "Register",
-      "Address": 401422,
-      "Version": "1.0.0.0",
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined",
-      "Path": "/timestamp"
     },
     {
       "Name": "ANALOG_OFFSET",
@@ -760,5 +690,5 @@
   "Magic": "790125E3",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2024-05-28T13:36:08.609633-06:00"
+  "BuildDate": "2024-06-04T15:33:56.2164126-06:00"
 }
