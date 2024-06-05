@@ -37,17 +37,17 @@
   {
     "Name": "utilization.clb.lut",
     "Description": "LUT(#)",
-    "Value": "6508"
+    "Value": "6623"
   },
   {
     "Name": "utilization.clb.ff",
     "Description": "FD(#)",
-    "Value": "6928"
+    "Value": "7035"
   },
   {
     "Name": "utilization.ram.tile",
     "Description": "RAMB/FIFO(#)",
-    "Value": "42"
+    "Value": "45"
   },
   {
     "Name": "utilization.uram.tile",
@@ -67,17 +67,17 @@
   {
     "Name": "utilization.clb.lut.pct",
     "Description": "LUT(%)",
-    "Value": "44.58"
+    "Value": "45.36"
   },
   {
     "Name": "utilization.clb.ff.pct",
     "Description": "FD(%)",
-    "Value": "23.73"
+    "Value": "24.09"
   },
   {
     "Name": "utilization.clb.lutmem.pct",
     "Description": "LUTRAM+SRL(%)",
-    "Value": "2.02"
+    "Value": "3.06"
   },
   {
     "Name": "utilization.clb.carry8.pct",
@@ -87,7 +87,7 @@
   {
     "Name": "utilization.clb.f7mux.pct",
     "Description": "MUXF7(%)",
-    "Value": "0.19"
+    "Value": "0.70"
   },
   {
     "Name": "utilization.clb.f8mux.pct",
@@ -97,7 +97,7 @@
   {
     "Name": "design.cells.hlutnm.pct",
     "Description": "LUT Combining(%)",
-    "Value": "7.86"
+    "Value": "7.89"
   },
   {
     "Name": "utilization.dsp.pct",
@@ -107,17 +107,17 @@
   {
     "Name": "utilization.ram.tile.pct",
     "Description": "RAMB/FIFO(%)",
-    "Value": "93.33"
+    "Value": "100.00"
   },
   {
     "Name": "utilization.uram.tile.pct",
     "Description": "URAM(%)",
-    "Value": "93.33"
+    "Value": "100.00"
   },
   {
     "Name": "utilization.bigblocks.pct",
     "Description": "DSP48+RAMB+URAM (Avg)(%)",
-    "Value": "49.16"
+    "Value": "52.50"
   },
   {
     "Name": "utilization.clk.all",
@@ -127,7 +127,7 @@
   {
     "Name": "utilization.ctrlsets.uniq",
     "Description": "Control Sets",
-    "Value": "245"
+    "Value": "260"
   },
   {
     "Name": "design.dont_touch",

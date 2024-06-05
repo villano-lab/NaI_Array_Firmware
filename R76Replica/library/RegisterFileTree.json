@@ -496,14 +496,14 @@
     {
       "Name": "All_Energies",
       "Type": "CustomPacket",
-      "Address": 270369,
+      "Address": 270360,
       "Version": "1.1.0.0",
       "Channels": 0,
       "Registers": [
         {
           "Name": "READ_STATUS",
           "Type": null,
-          "Address": 270370,
+          "Address": 270361,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -513,7 +513,7 @@
         {
           "Name": "READ_VALID_WORDS",
           "Type": null,
-          "Address": 270371,
+          "Address": 270362,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -523,7 +523,7 @@
         {
           "Name": "CONFIG",
           "Type": null,
-          "Address": 270372,
+          "Address": 270363,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -625,13 +625,13 @@
     {
       "Name": "diag",
       "Type": "RegisterFile",
-      "Address": 270360,
+      "Address": 393217,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "FM_Out",
           "Type": "Register",
-          "Address": 270361,
+          "Address": 393218,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -641,7 +641,7 @@
         {
           "Name": "to_encode",
           "Type": "Register",
-          "Address": 270362,
+          "Address": 393219,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -651,7 +651,7 @@
         {
           "Name": "full",
           "Type": "Register",
-          "Address": 270363,
+          "Address": 393220,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -661,7 +661,7 @@
         {
           "Name": "debug",
           "Type": "Register",
-          "Address": 270364,
+          "Address": 393221,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -700,5 +700,5 @@
   "Magic": "790125E3",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2024-06-04T15:33:56.2571634-06:00"
+  "BuildDate": "2024-06-05T11:12:04.7942767-06:00"
 }
