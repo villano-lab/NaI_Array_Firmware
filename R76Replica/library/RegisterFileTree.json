@@ -445,65 +445,16 @@
       "Path": "/Oscilloscope_1"
     },
     {
-      "Name": "diag_time",
-      "Type": "RegisterFile",
-      "Address": 270354,
-      "Version": "1.0.0.0",
-      "Registers": [
-        {
-          "Name": "lower",
-          "Type": "Register",
-          "Address": 270355,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "upper",
-          "Type": "Register",
-          "Address": 270356,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "full",
-          "Type": "Register",
-          "Address": 270357,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "normal",
-          "Type": "Register",
-          "Address": 270358,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        }
-      ],
-      "Path": "/diag_time"
-    },
-    {
       "Name": "All_Energies",
       "Type": "CustomPacket",
-      "Address": 270360,
+      "Address": 270354,
       "Version": "1.1.0.0",
       "Channels": 0,
       "Registers": [
         {
           "Name": "READ_STATUS",
           "Type": null,
-          "Address": 270361,
+          "Address": 270355,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -513,7 +464,7 @@
         {
           "Name": "READ_VALID_WORDS",
           "Type": null,
-          "Address": 270362,
+          "Address": 270356,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -523,7 +474,7 @@
         {
           "Name": "CONFIG",
           "Type": null,
-          "Address": 270363,
+          "Address": 270357,
           "Version": null,
           "RegionSize": 1,
           "Description": "",
@@ -672,6 +623,55 @@
       "Path": "/diag"
     },
     {
+      "Name": "diag_time",
+      "Type": "RegisterFile",
+      "Address": 393223,
+      "Version": "1.0.0.0",
+      "Registers": [
+        {
+          "Name": "lower",
+          "Type": "Register",
+          "Address": 393224,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "upper",
+          "Type": "Register",
+          "Address": 393225,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "full",
+          "Type": "Register",
+          "Address": 393226,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "normal",
+          "Type": "Register",
+          "Address": 393227,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        }
+      ],
+      "Path": "/diag_time"
+    },
+    {
       "Name": "reset",
       "Type": "Register",
       "Address": 270351,
@@ -700,5 +700,5 @@
   "Magic": "790125E3",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2024-06-05T11:12:04.7942767-06:00"
+  "BuildDate": "2024-06-05T14:02:18.0903044-06:00"
 }
