@@ -37,12 +37,12 @@
   {
     "Name": "utilization.clb.lut",
     "Description": "LUT(#)",
-    "Value": "6141"
+    "Value": "6161"
   },
   {
     "Name": "utilization.clb.ff",
     "Description": "FD(#)",
-    "Value": "7039"
+    "Value": "7044"
   },
   {
     "Name": "utilization.ram.tile",
@@ -67,12 +67,12 @@
   {
     "Name": "utilization.clb.lut.pct",
     "Description": "LUT(%)",
-    "Value": "42.06"
+    "Value": "42.20"
   },
   {
     "Name": "utilization.clb.ff.pct",
     "Description": "FD(%)",
-    "Value": "24.11"
+    "Value": "24.12"
   },
   {
     "Name": "utilization.clb.lutmem.pct",
@@ -97,7 +97,7 @@
   {
     "Name": "design.cells.hlutnm.pct",
     "Description": "LUT Combining(%)",
-    "Value": "8.57"
+    "Value": "8.59"
   },
   {
     "Name": "utilization.dsp.pct",

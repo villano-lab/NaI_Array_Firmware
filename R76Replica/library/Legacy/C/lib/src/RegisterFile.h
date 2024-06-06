@@ -52,15 +52,10 @@
 #define SCI_REG_Oscilloscope_1_CONFIG_ARM 0x42005
 #define SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR 0x42006
 
-#define SCI_REG_diag_time_lower 0x42013
-#define SCI_REG_diag_time_upper 0x42014
-#define SCI_REG_diag_time_full 0x42015
-#define SCI_REG_diag_time_normal 0x42016
-
-#define SCI_REG_All_Energies_FIFOADDRESS 0x42018
-#define SCI_REG_All_Energies_READ_STATUS 0x42019
-#define SCI_REG_All_Energies_READ_VALID_WORDS 0x4201A
-#define SCI_REG_All_Energies_CONFIG 0x4201B
+#define SCI_REG_All_Energies_FIFOADDRESS 0x42012
+#define SCI_REG_All_Energies_READ_STATUS 0x42013
+#define SCI_REG_All_Energies_READ_VALID_WORDS 0x42014
+#define SCI_REG_All_Energies_CONFIG 0x42015
 
 #define SCI_REG_RateMeter_0_FIFOADDRESS 0x50000
 
@@ -68,4 +63,9 @@
 #define SCI_REG_diag_to_encode 0x60003
 #define SCI_REG_diag_full 0x60004
 #define SCI_REG_diag_debug 0x60005
+
+#define SCI_REG_diag_time_lower 0x60008
+#define SCI_REG_diag_time_upper 0x60009
+#define SCI_REG_diag_time_full 0x6000A
+#define SCI_REG_diag_time_normal 0x6000B
 
