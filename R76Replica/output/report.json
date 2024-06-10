@@ -37,7 +37,7 @@
   {
     "Name": "utilization.clb.lut",
     "Description": "LUT(#)",
-    "Value": "6444"
+    "Value": "6448"
   },
   {
     "Name": "utilization.clb.ff",
@@ -67,7 +67,7 @@
   {
     "Name": "utilization.clb.lut.pct",
     "Description": "LUT(%)",
-    "Value": "44.14"
+    "Value": "44.16"
   },
   {
     "Name": "utilization.clb.ff.pct",
@@ -97,7 +97,7 @@
   {
     "Name": "design.cells.hlutnm.pct",
     "Description": "LUT Combining(%)",
-    "Value": "8.13"
+    "Value": "8.16"
   },
   {
     "Name": "utilization.dsp.pct",
