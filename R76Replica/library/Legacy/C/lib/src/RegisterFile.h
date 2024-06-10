@@ -5,6 +5,7 @@
 #define SCI_REG_timestamp 0x0004200E
 #define SCI_REG_reset 0x0004200F
 #define SCI_REG_timestamp2 0x00042010
+#define SCI_REG_forcetrig 0x0006000C
 #define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
 #define SCI_REG_disable_det_CH0 0x40010
 #define SCI_REG_disable_det_CH1 0x40011

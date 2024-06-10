@@ -675,6 +675,16 @@
       "Path": "/reset"
     },
     {
+      "Name": "forcetrig",
+      "Type": "Register",
+      "Address": 393228,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/forcetrig"
+    },
+    {
       "Name": "ANALOG_OFFSET",
       "Type": "Register",
       "Address": 4294967289,
@@ -690,5 +700,5 @@
   "Magic": "790125E3",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2024-06-06T10:40:06.4088413-06:00"
+  "BuildDate": "2024-06-07T16:28:30.5993728-06:00"
 }

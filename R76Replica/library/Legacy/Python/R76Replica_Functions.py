@@ -117,6 +117,14 @@ def REG_timestamp2_GET(handle):
 def REG_timestamp2_SET(data, handle):
     err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_timestamp2, handle)
     return err
+
+def REG_forcetrig_GET(handle):
+    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_forcetrig, handle)
+    return err, data
+
+def REG_forcetrig_SET(data, handle):
+    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_forcetrig, handle)
+    return err
 def REG_ANALOG_OFFSET_SET(data, handle):
     err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_ANALOG_OFFSET, handle)
     return err
