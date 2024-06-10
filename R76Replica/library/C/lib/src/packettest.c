@@ -6,12 +6,13 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <sys/time.h>
+//#include "/home/rune/packages/SCIDK-SDKLinux/libSCIDK/include/ftd2xx.h"
 
 //#include "Legacy/R76Firmware_lib.h"
 #include "UniversalTriggerShared.h"
 
 const char* program_name = "packettest";
-int waittime=100; //default num packets.
+int waittime=100; //default num SETS of packets.
 
 void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines up correctly in the terminal output
 	fprintf (stream, "Usage:  %s options \n", program_name);
@@ -72,21 +73,21 @@ int main(int argc, char* argv[])
 		}
 	}
 
-    //Verbosity message
+	//Verbosity message
 	if(verbose > 0){
 		printf("Running in verbose mode. Verbosity: %d\n",verbose);
 	};
 
-    //Connect to the board.
+	//Connect to the board.
         int connect_q = SCIDK_ConnectUSB(BOARD_SERIAL_NUMBER,(NI_HANDLE*)sdk);
 	if(connect_q != 0){
 		printf("Board connection error code: %d\n",connect_q);
 		return connect_q;
 	}
 
-    //Stuff to call later
-    uint32_t status_frame = 0;
-	uint32_t N_Packet = 100;
+	//Stuff to call later
+	uint32_t status_frame = 0;
+	uint32_t N_Packet = 2; //seems to be minimal functional amount.
 	int32_t data_frame[100000];
 	uint32_t read_data_frame;
 	uint32_t valid_data_frame;
@@ -95,8 +96,8 @@ int main(int argc, char* argv[])
 	uint32_t ReadDataNumber = 0;
 	int32_t timeout_frame = 1000;
 	t_generic_event_collection decoded_packets;
-    void *BufferDownloadHandler = NULL;
-    //Configuration flag
+	void *BufferDownloadHandler = NULL;
+	//Configuration flag
 	int32_t FrameSync = 0;
 	int32_t	FrameWait = 0;
 	int32_t	FrameMask = 3;
@@ -107,13 +108,23 @@ int main(int argc, char* argv[])
 	//run time length troubleshooting
 	struct timeval start,allocate,stop;
 
-    //Allocate the buffer.
+	//Allocate the buffer.
 	code = Utility_ALLOCATE_DOWNLOAD_BUFFER(&BufferDownloadHandler, 1024*1024);
-	if(verbose>-1) printf("BufferDownloadHandler: %p.\n",BufferDownloadHandler);
+	if(verbose>1) printf("BufferDownloadHandler: %p.\n",BufferDownloadHandler);
 	if(code != 0){
 		printf("Buffer allocation failed.\n");
 		return code;
-	}else if(verbose>1) printf("Buffer allocation succeeded. Continuing to setup.\n");
+	}
+	if(verbose>1) printf("Buffer allocation succeeded. Continuing to setup.\n");
+
+	//debug mode for matching.
+	int debug = 1; //i am too lazy to make another cl arg
+	if(debug){
+		__abstracted_reg_write(4,SCI_REG_diag_debug,(NI_HANDLE*)sdk);
+		waittime = 1;
+		N_Packets = 10;
+		REG_forcetrig_SET(0,(NI_HANDLE*)sdk); //need to know where we're starting before we can proceed.
+	}
 
 	//Pull the data!
 	if (CPACK_All_Energies_RESET((NI_HANDLE*)sdk) != 0) printf("Reset Error\n");
@@ -132,27 +143,40 @@ int main(int argc, char* argv[])
 	{
 		if(verbose>1) printf("Logging to %s.\n",logfile);
         if(logfile != NULL){
-            fprintf(logfile,"Packet #,word label,value\n");
+            fprintf(logfile,"trigger code,timestamp,CH00,CH01\n");
         }
+
+	/*DWORD lpdwAmountInRxQueue,lpdwAmountInTxQueue,lpdwEventStatus;
+	FT_GetStatus((NI_HANDLE*)sdk, &lpdwAmountInRxQueue,&lpdwAmountInTxQueue,
+                          &lpdwEventStatus);*/
+
+	//if debugging matching, generate 10 values
+	int k = 0;
+	while(k<5){
+		if(REG_forcetrig_SET(1,(NI_HANDLE*)sdk)) return -1;
+		if(REG_forcetrig_SET(0,(NI_HANDLE*)sdk)) return -1;
+	}
+
         int j = 0;
         while(j<waittime){
-			gettimeofday(&start,NULL);
-            valid_data_frame = 0;
-            if(verbose > 0){printf("Downloading new dataset.\n");}
-            if (CPACK_All_Energies_DOWNLOAD((uint32_t *)data_frame, N_Packet * (18), timeout_frame, (NI_HANDLE*)sdk, &read_data_frame, &valid_data_frame) != 0) printf("Data Download Error\n");
-			if(verbose>0) printf("Valid data: %d.\n",valid_data_frame);
-			if(valid_data_frame == 0){
-				printf("No data available; nothing to do. Exiting.");
-				return -1;
-			}
+		//REG_reset_SET(0,(NI_HANDLE*)sdk);REG_reset_SET(1,(NI_HANDLE*)sdk);*/
+		gettimeofday(&start,NULL);
+		valid_data_frame = 0;
+		if(verbose > 0){printf("Downloading new dataset.\n");}
+		if(CPACK_All_Energies_DOWNLOAD((uint32_t *)data_frame, N_Packet * (4), timeout_frame, (NI_HANDLE*)sdk, &read_data_frame, &valid_data_frame) != 0) printf("Data Download Error\n");
+		if(verbose>0) std::cout << "Valid data: " << valid_data_frame << ", " << (valid_data_frame == 0) << std::endl;//printf("Valid data: %d.\n",valid_data_frame);
+		if(valid_data_frame == 0){
+			printf("No data available; nothing to do. Exiting.");
+			return -1;
+		}
 
-            valid_data_enqueued = 0;
-            if(verbose > 1){printf("Enqueuing data.\n");}
-			code = Utility_ENQUEUE_DATA_IN_DOWNLOAD_BUFFER(BufferDownloadHandler, data_frame, valid_data_frame, &valid_data_enqueued);
-			if(code != 0){
-				printf("Enqueue failed with code %d.\n",code);
-				return code;
-			}
+		valid_data_enqueued = 0;
+		if(verbose > 1){printf("Enqueuing data.\n");}
+		code = Utility_ENQUEUE_DATA_IN_DOWNLOAD_BUFFER(BufferDownloadHandler, data_frame, valid_data_frame, &valid_data_enqueued);
+		if(code != 0){
+			printf("Enqueue failed with code %d.\n",code);
+			return code;
+		}
 
             if(verbose > 1){printf("Reconstructing data.\n");}
             if (CPACK_All_Energies_RECONSTRUCT_DATA(BufferDownloadHandler, &decoded_packets) == 0)
@@ -161,29 +185,27 @@ int main(int argc, char* argv[])
                 if(verbose>=0) printf(".");
                 if(verbose>=0) printf("\n");
                 if(verbose>2) printf("i: %d\n",i);
-				if(verbose>2) printf("BufferDownloadHandler: %p\n",BufferDownloadHandler);
+		if(verbose>2) printf("BufferDownloadHandler: %p\n",BufferDownloadHandler);
+		if(decoded_packets.valid_packets == 0){
+			printf("No more valid packets; done.\n");
+			return 0;
+		}
                 if(verbose>1) printf("Valid Packets: %d \n",decoded_packets.valid_packets);
                 for (int i = 0;i<decoded_packets.valid_packets;i++){
                     if(verbose>2){printf("Reading out decoded packet...\n");}
                     t_All_Energies_struct *data = (t_All_Energies_struct *)decoded_packets.packets[i].payload;
 		    //Gate width debugging
-                    for(int n=0;n<18;n++){
+                    for(int n=0;n<3;n++){
                         //For now I'm abusing my log function in order to print to file.
                         if(logfile != NULL){
-                            fprintf(logfile,"%d, ",j);
-                            if(n==0){
-                                fprintf(logfile, "timestamp, ");
-                            }else if(n==1){
-                                fprintf(logfile,"trigger_code, ");
-                            }else{
-                                fprintf(logfile,"energy_ch_%02d, ",2*(n-2)); //start on row 2
-                            }
-                            if(n<=1){
-                                fprintf(logfile,"%u\n",data->row[n]);
-                            }else{
+                            if(n==0){ //trigger code
+                                fprintf(logfile,"%08X,",data->row[n]);
+                            }else if(n==1){ //timestamp
+                                fprintf(logfile,"%04X,",data->row[n]>>16);
+                            }else{ //data
                                 uint16_t lower_word = (uint16_t) (data->row[n] & 0xFFFFUL);
                                 uint16_t upper_word = (uint16_t) ((data->row[n] >> 16) & 0xFFFFUL);
-                                fprintf(logfile,"%u\n%d, energy_ch_%02d, %u\n",(uint32_t)lower_word,j,2*(n-2)+1,(uint32_t)upper_word); //1.5 lines off.
+                                fprintf(logfile,"%04X,%04X\n",(uint32_t)lower_word,(uint32_t)upper_word); //1.5 lines off.
                             }
                         }
                         if(verbose > -1){printf("Row #%02d",n+1);}
@@ -193,12 +215,12 @@ int main(int argc, char* argv[])
                 if(verbose > 1){
                     uint32_t trig_value;
                     if(verbose > 2){printf("%p\n",(NI_HANDLE*)sdk);}
-                    code = REG_trigger_code_GET(&trig_value,(NI_HANDLE*)sdk);
+                    /*code = REG_trigger_code_GET(&trig_value,(NI_HANDLE*)sdk);
                     if(code != 0){
                         printf("Retrieving trigger_code failed!\n");
                     }else{
                         printf("Trigger code (NOT retrieved at same time as packet!): %06x\n",trig_value);
-                    }
+                    }*/ //trigger code issues resolved and register deprecated.
                 }
                 if(verbose > -1){printf("=====\n");}
                 }

@@ -141,10 +141,10 @@ int main(int argc, char* argv[])
 	//get the rate
 	if(verbose > 1){printf("Retreiving data...\n");};
 	rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, (NI_HANDLE*)_sdk, &rateread_data, &ratevalid_data);
-	if(verbose > 1){printf("Rateval: %f\n",rateval[0]/10.0);};
+	if(verbose > 1){printf("Rateval: %f\n",(double)rateval[0]);};
 
 	//print the rate
-	printf("%f\n",rateval[0]/10.0);
+	printf("%.01f\n",(double)rateval[0]/10);
 
 	if(verbose>0){printf("Data collection complete.\n");};
 	toc = time(NULL);

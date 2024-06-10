@@ -35,7 +35,7 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
 	fprintf (stream, INHIB_TEXT);
 	fprintf (stream, THRESH_TEXT);
 	fprintf (stream, TOP_TEXT);
-	fprintf (stream, SKIP_TEXT);
+	fprintf (stream, SKIP_TEXT); //hijacked
 	fprintf (stream, POLARITY_TEXT);
 	fprintf (stream, PRE_INT_TEXT);
 	fprintf (stream, INT_TIME_TEXT);
@@ -231,16 +231,9 @@ int main(int argc, char* argv[]){
 
 	//Some printing statements
 	if(skipflag == 1){
-		if(verbose>0){
-			if(skip >1){
-				printf("Setting to skip every %d triggers.\n",skip);}	
-			}else if(skip == 1){
-				printf("Setting to skip EVERY trigger.\n");
-			}else if(skip == 0){
-				printf("Setting to skip every 'zero' triggers. This may result in undefined behavior.\n");
-			}else if(skip < 0){
-				printf("Skip was set to a negative value (%d), meaning no triggers will be skipped.\n",skip);
-			}
+		if(verbose>0){printf("Setting timestamp mode to %d.\n",skip);}
+		__abstracted_reg_write(skip,SCI_REG_diag_debug,(NI_HANDLE*)_sdk);
+		__abstracted_reg_write(0x1337,SCI_REG_diag_to_encode,(NI_HANDLE*)_sdk);
 	}else if(verbose > 1){
 		printf("'Skip' flag is off. Skipping.\n");
 	}

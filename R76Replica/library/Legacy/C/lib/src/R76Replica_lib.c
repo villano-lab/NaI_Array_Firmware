@@ -1,11 +1,12 @@
 #include "SCIDK_Lib.h"
-#include  <stdlib.h>
+#include <stdlib.h>
 #include <stdint.h>
-#include  <stdbool.h>
+#include <stdbool.h>
+#include <iostream>
 
 #include "RegisterFile.h"
-#include  "circular_buffer.h"
-#include  "R76Replica_lib.h"
+#include "circular_buffer.h"
+#include "R76Replica_lib.h"
 
 
 SCILIB int USB2_ConnectDevice( char *IPAddress_or_SN, NI_HANDLE *handle)
@@ -52,9 +53,10 @@ SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count,uint32_t addres
 	uint32_t address_status,bool blocking,	uint32_t timeout_ms, NI_HANDLE *handle,
 	uint32_t *read_data, uint32_t *valid_data)
 {
+	std::cout << "__abstracted_fifo_read descending into NI_ReadData\n";
 	return NI_ReadData(data,  count, address,  R76REPLICA_STREAMING, timeout_ms, handle, read_data, valid_data);
 }
-	
+
 SCILIB int __abstracted_reg_write(uint32_t data, uint32_t address, NI_HANDLE *handle)
 {
 	return NI_WriteReg(data, address, handle);
@@ -1450,17 +1452,17 @@ return __abstracted_reg_read(status, SCI_REG_All_Energies_READ_VALID_WORDS, hand
 //- 
 //-
 //- ARGUMENTS:
-//- 	             val  PARAM_OUT   uint32_t
+//- 	             val  PARAM_OUT   uint32_t*
 //- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
 //- 		DEFAULT: 
 //- 		OPTIONAL: False
 //-
-//- 	             val   PARAM_IN       size
+//- 	             size PARAM_IN    uint32_t
 //- 		number of word to download from the buffer. 
 //- 		DEFAULT: 
 //- 		OPTIONAL: False
 //-
-//- 	             val   PARAM_IN    int32_t
+//- 	          timeout PARAM_IN    int32_t
 //- 		timeout in ms
 //- 		DEFAULT: 
 //- 		OPTIONAL: False
@@ -1490,6 +1492,7 @@ return __abstracted_reg_read(status, SCI_REG_All_Energies_READ_VALID_WORDS, hand
 
 SCILIB int CPACK_All_Energies_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
 {
+std::cout << "CPACK_All_Energies_DOWNLOAD descending into __abstracted_fifo_read.\n";
 return __abstracted_fifo_read(val, size, SCI_REG_All_Energies_FIFOADDRESS, SCI_REG_All_Energies_READ_STATUS,1, timeout, handle, read_data, valid_data);
 
 }
@@ -1582,7 +1585,7 @@ SCILIB int CPACK_All_Energies_RECONSTRUCT_DATA(void *buffer_handle, t_generic_ev
 	decoded_packets->packets = NULL;
 	decoded_packets->allocated_packets = 0;
 	decoded_packets->valid_packets = 0;
-	
+
 	//check if we have elements in the circular buffer
 	int bfsize = circular_buf_size(cbuf);
 	if (bfsize < PacketSize + 1) return -1;
@@ -1597,15 +1600,16 @@ SCILIB int CPACK_All_Energies_RECONSTRUCT_DATA(void *buffer_handle, t_generic_ev
 	//process packets
 	while (circular_buf_size(cbuf)> 0)
 	{
+		printf("processing next packet.\n");
 		circular_buf_get(cbuf, &mpe);
-
 		if (in_sync == 0) {
 			if (mpe != 0x80000000)
 			{
+				printf("Corrupt or inaccessible packet. Skipping. (1st word was %x)\n",mpe);
 				continue;
 			}
 			in_sync = 1;
-		    ch_index =0;
+			ch_index= 0;
 			continue;
 		}
 		if (in_sync == 1) {
@@ -1619,6 +1623,7 @@ SCILIB int CPACK_All_Energies_RECONSTRUCT_DATA(void *buffer_handle, t_generic_ev
 			continue;
 		}
 		if (in_sync == 3) {
+			printf("in_sync reached 3\n");
 			temp_data.row[2]  =  mpe;
 			decoded_packets->packets[k].payload = malloc(sizeof(t_All_Energies_struct));
 			if (decoded_packets->packets[k].payload != NULL) {
@@ -1627,7 +1632,7 @@ SCILIB int CPACK_All_Energies_RECONSTRUCT_DATA(void *buffer_handle, t_generic_ev
 			    decoded_packets->valid_packets = k;
 			}
 			if (k > decoded_packets->allocated_packets) return 0;
-			
+
 			in_sync = 0;
 			if (circular_buf_size(cbuf) >= PacketSize)
 			    continue;

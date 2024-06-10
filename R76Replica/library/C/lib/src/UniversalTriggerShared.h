@@ -19,7 +19,7 @@
 #include "../scisdk_rebuild/scisdk_core.h"
 
 //Text defines
-#define BOARD_SERIAL_NUMBER ("13251")
+#define BOARD_SERIAL_NUMBER ("21967")//"13251")
 #define DET_TEXT      (" -D,	--det	    <# or source name>	    Choose which detectors to trigger on (default: all).\n				            Number values are bitwise from 0 to all 1s in 32 bit (4294967295).\n")
 #define GATE_TEXT     (" -g,	--gate	    '<lower #> <upper #>'   Set the gate times for the upper and lower triggers in clock ticks (integer. defaults: 10-100)\n					    The two entries are delimited by spaces, commas, or dashes. Both must be provided.\n")
 #define DELAY_TEXT    (" -d,	--delay	    <delay length>          Set the value of the delay time in clock ticks (integer. default: 50)\n")

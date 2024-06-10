@@ -49,7 +49,7 @@ const struct option longopts[] =
 
 //Defaults
 int verbose = 0;
-float thrs = 1.;	        //distance from baseline for threshold.
+float thrs = 14300;	        //distance from baseline for threshold.
 uint32_t value = 4294967295;
 int gate_u = 100;
 int gate_l = 10;
@@ -58,8 +58,8 @@ float range_u = 8;
 float range_s = 1;
 int delay = 20;
 int inhib = 1000;
-int baseline = 200;
-float top = 8.;
+int baseline = 0;
+float top = 100000000;
 int int_time = 250; //this seems to be a good default based on oscilloscope readout.
 int pre_int = 100;   //^same here
 //things you probably won't change
@@ -307,6 +307,7 @@ int *on_to_off(int *off, int on, int verbose){
 }
 int energy_to_bin(int detnum, float energy){ //take an energy (MeV) and convert it to a bin number
 	// convert to keV, since that's how our calibrations were done
+	return energy; //circumvent all this other code; don't want to bother calibrating.
 	float bin;
 	energy = energy * 1000;
 	if(detnum == 0){

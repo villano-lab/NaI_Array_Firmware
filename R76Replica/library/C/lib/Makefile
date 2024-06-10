@@ -54,7 +54,7 @@ CXXFLAGS := -Wno-write-strings $(CFLAGS)
 # -fpermissive -shared
 ASFLAGS  :=
 AS       := as
-LIBFLAGS := -L./gcc/ -lR76Replica -lscisdkalt -lSCIDK -lUTS1260
+LIBFLAGS := -L./gcc/ -lR76Replica -lscisdkalt -lSCIDK -lUTS1260 -lR76Replica
 
 ##
 ## User defined environment variables
@@ -68,7 +68,7 @@ Objects=$(Objects0)
 ## Main Build Targets
 ##
 .PHONY: all clean PreBuild PrePreBuild PostBuild MakeIntermediateDirs
-all: $(OutputFile) libUTS1260.so setregisters scanrate scanupper scanwindow singlerate fifotest getspectrum teststatus packettest smalltest
+all: $(OutputFile) libUTS1260.so setregisters scanrate scanupper scanwindow singlerate fifotest getspectrum teststatus packettest smalltest #fttest
 
 $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 	@$(MakeDirCommand) $(@D)
@@ -85,29 +85,23 @@ fifotest: %: $(OutputFile) src/%.c $(HeaderDepends)
 	echo %
 	$(CXX) $(CXXFLAGS) -o fifotest src/fifotest.c $(LIBFLAGS) -lm -ldl
 getspectrum: %: $(OutputFile) src/%.c $(HeaderDepends)
-	echo %
 	$(CXX) $(CXXFLAGS) -o getspectrum src/getspectrum.c $(LIBFLAGS) -lm -ldl
 setregisters: %: $(OutputFile) src/%.c $(HeaderDepends)
-	echo %
 	$(CXX) $(CXXFLAGS) -o setregisters src/setregisters.c $(LIBFLAGS) -lm -ldl
 scanrate: %: $(OutputFile) src/%.c $(HeaderDepends)
-	echo %
 	$(CXX) $(CXXFLAGS) -o scanrate src/scanrate.c $(LIBFLAGS) -lm -ldl
 scanupper: %: $(OutputFile) src/%.c $(HeaderDepends)
-	echo %
 	$(CXX) $(CXXFLAGS) -o scanupper src/scanupper.c $(LIBFLAGS) -lm -ldl
 scanwindow: %: $(OutputFile) src/%.c $(HeaderDepends)
-	echo %
 	$(CXX) $(CXXFLAGS) -o scanwindow src/scanwindow.c $(LIBFLAGS) -lm -ldl
 singlerate: %: $(OutputFile) src/%.c $(HeaderDepends)
-	echo %
 	$(CXX) $(CXXFLAGS) -o singlerate src/singlerate.c $(LIBFLAGS) -lm -ldl
 teststatus: %: $(OutputFile) src/%.c $(HeaderDepends)
-	echo %
 	$(CXX) $(CXXFLAGS) -o teststatus src/teststatus.c $(LIBFLAGS) -lm -ldl
 packettest: %: $(OutputFile) src/%.c $(HeaderDepends)
-	echo %
 	$(CXX) $(CXXFLAGS) -o packettest src/packettest.c $(LIBFLAGS) -lm -ldl
+fttest: %: $(OutputFile) src/%.c $(HeaderDepends)
+	$(CXX) $(CXXFLAGS) -o fttest src/fttest.c -lftd2xx $(LIBFLAGS) -lm -ldl
 smalltest: %: $(OutputFile) src/%.c $(HeaderDepends)
 	$(CXX) $(CXXFLAGS) -o smalltest src/smalltest.c $(LIBFLAGS) -lboardsdriver
 
