@@ -37,7 +37,7 @@
   {
     "Name": "utilization.clb.lut",
     "Description": "LUT(#)",
-    "Value": "6448"
+    "Value": "6463"
   },
   {
     "Name": "utilization.clb.ff",
@@ -67,7 +67,7 @@
   {
     "Name": "utilization.clb.lut.pct",
     "Description": "LUT(%)",
-    "Value": "44.16"
+    "Value": "44.27"
   },
   {
     "Name": "utilization.clb.ff.pct",
