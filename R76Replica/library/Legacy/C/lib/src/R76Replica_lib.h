@@ -110,6 +110,8 @@ SCILIB int REG_reset_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_reset_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_timestamp2_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_timestamp2_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_forcetrig_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_forcetrig_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle);
 //-----------------------------------------------------------------
 //-

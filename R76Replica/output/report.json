@@ -37,12 +37,12 @@
   {
     "Name": "utilization.clb.lut",
     "Description": "LUT(#)",
-    "Value": "6486"
+    "Value": "6513"
   },
   {
     "Name": "utilization.clb.ff",
     "Description": "FD(#)",
-    "Value": "7111"
+    "Value": "7161"
   },
   {
     "Name": "utilization.ram.tile",
@@ -67,17 +67,17 @@
   {
     "Name": "utilization.clb.lut.pct",
     "Description": "LUT(%)",
-    "Value": "44.42"
+    "Value": "44.61"
   },
   {
     "Name": "utilization.clb.ff.pct",
     "Description": "FD(%)",
-    "Value": "24.35"
+    "Value": "24.52"
   },
   {
     "Name": "utilization.clb.lutmem.pct",
     "Description": "LUTRAM+SRL(%)",
-    "Value": "3.06"
+    "Value": "3.10"
   },
   {
     "Name": "utilization.clb.carry8.pct",
@@ -97,7 +97,7 @@
   {
     "Name": "design.cells.hlutnm.pct",
     "Description": "LUT Combining(%)",
-    "Value": "8.03"
+    "Value": "8.41"
   },
   {
     "Name": "utilization.dsp.pct",
@@ -127,7 +127,7 @@
   {
     "Name": "utilization.ctrlsets.uniq",
     "Description": "Control Sets",
-    "Value": "266"
+    "Value": "270"
   },
   {
     "Name": "design.dont_touch",

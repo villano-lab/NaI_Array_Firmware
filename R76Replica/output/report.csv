@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------------
-# Created on Mon Jun 10 17:24:14 -0600 2024 with report_failfast (2018.05.04)
+# Created on Tue Jun 11 14:58:50 -0600 2024 with report_failfast (2018.05.04)
 # ---------------------------------------------------------------------------------
 
 #  +------------------------------------------------------------------------------------------+
@@ -9,16 +9,16 @@
 #  +-----------------------------------------------------------+-----------+---------+--------+
 #  | Criteria                                                  | Guideline | Actual  | Status |
 #  +-----------------------------------------------------------+-----------+---------+--------+
-#  | LUT                                                       | 70%       | 44.42%  | OK     |
-#  | FD                                                        | 50%       | 24.35%  | OK     |
-#  | LUTRAM+SRL                                                | 25%       | 3.06%   | OK     |
+#  | LUT                                                       | 70%       | 44.61%  | OK     |
+#  | FD                                                        | 50%       | 24.52%  | OK     |
+#  | LUTRAM+SRL                                                | 25%       | 3.10%   | OK     |
 #  | MUXF7                                                     | 15%       | 2.11%   | OK     |
 #  | DSP48                                                     | 80%       | 5.00%   | OK     |
 #  | RAMB/FIFO                                                 | 80%       | 100.00% | REVIEW |
 #  | DSP48+RAMB+URAM (Avg)                                     | 70%       | 52.50%  | OK     |
 #  | BUFGCE* + BUFGCTRL                                        | 24        | 7       | OK     |
 #  | DONT_TOUCH (cells/nets)                                   | 0         | 72      | REVIEW |
-#  | Control Sets                                              | 274       | 266     | OK     |
+#  | Control Sets                                              | 274       | 270     | OK     |
 #  | Average Fanout for modules > 100k cells                   | 4         | 0       | OK     |
 #  | Non-FD high fanout nets > 10k loads                       | 0         | 0       | OK     |
 #  +-----------------------------------------------------------+-----------+---------+--------+
@@ -34,5 +34,5 @@
 
 "Id","design.part","design.top","design.run.pr.cell","design.run.pr.pblock","design.run.slr","design.run.regions","utilization.clb.lut","utilization.clb.ff","utilization.ram.tile","utilization.uram.tile","utilization.dsp","design.failure","utilization.clb.lut.pct","utilization.clb.ff.pct","utilization.clb.lutmem.pct","utilization.clb.carry8.pct","utilization.clb.f7mux.pct","utilization.clb.f8mux.pct","design.cells.hlutnm.pct","utilization.dsp.pct","utilization.ram.tile.pct","utilization.uram.tile.pct","utilization.bigblocks.pct","utilization.clk.all","utilization.ctrlsets.uniq","design.dont_touch","design.cells.maxavgfo","design.nets.nonfdhfn","methodology.timing-6","methodology.timing-7","methodology.timing-8","methodology.timing-14","methodology.timing-35","design.device.maxlvls.lut","design.device.maxlvls.net"
 "Description","Part","Top","PR (Cell)","PR (Pblock)","SLR-Level Analysis","Clock Regions","LUT(#)","FD(#)","RAMB/FIFO(#)","URAM(#)","DSP48(#)","Criteria to review","LUT(%)","FD(%)","LUTRAM+SRL(%)","CARRY8(%)","MUXF7(%)","MUXF8(%)","LUT Combining(%)","DSP48(%)","RAMB/FIFO(%)","URAM(%)","DSP48+RAMB+URAM (Avg)(%)","BUFGCE* + BUFGCTRL","Control Sets","DONT_TOUCH(#)","Average Fanout for modules > 100k cells","Non-FD high fanout nets > 10k loads","TIMING-6","TIMING-7","TIMING-8","TIMING-14","TIMING-35","Number of paths above max LUT budgeting 0.300ns","Number of paths above max Net budgeting 0.208ns"
-"Value","xc7s25csga225-1","TOP_R76Replica","","","","","6486","7111","45","n/a","4","2","44.42","24.35","3.06","n/a","2.11","0.03","8.03","5.00","100.00","100.00","52.50","7","266","72","0","0","0","0","0","0","0","0","0"
+"Value","xc7s25csga225-1","TOP_R76Replica","","","","","6513","7161","45","n/a","4","2","44.61","24.52","3.10","n/a","2.11","0.03","8.41","5.00","100.00","100.00","52.50","7","270","72","0","0","0","0","0","0","0","0","0"
 
