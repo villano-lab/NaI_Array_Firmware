@@ -10,7 +10,14 @@
     },
     {
       "Name": "forcetrig",
-      "Address": 393228,
+      "Address": 393216,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "timestamp",
+      "Address": 270350,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
@@ -540,7 +547,7 @@
     {
       "Name": "diag",
       "Type": "RegisterFile",
-      "Address": 393217,
+      "Address": 393218,
       "Version": "1.0.0.0",
       "bins": 0,
       "CountsBit": 0,
@@ -548,28 +555,35 @@
       "Registers": [
         {
           "Name": "FM_Out",
-          "Address": 393218,
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null
-        },
-        {
-          "Name": "to_encode",
           "Address": 393219,
           "RegionSize": 0,
           "Description": null,
           "Category": null
         },
         {
-          "Name": "full",
+          "Name": "to_encode",
           "Address": 393220,
           "RegionSize": 0,
           "Description": null,
           "Category": null
         },
         {
-          "Name": "debug",
+          "Name": "full",
           "Address": 393221,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "debug",
+          "Address": 393222,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "trigtype",
+          "Address": 393223,
           "RegionSize": 0,
           "Description": null,
           "Category": null
@@ -591,7 +605,7 @@
     {
       "Name": "diag_time",
       "Type": "RegisterFile",
-      "Address": 393223,
+      "Address": 393225,
       "Version": "1.0.0.0",
       "bins": 0,
       "CountsBit": 0,
@@ -599,28 +613,21 @@
       "Registers": [
         {
           "Name": "lower",
-          "Address": 393224,
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null
-        },
-        {
-          "Name": "upper",
-          "Address": 393225,
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null
-        },
-        {
-          "Name": "full",
           "Address": 393226,
           "RegionSize": 0,
           "Description": null,
           "Category": null
         },
         {
-          "Name": "normal",
+          "Name": "upper",
           "Address": 393227,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "full",
+          "Address": 393228,
           "RegionSize": 0,
           "Description": null,
           "Category": null

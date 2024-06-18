@@ -1,9 +1,11 @@
 name;type;address;value
+reset;Decimal;4200F;1
+forcetrig;Decimal;60000;1
+thrsh_CH0;Decimal;40008;14300
+top_CH0;Decimal;42009;10000000
 trig_polarity;Decimal;1;1
-reset;Decimal;6200F;1
-thrsh_CH0;Decimal;60008;14300
-top_CH0;Decimal;62009;10000000
 trig_gate_l;Decimal;3;10
-int_time;Decimal;6000C;100
-diag_to_encode;Hexadecimal;6201B;14a
-diag_debug;Binary;6201F;0
+int_time;Decimal;4000C;100
+diag_to_encode;Hexadecimal;60004;14a
+diag_debug;Decimal;60006;3
+diag_trigtype;Decimal;60007;0

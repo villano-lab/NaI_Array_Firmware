@@ -5,7 +5,7 @@
 #define SCI_REG_timestamp 0x0004200E
 #define SCI_REG_reset 0x0004200F
 #define SCI_REG_timestamp2 0x00042010
-#define SCI_REG_forcetrig 0x0006000C
+#define SCI_REG_forcetrig 0x00060000
 #define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
 #define SCI_REG_disable_det_CH0 0x40010
 #define SCI_REG_disable_det_CH1 0x40011
@@ -60,13 +60,13 @@
 
 #define SCI_REG_RateMeter_0_FIFOADDRESS 0x50000
 
-#define SCI_REG_diag_FM_Out 0x60002
-#define SCI_REG_diag_to_encode 0x60003
-#define SCI_REG_diag_full 0x60004
-#define SCI_REG_diag_debug 0x60005
+#define SCI_REG_diag_FM_Out 0x60003
+#define SCI_REG_diag_to_encode 0x60004
+#define SCI_REG_diag_full 0x60005
+#define SCI_REG_diag_debug 0x60006
+#define SCI_REG_diag_trigtype 0x60007
 
-#define SCI_REG_diag_time_lower 0x60008
-#define SCI_REG_diag_time_upper 0x60009
-#define SCI_REG_diag_time_full 0x6000A
-#define SCI_REG_diag_time_normal 0x6000B
+#define SCI_REG_diag_time_lower 0x6000A
+#define SCI_REG_diag_time_upper 0x6000B
+#define SCI_REG_diag_time_full 0x6000C
 

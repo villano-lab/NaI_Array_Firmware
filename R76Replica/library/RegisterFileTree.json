@@ -576,21 +576,11 @@
     {
       "Name": "diag",
       "Type": "RegisterFile",
-      "Address": 393217,
+      "Address": 393218,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "FM_Out",
-          "Type": "Register",
-          "Address": 393218,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "to_encode",
           "Type": "Register",
           "Address": 393219,
           "Version": "",
@@ -600,7 +590,7 @@
           "Path": null
         },
         {
-          "Name": "full",
+          "Name": "to_encode",
           "Type": "Register",
           "Address": 393220,
           "Version": "",
@@ -610,9 +600,29 @@
           "Path": null
         },
         {
-          "Name": "debug",
+          "Name": "full",
           "Type": "Register",
           "Address": 393221,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "debug",
+          "Type": "Register",
+          "Address": 393222,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "trigtype",
+          "Type": "Register",
+          "Address": 393223,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -625,31 +635,11 @@
     {
       "Name": "diag_time",
       "Type": "RegisterFile",
-      "Address": 393223,
+      "Address": 393225,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "lower",
-          "Type": "Register",
-          "Address": 393224,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "upper",
-          "Type": "Register",
-          "Address": 393225,
-          "Version": "",
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null,
-          "Path": null
-        },
-        {
-          "Name": "full",
           "Type": "Register",
           "Address": 393226,
           "Version": "",
@@ -659,9 +649,19 @@
           "Path": null
         },
         {
-          "Name": "normal",
+          "Name": "upper",
           "Type": "Register",
           "Address": 393227,
+          "Version": "",
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null,
+          "Path": null
+        },
+        {
+          "Name": "full",
+          "Type": "Register",
+          "Address": 393228,
           "Version": "",
           "RegionSize": 0,
           "Description": null,
@@ -684,12 +684,22 @@
     {
       "Name": "forcetrig",
       "Type": "Register",
-      "Address": 393228,
+      "Address": 393216,
       "Version": "1.0.0.0",
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined",
       "Path": "/forcetrig"
+    },
+    {
+      "Name": "timestamp",
+      "Type": "Register",
+      "Address": 270350,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/timestamp"
     },
     {
       "Name": "ANALOG_OFFSET",
@@ -710,5 +720,5 @@
   "Magic": "790125E3",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2024-06-11T14:46:13.9573326-06:00"
+  "BuildDate": "2024-06-17T16:45:34.6677991-06:00"
 }
