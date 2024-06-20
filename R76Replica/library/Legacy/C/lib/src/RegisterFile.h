@@ -1,11 +1,11 @@
 #define SCI_REG_ALL_FIFO_RESET 0xFFFFF908
-#define SCI_REG_unequal 0x0004200B
-#define SCI_REG_tc_nonzero 0x0004200C
-#define SCI_REG_trigger_code 0x0004200D
-#define SCI_REG_timestamp 0x0004200E
-#define SCI_REG_reset 0x0004200F
-#define SCI_REG_timestamp2 0x00042010
+#define SCI_REG_unequal 0x0004001A
+#define SCI_REG_tc_nonzero 0x0004001B
+#define SCI_REG_trigger_code 0x0004001C
+#define SCI_REG_timestamp 0x0004001D
+#define SCI_REG_reset 0x0004001E
 #define SCI_REG_forcetrig 0x00060000
+#define SCI_REG_received 0x0006400C
 #define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
 #define SCI_REG_disable_det_CH0 0x40010
 #define SCI_REG_disable_det_CH1 0x40011
@@ -13,8 +13,8 @@
 #define SCI_REG_thrsh_CH0 0x40008
 #define SCI_REG_thrsh_CH1 0x40009
 
-#define SCI_REG_top_CH0 0x42009
-#define SCI_REG_top_CH1 0x4200A
+#define SCI_REG_top_CH0 0x40018
+#define SCI_REG_top_CH1 0x40019
 
 #define SCI_REG_base_CH0 0x40014
 #define SCI_REG_base_CH1 0x40015
@@ -44,20 +44,6 @@
 #define SCI_REG_Spectrum_1_CONFIG_MIN 0x40004
 #define SCI_REG_Spectrum_1_CONFIG_MAX 0x40005
 
-#define SCI_REG_Oscilloscope_1_FIFOADDRESS 0x41000
-#define SCI_REG_Oscilloscope_1_READ_STATUS 0x42000
-#define SCI_REG_Oscilloscope_1_READ_POSITION 0x42001
-#define SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_MODE 0x42002
-#define SCI_REG_Oscilloscope_1_CONFIG_PRETRIGGER 0x42003
-#define SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_LEVEL 0x42004
-#define SCI_REG_Oscilloscope_1_CONFIG_ARM 0x42005
-#define SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR 0x42006
-
-#define SCI_REG_All_Energies_FIFOADDRESS 0x42012
-#define SCI_REG_All_Energies_READ_STATUS 0x42013
-#define SCI_REG_All_Energies_READ_VALID_WORDS 0x42014
-#define SCI_REG_All_Energies_CONFIG 0x42015
-
 #define SCI_REG_RateMeter_0_FIFOADDRESS 0x50000
 
 #define SCI_REG_diag_FM_Out 0x60003
@@ -66,7 +52,21 @@
 #define SCI_REG_diag_debug 0x60006
 #define SCI_REG_diag_trigtype 0x60007
 
-#define SCI_REG_diag_time_lower 0x6000A
-#define SCI_REG_diag_time_upper 0x6000B
-#define SCI_REG_diag_time_full 0x6000C
+#define SCI_REG_All_Energies_FIFOADDRESS 0x60009
+#define SCI_REG_All_Energies_READ_STATUS 0x6000A
+#define SCI_REG_All_Energies_READ_VALID_WORDS 0x6000B
+#define SCI_REG_All_Energies_CONFIG 0x6000C
+
+#define SCI_REG_Oscilloscope_1_FIFOADDRESS 0x62000
+#define SCI_REG_Oscilloscope_1_READ_STATUS 0x64000
+#define SCI_REG_Oscilloscope_1_READ_POSITION 0x64001
+#define SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_MODE 0x64002
+#define SCI_REG_Oscilloscope_1_CONFIG_PRETRIGGER 0x64003
+#define SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_LEVEL 0x64004
+#define SCI_REG_Oscilloscope_1_CONFIG_ARM 0x64005
+#define SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR 0x64006
+
+#define SCI_REG_diag_time_lower 0x64009
+#define SCI_REG_diag_time_upper 0x6400A
+#define SCI_REG_diag_time_full 0x6400B
 
