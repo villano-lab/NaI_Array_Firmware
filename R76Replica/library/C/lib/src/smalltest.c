@@ -63,7 +63,11 @@ int main(int argc, char* argv[]){
 
         //std::cout << "Attempting register set.\n";
 	//test_handle = &sdk; //already done */
-        value = REG_reset_SET(1,(NI_HANDLE*)_sdk); //segfault
+        value = REG_reset_SET(1,(NI_HANDLE*)_sdk);
+	if(value){
+		printf("Error setting `reset` register!\n");
+		return value;
+	}
 	std::cout << value << std::endl;// */
 
 	//SciSDK_Device* retval = sdk.FindDeviceByName(name); //runs ok but doesn't seem to do anything when called this way.

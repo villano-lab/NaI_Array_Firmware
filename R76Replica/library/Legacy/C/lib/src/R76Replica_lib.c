@@ -319,14 +319,6 @@ SCILIB int REG_reset_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_reset, handle);
 }
-SCILIB int REG_timestamp2_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_timestamp2, handle);
-}
-SCILIB int REG_timestamp2_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_timestamp2, handle);
-}
 SCILIB int REG_forcetrig_GET(uint32_t *val, NI_HANDLE *handle)
 {
      return __abstracted_reg_read(val, SCI_REG_forcetrig, handle);

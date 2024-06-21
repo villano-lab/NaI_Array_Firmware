@@ -175,14 +175,14 @@ int main(int argc, char* argv[])
 	if(verbose>0){printf("Configuring...\n");};
 	thrs = range_l;
 	thresh_q = set_thresholds("low",polarity,thrs,thresh_t,_sdk);
-	for(i=0;i++;i<24){
+	for(i=0;i++;i<2){
 		if(thresh_q[i] != 0){
 			printf("Error from REG_thrsh_SET. Aborting.\n");
 			return thresh_q[i];
 		}
 	}
 	thresh_q = set_thresholds("high",polarity,top,thresh_t,_sdk);
-	for(i=0;i++;i<24){
+	for(i=0;i++;i<2){
 		if(thresh_q[i] != 0){
 			printf("Error from REG_top_SET. Aborting.\n");
 			return thresh_q[i];

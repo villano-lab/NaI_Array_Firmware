@@ -120,13 +120,19 @@ int main(int argc, char* argv[])
 	//debug mode for matching.
 	int debug = 1; //i am too lazy to make another cl arg
 	if(debug){
-		__abstracted_reg_write(4,SCI_REG_diag_debug,(NI_HANDLE*)sdk);
+		printf("Debugging!\n");
+		__abstracted_reg_write(3,SCI_REG_diag_debug,(NI_HANDLE*)sdk);
+		__abstracted_reg_write(3,SCI_REG_diag_trigtype,(NI_HANDLE*)sdk);
 		waittime = 1;
-		N_Packets = 10;
-		REG_forcetrig_SET(0,(NI_HANDLE*)sdk); //need to know where we're starting before we can proceed.
+		N_Packet = 10;
+		__abstracted_reg_write(0,SCI_REG_forcetrig,(NI_HANDLE*)sdk); //need to know where we're starting before we can proceed.
+	}
+	else{ //make sure it's set back to normal.
+		__abstracted_reg_write(0,SCI_REG_diag_debug,(NI_HANDLE*)sdk);
 	}
 
 	//Pull the data!
+	if (CPACK_All_Energies_FLUSH((NI_HANDLE*)sdk) != 0) printf("Flush Error\n");
 	if (CPACK_All_Energies_RESET((NI_HANDLE*)sdk) != 0) printf("Reset Error\n");
 	if (CPACK_All_Energies_START((NI_HANDLE*)sdk) != 0) printf("Start Error\n");
 	if (CPACK_All_Energies_STATUS(&status_frame, (NI_HANDLE*)sdk) != 0) printf("Status Error\n");
@@ -151,12 +157,16 @@ int main(int argc, char* argv[])
                           &lpdwEventStatus);*/
 
 	//if debugging matching, generate 10 values
-	int k = 0;
-	while(k<5){
-		if(REG_forcetrig_SET(1,(NI_HANDLE*)sdk)) return -1;
-		if(REG_forcetrig_SET(0,(NI_HANDLE*)sdk)) return -1;
+	if(debug){
+		int k = 0;
+		while(k<5){
+			std::cout << "Generating manual triggers... " << k << std::endl;
+			if(__abstracted_reg_write(1,SCI_REG_forcetrig,(NI_HANDLE*)sdk)) return -1;
+			sleep(1);
+			if(__abstracted_reg_write(0,SCI_REG_forcetrig,(NI_HANDLE*)sdk)) return -1;
+			k++;
+		}
 	}
-
         int j = 0;
         while(j<waittime){
 		//REG_reset_SET(0,(NI_HANDLE*)sdk);REG_reset_SET(1,(NI_HANDLE*)sdk);*/

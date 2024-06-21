@@ -233,6 +233,7 @@ int main(int argc, char* argv[]){
 	if(skipflag == 1){
 		if(verbose>0){printf("Setting timestamp mode to %d.\n",skip);}
 		__abstracted_reg_write(skip,SCI_REG_diag_debug,(NI_HANDLE*)_sdk);
+		__abstracted_reg_write(skip,SCI_REG_diag_trigtype,(NI_HANDLE*)_sdk);
 		__abstracted_reg_write(0x1337,SCI_REG_diag_to_encode,(NI_HANDLE*)_sdk);
 	}else if(verbose > 1){
 		printf("'Skip' flag is off. Skipping.\n");
@@ -282,7 +283,10 @@ int main(int argc, char* argv[]){
 
 	if(threshflag == 1){
 		thresh_q = set_thresholds("low",polarity,thrs,thresh_t,_sdk);
-		if(verbose > 2){printf("Ran set_thresholds. Checking output...\n");}
+		if(verbose > 2){
+			std::cout << "Ran set_thresholds with value " << thrs << " and polarity "
+			<< polarity << ". Checking output...\n";
+		}
 		for(int i=0; i<24; i++){
 			if(thresh_q[i] != 0){
 				printf("Unable to set threshold of detector #%d! Aborting.\n",i);

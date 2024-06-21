@@ -37,8 +37,6 @@ void print_usage(FILE* stream, int exit_code){ //This looks unaligned but lines 
 	subhelp(stream);
 
 	exit (exit_code);
-
-	exit (exit_code);
 };
 
 int main(int argc, char* argv[])
@@ -109,17 +107,6 @@ int main(int argc, char* argv[])
 		printf("Running in verbose mode. Verbosity: %d\n",verbose);
 	};
 
-	//Convert gtemp into the two gates and rtemp into min/max/step
-	if(gateflag == 1){ //if gate was set,
-		parse_gate(gtemp,verbose);
-	}
-
-	//Detector on/off
-	if(verbose > 1){
-		printf("Detector string value supplied: %s\n",selection);
-	}
-	disable = on_to_off(disable_t,value,verbose);
-
 	//Connect to the board.
         SciSDK* _sdk = new SciSDK;
         int connect_q = SCIDK_ConnectUSB(BOARD_SERIAL_NUMBER,(NI_HANDLE*)_sdk);
@@ -130,17 +117,18 @@ int main(int argc, char* argv[])
 
 	if(verbose>0){printf("Setting up rate counter... \n");};
 	tic = time(NULL);
-
 	sleep(10);
 
 	if(verbose>0){printf("Collecting data for 10 seconds! \n");};
-	//Collect data
-	//wait
-	sleep(10);
+	sleep(10);	//Collect data/wait for it to appear
 
 	//get the rate
 	if(verbose > 1){printf("Retreiving data...\n");};
 	rate_q=RATE_METER_RateMeter_0_GET_DATA(rateval,ratechan,ratetimeout, (NI_HANDLE*)_sdk, &rateread_data, &ratevalid_data);
+	if(rate_q){
+		printf("error getting rate!\n");
+		return rate_q;
+	}
 	if(verbose > 1){printf("Rateval: %f\n",(double)rateval[0]);};
 
 	//print the rate

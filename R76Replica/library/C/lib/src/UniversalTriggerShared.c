@@ -18,6 +18,9 @@
 #include "../scisdk_rebuild/scisdk_core.h"
 #include "SCIDK_Lib.h"
 
+//some print statements
+#define UTC_LOUD
+
 //Variables
 //=======================================================================================
 //Structs
@@ -60,7 +63,7 @@ int delay = 20;
 int inhib = 1000;
 int baseline = 0;
 float top = 100000000;
-int int_time = 250; //this seems to be a good default based on oscilloscope readout.
+int int_time = 100; //this seems to be a good default based on oscilloscope readout.
 int pre_int = 100;   //^same here
 //things you probably won't change
 int polarity = 1;	//zero for negative, one for positive
@@ -101,7 +104,7 @@ uint32_t read_data;
 uint32_t valid_data;
 uint32_t custom;
 uint32_t status;
-uint32_t skip = -1; //by default, don't skip pieces.
+uint32_t skip = 0; //by default, use lowest digits for timestamp. (hijacked old setting)
 uint32_t fifo;
 uint32_t empty;
 uint32_t full;
@@ -454,6 +457,9 @@ int *disable_dets(int *disable_q, int disable[32], SciSDK* _sdk){
 
 int *set_thresholds(const char* side, int polarity, float energy, int *thresh_q, SciSDK* _sdk){
 	if(strcasecmp(side,"lower") == 0 || strcasecmp(side,"thrs") == 0 || strcasecmp(side,"thresh") == 0 || strcasecmp(side,"thrsh") == 0 || strcasecmp(side,"lo") == 0 || strcasecmp(side,"low") == 0){
+		#ifdef UTC_LOUD
+			printf("Setting lower thresholds.\n");
+		#endif
 		thresh_q[0 ] = set_by_polarity(SCI_REG_thrsh_CH0, polarity,energy_to_bin(0 ,energy), _sdk);
 		thresh_q[1 ] = set_by_polarity(SCI_REG_thrsh_CH1, polarity,energy_to_bin(1 ,energy),_sdk);
 	}else if(strcasecmp(side,"upper") == 0 || strcasecmp(side,"up") == 0 || strcasecmp(side,"hi") == 0 || strcasecmp(side,"higher") == 0 || strcasecmp(side,"high") == 0 || strcasecmp(side,"top") == 0){
@@ -514,6 +520,10 @@ int set_by_polarity(uint32_t address, int polarity, int value,SciSDK* _sdk){
 		return __abstracted_reg_write(newval,address,(NI_HANDLE*)_sdk);
 	}else if(polarity==1){
 		uint32_t newval = baseline + value;
+		#ifdef UTC_LOUD
+			std::cout << "baseline " << baseline << " + value " << value << "gives "
+				<< newval << std::endl;
+		#endif
 		return __abstracted_reg_write(newval,address,(NI_HANDLE*)_sdk);
 	}else{
 		printf("Polarity is invalid! (Must be 1 or 0; was %d.)\n",polarity);
