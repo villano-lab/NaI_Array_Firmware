@@ -1,11 +1,9 @@
-#define SCI_REG_ALL_FIFO_RESET 0xFFFFF908
-#define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
-#define SCI_REG_Oscilloscope_0_FIFOADDRESS 0x0
-#define SCI_REG_Oscilloscope_0_READ_STATUS 0x400
-#define SCI_REG_Oscilloscope_0_READ_POSITION 0x401
-#define SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_MODE 0x402
-#define SCI_REG_Oscilloscope_0_CONFIG_PRETRIGGER 0x403
-#define SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_LEVEL 0x404
-#define SCI_REG_Oscilloscope_0_CONFIG_ARM 0x405
-#define SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR 0x406
+#define SCI_REG_Oscilloscope_1_FIFOADDRESS 0x0
+#define SCI_REG_Oscilloscope_1_READ_STATUS 0x400
+#define SCI_REG_Oscilloscope_1_READ_POSITION 0x401
+#define SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_MODE 0x402
+#define SCI_REG_Oscilloscope_1_CONFIG_PRETRIGGER 0x403
+#define SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_LEVEL 0x404
+#define SCI_REG_Oscilloscope_1_CONFIG_ARM 0x405
+#define SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR 0x406
 

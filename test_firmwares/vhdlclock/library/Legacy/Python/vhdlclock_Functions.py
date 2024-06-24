@@ -5,89 +5,106 @@ import vhdlclock_RegisterFile
 from ctypes import *
 import array
 import numpy as np
-import os
 
-mydll = cdll.LoadLibrary(os.path.dirname(__file__) +'/SCIDK_Lib.dll')
+import os
+mydll = cdll.LoadLibrary(os.path.dirname(__file__) +'/R5560_SDKLib.dll')
+
+def Init():
+    return 0
 
 def ConnectDevice(board):
-    handle = c_void_p(256)
-    err = mydll.SCIDK_ConnectUSB(board, byref(handle))
+    c_s = c_char_p(board.encode('ascii'))
+    da= mydll.R5560_HandleAllocator()
+    handle = c_void_p(da)
+    err = mydll.R5560_ConnectTCP(c_s, 8888, handle)
     return err, handle
 
 def CloseConnect(handle):
-    err = mydll.NI_CloseConnection(byref(handle))
-    return err	
-	
+    err = mydll.NI_CloseConnection((handle))
+    return err    
+    
 def ListDevices():
-    count = c_int(0)
-    s = create_string_buffer(2048)
-    err = mydll.NI_USBEnumerate(byref(s), b"SCIDK", byref(count))
-    str_con = (s.value.decode('ascii')) 
-    str_devices = str_con.split(';')
-    dev_count = count.value
+    str_devices=""
+    dev_count =-1
     return str_devices, dev_count 
 
 def __abstracted_reg_write(data, address, handle):
-    err = mydll.NI_WriteReg(data, address, byref(handle))
+    err = mydll.NI_WriteReg(data, address, (handle))
     return err
 
 def __abstracted_reg_read(address, handle):
     data = c_uint(0)
-    err = mydll.NI_ReadReg(byref(data), address, byref(handle))
+    err = mydll.NI_ReadReg(byref(data), address, (handle))
     return err, data.value
 
 def __abstracted_mem_write(data, count, address, timeout_ms, handle):
     written_data = c_uint(0)
-    err = mydll.NI_WriteData(data, count, address, 0, timeout_ms, byref(handle), byref(written_data))
+    err = mydll.NI_WriteData(data, count, address, (handle), byref(written_data))
     return err, written_data.value
 
 def __abstracted_mem_read(count, address, timeout_ms, handle):
     data = (c_uint * (2* count))()
     read_data = c_uint(0)
     valid_data = c_uint(0)
-    err = mydll.NI_ReadData(byref(data), count, address, 0, timeout_ms, byref(handle), byref(read_data), byref(valid_data))
+    err = mydll.NI_ReadData(byref(data), count, address, (handle), byref(read_data))
+    valid_data=read_data
     return err, data, read_data.value, valid_data.value
 
-def __abstracted_fifo_write(data, count, address, timeout_ms, handle):
-    written_data = c_uint(0)
-    err = mydll.NI_WriteData(data, count, address, 1, timeout_ms, byref(handle), byref(written_data))
-    return err, written_data.value
+def __abstracted_fifo_write(data, count, address, address_status, timeout_ms, handle):
+    return -1
 
 def __abstracted_fifo_read(count, address, address_status, blocking, timeout_ms, handle):
     data = (c_uint * (2 * count))()
     read_data = c_uint(0)
     valid_data = c_uint(0)
-    err = mydll.NI_ReadData(byref(data), count, address, 1, timeout_ms, byref(handle), byref(read_data), byref(valid_data))
-    return err, data, read_data, valid_data 	
-	
-def REG_ANALOG_OFFSET_SET(data, handle):
-    err = __abstracted_reg_write(data, vhdlclock_RegisterFile.SCI_REG_ANALOG_OFFSET, handle)
+    err = mydll.NI_ReadFifo(byref(data), count, address, address_status, (1 if blocking else 2), timeout_ms, (handle), byref(read_data))
+    valid_data=read_data
+    return err, data, read_data, valid_data     
+    
+def __abstracted_DMA_read(dma_channel, handle):
+    count = 2*1024*1024;
+    data = (c_ulonglong * (count))()
+    read_data = c_uint(0)
+    err = mydll.NI_DMA_Read(dma_channel, byref(data), count, byref(read_data), (handle))
+    vd = (read_data.value / 8);
+    return err, data, vd     
+    
+def __abstracted_DMA_CONFIG(dma_channel, blocking, timeout, buffer_length, handle):
+    err = mydll.NI_DMA_SetOptions(dma_channel, blocking, timeout, buffer_length, (handle))
     return err
+    
+    
+def gray_to_bin(num, nbit):
+    temp = num ^ (num >> 8)
+    temp ^= (temp >> 4)
+    temp ^= (temp >> 2)
+    temp ^= (temp >> 1)
+    return temp    
 
 
 
-def OSCILLOSCOPE_Oscilloscope_0_START(handle):
-    err = __abstracted_reg_write(0, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_ARM, handle)
+def OSCILLOSCOPE_Oscilloscope_1_START(handle):
+    err = __abstracted_reg_write(0, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_ARM, handle)
     if (err != 0):
        return False
-    err = __abstracted_reg_write(1, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_ARM, handle)
+    err = __abstracted_reg_write(1, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_ARM, handle)
     if (err != 0):
        return False
     return True
 
-def OSCILLOSCOPE_Oscilloscope_0_SET_DECIMATOR(OscilloscopeDecimator, handle):
-    err = __abstracted_reg_write(OscilloscopeDecimator, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR, handle)
+def OSCILLOSCOPE_Oscilloscope_1_SET_DECIMATOR(OscilloscopeDecimator, handle):
+    err = __abstracted_reg_write(OscilloscopeDecimator, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR, handle)
     return err
 
-def OSCILLOSCOPE_Oscilloscope_0_SET_PRETRIGGER(OscilloscopePreTrigger, handle):
-    err = __abstracted_reg_write(OscilloscopePreTrigger, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_PRETRIGGER, handle)
+def OSCILLOSCOPE_Oscilloscope_1_SET_PRETRIGGER(OscilloscopePreTrigger, handle):
+    err = __abstracted_reg_write(OscilloscopePreTrigger, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_PRETRIGGER, handle)
     return err
 
-def OSCILLOSCOPE_Oscilloscope_0_SET_TRIGGER_LEVEL(OscilloscopeTriggerLevel, handle):
-    err = __abstracted_reg_write(OscilloscopeTriggerLevel, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_LEVEL, handle)
+def OSCILLOSCOPE_Oscilloscope_1_SET_TRIGGER_LEVEL(OscilloscopeTriggerLevel, handle):
+    err = __abstracted_reg_write(OscilloscopeTriggerLevel, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_LEVEL, handle)
     return err
 
-def OSCILLOSCOPE_Oscilloscope_0_SET_TRIGGER_MODE(OscilloscopeTriggerMode, OscilloscopeTriggerChannel, OscilloscopeTriggerEdge, handle):
+def OSCILLOSCOPE_Oscilloscope_1_SET_TRIGGER_MODE(OscilloscopeTriggerMode, OscilloscopeTriggerChannel, OscilloscopeTriggerEdge, handle):
     AnalogTrigger = 0
     Digital0Trigger = 0
     Digital1Trigger = 0
@@ -112,22 +129,22 @@ def OSCILLOSCOPE_Oscilloscope_0_SET_TRIGGER_MODE(OscilloscopeTriggerMode, Oscill
         Edge = 1
     triggermode = c_int(0)
     triggermode = (OscilloscopeTriggerChannel << 8)  + (SoftwareTrigger << 7 ) + (Edge << 3) + (SoftwareTrigger << 1) + AnalogTrigger +(Digital0Trigger << 2) + (Digital1Trigger << 2) + Digital1Trigger + (Digital2Trigger << 2) + (Digital2Trigger << 1) + (Digital3Trigger << 2) + (Digital3Trigger << 1) + Digital3Trigger
-    err = __abstracted_reg_write(triggermode, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_MODE, handle)
+    err = __abstracted_reg_write(triggermode, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_MODE, handle)
     return err
 
-def OSCILLOSCOPE_Oscilloscope_0_GET_STATUS(handle):
-    [err, status] = __abstracted_reg_read(vhdlclock_RegisterFile.SCI_REG_Oscilloscope_0_READ_STATUS, handle)
+def OSCILLOSCOPE_Oscilloscope_1_GET_STATUS(handle):
+    [err, status] = __abstracted_reg_read(vhdlclock_RegisterFile.SCI_REG_Oscilloscope_1_READ_STATUS, handle)
     return err, status
 
-def OSCILLOSCOPE_Oscilloscope_0_GET_POSITION(handle):
-    [err, position] = __abstracted_reg_read(vhdlclock_RegisterFile.SCI_REG_Oscilloscope_0_READ_POSITION, handle)
+def OSCILLOSCOPE_Oscilloscope_1_GET_POSITION(handle):
+    [err, position] = __abstracted_reg_read(vhdlclock_RegisterFile.SCI_REG_Oscilloscope_1_READ_POSITION, handle)
     return err, position
 
-def OSCILLOSCOPE_Oscilloscope_0_GET_DATA(timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(1024, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_0_FIFOADDRESS, timeout_ms, handle)
+def OSCILLOSCOPE_Oscilloscope_1_GET_DATA(timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(1024, vhdlclock_RegisterFile.SCI_REG_Oscilloscope_1_FIFOADDRESS, timeout_ms, handle)
     return err, data, read_data, valid_data
 
-def OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopePosition, OscilloscopePreTrigger):
+def OSCILLOSCOPE_Oscilloscope_1_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopePosition, OscilloscopePreTrigger):
     OscilloscopeChannels = 1
     OscilloscopeSamples = 1024
     Analog = list(range(OscilloscopeSamples*OscilloscopeChannels))

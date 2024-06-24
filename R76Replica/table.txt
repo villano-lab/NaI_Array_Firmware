@@ -1,8 +1,10 @@
 name;type;address;value
-reset;Decimal;4200F;1
+reset;Decimal;4001E;1
 forcetrig;Decimal;60000;1
+timestamp;Hexadecimal;4001D;11
+received;Hexadecimal;6400C;1
 thrsh_CH0;Decimal;40008;14300
-top_CH0;Decimal;42009;10000000
+top_CH0;Decimal;40018;10000000
 trig_polarity;Decimal;1;1
 trig_gate_l;Decimal;3;10
 int_time;Decimal;4000C;100

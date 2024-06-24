@@ -12,7 +12,7 @@
   {
     "Name": "design.top",
     "Description": "Top",
-    "Value": "TOP_R76Replica"
+    "Value": "TOP_patgentest"
   },
   {
     "Name": "design.run.pr.cell",
@@ -37,17 +37,17 @@
   {
     "Name": "utilization.clb.lut",
     "Description": "LUT(#)",
-    "Value": "7127"
+    "Value": "3613"
   },
   {
     "Name": "utilization.clb.ff",
     "Description": "FD(#)",
-    "Value": "7455"
+    "Value": "3319"
   },
   {
     "Name": "utilization.ram.tile",
     "Description": "RAMB/FIFO(#)",
-    "Value": "45"
+    "Value": "3"
   },
   {
     "Name": "utilization.uram.tile",
@@ -57,27 +57,27 @@
   {
     "Name": "utilization.dsp",
     "Description": "DSP48(#)",
-    "Value": "4"
+    "Value": "0"
   },
   {
     "Name": "design.failure",
     "Description": "Criteria to review",
-    "Value": "3"
+    "Value": "1"
   },
   {
     "Name": "utilization.clb.lut.pct",
     "Description": "LUT(%)",
-    "Value": "48.82"
+    "Value": "24.75"
   },
   {
     "Name": "utilization.clb.ff.pct",
     "Description": "FD(%)",
-    "Value": "25.53"
+    "Value": "11.37"
   },
   {
     "Name": "utilization.clb.lutmem.pct",
     "Description": "LUTRAM+SRL(%)",
-    "Value": "5.02"
+    "Value": "1.44"
   },
   {
     "Name": "utilization.clb.carry8.pct",
@@ -87,47 +87,47 @@
   {
     "Name": "utilization.clb.f7mux.pct",
     "Description": "MUXF7(%)",
-    "Value": "1.27"
+    "Value": "0.99"
   },
   {
     "Name": "utilization.clb.f8mux.pct",
     "Description": "MUXF8(%)",
-    "Value": "0.00"
+    "Value": "0.88"
   },
   {
     "Name": "design.cells.hlutnm.pct",
     "Description": "LUT Combining(%)",
-    "Value": "8.34"
+    "Value": "5.45"
   },
   {
     "Name": "utilization.dsp.pct",
     "Description": "DSP48(%)",
-    "Value": "5.00"
+    "Value": "0.00"
   },
   {
     "Name": "utilization.ram.tile.pct",
     "Description": "RAMB/FIFO(%)",
-    "Value": "100.00"
+    "Value": "6.67"
   },
   {
     "Name": "utilization.uram.tile.pct",
     "Description": "URAM(%)",
-    "Value": "100.00"
+    "Value": "6.67"
   },
   {
     "Name": "utilization.bigblocks.pct",
     "Description": "DSP48+RAMB+URAM (Avg)(%)",
-    "Value": "52.50"
+    "Value": "6.67"
   },
   {
     "Name": "utilization.clk.all",
     "Description": "BUFGCE* + BUFGCTRL",
-    "Value": "7"
+    "Value": "5"
   },
   {
     "Name": "utilization.ctrlsets.uniq",
     "Description": "Control Sets",
-    "Value": "307"
+    "Value": "131"
   },
   {
     "Name": "design.dont_touch",

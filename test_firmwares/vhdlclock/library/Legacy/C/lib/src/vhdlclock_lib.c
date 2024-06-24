@@ -1,38 +1,87 @@
-#include "SCIDK_Lib.h"
+#include "R5560_SDKLib.h"
 #include  <stdlib.h>
+
 #include <stdint.h>
-#include  <stdbool.h>
 
 #include "RegisterFile.h"
 
 #include  "circular_buffer.h"
 
 
-
 #include  "vhdlclock_lib.h"
 
 
-SCILIB int USB2_ConnectDevice( char *IPAddress_or_SN, NI_HANDLE *handle)
+#ifdef _MSC_VER
+
+#define bswap_32(x) _byteswap_ulong(x)
+#define bswap_64(x) _byteswap_uint64(x)
+
+#elif defined(__APPLE__)
+
+// Mac OS X / Darwin features
+#include <libkern/OSByteOrder.h>
+#define bswap_32(x) OSSwapInt32(x)
+#define bswap_64(x) OSSwapInt64(x)
+
+#elif defined(__sun) || defined(sun)
+
+#include <sys/byteorder.h>
+#define bswap_32(x) BSWAP_32(x)
+#define bswap_64(x) BSWAP_64(x)
+
+#elif defined(__FreeBSD__)
+
+#include <sys/endian.h>
+#define bswap_32(x) bswap32(x)
+#define bswap_64(x) bswap64(x)
+
+#elif defined(__OpenBSD__)
+
+#include <sys/types.h>
+#define bswap_32(x) swap32(x)
+#define bswap_64(x) swap64(x)
+
+#elif defined(__NetBSD__)
+
+#include <sys/types.h>
+#include <machine/bswap.h>
+#if defined(__BSWAP_RENAME) && !defined(__bswap_32)
+#define bswap_32(x) bswap32(x)
+#define bswap_64(x) bswap64(x)
+#endif
+
+#else
+
+#include <byteswap.h>
+
+#endif
+
+#define PI	3.14159265358979323846   // PI define
+
+SCILIB int R_Init()
 {
-	return SCIDK_ConnectUSB( IPAddress_or_SN, handle);
+
 }
 
-SCILIB int USB2_CloseConnection(NI_HANDLE *handle)
+
+SCILIB int R_ConnectDevice( char *IPAddress, uint32_t port, NI_HANDLE *handle)
+{
+	return R5560_ConnectTCP( IPAddress, port, handle);
+}
+
+SCILIB int R_CloseConnection(NI_HANDLE *handle)
 {
 	return NI_CloseConnection(handle);
 }
 
-SCILIB int USB2_ListDevices(char *ListOfDevice, char *model,  int *Count)
-{
-	return NI_USBEnumerate(ListOfDevice, model, Count);
-}
 
 SCILIB int __abstracted_mem_write(uint32_t *data, uint32_t count, 
 										uint32_t address, 
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *written_data)
 {
-	return NI_WriteData(data,  count,  address, REG_ACCESS, timeout_ms, handle, written_data);
+	int err = NI_WriteData(data,  count,  address, handle, written_data);
+	return err;
 }
 
 
@@ -41,15 +90,18 @@ SCILIB int __abstracted_mem_read(uint32_t *data, uint32_t count,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *read_data, uint32_t *valid_data)
 {
-	return NI_ReadData(data,  count, address,  REG_ACCESS, timeout_ms, handle, read_data, valid_data);
+	int err = NI_ReadData(data,  count, address,  handle, read_data);
+	*valid_data = *read_data;
+	return err;
 }
 
 SCILIB int __abstracted_fifo_write(uint32_t *data, uint32_t count, 
 										uint32_t address, 
+										uint32_t address_status, 
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *written_data)
 {
-	return NI_WriteData(data,  count,  address, STREAMING, timeout_ms, handle, written_data);
+	return -1;
 }
 	
 SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
@@ -59,7 +111,10 @@ SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *read_data, uint32_t *valid_data)
 {
-	return NI_ReadData(data,  count, address,  STREAMING, timeout_ms, handle, read_data, valid_data);
+	int err;
+	err= NI_ReadFifo(data,  count, address,  address_status, blocking ? STREAMING_BLOCKING : STREAMING_NONBLOCKING, timeout_ms, handle, read_data);
+	*valid_data = *read_data;
+	return err;
 }
 	
 SCILIB int __abstracted_reg_write(uint32_t data, uint32_t address, NI_HANDLE *handle)
@@ -73,25 +128,16 @@ SCILIB int __abstracted_reg_read(uint32_t *data, uint32_t address, NI_HANDLE *ha
 }
 
 
-SCILIB int IICUser_OpenControllerInit(uint32_t ControlAddress, uint32_t StatusAddress, NI_HANDLE *handle, NI_IIC_HANDLE *IIC_Handle)
+uint32_t gray_to_bin(uint32_t num, int nbit)
 {
-	return NI_IICUser_OpenController(ControlAddress, StatusAddress, handle, IIC_Handle);
+	uint32_t temp = num ^ (num >> 8);
+	temp ^= (temp >> 4);
+	temp ^= (temp >> 2);
+	temp ^= (temp >> 1);
+	return temp;
 }
 
-SCILIB int IICUser_ReadData(uint8_t address, uint8_t *value, int len, uint8_t *value_read, int len_read, NI_IIC_HANDLE *IIC_Handle)
-{
-	return NI_IICUser_ReadData(address, value, len, value_read, len_read, IIC_Handle);
-}
 
-SCILIB int IICUser_WriteData(uint8_t address, uint8_t *value, int len, NI_IIC_HANDLE *IIC_Handle)
-{
-	return NI_IICUser_WriteData(address, value, len, IIC_Handle);
-}
-
-SCILIB char *ReadFirmwareInformation(NI_HANDLE *handle)
-{
-	return ReadFirmwareInformationApp(handle);
-}
 
 
 
@@ -242,6 +288,41 @@ SCILIB int Utility_PEAK_DATA_FORM_DOWNLOAD_BUFFER(void *buffer_handle, int32_t *
 
 //-----------------------------------------------------------------
 //-
+//-  free_PETIROCFRAME_packet_collection
+//-
+//-	 This function take as input a pointer to a decoded packets and release the memory
+//-
+//-  ARGUMENTS:
+//- 	    buffer_handle   PARAM_IN   t_ASIC_packet_collection *
+//-			Packet to be released
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-  RETURN [void]
+//-
+//-  EXAMPLE:
+//-		PETIROCFRAME_PetirocFrame0_RECONSTRUCT_DATA(BufferDownloadHandler, &decoded_packets);
+//-		... processing code ...
+//-		free_PETIROCFRAME_packet_collection(&decoded_packets);
+//-----------------------------------------------------------------
+
+
+SCILIB void free_PETIROCFRAME_packet_collection(t_ASIC_packet_collection *decoded_packets)
+{
+	int i;
+	for (i = 0; i < decoded_packets->allocated_packets; i++)
+	{
+		free(decoded_packets->packets[i].Charge);
+		free(decoded_packets->packets[i].FineTime);
+		free(decoded_packets->packets[i].CoarseTime);
+		free(decoded_packets->packets[i].Hit);
+	}
+	free(decoded_packets->packets);
+}
+
+
+//-----------------------------------------------------------------
+//-
 //-  free_FRAME_packet_collection
 //-
 //-	 This function take as input a pointer to a decoded packets and release the memory
@@ -276,7 +357,7 @@ SCILIB void free_FRAME_packet_collection (t_FRAME_packet_collection *decoded_pac
 SCILIB void free_packet_collection (t_generic_event_collection *decoded_packets)
 {
 	int i;
-	for (i = 0; i < decoded_packets->valid_packets; i++)
+	for (i = 0; i < decoded_packets->allocated_packets; i++)
 	{
 		free(decoded_packets->packets[i].payload);
 	}
@@ -284,13 +365,14 @@ SCILIB void free_packet_collection (t_generic_event_collection *decoded_packets)
 }
 
 
-SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle)
+
+SCILIB int ClearBuffer(void *buffer_handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_ANALOG_OFFSET, handle);
-}
-//-----------------------------------------------------------------
+	circular_buf_reset(buffer_handle);
+	return 0;
+}//-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_START
+//- OSCILLOSCOPE_Oscilloscope_1_START
 //-
 //- Start Oscilloscope acquisition.
 //-
@@ -308,11 +390,11 @@ SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle)
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_START(NI_HANDLE *handle)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_START(NI_HANDLE *handle)
 
 {
-int r1 = __abstracted_reg_write(0,SCI_REG_Oscilloscope_0_CONFIG_ARM, handle);
-int r2 = __abstracted_reg_write(1,SCI_REG_Oscilloscope_0_CONFIG_ARM, handle);
+int r1 = __abstracted_reg_write(0,SCI_REG_Oscilloscope_1_CONFIG_ARM, handle);
+int r2 = __abstracted_reg_write(1,SCI_REG_Oscilloscope_1_CONFIG_ARM, handle);
 if ((r1 == 0) && (r2 == 0))
     return 0;
 else
@@ -321,7 +403,7 @@ else
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_SET_PARAMETERS
+//- OSCILLOSCOPE_Oscilloscope_1_SET_PARAMETERS
 //-
 //- Configure oscilloscope parameters
 //-
@@ -406,14 +488,14 @@ else
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_SET_PARAMETERS(int32_t decimator, int32_t pre, int32_t software_trigger, int32_t analog_trigger, int32_t digital0_trigger, int32_t digital1_trigger, int32_t digital2_trigger, int32_t digital3_trigger, int32_t trigger_channel, int32_t trigger_edge, int32_t trigger_level, NI_HANDLE *handle)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_SET_PARAMETERS(int32_t decimator, int32_t pre, int32_t software_trigger, int32_t analog_trigger, int32_t digital0_trigger, int32_t digital1_trigger, int32_t digital2_trigger, int32_t digital3_trigger, int32_t trigger_channel, int32_t trigger_edge, int32_t trigger_level, NI_HANDLE *handle)
 {
 int32_t triggermode = 0;
-int r_decimator = __abstracted_reg_write(decimator, SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR, handle);
-int r_pre = __abstracted_reg_write(pre, SCI_REG_Oscilloscope_0_CONFIG_PRETRIGGER, handle);
-int r_triglevel = __abstracted_reg_write(trigger_level, SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_LEVEL, handle);
+int r_decimator = __abstracted_reg_write(decimator, SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR, handle);
+int r_pre = __abstracted_reg_write(pre, SCI_REG_Oscilloscope_1_CONFIG_PRETRIGGER, handle);
+int r_triglevel = __abstracted_reg_write(trigger_level, SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_LEVEL, handle);
 triggermode = (trigger_channel << 8)  + (software_trigger << 7 ) + (trigger_edge << 3) + (software_trigger << 1) + analog_trigger + (digital0_trigger << 2) + (digital1_trigger << 2) + digital1_trigger + (digital2_trigger << 2) + (digital2_trigger << 1) + (digital3_trigger << 2) + (digital3_trigger << 1) + digital3_trigger ; 
-int r_triggermode = __abstracted_reg_write(triggermode, SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_MODE, handle);
+int r_triggermode = __abstracted_reg_write(triggermode, SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_MODE, handle);
 if (r_decimator == 0 & r_pre == 0 & r_triglevel == 0 & r_triggermode == 0)
     return 0;
 else
@@ -422,7 +504,7 @@ else
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_STATUS
+//- OSCILLOSCOPE_Oscilloscope_1_STATUS
 //-
 //- Get Oscilloscope status
 //-
@@ -447,14 +529,14 @@ else
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_STATUS(uint32_t *status,NI_HANDLE *handle)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_STATUS(uint32_t *status,NI_HANDLE *handle)
 {
-return __abstracted_reg_read(status, SCI_REG_Oscilloscope_0_READ_STATUS, handle);
+return __abstracted_reg_read(status, SCI_REG_Oscilloscope_1_READ_STATUS, handle);
 
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_POSITION
+//- OSCILLOSCOPE_Oscilloscope_1_POSITION
 //-
 //- Get Oscilloscope trigger position. The trigger position indicate the position in the output buffer of each channels where the sample at t0 occureed. PRE-TRIGGER samples before t0 is the pre-trigger data.
 //-
@@ -477,19 +559,19 @@ return __abstracted_reg_read(status, SCI_REG_Oscilloscope_0_READ_STATUS, handle)
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_POSITION(int32_t *position,NI_HANDLE *handle)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_POSITION(int32_t *position,NI_HANDLE *handle)
 {
-return __abstracted_reg_read(position, SCI_REG_Oscilloscope_0_READ_POSITION, handle);
+return __abstracted_reg_read(position, SCI_REG_Oscilloscope_1_READ_POSITION, handle);
 
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_DOWNLOAD
+//- OSCILLOSCOPE_Oscilloscope_1_DOWNLOAD
 //-
-//- Download data from oscilloscope buffer. Please note that downloaded data is not time ordered and the trigger position info data must be obtained using the OSCILLOSCOPE_Oscilloscope_0POSITION function 
+//- Download data from oscilloscope buffer. Please note that downloaded data is not time ordered and the trigger position info data must be obtained using the OSCILLOSCOPE_Oscilloscope_1POSITION function 
 //- 
 //- USAGE: 
-//-     OSCILLOSCOPE_Oscilloscope_0_DOWNLOAD(data_buffer, BUFFER_SIZE_Oscilloscope_0, 1000, handle, rd, vp);
+//-     OSCILLOSCOPE_Oscilloscope_1_DOWNLOAD(data_buffer, BUFFER_SIZE_Oscilloscope_1, 1000, handle, rd, vp);
 //- 
 //-
 //- ARGUMENTS:
@@ -499,7 +581,7 @@ return __abstracted_reg_read(position, SCI_REG_Oscilloscope_0_READ_POSITION, han
 //- 		OPTIONAL: False
 //-
 //- 	             val   PARAM_IN       size
-//- 		number of word to download from the buffer. Use macro BUFFER_SIZE_Oscilloscope_0 to get actual oscilloscope buffer size on FPGA
+//- 		number of word to download from the buffer. Use macro BUFFER_SIZE_Oscilloscope_1 to get actual oscilloscope buffer size on FPGA
 //- 		DEFAULT: 
 //- 		OPTIONAL: False
 //-
@@ -531,14 +613,14 @@ return __abstracted_reg_read(position, SCI_REG_Oscilloscope_0_READ_POSITION, han
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
 {
-return __abstracted_mem_read(val, size, SCI_REG_Oscilloscope_0_FIFOADDRESS, timeout, handle, read_data, valid_data);
+return __abstracted_mem_read(val, size, SCI_REG_Oscilloscope_1_FIFOADDRESS, timeout, handle, read_data, valid_data);
 
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT
+//- OSCILLOSCOPE_Oscilloscope_1_RECONSTRUCT
 //-
 //- Take as input the downloaded buffer and decode the the different track for each channels. Channel order is the following: [0...1023] Channel 1, [1024...2047] Channel2
 //- 
@@ -593,7 +675,7 @@ return __abstracted_mem_read(val, size, SCI_REG_Oscilloscope_0_FIFOADDRESS, time
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT(uint32_t *data_osc, uint32_t position, int32_t pre_trigger, uint32_t *read_analog, uint32_t *read_digital0, uint32_t *read_digital1, uint32_t *read_digital2, uint32_t *read_digital3)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_RECONSTRUCT(uint32_t *data_osc, uint32_t position, int32_t pre_trigger, uint32_t *read_analog, uint32_t *read_digital0, uint32_t *read_digital1, uint32_t *read_digital2, uint32_t *read_digital3)
 {
 int n_ch = 1;
 int n_samples = 1024;

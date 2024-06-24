@@ -1,0 +1,10 @@
+{"Registers":[],
+"MMCComponents":[
+{
+  "Name": "RateMeter_0",
+  "Type": "MCRateMeter",
+  "Address": 0,
+  "Version": "1.0.0.0",
+  "Channels": 1,
+  "Registers": []
+}],"Device":"DT5550","Project":"sync_test"}
