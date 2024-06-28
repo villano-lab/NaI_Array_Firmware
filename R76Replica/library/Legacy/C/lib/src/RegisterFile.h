@@ -46,11 +46,6 @@
 
 #define SCI_REG_RateMeter_0_FIFOADDRESS 0x50000
 
-#define SCI_REG_All_Energies_FIFOADDRESS 0x60002
-#define SCI_REG_All_Energies_READ_STATUS 0x60003
-#define SCI_REG_All_Energies_READ_VALID_WORDS 0x60004
-#define SCI_REG_All_Energies_CONFIG 0x60005
-
 #define SCI_REG_Oscilloscope_1_FIFOADDRESS 0x62000
 #define SCI_REG_Oscilloscope_1_READ_STATUS 0x64000
 #define SCI_REG_Oscilloscope_1_READ_POSITION 0x64001
@@ -71,4 +66,9 @@
 #define SCI_REG_diag_trigtype 0x64013
 #define SCI_REG_diag_lemo2out 0x64014
 #define SCI_REG_diag_divide 0x64015
+
+#define SCI_REG_All_Energies_FIFOADDRESS 0x60002
+#define SCI_REG_All_Energies_READ_STATUS 0x60003
+#define SCI_REG_All_Energies_READ_VALID_WORDS 0x60004
+#define SCI_REG_All_Energies_CONFIG 0x60005
 

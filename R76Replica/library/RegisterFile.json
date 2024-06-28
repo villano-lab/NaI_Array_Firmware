@@ -436,50 +436,6 @@
       "DecimatorMax": 0
     },
     {
-      "Name": "All_Energies",
-      "Type": "CustomPacket",
-      "Address": 393218,
-      "Version": "1.1.0.0",
-      "bins": 0,
-      "CountsBit": 0,
-      "UseDMA": false,
-      "Registers": [
-        {
-          "Name": "READ_STATUS",
-          "Address": 393219,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined"
-        },
-        {
-          "Name": "READ_VALID_WORDS",
-          "Address": 393220,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined"
-        },
-        {
-          "Name": "CONFIG",
-          "Address": 393221,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined"
-        }
-      ],
-      "Channels": 0,
-      "ChannelsList": null,
-      "nsamples": 0,
-      "WordSize": 0,
-      "BinsX": 0,
-      "BinsY": 0,
-      "WordEnob": 0,
-      "AnalogInputs": 0,
-      "DigitalInputs": 0,
-      "SamplingFrequency": 0,
-      "TimeMultiplexing": 0,
-      "DecimatorMax": 0
-    },
-    {
       "Name": "Oscilloscope_1",
       "Type": "Oscilloscope",
       "Address": 401408,
@@ -652,6 +608,50 @@
           "RegionSize": 0,
           "Description": null,
           "Category": null
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "All_Energies",
+      "Type": "CustomPacket",
+      "Address": 393218,
+      "Version": "1.1.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Address": 393219,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "READ_VALID_WORDS",
+          "Address": 393220,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG",
+          "Address": 393221,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
         }
       ],
       "Channels": 0,

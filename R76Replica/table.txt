@@ -8,6 +8,8 @@ top_CH0;Decimal;40018;10000000
 trig_polarity;Decimal;1;1
 trig_gate_l;Decimal;3;10
 int_time;Decimal;4000C;100
-diag_to_encode;Hexadecimal;60004;14a
-diag_debug;Decimal;60006;3
-diag_trigtype;Decimal;60007;0
+diag_to_encode;Hexadecimal;64010;14a
+diag_debug;Decimal;64012;3
+diag_trigtype;Decimal;64013;0
+diag_lemo2out;Decimal;64014;2
+diag_divide;Decimal;64015;5

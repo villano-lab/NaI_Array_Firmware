@@ -365,126 +365,6 @@
       "Path": "/RateMeter_0"
     },
     {
-      "Name": "All_Energies",
-      "Type": "CustomPacket",
-      "Address": 393218,
-      "Version": "1.1.0.0",
-      "Channels": 0,
-      "Registers": [
-        {
-          "Name": "READ_STATUS",
-          "Type": null,
-          "Address": 393219,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        },
-        {
-          "Name": "READ_VALID_WORDS",
-          "Type": null,
-          "Address": 393220,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        },
-        {
-          "Name": "CONFIG",
-          "Type": null,
-          "Address": 393221,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        }
-      ],
-      "UseDMA": false,
-      "listOfWord": [
-        {
-          "PioWE": [
-            {
-              "Type": "Input",
-              "Signal": "IN_5",
-              "BitStart": 0,
-              "BitStop": 31,
-              "SliceStart": 31,
-              "SliceStop": 0,
-              "Value": "IN_5",
-              "ValueFormat": ""
-            }
-          ]
-        },
-        {
-          "PioWE": [
-            {
-              "Type": "Input",
-              "Signal": "IN_1",
-              "BitStart": 0,
-              "BitStop": 31,
-              "SliceStart": 31,
-              "SliceStop": 0,
-              "Value": "IN_1",
-              "ValueFormat": ""
-            }
-          ]
-        },
-        {
-          "PioWE": [
-            {
-              "Type": "Input",
-              "Signal": "IN_2",
-              "BitStart": 0,
-              "BitStop": 15,
-              "SliceStart": 15,
-              "SliceStop": 0,
-              "Value": "IN_2",
-              "ValueFormat": ""
-            },
-            {
-              "Type": "Constant",
-              "Signal": "c001",
-              "BitStart": 16,
-              "BitStop": 31,
-              "SliceStart": 15,
-              "SliceStop": 0,
-              "Value": "c001",
-              "ValueFormat": "Hex"
-            }
-          ]
-        },
-        {
-          "PioWE": [
-            {
-              "Type": "Input",
-              "Signal": "IN_3",
-              "BitStart": 0,
-              "BitStop": 15,
-              "SliceStart": 15,
-              "SliceStop": 0,
-              "Value": "IN_3",
-              "ValueFormat": ""
-            },
-            {
-              "Type": "Input",
-              "Signal": "IN_4",
-              "BitStart": 16,
-              "BitStop": 31,
-              "SliceStart": 15,
-              "SliceStop": 0,
-              "Value": "IN_4",
-              "ValueFormat": ""
-            }
-          ]
-        }
-      ],
-      "BufferLength": 32768,
-      "Path": "/All_Energies"
-    },
-    {
       "Name": "Oscilloscope_1",
       "Type": "Oscilloscope",
       "Address": 401408,
@@ -692,6 +572,126 @@
       "Path": "/diag"
     },
     {
+      "Name": "All_Energies",
+      "Type": "CustomPacket",
+      "Address": 393218,
+      "Version": "1.1.0.0",
+      "Channels": 0,
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Type": null,
+          "Address": 393219,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "READ_VALID_WORDS",
+          "Type": null,
+          "Address": 393220,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 393221,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "UseDMA": false,
+      "listOfWord": [
+        {
+          "PioWE": [
+            {
+              "Type": "Input",
+              "Signal": "IN_5",
+              "BitStart": 0,
+              "BitStop": 31,
+              "SliceStart": 31,
+              "SliceStop": 0,
+              "Value": "IN_5",
+              "ValueFormat": ""
+            }
+          ]
+        },
+        {
+          "PioWE": [
+            {
+              "Type": "Input",
+              "Signal": "IN_1",
+              "BitStart": 0,
+              "BitStop": 31,
+              "SliceStart": 31,
+              "SliceStop": 0,
+              "Value": "IN_1",
+              "ValueFormat": ""
+            }
+          ]
+        },
+        {
+          "PioWE": [
+            {
+              "Type": "Input",
+              "Signal": "IN_2",
+              "BitStart": 0,
+              "BitStop": 15,
+              "SliceStart": 15,
+              "SliceStop": 0,
+              "Value": "IN_2",
+              "ValueFormat": ""
+            },
+            {
+              "Type": "Constant",
+              "Signal": "c001",
+              "BitStart": 16,
+              "BitStop": 31,
+              "SliceStart": 15,
+              "SliceStop": 0,
+              "Value": "c001",
+              "ValueFormat": "Hex"
+            }
+          ]
+        },
+        {
+          "PioWE": [
+            {
+              "Type": "Input",
+              "Signal": "IN_3",
+              "BitStart": 0,
+              "BitStop": 15,
+              "SliceStart": 15,
+              "SliceStop": 0,
+              "Value": "IN_3",
+              "ValueFormat": ""
+            },
+            {
+              "Type": "Input",
+              "Signal": "IN_4",
+              "BitStart": 16,
+              "BitStop": 31,
+              "SliceStart": 15,
+              "SliceStop": 0,
+              "Value": "IN_4",
+              "ValueFormat": ""
+            }
+          ]
+        }
+      ],
+      "BufferLength": 32768,
+      "Path": "/All_Energies"
+    },
+    {
       "Name": "reset",
       "Type": "Register",
       "Address": 262174,
@@ -750,5 +750,5 @@
   "Magic": "790125E3",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2024-06-24T09:58:09.4031346-06:00"
+  "BuildDate": "2024-06-28T14:24:41.4471734-05:00"
 }
