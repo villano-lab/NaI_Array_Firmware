@@ -125,6 +125,14 @@ def REG_received_GET(handle):
 def REG_received_SET(data, handle):
     err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_received, handle)
     return err
+
+def REG_time_latch_GET(handle):
+    [err, data] = __abstracted_reg_read(R76Replica_RegisterFile.SCI_REG_time_latch, handle)
+    return err, data
+
+def REG_time_latch_SET(data, handle):
+    err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_time_latch, handle)
+    return err
 def REG_ANALOG_OFFSET_SET(data, handle):
     err = __abstracted_reg_write(data, R76Replica_RegisterFile.SCI_REG_ANALOG_OFFSET, handle)
     return err

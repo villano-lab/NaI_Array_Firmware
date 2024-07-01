@@ -24,7 +24,14 @@
     },
     {
       "Name": "received",
-      "Address": 409612,
+      "Address": 409607,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "time_latch",
+      "Address": 409627,
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined"
@@ -508,53 +515,9 @@
       "DecimatorMax": 0
     },
     {
-      "Name": "diag_time",
-      "Type": "RegisterFile",
-      "Address": 409608,
-      "Version": "1.0.0.0",
-      "bins": 0,
-      "CountsBit": 0,
-      "UseDMA": false,
-      "Registers": [
-        {
-          "Name": "lower",
-          "Address": 409609,
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null
-        },
-        {
-          "Name": "upper",
-          "Address": 409610,
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null
-        },
-        {
-          "Name": "full",
-          "Address": 409611,
-          "RegionSize": 0,
-          "Description": null,
-          "Category": null
-        }
-      ],
-      "Channels": 0,
-      "ChannelsList": null,
-      "nsamples": 0,
-      "WordSize": 0,
-      "BinsX": 0,
-      "BinsY": 0,
-      "WordEnob": 0,
-      "AnalogInputs": 0,
-      "DigitalInputs": 0,
-      "SamplingFrequency": 0,
-      "TimeMultiplexing": 0,
-      "DecimatorMax": 0
-    },
-    {
       "Name": "diag",
       "Type": "RegisterFile",
-      "Address": 409614,
+      "Address": 409609,
       "Version": "1.0.0.0",
       "bins": 0,
       "CountsBit": 0,
@@ -562,49 +525,49 @@
       "Registers": [
         {
           "Name": "FM_Out",
-          "Address": 409615,
+          "Address": 409610,
           "RegionSize": 0,
           "Description": null,
           "Category": null
         },
         {
           "Name": "to_encode",
-          "Address": 409616,
+          "Address": 409611,
           "RegionSize": 0,
           "Description": null,
           "Category": null
         },
         {
           "Name": "full",
-          "Address": 409617,
+          "Address": 409612,
           "RegionSize": 0,
           "Description": null,
           "Category": null
         },
         {
           "Name": "debug",
-          "Address": 409618,
+          "Address": 409613,
           "RegionSize": 0,
           "Description": null,
           "Category": null
         },
         {
           "Name": "trigtype",
-          "Address": 409619,
+          "Address": 409614,
           "RegionSize": 0,
           "Description": null,
           "Category": null
         },
         {
           "Name": "lemo2out",
-          "Address": 409620,
+          "Address": 409615,
           "RegionSize": 0,
           "Description": null,
           "Category": null
         },
         {
           "Name": "divide",
-          "Address": 409621,
+          "Address": 409616,
           "RegionSize": 0,
           "Description": null,
           "Category": null
@@ -626,7 +589,7 @@
     {
       "Name": "All_Energies",
       "Type": "CustomPacket",
-      "Address": 393218,
+      "Address": 409618,
       "Version": "1.1.0.0",
       "bins": 0,
       "CountsBit": 0,
@@ -634,24 +597,68 @@
       "Registers": [
         {
           "Name": "READ_STATUS",
-          "Address": 393219,
+          "Address": 409619,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
         },
         {
           "Name": "READ_VALID_WORDS",
-          "Address": 393220,
+          "Address": 409620,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
         },
         {
           "Name": "CONFIG",
-          "Address": 393221,
+          "Address": 409621,
           "RegionSize": 1,
           "Description": "",
           "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "BinsX": 0,
+      "BinsY": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "diag_time",
+      "Type": "RegisterFile",
+      "Address": 409623,
+      "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "lower",
+          "Address": 409624,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "upper",
+          "Address": 409625,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
+        },
+        {
+          "Name": "full",
+          "Address": 409626,
+          "RegionSize": 0,
+          "Description": null,
+          "Category": null
         }
       ],
       "Channels": 0,

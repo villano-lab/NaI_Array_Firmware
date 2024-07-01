@@ -5,7 +5,8 @@
 #define SCI_REG_timestamp 0x0004001D
 #define SCI_REG_reset 0x0004001E
 #define SCI_REG_forcetrig 0x00060000
-#define SCI_REG_received 0x0006400C
+#define SCI_REG_received 0x00064007
+#define SCI_REG_time_latch 0x0006401B
 #define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
 #define SCI_REG_disable_det_CH0 0x40010
 #define SCI_REG_disable_det_CH1 0x40011
@@ -55,20 +56,20 @@
 #define SCI_REG_Oscilloscope_1_CONFIG_ARM 0x64005
 #define SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR 0x64006
 
-#define SCI_REG_diag_time_lower 0x64009
-#define SCI_REG_diag_time_upper 0x6400A
-#define SCI_REG_diag_time_full 0x6400B
+#define SCI_REG_diag_FM_Out 0x6400A
+#define SCI_REG_diag_to_encode 0x6400B
+#define SCI_REG_diag_full 0x6400C
+#define SCI_REG_diag_debug 0x6400D
+#define SCI_REG_diag_trigtype 0x6400E
+#define SCI_REG_diag_lemo2out 0x6400F
+#define SCI_REG_diag_divide 0x64010
 
-#define SCI_REG_diag_FM_Out 0x6400F
-#define SCI_REG_diag_to_encode 0x64010
-#define SCI_REG_diag_full 0x64011
-#define SCI_REG_diag_debug 0x64012
-#define SCI_REG_diag_trigtype 0x64013
-#define SCI_REG_diag_lemo2out 0x64014
-#define SCI_REG_diag_divide 0x64015
+#define SCI_REG_All_Energies_FIFOADDRESS 0x64012
+#define SCI_REG_All_Energies_READ_STATUS 0x64013
+#define SCI_REG_All_Energies_READ_VALID_WORDS 0x64014
+#define SCI_REG_All_Energies_CONFIG 0x64015
 
-#define SCI_REG_All_Energies_FIFOADDRESS 0x60002
-#define SCI_REG_All_Energies_READ_STATUS 0x60003
-#define SCI_REG_All_Energies_READ_VALID_WORDS 0x60004
-#define SCI_REG_All_Energies_CONFIG 0x60005
+#define SCI_REG_diag_time_lower 0x64018
+#define SCI_REG_diag_time_upper 0x64019
+#define SCI_REG_diag_time_full 0x6401A
 

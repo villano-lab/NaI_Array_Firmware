@@ -1,38 +1,38 @@
 # ---------------------------------------------------------------------------------
-# Created on Fri Jun 28 14:27:47 -0500 2024 with report_failfast (2018.05.04)
+# Created on Fri Jun 28 15:46:53 -0500 2024 with report_failfast (2018.05.04)
 # ---------------------------------------------------------------------------------
 
-#  +------------------------------------------------------------------------------------------+
-#  | Design Summary                                                                           |
-#  | impl_1                                                                                   |
-#  | xc7s25csga225-1                                                                          |
-#  +-----------------------------------------------------------+-----------+---------+--------+
-#  | Criteria                                                  | Guideline | Actual  | Status |
-#  +-----------------------------------------------------------+-----------+---------+--------+
-#  | LUT                                                       | 70%       | 48.75%  | OK     |
-#  | FD                                                        | 50%       | 25.60%  | OK     |
-#  | LUTRAM+SRL                                                | 25%       | 5.02%   | OK     |
-#  | MUXF7                                                     | 15%       | 1.26%   | OK     |
-#  | DSP48                                                     | 80%       | 5.00%   | OK     |
-#  | RAMB/FIFO                                                 | 80%       | 100.00% | REVIEW |
-#  | DSP48+RAMB+URAM (Avg)                                     | 70%       | 52.50%  | OK     |
-#  | BUFGCE* + BUFGCTRL                                        | 24        | 7       | OK     |
-#  | DONT_TOUCH (cells/nets)                                   | 0         | 72      | REVIEW |
-#  | Control Sets                                              | 274       | 309     | REVIEW |
-#  | Average Fanout for modules > 100k cells                   | 4         | 0       | OK     |
-#  | Non-FD high fanout nets > 10k loads                       | 0         | 0       | OK     |
-#  +-----------------------------------------------------------+-----------+---------+--------+
-#  | TIMING-6 (No common primary clock between related clocks) | 0         | 0       | OK     |
-#  | TIMING-7 (No common node between related clocks)          | 0         | 0       | OK     |
-#  | TIMING-8 (No common period between related clocks)        | 0         | 0       | OK     |
-#  | TIMING-14 (LUT on the clock tree)                         | 0         | 0       | OK     |
-#  | TIMING-35 (No common node in paths with the same clock)   | 0         | 0       | OK     |
-#  +-----------------------------------------------------------+-----------+---------+--------+
-#  | Number of paths above max LUT budgeting (0.300ns)         | 0         | 0       | OK     |
-#  | Number of paths above max Net budgeting (0.208ns)         | 0         | 0       | OK     |
-#  +-----------------------------------------------------------+-----------+---------+--------+
+#  +-----------------------------------------------------------------------------------------+
+#  | Design Summary                                                                          |
+#  | impl_1                                                                                  |
+#  | xc7s25csga225-1                                                                         |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | Criteria                                                  | Guideline | Actual | Status |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | LUT                                                       | 70%       | 42.49% | OK     |
+#  | FD                                                        | 50%       | 25.06% | OK     |
+#  | LUTRAM+SRL                                                | 25%       | 1.82%  | OK     |
+#  | MUXF7                                                     | 15%       | 3.63%  | OK     |
+#  | DSP48                                                     | 80%       | 5.00%  | OK     |
+#  | RAMB/FIFO                                                 | 80%       | 96.67% | REVIEW |
+#  | DSP48+RAMB+URAM (Avg)                                     | 70%       | 50.84% | OK     |
+#  | BUFGCE* + BUFGCTRL                                        | 24        | 5      | OK     |
+#  | DONT_TOUCH (cells/nets)                                   | 0         | 72     | REVIEW |
+#  | Control Sets                                              | 274       | 265    | OK     |
+#  | Average Fanout for modules > 100k cells                   | 4         | 0      | OK     |
+#  | Non-FD high fanout nets > 10k loads                       | 0         | 0      | OK     |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | TIMING-6 (No common primary clock between related clocks) | 0         | 0      | OK     |
+#  | TIMING-7 (No common node between related clocks)          | 0         | 0      | OK     |
+#  | TIMING-8 (No common period between related clocks)        | 0         | 0      | OK     |
+#  | TIMING-14 (LUT on the clock tree)                         | 0         | 0      | OK     |
+#  | TIMING-35 (No common node in paths with the same clock)   | 0         | 0      | OK     |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | Number of paths above max LUT budgeting (0.300ns)         | 0         | 0      | OK     |
+#  | Number of paths above max Net budgeting (0.208ns)         | 0         | 0      | OK     |
+#  +-----------------------------------------------------------+-----------+--------+--------+
 
 "Id","design.part","design.top","design.run.pr.cell","design.run.pr.pblock","design.run.slr","design.run.regions","utilization.clb.lut","utilization.clb.ff","utilization.ram.tile","utilization.uram.tile","utilization.dsp","design.failure","utilization.clb.lut.pct","utilization.clb.ff.pct","utilization.clb.lutmem.pct","utilization.clb.carry8.pct","utilization.clb.f7mux.pct","utilization.clb.f8mux.pct","design.cells.hlutnm.pct","utilization.dsp.pct","utilization.ram.tile.pct","utilization.uram.tile.pct","utilization.bigblocks.pct","utilization.clk.all","utilization.ctrlsets.uniq","design.dont_touch","design.cells.maxavgfo","design.nets.nonfdhfn","methodology.timing-6","methodology.timing-7","methodology.timing-8","methodology.timing-14","methodology.timing-35","design.device.maxlvls.lut","design.device.maxlvls.net"
 "Description","Part","Top","PR (Cell)","PR (Pblock)","SLR-Level Analysis","Clock Regions","LUT(#)","FD(#)","RAMB/FIFO(#)","URAM(#)","DSP48(#)","Criteria to review","LUT(%)","FD(%)","LUTRAM+SRL(%)","CARRY8(%)","MUXF7(%)","MUXF8(%)","LUT Combining(%)","DSP48(%)","RAMB/FIFO(%)","URAM(%)","DSP48+RAMB+URAM (Avg)(%)","BUFGCE* + BUFGCTRL","Control Sets","DONT_TOUCH(#)","Average Fanout for modules > 100k cells","Non-FD high fanout nets > 10k loads","TIMING-6","TIMING-7","TIMING-8","TIMING-14","TIMING-35","Number of paths above max LUT budgeting 0.300ns","Number of paths above max Net budgeting 0.208ns"
-"Value","xc7s25csga225-1","TOP_R76Replica","","","","","7118","7475","45","n/a","4","3","48.75","25.60","5.02","n/a","1.26","0.00","8.39","5.00","100.00","100.00","52.50","7","309","72","0","0","0","0","0","0","0","0","0"
+"Value","xc7s25csga225-1","TOP_R76Replica","","","","","6204","7318","43.5","n/a","4","2","42.49","25.06","1.82","n/a","3.63","3.51","8.95","5.00","96.67","96.67","50.84","5","265","72","0","0","0","0","0","0","0","0","0"
 

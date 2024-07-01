@@ -327,6 +327,22 @@ SCILIB int REG_forcetrig_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_forcetrig, handle);
 }
+SCILIB int REG_received_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_received, handle);
+}
+SCILIB int REG_received_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_received, handle);
+}
+SCILIB int REG_time_latch_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_time_latch, handle);
+}
+SCILIB int REG_time_latch_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_time_latch, handle);
+}
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_ANALOG_OFFSET, handle);
@@ -807,6 +823,108 @@ return __abstracted_mem_read(val, size, SCI_REG_Spectrum_1_FIFOADDRESS, timeout,
 }
 //-----------------------------------------------------------------
 //-
+//- RATE_METER_RateMeter_0_GET_DATA
+//-
+//- USAGE: 
+//- 
+//-
+//- ARGUMENTS:
+//- 	             val  PARAM_OUT   uint32_t
+//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             val   PARAM_IN   channels
+//- 		number of word to download from the buffer.
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             val   PARAM_IN    int32_t
+//- 		timeout in ms
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	       read_data  PARAM_OUT    int32_t
+//- 		number of word read from the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	      valid_data  PARAM_OUT    int32_t
+//- 		number of word valid in the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int RATE_METER_RateMeter_0_GET_DATA(uint32_t *val, uint32_t channels, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
+{
+return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_0_FIFOADDRESS, timeout, handle, read_data, valid_data);
+
+}
+//-----------------------------------------------------------------
+//-
+//- RATE_METER_RateMeter_0_GET_DATA_COUNTS
+//-
+//- USAGE: 
+//- 
+//-
+//- ARGUMENTS:
+//- 	             val  PARAM_OUT   uint32_t
+//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             val   PARAM_IN   channels
+//- 		number of word to download from the buffer.
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             val   PARAM_IN    int32_t
+//- 		timeout in ms
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	       read_data  PARAM_OUT    int32_t
+//- 		number of word read from the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	      valid_data  PARAM_OUT    int32_t
+//- 		number of word valid in the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int RATE_METER_RateMeter_0_GET_DATA_COUNTS(uint32_t *val, uint32_t channels, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
+{
+return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_0_FIFOADDRESS+512, timeout, handle, read_data, valid_data);
+
+}
+//-----------------------------------------------------------------
+//-
 //- OSCILLOSCOPE_Oscilloscope_1_START
 //-
 //- Start Oscilloscope acquisition.
@@ -1112,7 +1230,7 @@ return __abstracted_mem_read(val, size, SCI_REG_Oscilloscope_1_FIFOADDRESS, time
 
 SCILIB int OSCILLOSCOPE_Oscilloscope_1_RECONSTRUCT(uint32_t *data_osc, uint32_t position, int32_t pre_trigger, uint32_t *read_analog, uint32_t *read_digital0, uint32_t *read_digital1, uint32_t *read_digital2, uint32_t *read_digital3)
 {
-int n_ch = 4;
+int n_ch = 5;
 int n_samples = 1024;
 if (position > n_samples) return -1;
 for(int n=0; n< n_ch; n++)
@@ -1360,7 +1478,7 @@ return __abstracted_reg_read(status, SCI_REG_All_Energies_READ_VALID_WORDS, hand
 //- 		DEFAULT: 
 //- 		OPTIONAL: False
 //-
-//- 	          timeout PARAM_IN    int32_t
+//- 	             val   PARAM_IN    int32_t
 //- 		timeout in ms
 //- 		DEFAULT: 
 //- 		OPTIONAL: False
@@ -1540,106 +1658,5 @@ SCILIB int CPACK_All_Energies_RECONSTRUCT_DATA(void *buffer_handle, t_generic_ev
 	}
 
  return 0;
-
-}
-//-
-//- RATE_METER_RateMeter_0_GET_DATA
-//-
-//- USAGE: 
-//- 
-//-
-//- ARGUMENTS:
-//- 	             val  PARAM_OUT   uint32_t
-//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	             val   PARAM_IN   channels
-//- 		number of word to download from the buffer.
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	             val   PARAM_IN    int32_t
-//- 		timeout in ms
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	       read_data  PARAM_OUT    int32_t
-//- 		number of word read from the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	      valid_data  PARAM_OUT    int32_t
-//- 		number of word valid in the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int RATE_METER_RateMeter_0_GET_DATA(uint32_t *val, uint32_t channels, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
-{
-return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_0_FIFOADDRESS, timeout, handle, read_data, valid_data);
-
-}
-//-----------------------------------------------------------------
-//-
-//- RATE_METER_RateMeter_0_GET_DATA_COUNTS
-//-
-//- USAGE: 
-//- 
-//-
-//- ARGUMENTS:
-//- 	             val  PARAM_OUT   uint32_t
-//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	             val   PARAM_IN   channels
-//- 		number of word to download from the buffer.
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	             val   PARAM_IN    int32_t
-//- 		timeout in ms
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	          handle PARAM_INOUT  NI_HANDLE
-//- 		Connection handle to the board
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	       read_data  PARAM_OUT    int32_t
-//- 		number of word read from the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//- 	      valid_data  PARAM_OUT    int32_t
-//- 		number of word valid in the buffer
-//- 		DEFAULT: 
-//- 		OPTIONAL: False
-//-
-//-
-//- RETURN [int]
-//- 	Return if the function has been succesfully executed
-//- 		0) Success
-//- 		-1) Error
-//-
-//-----------------------------------------------------------------
-
-SCILIB int RATE_METER_RateMeter_0_GET_DATA_COUNTS(uint32_t *val, uint32_t channels, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
-{
-return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_0_FIFOADDRESS+512, timeout, handle, read_data, valid_data);
 
 }
