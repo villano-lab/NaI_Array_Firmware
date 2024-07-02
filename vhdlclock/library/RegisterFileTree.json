@@ -1,0 +1,121 @@
+{
+  "Name": "top",
+  "Path": "",
+  "PageGuid": "c98a5a61-93c6-46c9-88e5-cc7ab96f4040",
+  "PageName": "top",
+  "BaseAddress": 0,
+  "RealBaseAddress": 0,
+  "PageSize": 0,
+  "MultiPageCount": 0,
+  "MultiPageIndex": 0,
+  "Elements": [
+    {
+      "Name": "Oscilloscope_1",
+      "Type": "Oscilloscope",
+      "Address": 0,
+      "Version": "1.0.0.0",
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Type": "Register",
+          "Address": 1024,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "READ_POSITION",
+          "Type": "Register",
+          "Address": 1025,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_TRIGGER_MODE",
+          "Type": "Register",
+          "Address": 1026,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_PRETRIGGER",
+          "Type": "Register",
+          "Address": 1027,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_TRIGGER_LEVEL",
+          "Type": "Register",
+          "Address": 1028,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_ARM",
+          "Type": "Register",
+          "Address": 1029,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_DECIMATOR",
+          "Type": "Register",
+          "Address": 1030,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "nsamples": 1024,
+      "Channels": 1,
+      "WordSize": 16,
+      "WordEnob": 16,
+      "AnalogInputs": 1,
+      "DigitalInputs": 4,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 1,
+      "DecimatorMax": 0,
+      "DecimatorAveraging": false,
+      "Path": "/Oscilloscope_1"
+    },
+    {
+      "Name": "reset",
+      "Type": "Register",
+      "Address": 1031,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/reset"
+    }
+  ],
+  "Childs": [],
+  "isTop": true,
+  "Mode": "tree",
+  "Device": "DT5560",
+  "Project": "vhdlclock",
+  "Magic": "321BF81E",
+  "Version": null,
+  "FPGA": "xc7z030fbg676-2",
+  "BuildDate": "2024-07-02T10:54:34.1184015-05:00"
+}

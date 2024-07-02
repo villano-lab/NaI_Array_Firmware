@@ -1,0 +1,1 @@
+This directory contains projects testing individual components available in SciCompiler.

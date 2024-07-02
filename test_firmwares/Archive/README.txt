@@ -1,1 +1,0 @@
-Projects in this directory were tests or firmwares that have served their purpose and are unlikely to be used again in the future.

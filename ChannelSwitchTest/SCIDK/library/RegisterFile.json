@@ -1,0 +1,736 @@
+<<<<<<< Updated upstream
+{
+  "Device": "SCIDK",
+  "Registers": [
+    {
+      "Name": "CN",
+      "Address": 0,
+=======
+{"Registers":[
+{
+  "Name": "CN",
+  "Type": null,
+  "Address": 0,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "pol",
+  "Type": null,
+  "Address": 1,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "thrs",
+  "Type": null,
+  "Address": 2,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "inhib",
+  "Type": null,
+  "Address": 3,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "top",
+  "Type": null,
+  "Address": 4,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "delay",
+  "Type": null,
+  "Address": 5,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gate",
+  "Type": null,
+  "Address": 6,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gatel",
+  "Type": null,
+  "Address": 7,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "xdelay",
+  "Type": null,
+  "Address": 8,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "inttime",
+  "Type": null,
+  "Address": 9,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "preint",
+  "Type": null,
+  "Address": 10,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "pileup",
+  "Type": null,
+  "Address": 11,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "gain",
+  "Type": null,
+  "Address": 12,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ofs",
+  "Type": null,
+  "Address": 13,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "bl",
+  "Type": null,
+  "Address": 14,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "noflip0flip1",
+  "Type": null,
+  "Address": 15,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "Undefined"
+},
+{
+  "Name": "ANALOG_OFFSET",
+  "Type": null,
+  "Address": 4294967289,
+  "Version": null,
+  "RegionSize": 1,
+  "Description": "",
+  "Category": "AnalogAFE"
+}],
+"MMCComponents":[
+{
+  "Name": "Spectrum_0",
+  "Type": "Spectrum",
+  "Address": 65536,
+  "Version": "1.0.1.0",
+  "bins": 1024,
+  "Registers": [
+    {
+      "Name": "STATUS",
+      "Type": null,
+      "Address": 131072,
+      "Version": null,
+>>>>>>> Stashed changes
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+<<<<<<< Updated upstream
+      "Name": "pol",
+      "Address": 1,
+=======
+      "Name": "CONFIG",
+      "Type": null,
+      "Address": 131073,
+      "Version": null,
+>>>>>>> Stashed changes
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+<<<<<<< Updated upstream
+      "Name": "thrs",
+      "Address": 2,
+=======
+      "Name": "CONFIG_LIMIT",
+      "Type": null,
+      "Address": 131074,
+      "Version": null,
+>>>>>>> Stashed changes
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+<<<<<<< Updated upstream
+      "Name": "inhib",
+      "Address": 3,
+=======
+      "Name": "CONFIG_REBIN",
+      "Type": null,
+      "Address": 131075,
+      "Version": null,
+>>>>>>> Stashed changes
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+<<<<<<< Updated upstream
+      "Name": "top",
+      "Address": 4,
+=======
+      "Name": "CONFIG_MIN",
+      "Type": null,
+      "Address": 131076,
+      "Version": null,
+>>>>>>> Stashed changes
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+<<<<<<< Updated upstream
+      "Name": "delay",
+      "Address": 5,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "gate",
+      "Address": 6,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "gatel",
+      "Address": 7,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "xdelay",
+      "Address": 8,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "inttime",
+      "Address": 9,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "preint",
+      "Address": 10,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "pileup",
+      "Address": 11,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "gain",
+      "Address": 12,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "ofs",
+      "Address": 13,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "bl",
+      "Address": 14,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "reset",
+      "Address": 135192,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "ANALOG_OFFSET",
+      "Address": 4294967289,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "AnalogAFE"
+    }
+  ],
+  "Version": 0.0,
+  "GenerationData": "0001-01-01T00:00:00",
+  "MMCComponents": [
+    {
+      "Name": "Spectrum_0",
+      "Type": "Spectrum",
+      "Address": 65536,
+      "Version": "1.0.1.0",
+      "bins": 1024,
+      "CountsBit": 16,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Address": 131072,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG",
+          "Address": 131073,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_LIMIT",
+          "Address": 131074,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_REBIN",
+          "Address": 131075,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_MIN",
+          "Address": 131076,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_MAX",
+          "Address": 131077,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "Oscilloscope_0",
+      "Type": "Oscilloscope",
+      "Address": 133120,
+      "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Address": 135168,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "READ_POSITION",
+          "Address": 135169,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_TRIGGER_MODE",
+          "Address": 135170,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_PRETRIGGER",
+          "Address": 135171,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_TRIGGER_LEVEL",
+          "Address": 135172,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_ARM",
+          "Address": 135173,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG_DECIMATOR",
+          "Address": 135174,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 2,
+      "ChannelsList": null,
+      "nsamples": 1024,
+      "WordSize": 16,
+      "WordEnob": 16,
+      "AnalogInputs": 1,
+      "DigitalInputs": 4,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 1,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "CP_0",
+      "Type": "CustomPacket",
+      "Address": 135182,
+      "Version": "1.1.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Address": 135183,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "READ_VALID_WORDS",
+          "Address": 135184,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG",
+          "Address": 135185,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 0,
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    },
+    {
+      "Name": "Digitizer_1",
+      "Type": "WaveDump",
+      "Address": 135187,
+      "Version": "1.1.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Address": 135188,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "INFO",
+          "Address": 135189,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "CONFIG",
+          "Address": 135190,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        },
+        {
+          "Name": "ACQ_LEN",
+          "Address": 135191,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined"
+        }
+      ],
+      "Channels": 4,
+      "ChannelsList": null,
+      "nsamples": 1024,
+      "WordSize": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
+    }
+  ]
+}
+=======
+      "Name": "CONFIG_MAX",
+      "Type": null,
+      "Address": 131077,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "CountsBit": 16
+},
+{
+  "Name": "Oscilloscope_0",
+  "Type": "Oscilloscope",
+  "Address": 133120,
+  "Version": "1.0.0.0",
+  "Registers": [
+    {
+      "Name": "READ_STATUS",
+      "Type": "Register",
+      "Address": 135168,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "READ_POSITION",
+      "Type": "Register",
+      "Address": 135169,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_MODE",
+      "Type": "Register",
+      "Address": 135170,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_PRETRIGGER",
+      "Type": "Register",
+      "Address": 135171,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_TRIGGER_LEVEL",
+      "Type": "Register",
+      "Address": 135172,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_ARM",
+      "Type": "Register",
+      "Address": 135173,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG_DECIMATOR",
+      "Type": "Register",
+      "Address": 135174,
+      "Version": "",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "nsamples": 1024,
+  "Channels": 2,
+  "WordSize": 16,
+  "WordEnob": 16,
+  "AnalogInputs": 1,
+  "DigitalInputs": 4,
+  "SamplingFrequency": 0,
+  "TimeMultiplexing": 1,
+  "DecimatorMax": 0
+},
+{
+  "Name": "CP_0",
+  "Type": "CustomPacket",
+  "Address": 135176,
+  "Version": "1.1.0.0",
+  "Channels": 0,
+  "Registers": [
+    {
+      "Name": "READ_STATUS",
+      "Type": null,
+      "Address": 135177,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "READ_VALID_WORDS",
+      "Type": null,
+      "Address": 135178,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    },
+    {
+      "Name": "CONFIG",
+      "Type": null,
+      "Address": 135179,
+      "Version": null,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "UseDMA": false,
+  "listOfWord": [
+    {
+      "PioWE": [
+        {
+          "Type": "Constant",
+          "Signal": "80000000",
+          "BitStart": 0,
+          "BitStop": 31,
+          "SliceStart": 31,
+          "SliceStop": 0,
+          "Value": "80000000",
+          "ValueFormat": "Hex"
+        }
+      ]
+    },
+    {
+      "PioWE": [
+        {
+          "Type": "Input",
+          "Signal": "IN_1",
+          "BitStart": 0,
+          "BitStop": 31,
+          "SliceStart": 31,
+          "SliceStop": 0,
+          "Value": "IN_1",
+          "ValueFormat": ""
+        }
+      ]
+    },
+    {
+      "PioWE": [
+        {
+          "Type": "Input",
+          "Signal": "IN_2",
+          "BitStart": 0,
+          "BitStop": 15,
+          "SliceStart": 15,
+          "SliceStop": 0,
+          "Value": "IN_2",
+          "ValueFormat": ""
+        },
+        {
+          "Type": "Input",
+          "Signal": "IN_3",
+          "BitStart": 16,
+          "BitStop": 31,
+          "SliceStart": 15,
+          "SliceStop": 0,
+          "Value": "IN_3",
+          "ValueFormat": ""
+        }
+      ]
+    }
+  ],
+  "BufferLength": 0
+}],"Device":"SCIDK","Project":"test3"}
+>>>>>>> Stashed changes
