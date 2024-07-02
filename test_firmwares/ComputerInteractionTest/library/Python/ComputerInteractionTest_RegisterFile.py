@@ -1,8 +1,0 @@
-SCI_REG_integral= 0x00000000
-SCI_REG_runcfg= 0x00000001
-SCI_REG_counter= 0x00000002
-SCI_REG_reset= 0x00000003
-SCI_REG_strobecount= 0x00000004
-SCI_REG_trigcount= 0x00000005
-SCI_REG_peak= 0x00000006
-

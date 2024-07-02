@@ -1,4 +1,0 @@
-data_mover_inbuffbkb
-data_mover_axil_s_axi
-data_mover_a_V_m_axi
-data_mover
