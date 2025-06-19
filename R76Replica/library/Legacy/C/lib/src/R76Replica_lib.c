@@ -1,15 +1,12 @@
 #include "SCIDK_Lib.h"
-#include  <stdlib.h>
+#include <stdlib.h>
 #include <stdint.h>
-#include  <stdbool.h>
+#include <stdbool.h>
+#include <iostream>
 
 #include "RegisterFile.h"
-
-#include  "circular_buffer.h"
-
-
-
-#include  "R76Replica_lib.h"
+#include "circular_buffer.h"
+#include "R76Replica_lib.h"
 
 
 SCILIB int USB2_ConnectDevice( char *IPAddress_or_SN, NI_HANDLE *handle)
@@ -24,7 +21,7 @@ SCILIB int USB2_CloseConnection(NI_HANDLE *handle)
 
 SCILIB int USB2_ListDevices(char *ListOfDevice, char *model,  int *Count)
 {
-	return NI_USBEnumerate(ListOfDevice, model, Count);
+	return NI_USBEnumerate(ListOfDevice, model, (uint32_t*)Count);
 }
 
 SCILIB int __abstracted_mem_write(uint32_t *data, uint32_t count, 
@@ -32,7 +29,7 @@ SCILIB int __abstracted_mem_write(uint32_t *data, uint32_t count,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *written_data)
 {
-	return NI_WriteData(data,  count,  address, REG_ACCESS, timeout_ms, handle, written_data);
+	return NI_WriteData(data,  count,  address, R76REPLICA_REG_ACCESS, timeout_ms, handle, written_data);
 }
 
 
@@ -41,7 +38,7 @@ SCILIB int __abstracted_mem_read(uint32_t *data, uint32_t count,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *read_data, uint32_t *valid_data)
 {
-	return NI_ReadData(data,  count, address,  REG_ACCESS, timeout_ms, handle, read_data, valid_data);
+	return NI_ReadData(data,  count, address,  R76REPLICA_REG_ACCESS, timeout_ms, handle, read_data, valid_data);
 }
 
 SCILIB int __abstracted_fifo_write(uint32_t *data, uint32_t count, 
@@ -49,19 +46,17 @@ SCILIB int __abstracted_fifo_write(uint32_t *data, uint32_t count,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
 										uint32_t *written_data)
 {
-	return NI_WriteData(data,  count,  address, STREAMING, timeout_ms, handle, written_data);
+	return NI_WriteData(data,  count,  address, R76REPLICA_STREAMING, timeout_ms, handle, written_data);
 }
-	
-SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
-										uint32_t address, 
-										uint32_t address_status, 
-										bool blocking,
-										uint32_t timeout_ms, NI_HANDLE *handle, 
-										uint32_t *read_data, uint32_t *valid_data)
+
+SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count,uint32_t address,
+	uint32_t address_status,bool blocking,	uint32_t timeout_ms, NI_HANDLE *handle,
+	uint32_t *read_data, uint32_t *valid_data)
 {
-	return NI_ReadData(data,  count, address,  STREAMING, timeout_ms, handle, read_data, valid_data);
+	std::cout << "__abstracted_fifo_read descending into NI_ReadData\n";
+	return NI_ReadData(data,  count, address,  R76REPLICA_STREAMING, timeout_ms, handle, read_data, valid_data);
 }
-	
+
 SCILIB int __abstracted_reg_write(uint32_t data, uint32_t address, NI_HANDLE *handle)
 {
 	return NI_WriteReg(data, address, handle);
@@ -127,7 +122,7 @@ SCILIB char *ReadFirmwareInformation(NI_HANDLE *handle)
 
 SCILIB int Utility_ALLOCATE_DOWNLOAD_BUFFER(void **buffer_handle, uint32_t buffer_size)
 {
-	uint32_t * buffer = malloc(buffer_size * sizeof(uint32_t));
+	uint32_t * buffer = (uint32_t*)malloc(buffer_size * sizeof(uint32_t));
 	if (buffer == NULL) return -1;
 	cbuf_handle_t cbuf = circular_buf_init(buffer, buffer_size);
 	*buffer_handle = cbuf;
@@ -236,7 +231,7 @@ SCILIB int Utility_PEAK_DATA_FORM_DOWNLOAD_BUFFER(void *buffer_handle, int32_t *
 	cbuf = (cbuf_handle_t)buffer_handle;
 	if (circular_buf_empty(cbuf))
 		return -1;
-	circular_buf_get(cbuf, val);
+	circular_buf_get(cbuf, (uint32_t*)val);
 	return 0;
 }
 
@@ -284,89 +279,547 @@ SCILIB void free_packet_collection (t_generic_event_collection *decoded_packets)
 }
 
 
-SCILIB int REG_ratereset_GET(uint32_t *val, NI_HANDLE *handle)
+SCILIB int REG_unequal_GET(uint32_t *val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_read(val, SCI_REG_ratereset, handle);
+     return __abstracted_reg_read(val, SCI_REG_unequal, handle);
 }
-SCILIB int REG_ratereset_SET(uint32_t val, NI_HANDLE *handle)
+SCILIB int REG_unequal_SET(uint32_t val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_ratereset, handle);
+     return __abstracted_reg_write(val, SCI_REG_unequal, handle);
 }
-SCILIB int REG_gate_l_GET(uint32_t *val, NI_HANDLE *handle)
+SCILIB int REG_tc_nonzero_GET(uint32_t *val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_read(val, SCI_REG_gate_l, handle);
+     return __abstracted_reg_read(val, SCI_REG_tc_nonzero, handle);
 }
-SCILIB int REG_gate_l_SET(uint32_t val, NI_HANDLE *handle)
+SCILIB int REG_tc_nonzero_SET(uint32_t val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_gate_l, handle);
+     return __abstracted_reg_write(val, SCI_REG_tc_nonzero, handle);
 }
-SCILIB int REG_gate_u_GET(uint32_t *val, NI_HANDLE *handle)
+SCILIB int REG_trigger_code_GET(uint32_t *val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_read(val, SCI_REG_gate_u, handle);
+     return __abstracted_reg_read(val, SCI_REG_trigger_code, handle);
 }
-SCILIB int REG_gate_u_SET(uint32_t val, NI_HANDLE *handle)
+SCILIB int REG_trigger_code_SET(uint32_t val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_gate_u, handle);
+     return __abstracted_reg_write(val, SCI_REG_trigger_code, handle);
 }
-SCILIB int REG_polarity_GET(uint32_t *val, NI_HANDLE *handle)
+SCILIB int REG_timestamp_GET(uint32_t *val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_read(val, SCI_REG_polarity, handle);
+     return __abstracted_reg_read(val, SCI_REG_timestamp, handle);
 }
-SCILIB int REG_polarity_SET(uint32_t val, NI_HANDLE *handle)
+SCILIB int REG_timestamp_SET(uint32_t val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_polarity, handle);
+     return __abstracted_reg_write(val, SCI_REG_timestamp, handle);
 }
-SCILIB int REG_thrsh_GET(uint32_t *val, NI_HANDLE *handle)
+SCILIB int REG_reset_GET(uint32_t *val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_read(val, SCI_REG_thrsh, handle);
+     return __abstracted_reg_read(val, SCI_REG_reset, handle);
 }
-SCILIB int REG_thrsh_SET(uint32_t val, NI_HANDLE *handle)
+SCILIB int REG_reset_SET(uint32_t val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_thrsh, handle);
+     return __abstracted_reg_write(val, SCI_REG_reset, handle);
 }
-SCILIB int REG_inhib_GET(uint32_t *val, NI_HANDLE *handle)
+SCILIB int REG_forcetrig_GET(uint32_t *val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_read(val, SCI_REG_inhib, handle);
+     return __abstracted_reg_read(val, SCI_REG_forcetrig, handle);
 }
-SCILIB int REG_inhib_SET(uint32_t val, NI_HANDLE *handle)
+SCILIB int REG_forcetrig_SET(uint32_t val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_inhib, handle);
+     return __abstracted_reg_write(val, SCI_REG_forcetrig, handle);
 }
-SCILIB int REG_delay_GET(uint32_t *val, NI_HANDLE *handle)
+SCILIB int REG_received_GET(uint32_t *val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_read(val, SCI_REG_delay, handle);
+     return __abstracted_reg_read(val, SCI_REG_received, handle);
 }
-SCILIB int REG_delay_SET(uint32_t val, NI_HANDLE *handle)
+SCILIB int REG_received_SET(uint32_t val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_delay, handle);
+     return __abstracted_reg_write(val, SCI_REG_received, handle);
 }
-SCILIB int REG_top_GET(uint32_t *val, NI_HANDLE *handle)
+SCILIB int REG_time_latch_GET(uint32_t *val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_read(val, SCI_REG_top, handle);
+     return __abstracted_reg_read(val, SCI_REG_time_latch, handle);
 }
-SCILIB int REG_top_SET(uint32_t val, NI_HANDLE *handle)
+SCILIB int REG_time_latch_SET(uint32_t val, NI_HANDLE *handle)
 {
-     return __abstracted_reg_write(val, SCI_REG_top, handle);
-}
-SCILIB int REG_disable_A_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_disable_A, handle);
-}
-SCILIB int REG_disable_A_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_disable_A, handle);
-}
-SCILIB int REG_disable_B_GET(uint32_t *val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_read(val, SCI_REG_disable_B, handle);
-}
-SCILIB int REG_disable_B_SET(uint32_t val, NI_HANDLE *handle)
-{
-     return __abstracted_reg_write(val, SCI_REG_disable_B, handle);
+     return __abstracted_reg_write(val, SCI_REG_time_latch, handle);
 }
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_ANALOG_OFFSET, handle);
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_0_START
+//-
+//- Start acquisition.
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_0_START(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(4,SCI_REG_Spectrum_0_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_0_STOP
+//-
+//- Stop acquisition.
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_0_STOP(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(0,SCI_REG_Spectrum_0_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_0_FLUSH
+//-
+//- Flush spectrum
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_0_FLUSH(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(1,SCI_REG_Spectrum_0_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_0_RESET
+//-
+//- RESET spectrum
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_0_RESET(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(2,SCI_REG_Spectrum_0_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_0_SET_PARAMETERS
+//-
+//- Configure oscilloscope parameters
+//-
+//- ARGUMENTS:
+//- 	           rebin   PARAM_IN    int32_t
+//- 		Rebin factor
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	      limit_mode   PARAM_IN    int32_t
+//- 		Limit Mode: 0) No Limit, 1) Total Counts, 2) Real Time
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	     limit_value   PARAM_IN    int32_t
+//- 		Limit value: in counts or in ms depends on limit mode
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_0_SET_PARAMETERS(int32_t rebin, int32_t limit_mode, int32_t limit_value, NI_HANDLE *handle)
+{
+     int32_t limit = 0;
+     int r_rebin = __abstracted_reg_write(rebin, SCI_REG_Spectrum_0_CONFIG_REBIN, handle);
+     limit = (1 << (limit_mode + 29)) + limit_value; 
+     int r_limit = __abstracted_reg_write(limit, SCI_REG_Spectrum_0_CONFIG_LIMIT, handle);
+     if (r_rebin == 0 & r_limit == 0)
+         return 0;
+     else
+         return -1;
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_0_STATUS
+//-
+//- Get Spectrum status
+//-
+//- ARGUMENTS:
+//- 	          status  PARAM_OUT    int32_t
+//- 		Return the oscilloscope status
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//- 		0) Stop
+//- 		1) Running
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_0_STATUS(uint32_t *status,NI_HANDLE *handle)
+{
+return __abstracted_reg_read(status, SCI_REG_Spectrum_0_STATUS, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_0_DOWNLOAD
+//-
+//- Download data from buffer. Please note that downloaded data is not time ordered and the trigger position info data must be obtained using the OSCILLOSCOPE_Spectrum_0POSITION function 
+//- 
+//- USAGE: 
+//-     OSCILLOSCOPE_Spectrum_0_DOWNLOAD(data_buffer, BUFFER_SIZE_Spectrum_0, 1000, handle, rd, vp);
+//- 
+//-
+//- ARGUMENTS:
+//- 	             val  PARAM_OUT   uint32_t
+//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             val   PARAM_IN       size
+//- 		number of word to download from the buffer. Use macro BUFFER_SIZE_Spectrum_0 to get actual oscilloscope buffer size on FPGA
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             val   PARAM_IN    int32_t
+//- 		timeout in ms
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	       read_data  PARAM_OUT    int32_t
+//- 		number of word read from the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	      valid_data  PARAM_OUT    int32_t
+//- 		number of word valid in the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_0_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
+{
+return __abstracted_mem_read(val, size, SCI_REG_Spectrum_0_FIFOADDRESS, timeout, handle, read_data, valid_data);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_1_START
+//-
+//- Start acquisition.
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_1_START(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(4,SCI_REG_Spectrum_1_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_1_STOP
+//-
+//- Stop acquisition.
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_1_STOP(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(0,SCI_REG_Spectrum_1_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_1_FLUSH
+//-
+//- Flush spectrum
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_1_FLUSH(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(1,SCI_REG_Spectrum_1_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_1_RESET
+//-
+//- RESET spectrum
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_1_RESET(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(2,SCI_REG_Spectrum_1_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_1_SET_PARAMETERS
+//-
+//- Configure oscilloscope parameters
+//-
+//- ARGUMENTS:
+//- 	           rebin   PARAM_IN    int32_t
+//- 		Rebin factor
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	      limit_mode   PARAM_IN    int32_t
+//- 		Limit Mode: 0) No Limit, 1) Total Counts, 2) Real Time
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	     limit_value   PARAM_IN    int32_t
+//- 		Limit value: in counts or in ms depends on limit mode
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_1_SET_PARAMETERS(int32_t rebin, int32_t limit_mode, int32_t limit_value, NI_HANDLE *handle)
+{
+     int32_t limit = 0;
+     int r_rebin = __abstracted_reg_write(rebin, SCI_REG_Spectrum_1_CONFIG_REBIN, handle);
+     limit = (1 << (limit_mode + 29)) + limit_value; 
+     int r_limit = __abstracted_reg_write(limit, SCI_REG_Spectrum_1_CONFIG_LIMIT, handle);
+     if (r_rebin == 0 & r_limit == 0)
+         return 0;
+     else
+         return -1;
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_1_STATUS
+//-
+//- Get Spectrum status
+//-
+//- ARGUMENTS:
+//- 	          status  PARAM_OUT    int32_t
+//- 		Return the oscilloscope status
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//- 		0) Stop
+//- 		1) Running
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_1_STATUS(uint32_t *status,NI_HANDLE *handle)
+{
+return __abstracted_reg_read(status, SCI_REG_Spectrum_1_STATUS, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- SPECTRUM_Spectrum_1_DOWNLOAD
+//-
+//- Download data from buffer. Please note that downloaded data is not time ordered and the trigger position info data must be obtained using the OSCILLOSCOPE_Spectrum_1POSITION function 
+//- 
+//- USAGE: 
+//-     OSCILLOSCOPE_Spectrum_1_DOWNLOAD(data_buffer, BUFFER_SIZE_Spectrum_1, 1000, handle, rd, vp);
+//- 
+//-
+//- ARGUMENTS:
+//- 	             val  PARAM_OUT   uint32_t
+//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             val   PARAM_IN       size
+//- 		number of word to download from the buffer. Use macro BUFFER_SIZE_Spectrum_1 to get actual oscilloscope buffer size on FPGA
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             val   PARAM_IN    int32_t
+//- 		timeout in ms
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	       read_data  PARAM_OUT    int32_t
+//- 		number of word read from the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	      valid_data  PARAM_OUT    int32_t
+//- 		number of word valid in the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int SPECTRUM_Spectrum_1_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
+{
+return __abstracted_mem_read(val, size, SCI_REG_Spectrum_1_FIFOADDRESS, timeout, handle, read_data, valid_data);
+
 }
 //-----------------------------------------------------------------
 //-
@@ -472,7 +925,7 @@ return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_0_FIFOADDRESS+512,
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_START
+//- OSCILLOSCOPE_Oscilloscope_1_START
 //-
 //- Start Oscilloscope acquisition.
 //-
@@ -490,11 +943,11 @@ return __abstracted_mem_read(val, channels, SCI_REG_RateMeter_0_FIFOADDRESS+512,
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_START(NI_HANDLE *handle)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_START(NI_HANDLE *handle)
 
 {
-int r1 = __abstracted_reg_write(0,SCI_REG_Oscilloscope_0_CONFIG_ARM, handle);
-int r2 = __abstracted_reg_write(1,SCI_REG_Oscilloscope_0_CONFIG_ARM, handle);
+int r1 = __abstracted_reg_write(0,SCI_REG_Oscilloscope_1_CONFIG_ARM, handle);
+int r2 = __abstracted_reg_write(1,SCI_REG_Oscilloscope_1_CONFIG_ARM, handle);
 if ((r1 == 0) && (r2 == 0))
     return 0;
 else
@@ -503,7 +956,7 @@ else
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_SET_PARAMETERS
+//- OSCILLOSCOPE_Oscilloscope_1_SET_PARAMETERS
 //-
 //- Configure oscilloscope parameters
 //-
@@ -588,14 +1041,14 @@ else
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_SET_PARAMETERS(int32_t decimator, int32_t pre, int32_t software_trigger, int32_t analog_trigger, int32_t digital0_trigger, int32_t digital1_trigger, int32_t digital2_trigger, int32_t digital3_trigger, int32_t trigger_channel, int32_t trigger_edge, int32_t trigger_level, NI_HANDLE *handle)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_SET_PARAMETERS(int32_t decimator, int32_t pre, int32_t software_trigger, int32_t analog_trigger, int32_t digital0_trigger, int32_t digital1_trigger, int32_t digital2_trigger, int32_t digital3_trigger, int32_t trigger_channel, int32_t trigger_edge, int32_t trigger_level, NI_HANDLE *handle)
 {
 int32_t triggermode = 0;
-int r_decimator = __abstracted_reg_write(decimator, SCI_REG_Oscilloscope_0_CONFIG_DECIMATOR, handle);
-int r_pre = __abstracted_reg_write(pre, SCI_REG_Oscilloscope_0_CONFIG_PRETRIGGER, handle);
-int r_triglevel = __abstracted_reg_write(trigger_level, SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_LEVEL, handle);
+int r_decimator = __abstracted_reg_write(decimator, SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR, handle);
+int r_pre = __abstracted_reg_write(pre, SCI_REG_Oscilloscope_1_CONFIG_PRETRIGGER, handle);
+int r_triglevel = __abstracted_reg_write(trigger_level, SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_LEVEL, handle);
 triggermode = (trigger_channel << 8)  + (software_trigger << 7 ) + (trigger_edge << 3) + (software_trigger << 1) + analog_trigger + (digital0_trigger << 2) + (digital1_trigger << 2) + digital1_trigger + (digital2_trigger << 2) + (digital2_trigger << 1) + (digital3_trigger << 2) + (digital3_trigger << 1) + digital3_trigger ; 
-int r_triggermode = __abstracted_reg_write(triggermode, SCI_REG_Oscilloscope_0_CONFIG_TRIGGER_MODE, handle);
+int r_triggermode = __abstracted_reg_write(triggermode, SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_MODE, handle);
 if (r_decimator == 0 & r_pre == 0 & r_triglevel == 0 & r_triggermode == 0)
     return 0;
 else
@@ -604,7 +1057,7 @@ else
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_STATUS
+//- OSCILLOSCOPE_Oscilloscope_1_STATUS
 //-
 //- Get Oscilloscope status
 //-
@@ -629,14 +1082,14 @@ else
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_STATUS(uint32_t *status,NI_HANDLE *handle)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_STATUS(uint32_t *status,NI_HANDLE *handle)
 {
-return __abstracted_reg_read(status, SCI_REG_Oscilloscope_0_READ_STATUS, handle);
+return __abstracted_reg_read(status, SCI_REG_Oscilloscope_1_READ_STATUS, handle);
 
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_POSITION
+//- OSCILLOSCOPE_Oscilloscope_1_POSITION
 //-
 //- Get Oscilloscope trigger position. The trigger position indicate the position in the output buffer of each channels where the sample at t0 occureed. PRE-TRIGGER samples before t0 is the pre-trigger data.
 //-
@@ -659,19 +1112,19 @@ return __abstracted_reg_read(status, SCI_REG_Oscilloscope_0_READ_STATUS, handle)
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_POSITION(int32_t *position,NI_HANDLE *handle)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_POSITION(int32_t *position,NI_HANDLE *handle)
 {
-return __abstracted_reg_read(position, SCI_REG_Oscilloscope_0_READ_POSITION, handle);
+return __abstracted_reg_read((uint32_t*)position, SCI_REG_Oscilloscope_1_READ_POSITION, handle);
 
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_DOWNLOAD
+//- OSCILLOSCOPE_Oscilloscope_1_DOWNLOAD
 //-
-//- Download data from oscilloscope buffer. Please note that downloaded data is not time ordered and the trigger position info data must be obtained using the OSCILLOSCOPE_Oscilloscope_0POSITION function 
+//- Download data from oscilloscope buffer. Please note that downloaded data is not time ordered and the trigger position info data must be obtained using the OSCILLOSCOPE_Oscilloscope_1POSITION function 
 //- 
 //- USAGE: 
-//-     OSCILLOSCOPE_Oscilloscope_0_DOWNLOAD(data_buffer, BUFFER_SIZE_Oscilloscope_0, 1000, handle, rd, vp);
+//-     OSCILLOSCOPE_Oscilloscope_1_DOWNLOAD(data_buffer, BUFFER_SIZE_Oscilloscope_1, 1000, handle, rd, vp);
 //- 
 //-
 //- ARGUMENTS:
@@ -681,7 +1134,7 @@ return __abstracted_reg_read(position, SCI_REG_Oscilloscope_0_READ_POSITION, han
 //- 		OPTIONAL: False
 //-
 //- 	             val   PARAM_IN       size
-//- 		number of word to download from the buffer. Use macro BUFFER_SIZE_Oscilloscope_0 to get actual oscilloscope buffer size on FPGA
+//- 		number of word to download from the buffer. Use macro BUFFER_SIZE_Oscilloscope_1 to get actual oscilloscope buffer size on FPGA
 //- 		DEFAULT: 
 //- 		OPTIONAL: False
 //-
@@ -713,14 +1166,14 @@ return __abstracted_reg_read(position, SCI_REG_Oscilloscope_0_READ_POSITION, han
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
 {
-return __abstracted_mem_read(val, size, SCI_REG_Oscilloscope_0_FIFOADDRESS, timeout, handle, read_data, valid_data);
+return __abstracted_mem_read(val, size, SCI_REG_Oscilloscope_1_FIFOADDRESS, timeout, handle, read_data, valid_data);
 
 }
 //-----------------------------------------------------------------
 //-
-//- OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT
+//- OSCILLOSCOPE_Oscilloscope_1_RECONSTRUCT
 //-
 //- Take as input the downloaded buffer and decode the the different track for each channels. Channel order is the following: [0...1023] Channel 1, [1024...2047] Channel2
 //- 
@@ -775,9 +1228,9 @@ return __abstracted_mem_read(val, size, SCI_REG_Oscilloscope_0_FIFOADDRESS, time
 //-
 //-----------------------------------------------------------------
 
-SCILIB int OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT(uint32_t *data_osc, uint32_t position, int32_t pre_trigger, uint32_t *read_analog, uint32_t *read_digital0, uint32_t *read_digital1, uint32_t *read_digital2, uint32_t *read_digital3)
+SCILIB int OSCILLOSCOPE_Oscilloscope_1_RECONSTRUCT(uint32_t *data_osc, uint32_t position, int32_t pre_trigger, uint32_t *read_analog, uint32_t *read_digital0, uint32_t *read_digital1, uint32_t *read_digital2, uint32_t *read_digital3)
 {
-int n_ch = 2;
+int n_ch = 5;
 int n_samples = 1024;
 if (position > n_samples) return -1;
 for(int n=0; n< n_ch; n++)
@@ -792,7 +1245,7 @@ for(int n=0; n< n_ch; n++)
 		 read_digital0[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 16 & 1;
 		 read_digital1[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 17 & 1;
 		 read_digital2[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
-		 read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 19 & 1;
+		 read_digital3[k + (n_samples*n)] = data_osc[i + (n_samples*n)] >> 18 & 1;
              k++;
         }
 	    for (int i = 0; i < current - 1; i++)
@@ -829,5 +1282,381 @@ for(int n=0; n< n_ch; n++)
     }
 }
 return 0;
+
+}
+//-----------------------------------------------------------------
+//-
+//- CPACK_All_Energies_START
+//-
+//- Start acquisition.
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int CPACK_All_Energies_START(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(1,SCI_REG_All_Energies_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- CPACK_All_Energies_STOP
+//-
+//- Start acquisition.
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int CPACK_All_Energies_STOP(NI_HANDLE *handle)
+
+{
+return __abstracted_reg_write(0,SCI_REG_All_Energies_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- CPACK_All_Energies_RESET
+//-
+//- Reset counters and FIFO
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int CPACK_All_Energies_RESET(NI_HANDLE *handle)
+{
+return __abstracted_reg_write(0,SCI_REG_All_Energies_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- CPACK_All_Energies_FLUSH
+//-
+//- Clear Fifo Content
+//-
+//- ARGUMENTS:
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int CPACK_All_Energies_FLUSH(NI_HANDLE *handle)
+{
+return __abstracted_reg_write(0,SCI_REG_All_Energies_CONFIG, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- CPACK_All_Energies_STATUS
+//-
+//- Get status
+//-
+//- ARGUMENTS:
+//- 	          status  PARAM_OUT    int32_t
+//- 		Return the status:
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//- 		bit[0] = 0) No data available
+//- 		bit[0] = 1) Data available
+//- 		bit[1] = 1) Running
+//- 		bit[2] = 1) Full
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int CPACK_All_Energies_STATUS(uint32_t *status,NI_HANDLE *handle)
+{
+int err;
+uint32_t int_status=0;
+err= __abstracted_reg_read(&int_status, SCI_REG_All_Energies_READ_STATUS, handle);
+*status = int_status & 0xF;
+return err;
+
+}
+//-----------------------------------------------------------------
+//-
+//- CPACK_All_Energies_DATA_AVAILABLE
+//-
+//- Return number of word available in the FIFO
+//-
+//- ARGUMENTS:
+//- 	          status  PARAM_OUT    int32_t
+//- 		Return the status (1) data available (0) no data
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//- 		bit[0] = 0) No data available
+//- 		bit[0] = 1) Data available
+//- 		bit[1] = 1) Running
+//- 		bit[2] = 1) Full
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int CPACK_All_Energies_DATA_AVAILABLE(uint32_t *status,NI_HANDLE *handle)
+{
+return __abstracted_reg_read(status, SCI_REG_All_Energies_READ_VALID_WORDS, handle);
+
+}
+//-----------------------------------------------------------------
+//-
+//- CPACK_All_Energies_DOWNLOAD
+//-
+//- Download data from buffer. Data in the buffer respect the packet layout defined in the Packet Creator Tool
+//- 
+//- USAGE: 
+//- 
+//-
+//- ARGUMENTS:
+//- 	             val  PARAM_OUT   uint32_t*
+//- 		uint32_t buffer data with preallocated size of at list 'size' parameters + 16 word
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             size PARAM_IN    uint32_t
+//- 		number of word to download from the buffer. 
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	             val   PARAM_IN    int32_t
+//- 		timeout in ms
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	          handle PARAM_INOUT  NI_HANDLE
+//- 		Connection handle to the board
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	       read_data  PARAM_OUT    int32_t
+//- 		number of word read from the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	      valid_data  PARAM_OUT    int32_t
+//- 		number of word valid in the buffer
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int CPACK_All_Energies_DOWNLOAD(uint32_t *val, uint32_t size, int32_t timeout, NI_HANDLE *handle, uint32_t *read_data, uint32_t *valid_data)
+{
+std::cout << "CPACK_All_Energies_DOWNLOAD descending into __abstracted_fifo_read.\n";
+return __abstracted_fifo_read(val, size, SCI_REG_All_Energies_FIFOADDRESS, SCI_REG_All_Energies_READ_STATUS,1, timeout, handle, read_data, valid_data);
+
+}
+//-----------------------------------------------------------------
+//-
+//- CPACK_All_Energies_RECONSTRUCT_DATA
+//-
+//- Take in input a circular buffer (buffer_handle) allocated with the function Utility_ALLOCATE_DOWNLOAD_BUFFER 
+//- And filled with downloaded data Utility_ENQUEUE_DATA_IN_DOWNLOAD_BUFFER And decoded the packet  
+//- created with the Image (Frame Transfer block).
+//- The function internally allocate the output data structure t_FRAME_packet_collection And fill it with packed data
+//- decoded. Release the memory allocated by the function with free_FRAME_packet_collectionvoid(buffer) function
+//- in order to avoid memory leakage
+//- ----------------------------------------
+//- USAGE: 
+//-   t_FRAME_packet_collection decoded_packets; 
+//-   uint32_t data_frame[100000]; 
+//-   void *BufferDownloadHandler = NULL;
+//- 
+//-   Utility_ALLOCATE_DOWNLOAD_BUFFER(&BufferDownloadHandler, 1024*1024);
+//-   .... initialize frame transfer ....
+//-   while (1){
+//-     CPACK_CP0_DOWNLOAD(&data_frame, N_Packet * (PacketSize), timeout_frame, &handle, &read_data_frame, &valid_data_frame); 
+//-     Utility_ENQUEUE_DATA_IN_DOWNLOAD_BUFFER(BufferDownloadHandler, data_frame, valid_data_frame, &valid_data_enqueued); 
+//-     if (CPACK_CP_0_RECONSTRUCT_DATA(BufferDownloadHandler, &decoded_packets) == 0) { 
+//-         .... process data contained in decoded_packets....
+//-         free_FRAME_packet_collectionvoid(&decoded_packets);
+//-     }
+//- 
+//- 
+//- 
+//- 
+//- THIS FUNCTION MUST BE CONFIGURED IN FUNCTION OF THE PACKET LAYOUT DEFINED IN THE TOOL!
+//- 
+//- 
+//- 
+//- This Is just the skeleton for the decoded function!
+//- In the state 3 of the thate machine in the code the packet decoder extract every line from the packet
+//- for example if the payload of your packet Is 8 channels of 16 bits alligned 2 channels per row
+//- 1:   0xFFFFFFFF      %%HEADER                            Decoded in state 0
+//- 2:   0xtttttttt      %%TIMECODE                          Decoded in state 1
+//- 3:   0xpppppppp      %%PACKET COUNTER                    Decoded in state 2
+//- 4:   IN1    IN2      %%16 BIT DATA * 2 Channels          Decoded in state 3
+//- 5:   IN3    IN4      %%16 BIT DATA * 2 Channels          Decoded in state 3
+//- 6:   IN5    IN6      %%16 BIT DATA * 2 Channels          Decoded in state 3
+//- 7:   IN7    IN7      %%16 BIT DATA * 2 Channels          Decoded in state 3
+//- <<<NUMBER OF PACKET LINES AFTER THE HEADER HERE>>> must be set to 4 (the line containing the payload 4...7)
+//- You can change the state machine in an arbitrary way in order to correctly decode packets and extract every single channels
+//- This function example works as is for the following packet format
+//- 1:   0xFFFFFFFF      %%HEADER                            Decoded in state 0
+//- 2:   0xtttttttt      %%TIMECODE                          Decoded in state 1
+//- 3:   0xpppppppp      %%PACKET COUNTER                    Decoded in state 2
+//- 4:   IN1             %%32 BIT DATA                       Decoded in state 3
+//- 5:   IN2             %%32 BIT DATA                       Decoded in state 3
+//- 6:   IN3             %%32 BIT DATA                       Decoded in state 3
+//- 7:   IN4             %%32 BIT DATA                       Decoded in state 3
+//- 
+//-
+//- ARGUMENTS:
+//- 	   buffer_handle   PARAM_IN       void
+//- 		void pointer to the allocated memory area
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//- 	 decoded_packets  PARAM_OUT t_FRAME_packet_collection
+//- 		Output vector containing the decoded data
+//- 		DEFAULT: 
+//- 		OPTIONAL: False
+//-
+//-
+//- RETURN [int]
+//- 	Return if the function has been succesfully executed
+//- 		0) Success
+//- 		-1) Error
+//-
+//-----------------------------------------------------------------
+
+SCILIB int CPACK_All_Energies_RECONSTRUCT_DATA(void *buffer_handle, t_generic_event_collection *decoded_packets)
+{
+	cbuf_handle_t cbuf;
+	cbuf = (cbuf_handle_t)buffer_handle;
+	int PacketSize =4;
+	int in_sync = 0;
+	uint64_t event_timecode = 0;
+	uint32_t ev_energy = 0;
+	uint32_t mpe = 0;
+	int ch_index = 0;
+	int i = 0,j;
+	int k = 0;
+	decoded_packets->packets = NULL;
+	decoded_packets->allocated_packets = 0;
+	decoded_packets->valid_packets = 0;
+
+	//check if we have elements in the circular buffer
+	int bfsize = circular_buf_size(cbuf);
+	if (bfsize < PacketSize + 1) return -1;
+	//allocate output
+	int possible_packets = (circular_buf_size(cbuf) / PacketSize)+10;
+	if (possible_packets < 1) return -1;
+	decoded_packets->packets = (t_generic_event *)malloc(possible_packets * sizeof(t_generic_event));
+	if (decoded_packets->packets==NULL) return -2;
+	decoded_packets->allocated_packets = possible_packets;
+	decoded_packets->valid_packets = 0;
+	t_All_Energies_struct temp_data;
+	//process packets
+	while (circular_buf_size(cbuf)> 0)
+	{
+		printf("processing next packet.\n");
+		circular_buf_get(cbuf, &mpe);
+		if (in_sync == 0) {
+			if (mpe != 0x80000000)
+			{
+				printf("Corrupt or inaccessible packet. Skipping. (1st word was %x)\n",mpe);
+				continue;
+			}
+			in_sync = 1;
+			ch_index= 0;
+			continue;
+		}
+		if (in_sync == 1) {
+			temp_data.row[0]  =  mpe;
+			in_sync = 2;
+			continue;
+		}
+		if (in_sync == 2) {
+			temp_data.row[1]  =  mpe;
+			in_sync = 3;
+			continue;
+		}
+		if (in_sync == 3) {
+			printf("in_sync reached 3\n");
+			temp_data.row[2]  =  mpe;
+			decoded_packets->packets[k].payload = malloc(sizeof(t_All_Energies_struct));
+			if (decoded_packets->packets[k].payload != NULL) {
+			    *((t_All_Energies_struct*)decoded_packets->packets[k].payload) = temp_data;
+			    k++;
+			    decoded_packets->valid_packets = k;
+			}
+			if (k > decoded_packets->allocated_packets) return 0;
+
+			in_sync = 0;
+			if (circular_buf_size(cbuf) >= PacketSize)
+			    continue;
+			else
+			    break;
+		}
+	}
+
+ return 0;
 
 }

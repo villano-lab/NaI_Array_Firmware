@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------------------------
+# Created on Fri Jul 05 15:44:50 -0500 2024 with report_failfast (2017.11.01)
+# ---------------------------------------------------------------------------------
+
+#  +-----------------------------------------------------------------------------------------+
+#  | Design Summary                                                                          |
+#  | impl_1                                                                                  |
+#  | xc7z030fbg676-2                                                                         |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | Criteria                                                  | Guideline | Actual | Status |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | LUT                                                       | 70%       | 11.84% | OK     |
+#  | FD                                                        | 50%       | 10.97% | OK     |
+#  | LUTRAM+SRL                                                | 25%       | 2.26%  | OK     |
+#  | MUXF7                                                     | 15%       | 2.15%  | OK     |
+#  | DSP48                                                     | 80%       | 0.00%  | OK     |
+#  | RAMB/FIFO                                                 | 80%       | 6.98%  | OK     |
+#  | DSP48+RAMB+URAM (Avg)                                     | 70%       | 6.98%  | OK     |
+#  | BUFGCE* + BUFGCTRL                                        | 24        | 13     | OK     |
+#  | DONT_TOUCH (cells/nets)                                   | 0         | 262    | REVIEW |
+#  | Control Sets                                              | 1474      | 1117   | OK     |
+#  | Average Fanout for modules > 100k cells                   | 4         | 0      | OK     |
+#  | Non-FD high fanout nets > 10k loads                       | 0         | 0      | OK     |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | TIMING-6 (No common primary clock between related clocks) | 0         | 7      | REVIEW |
+#  | TIMING-7 (No common node between related clocks)          | 0         | 7      | REVIEW |
+#  | TIMING-8 (No common period between related clocks)        | 0         | 0      | OK     |
+#  | TIMING-14 (LUT on the clock tree)                         | 0         | 0      | OK     |
+#  | TIMING-35 (No common node in paths with the same clock)   | 0         | 0      | OK     |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | Number of paths above max LUT budgeting (0.500ns)         | 0         | 0      | OK     |
+#  | Number of paths above max Net budgeting (0.350ns)         | 0         | 2      | REVIEW |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+
+"Id","design.part","design.top","design.run.pr.cell","design.run.pr.pblock","design.run.slr","design.run.regions","utilization.clb.lut","utilization.clb.ff","utilization.ram.tile","utilization.uram.tile","utilization.dsp","design.failure","utilization.clb.lut.pct","utilization.clb.ff.pct","utilization.clb.lutmem.pct","utilization.clb.carry8.pct","utilization.clb.f7mux.pct","utilization.clb.f8mux.pct","design.cells.hlutnm.pct","utilization.dsp.pct","utilization.ram.tile.pct","utilization.uram.tile.pct","utilization.bigblocks.pct","utilization.clk.all","utilization.ctrlsets.uniq","design.dont_touch","design.cells.maxavgfo","design.nets.nonfdhfn","methodology.timing-6","methodology.timing-7","methodology.timing-8","methodology.timing-14","methodology.timing-35","design.device.maxlvls.lut","design.device.maxlvls.net"
+"Description","Part","Top","PR (Cell)","PR (Pblock)","SLR-Level Analysis","Clock Regions","LUT(#)","FD(#)","RAMB/FIFO(#)","URAM(#)","DSP48(#)","Criteria to review","LUT(%)","FD(%)","LUTRAM+SRL(%)","CARRY8(%)","MUXF7(%)","MUXF8(%)","LUT Combining(%)","DSP48(%)","RAMB/FIFO(%)","URAM(%)","DSP48+RAMB+URAM (Avg)(%)","BUFGCE* + BUFGCTRL","Control Sets","DONT_TOUCH(#)","Average Fanout for modules > 100k cells","Non-FD high fanout nets > 10k loads","TIMING-6","TIMING-7","TIMING-8","TIMING-14","TIMING-35","Number of paths above max LUT budgeting 0.500ns","Number of paths above max Net budgeting 0.350ns"
+"Value","xc7z030fbg676-2","TOP_lemo_out_test","","","","","9309","17237","18.5","n/a","0","4","11.84","10.97","2.26","n/a","2.15","1.22","14.91","0.00","6.98","6.98","6.98","13","1117","262","0","0","7","7","0","0","0","0","2"
+

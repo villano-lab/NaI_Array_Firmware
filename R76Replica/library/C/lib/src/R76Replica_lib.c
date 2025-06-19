@@ -45,9 +45,8 @@ SCILIB int __abstracted_fifo_write(uint32_t *data, uint32_t count,
 {
 	return NI_WriteData(data,  count,  address, STREAMING, timeout_ms, handle, written_data);
 }
-	
-SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count, 
-										uint32_t address, 
+
+SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count,uint32_t address, 
 										uint32_t address_status, 
 										bool blocking,
 										uint32_t timeout_ms, NI_HANDLE *handle, 
@@ -55,7 +54,7 @@ SCILIB int __abstracted_fifo_read(uint32_t *data, uint32_t count,
 {
 	return NI_ReadData(data,  count, address,  STREAMING, timeout_ms, handle, read_data, valid_data);
 }
-	
+
 SCILIB int __abstracted_reg_write(uint32_t data, uint32_t address, NI_HANDLE *handle)
 {
 	return NI_WriteReg(data, address, handle);

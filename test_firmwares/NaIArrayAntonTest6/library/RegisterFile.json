@@ -1,9 +1,0 @@
-{"Registers":[
-{
-  "Name": "counts",
-  "Address": 0,
-  "RegionSize": 1,
-  "Description": "",
-  "Category": "Undefined"
-}],
-"MMCComponents":[],"Device":"DT5560","Project":"NaIArrayAntonTest6"}

@@ -1,0 +1,24 @@
+#define SCI_REG_ALL_FIFO_RESET 0xFFFFF908
+#define SCI_REG_counts 0x00000000
+#define SCI_REG_greater 0x00000001
+#define SCI_REG_Tx_Done 0x00000002
+#define SCI_REG_Tx_Done_Ever 0x00000003
+#define SCI_REG_FM_Out 0x00000004
+#define SCI_REG_to_encode 0x00000005
+#define SCI_REG_timing 0x00000006
+#define SCI_REG_reset 0x00000007
+#define SCI_REG_gate 0x00001007
+#define SCI_REG_freq 0x00020000
+#define SCI_REG_l1inout 0x00020001
+#define SCI_REG_ANALOG_OFFSET 0xFFFFFFF9
+#define SCI_REG_Oscilloscope_1_FIFOADDRESS 0x800
+#define SCI_REG_Oscilloscope_1_READ_STATUS 0x1000
+#define SCI_REG_Oscilloscope_1_READ_POSITION 0x1001
+#define SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_MODE 0x1002
+#define SCI_REG_Oscilloscope_1_CONFIG_PRETRIGGER 0x1003
+#define SCI_REG_Oscilloscope_1_CONFIG_TRIGGER_LEVEL 0x1004
+#define SCI_REG_Oscilloscope_1_CONFIG_ARM 0x1005
+#define SCI_REG_Oscilloscope_1_CONFIG_DECIMATOR 0x1006
+
+#define SCI_REG_RateMeter_0_FIFOADDRESS 0x10000
+

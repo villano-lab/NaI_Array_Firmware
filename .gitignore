@@ -47,3 +47,16 @@ tmp/
 *.vcxproj
 #Links
 **/src/scisdk
+
+#Specific binaries
+**/smalltest
+**/setregisters
+**/fifotest
+**/getspectrum
+**/packettest
+**/scanrate
+**/scanupper
+**/scanwindow
+**/singlerate
+**/teststatus
+**/fttest

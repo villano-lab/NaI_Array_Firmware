@@ -1,4 +1,4 @@
-#include <windows.h>
+//#include <windows.h>
 #include <stdlib.h>
 #include <stdint.h>
 #pragma once
@@ -13,8 +13,8 @@ typedef enum
 
 typedef enum 
 {
-	REG_ACCESS = 0,
-	STREAMING = 1
+	R76REPLICA_REG_ACCESS = 0,
+	R76REPLICA_STREAMING = 1
 } USB_BUS_MODE;
 
 
