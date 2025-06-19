@@ -115,22 +115,26 @@
       "Type": "MCRateMeter",
       "Address": 65536,
       "Version": "1.0.0.0",
-      "WordSize": 0,
-      "nsamples": 0,
       "bins": 0,
       "CountsBit": 0,
       "UseDMA": false,
       "Registers": [],
       "Channels": 2,
-      "ChannelsList": null
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
     },
     {
       "Name": "Spectrum_0",
       "Type": "Spectrum",
       "Address": 196608,
       "Version": "1.0.0.0",
-      "WordSize": 0,
-      "nsamples": 0,
       "bins": 1024,
       "CountsBit": 16,
       "UseDMA": false,
@@ -179,15 +183,21 @@
         }
       ],
       "Channels": 0,
-      "ChannelsList": null
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
     },
     {
       "Name": "Oscilloscope_0",
       "Type": "Oscilloscope",
       "Address": 266240,
       "Version": "1.0.0.0",
-      "WordSize": 0,
-      "nsamples": 1024,
       "bins": 0,
       "CountsBit": 0,
       "UseDMA": false,
@@ -243,15 +253,21 @@
         }
       ],
       "Channels": 3,
-      "ChannelsList": null
+      "ChannelsList": null,
+      "nsamples": 1024,
+      "WordSize": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
     },
     {
       "Name": "Spectrum_NoDelay",
       "Type": "Spectrum",
       "Address": 327680,
       "Version": "1.0.0.0",
-      "WordSize": 0,
-      "nsamples": 0,
       "bins": 1024,
       "CountsBit": 16,
       "UseDMA": false,
@@ -300,7 +316,15 @@
         }
       ],
       "Channels": 0,
-      "ChannelsList": null
+      "ChannelsList": null,
+      "nsamples": 0,
+      "WordSize": 0,
+      "WordEnob": 0,
+      "AnalogInputs": 0,
+      "DigitalInputs": 0,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 0,
+      "DecimatorMax": 0
     }
   ]
 }
