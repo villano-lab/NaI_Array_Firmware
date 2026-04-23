@@ -1,3 +1,4 @@
+SCI_REG_thrs0= 0x00000807
 
 SCI_REG_Oscilloscope_0_FIFOADDRESS= 0x0
 SCI_REG_Oscilloscope_0_READ_STATUS= 0x800

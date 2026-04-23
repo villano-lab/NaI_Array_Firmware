@@ -1,3 +1,4 @@
+#define SCI_REG_thrs0 0x00000807
 #define SCI_REG_Oscilloscope_0_FIFOADDRESS 0x0
 #define SCI_REG_Oscilloscope_0_READ_STATUS 0x800
 #define SCI_REG_Oscilloscope_0_READ_POSITION 0x801

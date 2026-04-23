@@ -97,6 +97,16 @@
       "DecimatorMax": 0,
       "DecimatorAveraging": false,
       "Path": "/Oscilloscope_0"
+    },
+    {
+      "Name": "thrs0",
+      "Type": "Register",
+      "Address": 2055,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/thrs0"
     }
   ],
   "Childs": [],
@@ -107,5 +117,5 @@
   "Magic": "1AC5595D",
   "Version": null,
   "FPGA": "xc7z030fbg676-2",
-  "BuildDate": "2026-03-26T11:46:06.6706311-06:00"
+  "BuildDate": "2026-04-16T11:18:28.3583084-06:00"
 }

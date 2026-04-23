@@ -370,7 +370,15 @@ SCILIB int ClearBuffer(void *buffer_handle)
 {
 	circular_buf_reset(buffer_handle);
 	return 0;
-}//-----------------------------------------------------------------
+}SCILIB int REG_thrs0_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_thrs0, handle);
+}
+SCILIB int REG_thrs0_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_thrs0, handle);
+}
+//-----------------------------------------------------------------
 //-
 //- OSCILLOSCOPE_Oscilloscope_0_START
 //-

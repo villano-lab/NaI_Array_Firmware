@@ -123,6 +123,8 @@ SCILIB int ClearBuffer(void *buffer_handle);
 
 
 
+SCILIB int REG_thrs0_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_thrs0_SET(uint32_t val, NI_HANDLE *handle);
 //-----------------------------------------------------------------
 //-
 //- OSCILLOSCOPE_Oscilloscope_0_START

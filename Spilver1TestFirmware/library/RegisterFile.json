@@ -1,100 +1,88 @@
 {
+  "Device": "DT5560",
+  "Registers": [
+    {
+      "Name": "thrs0",
+      "Address": 2055,
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined"
+    }
+  ],
+  "Version": null,
+  "GenerationData": "0001-01-01T00:00:00",
   "MMCComponents": [
     {
       "Name": "Oscilloscope_0",
       "Type": "Oscilloscope",
       "Address": 0,
       "Version": "1.0.0.0",
+      "bins": 0,
+      "CountsBit": 0,
+      "UseDMA": false,
       "Registers": [
         {
           "Name": "READ_STATUS",
-          "Type": "Register",
           "Address": 2048,
-          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined",
-          "Path": null
+          "Category": "Undefined"
         },
         {
           "Name": "READ_POSITION",
-          "Type": "Register",
           "Address": 2049,
-          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined",
-          "Path": null
+          "Category": "Undefined"
         },
         {
           "Name": "CONFIG_TRIGGER_MODE",
-          "Type": "Register",
           "Address": 2050,
-          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined",
-          "Path": null
+          "Category": "Undefined"
         },
         {
           "Name": "CONFIG_PRETRIGGER",
-          "Type": "Register",
           "Address": 2051,
-          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined",
-          "Path": null
+          "Category": "Undefined"
         },
         {
           "Name": "CONFIG_TRIGGER_LEVEL",
-          "Type": "Register",
           "Address": 2052,
-          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined",
-          "Path": null
+          "Category": "Undefined"
         },
         {
           "Name": "CONFIG_ARM",
-          "Type": "Register",
           "Address": 2053,
-          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined",
-          "Path": null
+          "Category": "Undefined"
         },
         {
           "Name": "CONFIG_DECIMATOR",
-          "Type": "Register",
           "Address": 2054,
-          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined",
-          "Path": null
+          "Category": "Undefined"
         }
       ],
-      "nsamples": 1024,
       "Channels": 2,
+      "ChannelsList": null,
+      "nsamples": 1024,
       "WordSize": 16,
+      "BinsX": 0,
+      "BinsY": 0,
       "WordEnob": 16,
       "AnalogInputs": 1,
       "DigitalInputs": 4,
       "SamplingFrequency": 0,
       "TimeMultiplexing": 1,
-      "DecimatorMax": 0,
-      "DecimatorAveraging": false,
-      "Path": "/Oscilloscope_0"
+      "DecimatorMax": 0
     }
-  ],
-  "Registers": [],
-  "Device": "DT5560",
-  "Project": "Spilver1TestFirmware",
-  "Magic": "1AC5595D",
-  "Version": null,
-  "FPGA": "xc7z030fbg676-2",
-  "BuildDate": "2026-03-26T11:46:06.6446331-06:00"
+  ]
 }

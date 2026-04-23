@@ -81,6 +81,14 @@ def gray_to_bin(num, nbit):
     temp ^= (temp >> 1)
     return temp    
 
+def REG_thrs0_GET(handle):
+    [err, data] = __abstracted_reg_read(Spilver1TestFirmware_RegisterFile.SCI_REG_thrs0, handle)
+    return err, data
+
+def REG_thrs0_SET(data, handle):
+    err = __abstracted_reg_write(data, Spilver1TestFirmware_RegisterFile.SCI_REG_thrs0, handle)
+    return err
+
 
 
 def OSCILLOSCOPE_Oscilloscope_0_START(handle):
