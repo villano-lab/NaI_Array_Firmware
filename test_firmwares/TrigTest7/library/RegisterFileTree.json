@@ -1,5 +1,14 @@
 {
-  "MMCComponents": [
+  "Name": "top",
+  "Path": "",
+  "PageGuid": "dd9deaec-3587-46a0-9157-c5d6577973cd",
+  "PageName": "top",
+  "BaseAddress": 0,
+  "RealBaseAddress": 0,
+  "PageSize": 0,
+  "MultiPageCount": 0,
+  "MultiPageIndex": 0,
+  "Elements": [
     {
       "Name": "RateMeter_0",
       "Type": "MCRateMeter",
@@ -239,9 +248,7 @@
       ],
       "CountsBit": 16,
       "Path": "/Spectrum_NoDelay"
-    }
-  ],
-  "Registers": [
+    },
     {
       "Name": "pol",
       "Type": "Register",
@@ -393,10 +400,13 @@
       "Path": "/ANALOG_OFFSET"
     }
   ],
+  "Childs": [],
+  "isTop": true,
+  "Mode": "tree",
   "Device": "SCIDK",
   "Project": "TrigTest7",
   "Magic": "5048997D",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2026-04-26T17:42:52.2083302-06:00"
+  "BuildDate": "2026-04-26T17:42:52.2723317-06:00"
 }

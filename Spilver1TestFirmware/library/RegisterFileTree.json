@@ -10,15 +10,86 @@
   "MultiPageIndex": 0,
   "Elements": [
     {
-      "Name": "Oscilloscope_0",
+      "Name": "Spectrum_0",
+      "Type": "Spectrum",
+      "Address": 65536,
+      "Version": "1.0.1.0",
+      "bins": 1024,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 131072,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 131073,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_LIMIT",
+          "Type": null,
+          "Address": 131074,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_REBIN",
+          "Type": null,
+          "Address": 131075,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MIN",
+          "Type": null,
+          "Address": 131076,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MAX",
+          "Type": null,
+          "Address": 131077,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "CountsBit": 16,
+      "Path": "/Spectrum_0"
+    },
+    {
+      "Name": "Oscilloscope_raw",
       "Type": "Oscilloscope",
-      "Address": 0,
+      "Address": 274432,
       "Version": "1.0.0.0",
       "Registers": [
         {
           "Name": "READ_STATUS",
           "Type": "Register",
-          "Address": 2048,
+          "Address": 278528,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -28,7 +99,7 @@
         {
           "Name": "READ_POSITION",
           "Type": "Register",
-          "Address": 2049,
+          "Address": 278529,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -38,7 +109,7 @@
         {
           "Name": "CONFIG_TRIGGER_MODE",
           "Type": "Register",
-          "Address": 2050,
+          "Address": 278530,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -48,7 +119,7 @@
         {
           "Name": "CONFIG_PRETRIGGER",
           "Type": "Register",
-          "Address": 2051,
+          "Address": 278531,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -58,7 +129,7 @@
         {
           "Name": "CONFIG_TRIGGER_LEVEL",
           "Type": "Register",
-          "Address": 2052,
+          "Address": 278532,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -68,7 +139,7 @@
         {
           "Name": "CONFIG_ARM",
           "Type": "Register",
-          "Address": 2053,
+          "Address": 278533,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -78,7 +149,7 @@
         {
           "Name": "CONFIG_DECIMATOR",
           "Type": "Register",
-          "Address": 2054,
+          "Address": 278534,
           "Version": "",
           "RegionSize": 1,
           "Description": "",
@@ -87,7 +158,7 @@
         }
       ],
       "nsamples": 1024,
-      "Channels": 2,
+      "Channels": 4,
       "WordSize": 16,
       "WordEnob": 16,
       "AnalogInputs": 1,
@@ -96,17 +167,380 @@
       "TimeMultiplexing": 1,
       "DecimatorMax": 0,
       "DecimatorAveraging": false,
-      "Path": "/Oscilloscope_0"
+      "Path": "/Oscilloscope_raw"
     },
     {
-      "Name": "thrs0",
+      "Name": "Spectrum_1",
+      "Type": "Spectrum",
+      "Address": 327680,
+      "Version": "1.0.1.0",
+      "bins": 1024,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 393216,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 393217,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_LIMIT",
+          "Type": null,
+          "Address": 393218,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_REBIN",
+          "Type": null,
+          "Address": 393219,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MIN",
+          "Type": null,
+          "Address": 393220,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MAX",
+          "Type": null,
+          "Address": 393221,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "CountsBit": 16,
+      "Path": "/Spectrum_1"
+    },
+    {
+      "Name": "RateMeter_1",
+      "Type": "MCRateMeter",
+      "Address": 458752,
+      "Version": "1.0.0.0",
+      "Channels": 2,
+      "Registers": [],
+      "Path": "/RateMeter_1"
+    },
+    {
+      "Name": "List_1",
+      "Type": "ListModule",
+      "Address": 270340,
+      "Version": "1.1.0.0",
+      "WordSize": 0,
+      "Channels": 1,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 270341,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 270342,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "Path": "/List_1"
+    },
+    {
+      "Name": "List_0",
+      "Type": "ListModule",
+      "Address": 0,
+      "Version": "1.1.0.0",
+      "WordSize": 0,
+      "Channels": 1,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 1,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 2,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "Path": "/List_0"
+    },
+    {
+      "Name": "Hist2D",
+      "Type": "Histogram2D",
+      "Address": 266240,
+      "Version": "1.0.0.0",
+      "BinsX": 64,
+      "BinsY": 64,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 270336,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 270337,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_LIMIT",
+          "Type": null,
+          "Address": 270338,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "CountsBit": 16,
+      "Path": "/Hist2D"
+    },
+    {
+      "Name": "RateMeter_0",
+      "Type": "MCRateMeter",
+      "Address": 196608,
+      "Version": "1.0.0.0",
+      "Channels": 2,
+      "Registers": [],
+      "Path": "/RateMeter_0"
+    },
+    {
+      "Name": "polarity",
       "Type": "Register",
-      "Address": 2055,
+      "Address": 524296,
       "Version": "1.0.0.0",
       "RegionSize": 1,
       "Description": "",
       "Category": "Undefined",
-      "Path": "/thrs0"
+      "Path": "/polarity"
+    },
+    {
+      "Name": "thrs_low_0",
+      "Type": "Register",
+      "Address": 524288,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/thrs_low_0"
+    },
+    {
+      "Name": "thrs_low_1",
+      "Type": "Register",
+      "Address": 524289,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/thrs_low_1"
+    },
+    {
+      "Name": "thrs_high_0",
+      "Type": "Register",
+      "Address": 524299,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/thrs_high_0"
+    },
+    {
+      "Name": "thrs_high_1",
+      "Type": "Register",
+      "Address": 524301,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/thrs_high_1"
+    },
+    {
+      "Name": "baseline_0",
+      "Type": "Register",
+      "Address": 524292,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/baseline_0"
+    },
+    {
+      "Name": "baseline_1",
+      "Type": "Register",
+      "Address": 524304,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/baseline_1"
+    },
+    {
+      "Name": "offset_0",
+      "Type": "Register",
+      "Address": 524290,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/offset_0"
+    },
+    {
+      "Name": "offset_1",
+      "Type": "Register",
+      "Address": 524302,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/offset_1"
+    },
+    {
+      "Name": "gain_1",
+      "Type": "Register",
+      "Address": 524300,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/gain_1"
+    },
+    {
+      "Name": "int_time",
+      "Type": "Register",
+      "Address": 524294,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/int_time"
+    },
+    {
+      "Name": "pre_int",
+      "Type": "Register",
+      "Address": 524297,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/pre_int"
+    },
+    {
+      "Name": "pileup_inib",
+      "Type": "Register",
+      "Address": 524298,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/pileup_inib"
+    },
+    {
+      "Name": "coinc_window",
+      "Type": "Register",
+      "Address": 524295,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/coinc_window"
+    },
+    {
+      "Name": "gate_low_trig",
+      "Type": "Register",
+      "Address": 524291,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/gate_low_trig"
+    },
+    {
+      "Name": "delay_low_trig",
+      "Type": "Register",
+      "Address": 524293,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/delay_low_trig"
+    },
+    {
+      "Name": "gate_high_trig",
+      "Type": "Register",
+      "Address": 524303,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/gate_high_trig"
+    },
+    {
+      "Name": "gain_0",
+      "Type": "Register",
+      "Address": 524305,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/gain_0"
     }
   ],
   "Childs": [],
@@ -117,5 +551,5 @@
   "Magic": "1AC5595D",
   "Version": null,
   "FPGA": "xc7z030fbg676-2",
-  "BuildDate": "2026-04-16T11:18:28.3583084-06:00"
+  "BuildDate": "2026-04-27T17:52:35.7050674-06:00"
 }
