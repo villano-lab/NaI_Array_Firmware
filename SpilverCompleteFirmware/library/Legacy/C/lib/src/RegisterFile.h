@@ -1,0 +1,55 @@
+#define SCI_REG_thrs_low_0 0x00040000
+#define SCI_REG_thrs_low_1 0x00040001
+#define SCI_REG_offset_0 0x00040002
+#define SCI_REG_gate_low_trig 0x00040003
+#define SCI_REG_baseline_0 0x00040004
+#define SCI_REG_delay_low_trig 0x00040005
+#define SCI_REG_int_time 0x00040006
+#define SCI_REG_coinc_window 0x00040007
+#define SCI_REG_polarity 0x00040008
+#define SCI_REG_pre_int 0x00040009
+#define SCI_REG_pileup_inib 0x0004000A
+#define SCI_REG_thrs_high_0 0x0004000B
+#define SCI_REG_gain_1 0x0004000C
+#define SCI_REG_thrs_high_1 0x0004000D
+#define SCI_REG_offset_1 0x0004000E
+#define SCI_REG_gate_high_trig 0x0004000F
+#define SCI_REG_baseline_1 0x00040010
+#define SCI_REG_gain_0 0x00060006
+#define SCI_REG_Oscilloscope_raw_FIFOADDRESS 0x23000
+#define SCI_REG_Oscilloscope_raw_READ_STATUS 0x24000
+#define SCI_REG_Oscilloscope_raw_READ_POSITION 0x24001
+#define SCI_REG_Oscilloscope_raw_CONFIG_TRIGGER_MODE 0x24002
+#define SCI_REG_Oscilloscope_raw_CONFIG_PRETRIGGER 0x24003
+#define SCI_REG_Oscilloscope_raw_CONFIG_TRIGGER_LEVEL 0x24004
+#define SCI_REG_Oscilloscope_raw_CONFIG_ARM 0x24005
+#define SCI_REG_Oscilloscope_raw_CONFIG_DECIMATOR 0x24006
+
+#define SCI_REG_RateMeter_1_FIFOADDRESS 0x30000
+
+#define SCI_REG_List_1_FIFOADDRESS 0x22004
+#define SCI_REG_List_1_STATUS 0x22005
+#define SCI_REG_List_1_CONFIG 0x22006
+
+#define SCI_REG_List_0_FIFOADDRESS 0x0
+#define SCI_REG_List_0_STATUS 0x1
+#define SCI_REG_List_0_CONFIG 0x2
+
+#define SCI_REG_RateMeter_0_FIFOADDRESS 0x10000
+
+#define SCI_REG_Spectrum_0_FIFOADDRESS 0x50000
+#define SCI_REG_Spectrum_0_STATUS 0x60000
+#define SCI_REG_Spectrum_0_CONFIG 0x60001
+#define SCI_REG_Spectrum_0_CONFIG_LIMIT 0x60002
+#define SCI_REG_Spectrum_0_CONFIG_REBIN 0x60003
+#define SCI_REG_Spectrum_0_CONFIG_MIN 0x60004
+#define SCI_REG_Spectrum_0_CONFIG_MAX 0x60005
+
+#define SCI_REG_Spectrum_1_FIFOADDRESS 0x70000
+#define SCI_REG_Spectrum_1_STATUS 0x80000
+#define SCI_REG_Spectrum_1_CONFIG 0x80001
+#define SCI_REG_Spectrum_1_CONFIG_LIMIT 0x80002
+#define SCI_REG_Spectrum_1_CONFIG_REBIN 0x80003
+#define SCI_REG_Spectrum_1_CONFIG_MIN 0x80004
+#define SCI_REG_Spectrum_1_CONFIG_MAX 0x80005
+
